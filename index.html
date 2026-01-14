@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francesco Gubertini | Data Driven Marketing & AI Strategy</title>
-    <meta name="description" content="Francesco Gubertini - Data Driven Decision Making. Trasformo i dati in strategie Go-to-Market misurabili. Esperto in Business Intelligence e AI applicata.">
+    <title>Francesco Gubertini | Marketing Data-Driven & AI Strategy</title>
+    <meta name="description" content="Francesco Gubertini - Marketing Data-Driven Decision Making. Trasformo i dati in strategie Go-to-Market misurabili. Esperto in Business Intelligence e AI applicata.">
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://francescogubertini.it/">
-    <meta property="og:title" content="Francesco Gubertini | Data Driven Decision Making">
+    <meta property="og:title" content="Francesco Gubertini | Marketing Data-Driven Decision Making">
     <meta property="og:description" content="Riduco i rischi d'impresa attraverso l'analisi dati e l'IA. Strategie di marketing basate su numeri, non solo su intuizioni.">
     <meta property="og:image" content="assets/img/francesco-gubertini-dimensioni-grandi.jpeg">
 
@@ -41,7 +41,7 @@
         
         /* Utility */
         .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
-        .section-padding { padding: 100px 0; }
+        .section-padding { padding: 80px 0; } /* Leggera riduzione padding sezioni */
         
         .bg-light { background-color: var(--bg-light); }
         .bg-dark { background-color: var(--primary); color: var(--white); }
@@ -68,7 +68,7 @@
         .btn-secondary:hover { background: var(--primary); color: white; transform: translateY(-3px); }
         .btn-accent { background: var(--accent); color: white; border-color: var(--accent); }
         .btn-accent:hover { background: #b08d4b; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3); }
-        .btn-small { padding: 8px 20px; font-size: 0.8rem; margin-top: 10px; }
+        .btn-small { padding: 6px 15px; font-size: 0.75rem; margin-top: 10px; }
         .btn-file { background: #f1f5f9; color: var(--primary); border: 1px solid #cbd5e1; margin-left: 5px; margin-bottom: 5px; display: inline-block;}
         .btn-file:hover { background: var(--accent); color: white; border-color: var(--accent); }
 
@@ -86,7 +86,7 @@
         .hero-content { opacity: 0; animation: fadeUp 1s ease-out forwards; position: relative; z-index: 2; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         
-        .hero-content h1 { font-size: 3.5rem; margin-bottom: 25px; letter-spacing: -1.5px; }
+        .hero-content h1 { font-size: 3.2rem; margin-bottom: 25px; letter-spacing: -1.5px; }
         .highlight { color: var(--primary); position: relative; z-index: 1; display:inline-block; }
         .highlight::after { content:''; position: absolute; bottom: 5px; left: 0; width: 0%; height: 12px; background: rgba(197, 160, 89, 0.4); z-index: -1; animation: underline 1s 0.8s ease-out forwards; }
         @keyframes underline { to { width: 100%; } }
@@ -100,65 +100,94 @@
         @keyframes fadeIn { to { opacity: 1; } }
 
         /* --- SEZIONE BIO --- */
-        .bio-text p { font-size: 1.1rem; color: #555; margin-bottom: 20px; }
+        .bio-text p { font-size: 1.05rem; color: #555; margin-bottom: 20px; }
         .bio-quote { border-left: 4px solid var(--accent); padding-left: 20px; font-style: italic; font-weight: 600; color: var(--primary); margin: 30px 0; background: white; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
 
-        /* --- AI STRATEGY --- */
-        .ai-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-        .ai-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); padding: 35px; border-radius: 8px; transition: var(--transition); border-top: 4px solid var(--accent); }
+        /* --- AI STRATEGY & CARDS (MODIFICATO PER RIDURRE ALTEZZA) --- */
+        .ai-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+        .ai-card { 
+            background: rgba(255,255,255,0.05); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255,255,255,0.1); 
+            padding: 20px; /* RIDOTTO da 35px */
+            border-radius: 8px; 
+            transition: var(--transition); 
+            border-top: 4px solid var(--accent); 
+        }
         .ai-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.1); border-color: var(--accent); }
-        .ai-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
-        .ai-card li { margin-bottom: 10px; font-size: 0.95rem; position: relative; padding-left: 25px; color: rgba(255,255,255,0.8); }
+        .ai-icon { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
+        .ai-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
+        .ai-card li { margin-bottom: 8px; font-size: 0.9rem; position: relative; padding-left: 20px; color: rgba(255,255,255,0.8); }
         .ai-card li::before { content: '✓'; color: var(--accent); font-weight: bold; position: absolute; left: 0; }
 
-        /* --- TIMELINE --- */
+        /* --- TIMELINE (MODIFICATO PER RIDURRE ALTEZZA) --- */
         .timeline { position: relative; max-width: 900px; margin: 0 auto; }
         .timeline::after { content: ''; position: absolute; width: 1px; background: rgba(255,255,255,0.2); top: 0; bottom: 0; left: 50%; margin-left: -0.5px; }
-        .t-item { padding: 20px 40px; position: relative; width: 50%; box-sizing: border-box; cursor: pointer; }
-        .t-item::after { content: ''; position: absolute; width: 16px; height: 16px; background: var(--primary); border: 3px solid var(--accent); border-radius: 50%; top: 35px; z-index: 2; transition: 0.3s; }
+        .t-item { padding: 15px 40px; position: relative; width: 50%; box-sizing: border-box; cursor: pointer; }
+        .t-item::after { content: ''; position: absolute; width: 16px; height: 16px; background: var(--primary); border: 3px solid var(--accent); border-radius: 50%; top: 30px; z-index: 2; transition: 0.3s; }
         .t-item:hover::after { background: var(--accent); transform: scale(1.3); border-color: white; }
         .left { left: 0; text-align: right; } .left::after { right: -9.5px; }
         .right { left: 50%; } .right::after { left: -9.5px; }
-        .t-content { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border: none; transition: var(--transition); text-align: left; }
+        
+        .t-content { 
+            background: white; 
+            padding: 20px; /* RIDOTTO da 30px */
+            border-radius: 8px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+            border: none; 
+            transition: var(--transition); 
+            text-align: left; 
+        }
         .t-content:hover { transform: scale(1.02) translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-        .t-content .date { color: var(--accent); font-weight: 800; font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 8px; text-transform: uppercase; }
-        .t-content .role { font-size: 1.3rem; color: var(--primary); font-weight: 800; margin-bottom: 5px; word-wrap: break-word; }
-        .t-content .company { font-size: 1rem; color: #666; font-weight: 600; margin-bottom: 15px; }
+        .t-content .date { color: var(--accent); font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; display: block; margin-bottom: 5px; text-transform: uppercase; }
+        .t-content .role { font-size: 1.2rem; color: var(--primary); font-weight: 800; margin-bottom: 2px; word-wrap: break-word; }
+        .t-content .company { font-size: 0.95rem; color: #666; font-weight: 600; margin-bottom: 10px; }
+        .t-content p { font-size: 0.9rem; margin-bottom: 0; }
         
         /* --- FORMAZIONE --- */
         .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 40px; }
-        .edu-card { border-left: 4px solid var(--accent); padding-left: 25px; margin-bottom: 30px; position: relative; }
-        .edu-card h4 { font-size: 1.2rem; margin-bottom: 5px; color: var(--primary); }
-        .edu-card .edu-inst { font-size: 0.95rem; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 0.5px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; }
-        .edu-year { font-size: 0.8rem; background: #eee; padding: 2px 8px; border-radius: 4px; color: #555; }
+        .edu-card { border-left: 4px solid var(--accent); padding-left: 20px; margin-bottom: 25px; position: relative; }
+        .edu-card h4 { font-size: 1.1rem; margin-bottom: 5px; color: var(--primary); }
+        .edu-card .edu-inst { font-size: 0.9rem; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 0.5px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; }
+        .edu-year { font-size: 0.75rem; background: #eee; padding: 2px 8px; border-radius: 4px; color: #555; }
+        .edu-desc { font-size: 0.9rem; color: #555; margin-top: 5px; }
         
-        .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .skill-box h3 { font-size: 1.5rem; margin-bottom: 25px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; display: inline-block; }
-        .skill-item { background: white; padding: 12px 20px; margin-bottom: 12px; border-radius: 6px; border: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; font-weight: 600; transition: 0.3s; }
+        /* SKILLS AGGIORNATE */
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .skill-box h3 { font-size: 1.3rem; margin-bottom: 20px; border-bottom: 2px solid var(--accent); padding-bottom: 8px; display: inline-block; }
+        .skill-item { background: white; padding: 10px 15px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; font-weight: 600; transition: 0.3s; font-size: 0.9rem; }
         .skill-item:hover { border-color: var(--accent); transform: translateX(5px); }
-        .badge { background: #f5f5f4; color: var(--primary); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; border: 1px solid #e7e5e4; text-align: center;}
+        .badge { background: #f5f5f4; color: var(--primary); padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; border: 1px solid #e7e5e4; text-align: center;}
 
-        /* --- DOCS PORTFOLIO --- */
-        .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+        /* --- DOCS PORTFOLIO (RIDOTTO PADDING) --- */
+        .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
         .doc-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; }
         .doc-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1); }
-        .doc-preview { height: 180px; background: #f8fafc; display: flex; align-items: center; justify-content: center; position: relative; border-bottom: 1px solid #eee; }
-        .doc-icon-large { font-size: 4rem; color: var(--primary); opacity: 0.8; }
-        .doc-badge { position: absolute; top: 15px; right: 15px; background: var(--primary); color: white; padding: 4px 10px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; border-radius: 4px; }
-        .doc-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .doc-preview { height: 160px; background: #f8fafc; display: flex; align-items: center; justify-content: center; position: relative; border-bottom: 1px solid #eee; }
+        .doc-icon-large { font-size: 3.5rem; color: var(--primary); opacity: 0.8; }
+        .doc-badge { position: absolute; top: 15px; right: 15px; background: var(--primary); color: white; padding: 4px 10px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; border-radius: 4px; }
+        
+        .doc-body { 
+            padding: 20px; /* RIDOTTO da 25px */
+            flex-grow: 1; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .doc-body h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .doc-body p { font-size: 0.9rem; color: #666; }
         .doc-files { margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px; }
-        .doc-files a { display: block; font-size: 0.85rem; color: #555; margin-bottom: 8px; text-decoration: none !important; transition: 0.2s; word-wrap: break-word; }
+        .doc-files a { display: block; font-size: 0.8rem; color: #555; margin-bottom: 6px; text-decoration: none !important; transition: 0.2s; word-wrap: break-word; }
         .doc-files a:hover { color: var(--accent); transform: translateX(5px); }
         .doc-files i { margin-right: 8px; color: var(--primary); }
 
         /* --- LINKEDIN SKILLS --- */
-        .linkedin-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
-        .linkedin-group h3 { font-size: 1.2rem; color: var(--accent); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .linkedin-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
+        .linkedin-group h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
         .skill-card { 
             background: rgba(255,255,255,0.05); 
             border: 1px solid rgba(255,255,255,0.1); 
-            padding: 12px 15px; 
-            margin-bottom: 10px; 
+            padding: 10px 15px; 
+            margin-bottom: 8px; 
             border-radius: 6px; 
             display: flex; 
             justify-content: space-between; 
@@ -166,23 +195,29 @@
             transition: 0.3s;
         }
         .skill-card:hover { background: rgba(255,255,255,0.1); transform: translateX(5px); }
-        .skill-name { color: white; font-weight: 600; font-size: 0.95rem; }
+        .skill-name { color: white; font-weight: 600; font-size: 0.9rem; }
         .skill-count { 
             background: #0072b1; /* LinkedIn Blue */
             color: white; 
-            font-size: 0.75rem; 
+            font-size: 0.7rem; 
             font-weight: 700; 
             padding: 2px 8px; 
             border-radius: 10px;
             min-width: 25px;
             text-align: center;
         }
-        .zenit-badge { background: var(--accent); color: var(--primary); font-size: 0.7rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-left: 10px; }
+        .zenit-badge { background: var(--accent); color: var(--primary); font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-left: 10px; }
 
-        /* --- INFO PERSONALI --- */
-        .personal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-        .personal-item { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
-        .personal-item h3 { color: var(--accent); font-size: 1.3rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        /* --- INFO PERSONALI (RIDOTTO PADDING) --- */
+        .personal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .personal-item { 
+            background: rgba(255,255,255,0.05); 
+            padding: 20px; /* RIDOTTO da 30px */
+            border-radius: 8px; 
+            border: 1px solid rgba(255,255,255,0.1); 
+        }
+        .personal-item h3 { color: var(--accent); font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .personal-item p { font-size: 0.95rem; }
 
         /* Navbar & Footer */
         nav { position: sticky; top: 0; background: rgba(255,255,255,0.98); padding: 15px 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border-bottom: 1px solid #f0f0f0; }
@@ -208,18 +243,18 @@
         .modal-overlay.open { display: flex; opacity: 1; }
         .modal-content { background: white; width: 95%; max-width: 900px; max-height: 90vh; border-radius: 8px; overflow-y: auto; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.25); animation: slideUp 0.4s ease; padding: 0; }
         @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .modal-header { background: var(--bg-light); padding: 30px 40px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; }
+        .modal-header { background: var(--bg-light); padding: 25px 30px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; }
         .close-modal { font-size: 2rem; color: #999; cursor: pointer; transition: 0.2s; }
         .close-modal:hover { color: var(--primary); transform: rotate(90deg); }
-        .modal-body { padding: 40px; }
+        .modal-body { padding: 30px; }
         
         /* Modal Typography for Long Text */
-        .modal-body h3 { font-size: 1.5rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-top: 30px; margin-bottom: 15px; }
+        .modal-body h3 { font-size: 1.4rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-top: 25px; margin-bottom: 15px; }
         .modal-body h3:first-child { margin-top: 0; }
-        .modal-body h4 { font-size: 1.1rem; color: var(--text); font-weight: 700; margin-top: 20px; margin-bottom: 10px; color: var(--primary); }
-        .modal-body p { margin-bottom: 15px; color: #444; text-align: justify; }
-        .modal-body ul { margin-bottom: 20px; padding-left: 20px; list-style: disc; }
-        .modal-body li { margin-bottom: 8px; color: #555; }
+        .modal-body h4 { font-size: 1.05rem; color: var(--text); font-weight: 700; margin-top: 20px; margin-bottom: 10px; color: var(--primary); }
+        .modal-body p { margin-bottom: 12px; color: #444; text-align: justify; font-size: 0.95rem; }
+        .modal-body ul { margin-bottom: 15px; padding-left: 20px; list-style: disc; }
+        .modal-body li { margin-bottom: 6px; color: #555; font-size: 0.95rem; }
         
         /* RESPONSIVE & MOBILE ADAPTATION */
         @media(max-width: 992px) {
@@ -229,7 +264,7 @@
             .hero-content { display: flex; flex-direction: column; align-items: center; }
             h1 { font-size: 2.2rem; }
             
-            .skills-grid, .edu-grid, .personal-grid, .linkedin-cols { grid-template-columns: 1fr; gap: 30px; }
+            .skills-grid, .edu-grid, .personal-grid, .linkedin-cols { grid-template-columns: 1fr; gap: 25px; }
             
             .nav-links { display: none; }
             .hamburger { display: block; }
@@ -240,20 +275,23 @@
             .t-item::after { left: 21px; } 
             .t-item.left::after { left: 21px; right: auto; }
             
-            .modal-header { padding: 20px; }
+            .modal-header { padding: 15px 20px; }
             .modal-body { padding: 20px; }
-            .modal-header h2 { font-size: 1.2rem; }
+            .modal-header h2 { font-size: 1.1rem; }
         }
 
         @media(max-width: 480px) {
             h1 { font-size: 1.8rem; }
             .section-title { font-size: 1.8rem; }
-            .section-padding { padding: 60px 0; }
+            .section-padding { padding: 50px 0; }
             .hero-content div { flex-direction: column; width: 100%; gap: 10px; }
             .hero-content .btn { width: 100%; text-align: center; }
             .doc-card { margin-bottom: 15px; }
             .footer-quote { font-size: 1.1rem; }
             .ai-card:hover, .doc-card:hover, .t-content:hover { transform: none; }
+            
+            /* ULTERIORE RIDUZIONE PADDING MOBILE */
+            .ai-card, .doc-body, .t-content, .personal-item { padding: 15px; }
         }
     </style>
 </head>
@@ -292,8 +330,8 @@
     <header>
         <div class="container hero-grid">
             <div class="hero-content">
-                <span class="section-subtitle">Data Driven Marketing & AI Specialist</span>
-                <h1>Data-Driven<br><span class="highlight">Decision Making.</span></h1>
+                <span class="section-subtitle">Responsabile Marketing & IA specialist</span>
+                <h1>Marketing<br><span class="highlight">Data-Driven Decision Making.</span></h1>
                 <p style="font-size: 1.2rem; margin-bottom: 30px; color: #555;">
                     Trasformo i dati in decisioni strategiche. 20 anni di esperienza nel coordinamento aziendale a 360°, unendo analisi predittiva e Intelligenza Artificiale per ridurre i rischi e massimizzare il ROI.
                 </p>
@@ -310,19 +348,20 @@
 
     <section id="bio" class="section-padding bg-light">
         <div class="container">
-            <div class="text-center reveal" style="margin-bottom: 50px;">
+            <div class="text-center reveal" style="margin-bottom: 40px;">
                 <span class="section-subtitle">Profilo Esecutivo</span>
-                <h2 class="section-title">Strategic Asset & Analysis</h2>
+                <h2 class="section-title">Sintesi del Percorso</h2>
             </div>
             <div class="bio-text reveal" style="max-width: 800px; margin: 0 auto;">
+                <h3 style="text-align:center; font-size:1.4rem; color:var(--primary); margin-bottom:20px;">Dal Commerciale all'Analisi Strategica</h3>
                 <p class="text-justify">
-                    Sono Francesco Gubertini. Nel mercato attuale, l'intuizione non basta più: serve la certezza del dato. Il mio approccio al <strong>Go-to-Market</strong> si fonda sul <strong>Data Driven Decision Making</strong>. Non mi limito al marketing operativo: integro i numeri dell'economista e la precisione tecnica per costruire strategie che riducono il rischio d'impresa e garantiscono risultati misurabili.
+                    Il mio percorso professionale si definisce attraverso una costante evoluzione: dall'operatività commerciale diretta alla definizione di strategie basate sui dati. Non mi limito all'esecuzione, ma integro l'analisi numerica con la visione d'insieme.
                 </p>
                 <div class="bio-quote">
-                    "Trasformare l'incertezza del mercato in decisioni calcolate tramite AI e Business Intelligence."
+                    "Il mio profilo unisce una solida competenza tecnica (CRM, Business Intelligence, AI) a una sensibilità creativa (Branding, Design)."
                 </div>
                 <p class="text-justify">
-                    Ho maturato una solida esperienza lavorando sia in <strong>gruppi strutturati</strong> che in <strong>PMI</strong>, gestendo budget significativi e coordinando reparti trasversali. La mia forza è analizzare flussi complessi, individuare le inefficienze attraverso i dati e guidare l'evoluzione dei processi. Oggi, potenziando queste competenze con l'<strong>Intelligenza Artificiale Predittiva</strong>, offro alle aziende un vantaggio competitivo basato su fatti, efficienza e previsione, trasformandomi da esecutore ad asset strategico per la direzione.
+                    Questa duplice natura mi permette di operare trasversalmente in settori complessi come la ceramica industriale, l'automotive e il luxury food, riducendo i rischi d'impresa attraverso scelte misurabili.
                 </p>
             </div>
         </div>
@@ -333,7 +372,7 @@
             <div class="text-center reveal">
                 <span class="section-subtitle">Innovazione Applicata</span>
                 <h2 class="section-title">AI Strategy & Execution</h2>
-                <p style="max-width: 700px; margin: 0 auto 40px auto; opacity: 0.9;">
+                <p style="max-width: 700px; margin: 0 auto 30px auto; opacity: 0.9;">
                     L'IA non è solo generazione di contenuti, è uno strumento di calcolo e previsione per supportare il management.
                 </p>
             </div>
@@ -373,22 +412,32 @@
         <div class="container">
             <div class="text-center mb-5 reveal">
                 <span class="section-subtitle">Strumenti Decisionali</span>
-                <h2 class="section-title">Competenze Tecniche</h2>
+                <h2 class="section-title">Competenze Tecniche (Tech Stack)</h2>
             </div>
             <div class="skills-grid reveal">
                 <div class="skill-box">
-                    <h3><i class="fa-solid fa-laptop-code"></i> Data & IT</h3>
-                    <div class="skill-item">Power BI & DAX <span class="badge">INTERM.</span></div>
-                    <div class="skill-item">Excel (VBA, Power Query) <span class="badge">EXPERT</span></div>
-                    <div class="skill-item">CRM (Salesforce, LeadBook) <span class="badge">EXPERT</span></div>
-                    <div class="skill-item">CMS (WordPress, Woo) <span class="badge">EXPERT</span></div>
+                    <h3><i class="fa-solid fa-brain"></i> Business Intelligence & AI</h3>
+                    <div class="skill-item">Power BI & Excel (Adv/VBA) <span class="badge">EXPERT</span></div>
+                    <div class="skill-item">ChatGPT/Claude (Prompt Eng.) <span class="badge">ADVANCED</span></div>
+                    <div class="skill-item">Midjourney (GenAI Images) <span class="badge">INTERM.</span></div>
                 </div>
                 <div class="skill-box">
-                    <h3><i class="fa-solid fa-cogs"></i> Operations Strategy</h3>
-                    <div class="skill-item">Analisi Stock & Logistica <span class="badge">ADVANCED</span></div>
-                    <div class="skill-item">Gestione Fornitori <span class="badge">SENIOR</span></div>
-                    <div class="skill-item">Budgeting & Controllo <span class="badge">SENIOR</span></div>
-                    <div class="skill-item">Organizzazione Eventi <span class="badge">SENIOR</span></div>
+                    <h3><i class="fa-solid fa-database"></i> CRM & ERP</h3>
+                    <div class="skill-item">Salesforce & LeadBook <span class="badge">EXPERT</span></div>
+                    <div class="skill-item">V-Tiger & Sugar CRM <span class="badge">ADMIN</span></div>
+                    <div class="skill-item">AS400 & SAP <span class="badge">USER</span></div>
+                </div>
+                <div class="skill-box">
+                    <h3><i class="fa-solid fa-bullhorn"></i> Digital Marketing</h3>
+                    <div class="skill-item">Google Analytics 4 <span class="badge">ADVANCED</span></div>
+                    <div class="skill-item">Google Ads & Meta Business <span class="badge">SENIOR</span></div>
+                    <div class="skill-item">MailChimp <span class="badge">SENIOR</span></div>
+                </div>
+                <div class="skill-box">
+                    <h3><i class="fa-solid fa-shopping-cart"></i> E-commerce & Web</h3>
+                    <div class="skill-item">WordPress & WooCommerce <span class="badge">EXPERT</span></div>
+                    <div class="skill-item">Amazon Seller Central <span class="badge">EXPERT</span></div>
+                    <div class="skill-item">Adobe Creative Suite <span class="badge">INTERM.</span></div>
                 </div>
                 <div class="skill-box">
                     <h3><i class="fa-solid fa-users"></i> Lingue</h3>
@@ -403,7 +452,7 @@
 
     <section id="experience" class="section-padding bg-dark">
         <div class="container">
-            <div class="text-center reveal" style="margin-bottom: 60px;">
+            <div class="text-center reveal" style="margin-bottom: 50px;">
                 <span class="section-subtitle">Carriera</span>
                 <h2 class="section-title">Esperienze Lavorative</h2>
                 <p style="opacity: 0.9;">Clicca sulle card per visualizzare l'approfondimento dettagliato.</p>
@@ -412,50 +461,51 @@
                 
                 <div class="t-item left reveal" onclick="openModal('opera')">
                     <div class="t-content">
-                        <span class="date">2017 - OGGI</span>
+                        <span class="date">DIC 2017 - OGGI</span>
                         <div class="role">Responsabile Marketing & Analyst</div>
                         <div class="company">Opera Group</div>
-                        <p>Strategia Data-Driven, Business Intelligence, Rebranding e Gestione GDO (Bauhaus, OBI).</p>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.85rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <p>Trasformazione approccio al mercato e innovazione prodotto (Lamgea System) con supporto AI.</p>
+                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
 
                 <div class="t-item right reveal" onclick="openModal('acetaia')">
                     <div class="t-content">
-                        <span class="date">2019 - OGGI</span>
-                        <div class="role">Co-Founder & Brand Expert</div>
+                        <span class="date">DIC 2019 - OGGI</span>
+                        <div class="role">Co-Founder & E-commerce</div>
                         <div class="company">Acetaia Gubertini</div>
-                        <p>Creazione Brand Luxury, Piattaforma E-commerce e Strategia Omnicanale.</p>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.85rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <p>Riposizionamento Luxury, ecosistema digitale proprietario e strategia omnicanale.</p>
+                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
 
                 <div class="t-item left reveal" onclick="openModal('waterline')">
                     <div class="t-content">
-                        <span class="date">2016 - 2017</span>
+                        <span class="date">SET 2016 - DIC 2017</span>
                         <div class="role">Responsabile Marketing</div>
-                        <div class="company">Waterline - Bevco</div>
-                        <p>Rebranding post-acquisizione e lancio nuove linee prodotto (Drinkit).</p>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.85rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <div class="company">Waterline - Bevco (Solido Group)</div>
+                        <p>Change management post-acquisizione, unificazione Corporate Identity e lancio nuovi prodotti.</p>
+                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
 
                 <div class="t-item right reveal" onclick="openModal('bmw')">
                     <div class="t-content">
-                        <span class="date">2014 - 2016</span>
+                        <span class="date">GEN 2014 - SET 2016</span>
                         <div class="role">Marketing Retail & CRM</div>
-                        <div class="company">Retevendita BMW Italia</div>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.85rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <div class="company">BMW Italia / Autoclub</div>
+                        <p>Gestione rigorosa funnel di vendita, budget media e monitoraggio KPI finanziari.</p>
+                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
 
                 <div class="t-item left reveal" onclick="openModal('lapam')">
                     <div class="t-content">
-                        <span class="date">2010 - 2014</span>
-                        <div class="role">Analista Marketing</div>
+                        <span class="date">DIC 2010 - DIC 2013</span>
+                        <div class="role">Analista Marketing & Sistemi</div>
                         <div class="company">LAPAM Confartigianato</div>
-                        <p>Implementazione CRM V-Tiger e Analisi di Mercato Settoriali.</p>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.85rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <p>Implementazione CRM V-Tiger, analisi economica territoriale e rapporti istituzionali.</p>
+                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
 
@@ -463,9 +513,9 @@
                     <div class="t-content">
                         <span class="date">2006 - 2010</span>
                         <div class="role">Responsabile Punto Vendita</div>
-                        <div class="company">HTV</div>
-                        <p>Store Management, gestione cassa e Visual Merchandising.</p>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.85rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <div class="company">HTV (Retail Fisico)</div>
+                        <p>Gestione diretta cassa, fatturazione, magazzino e visual merchandising.</p>
+                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
 
@@ -473,9 +523,9 @@
                     <div class="t-content">
                         <span class="date">2002 - 2008</span>
                         <div class="role">E-commerce Specialist</div>
-                        <div class="company">eBay Seller Pro</div>
-                        <p>Pioniere vendite online internazionali e gestione logistica.</p>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.85rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <div class="company">eBay (Digital Pioneer)</div>
+                        <p>Power Seller per 6 anni: gestione autonoma ciclo vendita online internazionale.</p>
+                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
 
@@ -485,31 +535,35 @@
 
     <section id="education" class="section-padding bg-light">
         <div class="container">
-            <div class="text-center reveal" style="margin-bottom: 50px;">
+            <div class="text-center reveal" style="margin-bottom: 40px;">
                 <span class="section-subtitle">Apprendimento Continuo</span>
                 <h2 class="section-title">Formazione & Certificati</h2>
             </div>
             <div class="edu-grid reveal">
                 <div>
-                    <h3 style="margin-bottom:30px; border-bottom: 2px solid var(--accent); display:inline-block;">Titoli di Studio</h3>
+                    <h3 style="margin-bottom:25px; border-bottom: 2px solid var(--accent); display:inline-block;">Titoli di Studio</h3>
                     
                     <div class="edu-card">
                         <h4>Laurea in Economia Aziendale</h4>
-                        <div class="edu-inst"><span>Facoltà Marco Biagi - Modena</span></div>
-                        <div class="edu-desc">Specializzazione in Marketing e Distribuzione.</div>
+                        <div class="edu-inst"><span>Facoltà Marco Biagi - Univ. Modena e Reggio Emilia</span></div>
+                        <div class="edu-desc">
+                            Il corso fornisce solide competenze in management, organizzazione aziendale, contabilità e marketing. Prepara professionisti in grado di comprendere le dinamiche d'impresa e gestire processi decisionali complessi.
+                        </div>
                         <button class="btn btn-secondary btn-small" onclick="openModal('laurea')">Approfondisci</button>
                     </div>
 
                     <div class="edu-card">
                         <h4>Diploma di Geometra</h4>
-                        <div class="edu-inst"><span>Istituto Tecnico per Geometri</span></div>
-                        <div class="edu-desc">Basi tecniche, progettazione e precisione analitica.</div>
+                        <div class="edu-inst"><span>Istituto Tecnico IGT Guarini di Modena</span></div>
+                        <div class="edu-desc">
+                            Percorso focalizzato su costruzioni, topografia e sicurezza. Fornisce una mentalità tecnica rigorosa, orientata al problem solving, alla progettazione precisa e al rispetto delle normative.
+                        </div>
                         <button class="btn btn-secondary btn-small" onclick="openModal('geometra')">Approfondisci</button>
                     </div>
                 </div>
 
                 <div>
-                    <h3 style="margin-bottom:30px; border-bottom: 2px solid var(--accent); display:inline-block;">Corsi di Perfezionamento</h3>
+                    <h3 style="margin-bottom:25px; border-bottom: 2px solid var(--accent); display:inline-block;">Corsi di Perfezionamento</h3>
                     
                     <div class="edu-card">
                         <h4>Modelli di IA per la Business Intelligence</h4>
@@ -541,16 +595,6 @@
                         <div class="edu-desc">L'evoluzione delle vendite e dei servizi al cliente ai tempi dell'AI.</div>
                         <button class="btn btn-secondary btn-small" onclick="openModal('ai-course4')">Approfondisci</button>
                     </div>
-                </div>
-            </div>
-            
-            <div class="text-center reveal" style="margin-top: 50px;">
-                <h4 style="color:var(--primary);">Certificazioni Acquisite</h4>
-                <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-top:20px;">
-                    <span class="badge" style="padding:10px 20px;">AI Business Strategy</span>
-                    <span class="badge" style="padding:10px 20px;">Advanced Excel</span>
-                    <span class="badge" style="padding:10px 20px;">Lead Management Maserati</span>
-                    <span class="badge" style="padding:10px 20px;">Strategie Direzione BMW</span>
                 </div>
             </div>
         </div>
@@ -808,47 +852,36 @@
     <div id="modal-opera" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <div><h2>Responsabile Marketing & Analyst</h2><span style="color:#666;">OPERA GROUP | 2017 - OGGI</span></div>
+                <div><h2>Responsabile Marketing & Business Analyst</h2><span style="color:#666;">OPERA GROUP | DIC 2017 - OGGI</span></div>
                 <div class="close-modal" onclick="closeModal('opera')">&times;</div>
             </div>
             <div class="modal-body">
-                <h3>1. Opera Group: La Maturità Direzionale nel Settore Ceramico</h3>
-                
-                <h4>1.1 Contesto Industriale e Obiettivi Strategici</h4>
-                <p>La mia esperienza presso Opera Group rappresenta l'ultima mia evoluzione professionale. La documentazione rivela che l'azienda, pur vantando volumi produttivi tra i più importanti in Italia e una forte presenza nella Grande Distribuzione Organizzata (GDO), necessitava di un intervento strutturale per incrementare il markup, specialmente nel canale retail tradizionale.</p>
-                <p>L'obiettivo che mi è stato affidato non era meramente comunicativo, ma economico-finanziario: trasformare la percezione del brand per giustificare un posizionamento di prezzo superiore. Questo ha richiesto da parte mia un approccio olistico che andasse oltre il marketing tradizionale, influenzando la produzione e la logistica.</p>
+                <p>In un contesto industriale caratterizzato da alti volumi produttivi e forte presenza nella GDO, il mio ruolo si è focalizzato sulla trasformazione dell'approccio al mercato: passare dalla vendita di prodotto alla valorizzazione del brand per incrementare il markup, specialmente nel canale retail tradizionale.</p>
 
-                <h4>1.2 Ingegneria del Prodotto e Innovazione Tecnologica (Lamgea System)</h4>
-                <p>Uno degli elementi più distintivi di questa mia esperienza è il coinvolgimento diretto nello sviluppo del prodotto industriale. I documenti evidenziano l'introduzione della tecnologia Lamgea System. L'analisi tecnica di questo passaggio suggerisce il mio ruolo attivo nella Gestione del Prodotto (Product Management):</p>
+                <h3>Innovazione di Prodotto & AI Strategy</h3>
                 <ul>
-                    <li><strong>Sviluppo di Collezioni:</strong> Coordino l'intero ciclo dall'analisi dei trend di mercato (colori, formati, effetti materici) alla collaborazione con studi esterni per la prototipazione, fino alla pre-produzione industriale.</li>
-                    <li><strong>Ciclo di Vita:</strong> La mia gestione copre l'intero ciclo di vita del prodotto, dal lancio (naming, storytelling) fino alla fase di declino ed eliminazione, ottimizzando la rotazione del magazzino e riducendo il time-to-market.</li>
+                    <li><strong>Coordinamento dello sviluppo prodotto</strong> con tecnologia Lamgea System (grandi lastre), curando il ciclo di vita dall'analisi dei trend alla dismissione.</li>
+                    <li><strong>Implementazione AI Predittiva:</strong> Utilizzo di algoritmi per l'analisi dei dati di vendita storici e il forecasting degli stock, ottimizzando la rotazione di magazzino.</li>
+                    <li><strong>Generative AI per i Contenuti:</strong> Integrazione di strumenti di Intelligenza Artificiale Generativa per la creazione automatizzata di testi tecnici, traduzioni multilingua e supporto alla creazione di asset visivi per cataloghi e moodboard, riducendo drasticamente il Time-to-Market.</li>
                 </ul>
 
-                <h4>1.3 Rebranding e Architettura di Marca</h4>
-                <p>Ho gestito una complessa architettura di marca per servire diversi segmenti di mercato.</p>
+                <h3>Rebranding & Corporate Identity</h3>
                 <ul>
-                    <li><strong>Brand Portfolio:</strong> Oltre al rilancio del marchio principale "Opera", ho creato e posizionato nuovi marchi come Element, Element Extra e Grip 1.0. Questa segmentazione suggerisce la mia strategia volta a coprire diverse fasce di prezzo e specifiche esigenze tecniche (es. superfici antiscivolo o formati extra).</li>
-                    <li><strong>Corporate Identity:</strong> Il rebranding è stato "generalizzato", coinvolgendo l'area produttiva e logistica per assicurare che la "percezione di qualità" fosse coerente. Questo implica un mio lavoro profondo sui processi interni, non solo sul logo.</li>
-                    <li><strong>Visual & Content Creation:</strong> La mia responsabilità si estende alla direzione creativa. Gestisco la progettazione di cataloghi (Generale, Cersaie, Outdoor), merchandising (sinottici, culle, espositori) e packaging, utilizzando strumenti avanzati come la suite Adobe e, più recentemente, l'Intelligenza Artificiale per il supporto grafico.</li>
+                    <li><strong>Sviluppo dell'architettura di marca</strong> (Opera, Element, Grip 1.0) per segmentare l'offerta su diverse fasce di prezzo.</li>
+                    <li><strong>Direzione creativa e operativa</strong> su cataloghi, packaging e strumenti di merchandising, garantendo coerenza visiva dalla produzione alla logistica.</li>
                 </ul>
 
-                <h4>1.4 Strategie di Canale: GDO vs Retail Tradizionale</h4>
-                <p>L'analisi dei miei documenti mostra una chiara dicotomia nella gestione dei canali distributivi:</p>
+                <h3>Trade Marketing & Retail</h3>
                 <ul>
-                    <li><strong>GDO/DO (Grande Distribuzione):</strong> Progetto soluzioni espositive specifiche (shop-in-shop, box) per colossi del settore come OBI, Leroy Merlin, BAHAG, Bricofer e Tecnomat. Questo richiede mie competenze di Trade Marketing molto specifiche, legate alla massimizzazione della resa per metro quadro nel punto vendita.</li>
-                    <li><strong>Retail Tradizionale:</strong> Per aumentare il markup in questo segmento, ho sviluppato strumenti di vendita ad alto valore aggiunto (valigette, cartelle architettoniche) e ho mappato la presenza delle campionature nei punti vendita per calcolarne il ROI (Return on Investment).</li>
+                    <li><strong>Progettazione di soluzioni espositive</strong> (Shop-in-Shop, Box) per grandi player del DIY (OBI, Leroy Merlin, Tecnomat).</li>
+                    <li><strong>Analisi del ROI sul Merchandising:</strong> mappatura delle campionature e calcolo del ritorno sull'investimento per ogni espositore posizionato.</li>
                 </ul>
 
-                <h4>1.5 Strategia Dati & Business Intelligence</h4>
+                <h3>Analisi Dati & CRM</h3>
                 <ul>
-                    <li><strong>Analisi ROI Merchandising:</strong> Implementazione di modelli di analisi (Excel/BI) per monitorare il ritorno sull'investimento degli espositori posizionati dai clienti, portando a un taglio delle spese improduttive.</li>
-                    <li><strong>Sales Performance Management:</strong> Definizione scientifica dei Target Agenti basati su fatturato storico e mix prodotti (Target Agenti 2023).</li>
-                    <li><strong>Forecasting & Stock:</strong> Analisi predittiva su "Articoli a Magazzino" per bilanciare disponibilità e rotazione, minimizzando l'invenduto.</li>
+                    <li><strong>Implementazione di dashboard in Power BI</strong> per il monitoraggio dei KPI di vendita.</li>
+                    <li><strong>Gestione digitalizzata del Customer Care</strong> per ridurre le contestazioni (-8%) e mappare le causali di reso.</li>
                 </ul>
-
-                <h4>1.6 Gestione Eventi e Fiere Internazionali</h4>
-                <p>La mia gestione del Cersaie (la più importante fiera del settore) è un'attività end-to-end. Non mi limito alla comunicazione, ma coordino i fornitori.</p>
             </div>
         </div>
     </div>
@@ -856,34 +889,47 @@
     <div id="modal-acetaia" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <div><h2>Co-Founder & Brand Expert</h2><span style="color:#666;">ACETAIA GUBERTINI | 2019 - OGGI</span></div>
+                <div><h2>Co-Founder & E-commerce Specialist</h2><span style="color:#666;">ACETAIA GUBERTINI | DIC 2019 - OGGI</span></div>
                 <div class="close-modal" onclick="closeModal('acetaia')">&times;</div>
             </div>
             <div class="modal-body">
-                <h3>2. Acetaia Gubertini: Imprenditorialità nel Settore Lusso</h3>
-                
-                <h4>2.1 Genesi e Strategia di Posizionamento</h4>
-                <p>Questa esperienza differisce dalle altre per la sua natura imprenditoriale. Acetaia Gubertini nasce come una piccola realtà familiare che ho trasformato in un'azienda orientata al profitto. Il mio insight strategico fondamentale è stato il riposizionamento del prodotto: da "condimento" a "bene di lusso/investimento". I documenti evidenziano il mio uso di parole chiave come "slow made", "artigianalità" e "Made in Italy", costruendo uno storytelling che valorizza il tempo e la tradizione contro la velocità della produzione industriale.</p>
+                <p>Progetto imprenditoriale che ha trasformato una realtà familiare in un brand orientato al profitto, riposizionando il prodotto da semplice condimento a "bene di investimento" tramite leve di marketing digitale e storytelling emozionale.</p>
 
-                <h4>2.2 Ecosistema Digitale e E-commerce</h4>
-                <p>Il successo dell'operazione si fonda su una strategia digitale aggressiva e multipiattaforma, gestita interamente da me:</p>
+                <h3>Digital Strategy & Piattaforme</h3>
                 <ul>
-                    <li><strong>Piattaforma Proprietaria:</strong> Progettazione e sviluppo del sito web con e-commerce integrato (presumibilmente su base WooCommerce/WordPress, date le competenze citate).</li>
-                    <li><strong>Marketplace:</strong> Espansione su canali terzi come Amazon Seller ed eBay, gestendo le complessità logistiche e di customer service associate.</li>
-                    <li><strong>Performance Marketing:</strong> Utilizzo di Google Ads, Google Merchant e Meta Business Suite per l'acquisizione traffico. Il CV riporta come risultato l'indicizzazione ai "primi posti di ricerca" in tempi rapidi, indicando le mie competenze efficaci in ambito SEO/SEM.</li>
+                    <li><strong>Sviluppo autonomo dell'ecosistema e-commerce</strong> proprietario (WooCommerce) e integrazione con Marketplace (Amazon, eBay).</li>
+                    <li><strong>Gestione campagne Performance Marketing</strong> (Google Ads, Meta) con focus su SEO e indicizzazione organica.</li>
                 </ul>
 
-                <h4>2.3 Segmentazione del Cliente</h4>
-                <p>La mia strategia commerciale è stata granulare, dividendo il mercato in quattro cluster principali, ciascuno con un approccio dedicato:</p>
+                <h3>Brand Positioning</h3>
                 <ul>
-                    <li><strong>Privati (B2C):</strong> Targettizzati tramite e-commerce e social advertising.</li>
-                    <li><strong>Ristorazione (Ho.Re.Ca.):</strong> Probabilmente approcciati con linee dedicate (es. "Riserve").</li>
-                    <li><strong>Agenzie/Intermediari:</strong> Per l'espansione commerciale indiretta.</li>
-                    <li><strong>GDO:</strong> Presenza nella Grande Distribuzione, gestita con logiche diverse rispetto al lusso di nicchia (es. packaging differenziati).</li>
+                    <li><strong>Creazione di un'identità visiva "Luxury"</strong> (Packaging, Etichette) basata sui valori di Slow Made e Made in Italy.</li>
                 </ul>
 
-                <h4>2.4 Design e Packaging</h4>
-                <p>In qualità di proprietario con background creativo, ho curato personalmente il design del marchio e del packaging, elementi critici nel settore del lusso alimentare dove "l'abito fa il monaco".</p>
+                <h3>Segmentazione Omnicanale</h3>
+                <ul>
+                    <li><strong>Strategia differenziata per cluster:</strong> B2C (Social/Web), Ho.Re.Ca. (Linee Riserva) e GDO (Linee dedicate), gestendo internamente la logistica e il Customer Service.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-waterline" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header"><div><h2>Responsabile Marketing</h2><span style="color:#666;">WATERLINE - BEVCO (SOLIDO GROUP) | 2016 - 2017</span></div><div class="close-modal" onclick="closeModal('waterline')">&times;</div></div>
+            <div class="modal-body">
+                <p>In un contesto di post-acquisizione aziendale, il focus è stato l'unificazione e la standardizzazione. Ho agito come collettore tra diverse realtà produttive per costruire una "Corporate Identity" univoca e coerente.</p>
+
+                <h3>Change Management & Identity</h3>
+                <ul>
+                    <li><strong>Riprogettazione dei marchi</strong> e dell'immagine coordinata di gruppo per allineare le aziende acquisite sotto un unico "ombrello" valoriale.</li>
+                    <li><strong>Restyling delle sedi fisiche</strong> e dei materiali di vendita per trasmettere la nuova filosofia aziendale.</li>
+                </ul>
+
+                <h3>Sviluppo & Lancio Prodotto</h3>
+                <ul>
+                    <li><strong>Analisi dello scenario competitivo</strong> e coordinamento del lancio di nuove linee (es. Drinkit), traducendo le specifiche tecniche in vantaggi commerciali comunicabili.</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -891,54 +937,22 @@
     <div id="modal-bmw" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <div><h2>Marketing Retail & CRM Specialist</h2><span style="color:#666;">RETE VENDITA BMW ITALIA | 2014 - 2016</span></div>
+                <div><h2>Specialista Marketing Retail & CRM</h2><span style="color:#666;">BMW ITALIA / AUTOCLUB | 2014 - 2016</span></div>
                 <div class="close-modal" onclick="closeModal('bmw')">&times;</div>
             </div>
             <div class="modal-body">
-                <h3>4. BMW Italia / Gruppo Autoclub: Marketing Data-Driven</h3>
-                
-                <h4>4.1 Il Ruolo Centrale del CRM (Sugar)</h4>
-                <p>In questa esperienza, il marketing cessa di essere puramente promozionale e diventa uno strumento di controllo finanziario e di processo.</p>
+                <p>Il marketing inteso non come promozione, ma come strumento di controllo finanziario e di processo. Il ruolo richiedeva una gestione rigorosa dei flussi di lead e del budget.</p>
+
+                <h3>CRM & Processi Finanziari</h3>
                 <ul>
-                    <li><strong>Tecnologia:</strong> Uso intensivo del CRM SUGAR. Non utilizzato solo come database, ma come strumento per coordinare le trattative negli aspetti economico-finanziari.</li>
-                    <li><strong>Processo di Vendita:</strong> Monitoravo quotidianamente i KPI dei venditori. Seguivo i Lead dal primo contatto fino alla fatturazione.</li>
-                    <li><strong>Incentivi Finanziari:</strong> Un risultato chiave evidenziato è il conseguimento di un "ingente bonus" (punti percentuali di fatturato) che la casa madre riconosceva alla rete vendita basandosi sulla qualità del processo commerciale monitorata da me. Questo stabilisce un legame diretto tra la mia attività di analisi e la redditività della concessionaria.</li>
+                    <li><strong>Utilizzo intensivo del CRM Sugar</strong> per il monitoraggio del funnel di vendita, dal primo contatto alla fatturazione.</li>
+                    <li><strong>Analisi dei KPI della forza vendita</strong> finalizzata all'ottenimento dei bonus qualitativi erogati dalla Casa Madre.</li>
                 </ul>
 
-                <h4>4.2 Budgeting e Pianificazione Media</h4>
+                <h3>Budgeting & Media Planning</h3>
                 <ul>
-                    <li><strong>Gestione Budget:</strong> Responsabilità su un budget marketing di 1,5 milioni di euro/anno (dato estratto da una delle versioni del CV).</li>
-                    <li><strong>Media Plan:</strong> Predisposizione di piani media trimestrali, allocando le risorse per iniziative volte all'incremento del fatturato.</li>
-                    <li><strong>Gestione Fornitori:</strong> Negoziazione e gestione contratti con agenzie di comunicazione, editori, stampa e radio.</li>
-                </ul>
-
-                <h4>4.3 Eventi e Lanci Prodotto</h4>
-                <p>Supervisione operativa di lanci prodotto cruciali per il marchio (Serie 1, Serie 4, Serie 5, Serie M, Mini Countryman). Organizzazione di "Open Weekend" e fiere, utilizzati come strumenti di Lead Generation e fidelizzazione (Loyalty).</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-waterline" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header"><div><h2>Responsabile Marketing</h2><span style="color:#666;">WATERLINE - BEVCO | 2016 - 2017</span></div><div class="close-modal" onclick="closeModal('waterline')">&times;</div></div>
-            <div class="modal-body">
-                <h3>3. Waterline - Bevco (Solido Group): Gestione Post-Acquisizione</h3>
-
-                <h4>3.1 Complessità Organizzativa e Integrazione</h4>
-                <p>Waterline e Bevco (parte di Solido Group) sono aziende attive nella produzione di impianti per il trattamento dell'acqua, fornitori di partner globali come Coca-Cola e McDonald's. La sfida principale che ho affrontato è stata di natura organizzativa: gestire il marketing di un gruppo nato da una serie di acquisizioni disomogenee. Il mio ruolo è stato quello di "unificatore", recandomi fisicamente presso ogni sede acquisita per mappare le peculiarità e costruire una "nuova filosofia di gruppo".</p>
-
-                <h4>3.2 Ristrutturazione della Corporate Identity</h4>
-                <p>L'azione più rilevante è stata la standardizzazione dell'immagine aziendale:</p>
-                <ul>
-                    <li><strong>Rebranding Corporate:</strong> Riprogettazione di tutti i marchi delle aziende acquisite per portarli sotto un unico "ombrello" visivo e valoriale.</li>
-                    <li><strong>Digital & Merchandising:</strong> Rifacimento completo dei siti internet e dei materiali di vendita (merchandising) per riflettere la nuova identità unificata.</li>
-                    <li><strong>Restyling Fisico:</strong> Ammodernamento delle sedi fisiche, un dettaglio che sottolinea la mia attenzione alla coerenza del brand anche negli spazi di lavoro.</li>
-                </ul>
-
-                <h4>3.3 Gestione Team e Prodotto</h4>
-                <ul>
-                    <li><strong>Leadership:</strong> Coordinamento di un team di 3 risorse interne più collaboratori esterni, gestendo l'intero budget marketing.</li>
-                    <li><strong>Sviluppo Prodotto:</strong> Analisi dello scenario competitivo per lanciare nuovi prodotti. Un esempio citato è il prodotto DRINKIT, che ha riscosso un notevole successo di mercato. Questo dimostra la mia capacità di tradurre l'analisi tecnica in opportunità commerciali concrete.</li>
+                    <li><strong>Pianificazione trimestrale degli investimenti media</strong> e gestione fornitori (agenzie, stampa, radio).</li>
+                    <li><strong>Organizzazione operativa di eventi</strong> di lancio e "Open Weekend" per la Lead Generation.</li>
                 </ul>
             </div>
         </div>
@@ -946,38 +960,33 @@
 
     <div id="modal-lapam" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-header"><div><h2>Analista Marketing</h2><span style="color:#666;">LAPAM CONFARTIGIANATO | 2010 - 2014</span></div><div class="close-modal" onclick="closeModal('lapam')">&times;</div></div>
+            <div class="modal-header"><div><h2>Analista Marketing & Sistemi</h2><span style="color:#666;">LAPAM CONFARTIGIANATO | 2010 - 2013</span></div><div class="close-modal" onclick="closeModal('lapam')">&times;</div></div>
             <div class="modal-body">
-                <h3>6. Lapam Confartigianato: L'Analista Istituzionale</h3>
+                <p>Ruolo tecnico-istituzionale focalizzato sull'implementazione di sistemi informativi e sull'analisi economica del territorio.</p>
 
-                <h4>6.1 Implementazione CRM V-Tiger</h4>
-                <p>Questa esperienza segna il mio passaggio definitivo verso l'analisi dati strutturata.</p>
+                <h3>IT & System Administration</h3>
                 <ul>
-                    <li><strong>System Administrator:</strong> Sono stato responsabile dell'introduzione e implementazione del CRM V-Tiger in azienda, agendo come amministratore di sistema e coordinando gli sviluppatori per la personalizzazione. Questo dimostra una mia competenza tecnica che va oltre l'utilizzo utente, entrando nell'architettura dei processi informatici.</li>
+                    <li><strong>Responsabile dell'introduzione e configurazione del CRM V-Tiger</strong>, coordinando lo sviluppo tecnico e la personalizzazione dei flussi.</li>
                 </ul>
 
-                <h4>6.2 Ricerca e Public Affairs</h4>
+                <h3>Ricerca & Analisi</h3>
                 <ul>
-                    <li><strong>Analisi Economica:</strong> Conduzione di ricerche di mercato sul fabbisogno dei clienti e sulle criticità domanda/offerta.</li>
-                    <li><strong>Impatto Istituzionale:</strong> Ho curato una ricerca specifica sugli "Effetti della crisi internazionale sulla subfornitura meccanica in Emilia Romagna" (UNIMORE 2012), presentandola personalmente al Presidente della Regione Emilia Romagna. Questo evidenzia le mie capacità di comunicazione di alto livello e gestione delle relazioni istituzionali.</li>
+                    <li><strong>Elaborazione di studi di settore</strong> (es. impatto della crisi sulla subfornitura meccanica) e presentazione dei risultati a stakeholder istituzionali.</li>
+                    <li><strong>Organizzazione di eventi tecnologici B2B</strong> per favorire l'innovazione tra le imprese associate.</li>
                 </ul>
-
-                <h4>6.3 Eventi Tecnici e Innovazione</h4>
-                <p>Organizzazione di eventi focalizzati sull'innovazione tecnologica, come quello sulla stampa digitale nel settore ceramico con partner come Epson e Roland. Questi eventi fungevano da leva per la Lead Generation e la fidelizzazione degli associati.</p>
             </div>
         </div>
     </div>
 
     <div id="modal-htv" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-header"><div><h2>Responsabile Punto Vendita</h2><span style="color:#666;">HTV | 2006 - 2010</span></div><div class="close-modal" onclick="closeModal('htv')">&times;</div></div>
+            <div class="modal-header"><div><h2>Responsabile Punto Vendita</h2><span style="color:#666;">HTV (RETAIL FISICO) | 2006 - 2010</span></div><div class="close-modal" onclick="closeModal('htv')">&times;</div></div>
             <div class="modal-body">
-                <h3>7.1 HTV (2006-2010): La Gestione del Punto Vendita</h3>
-                <p>In qualità di Responsabile di Punto Vendita nel settore automazioni/elettronica, ho acquisito le basi della gestione commerciale fisica.</p>
+                <p>Le fondamenta operative che mi permettono oggi di comprendere le dinamiche reali della vendita fisica.</p>
                 <ul>
-                    <li><strong>Gestione Finanziaria:</strong> Responsabilità su apertura/chiusura cassa, fatturazione e raggiungimento target.</li>
-                    <li><strong>Processi:</strong> Utilizzo di gestionali ERP e CRM per la gestione ordini e reclami.</li>
-                    <li><strong>Visual Merchandising:</strong> Allestimento del punto vendita per massimizzare le vendite.</li>
+                    <li><strong>Responsabile di punto vendita.</strong></li>
+                    <li><strong>Gestione diretta di cassa</strong>, fatturazione, magazzino e visual merchandising.</li>
+                    <li><strong>Utilizzo di ERP gestionali</strong> per il controllo stock.</li>
                 </ul>
             </div>
         </div>
@@ -985,13 +994,12 @@
 
     <div id="modal-ebay" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-header"><div><h2>E-commerce Specialist</h2><span style="color:#666;">EBAY SELLER PRO | 2002 - 2008</span></div><div class="close-modal" onclick="closeModal('ebay')">&times;</div></div>
+            <div class="modal-header"><div><h2>E-commerce Specialist</h2><span style="color:#666;">EBAY (DIGITAL PIONEER) | 2002 - 2008</span></div><div class="close-modal" onclick="closeModal('ebay')">&times;</div></div>
             <div class="modal-body">
-                <h3>7.2 eBay (2002-2008): Il Pionierismo Digitale</h3>
-                <p>Per sei anni, ho operato come venditore professionale ("Power Seller" implicito) su eBay.</p>
+                <p>Le fondamenta operative che mi permettono oggi di comprendere le dinamiche reali della vendita digitale.</p>
                 <ul>
-                    <li><strong>Autonomia:</strong> Gestione completa del ciclo di vendita: approvvigionamento, definizione prezzi, creazione inserzioni, logistica e customer service.</li>
-                    <li><strong>Sviluppo Business:</strong> Espansione delle categorie merceologiche (da abbigliamento a calzature) e gestione delle relazioni con partner logistici internazionali. Questa esperienza ha gettato le basi per le competenze e-commerce che ho successivamente applicato in Acetaia Gubertini.</li>
+                    <li><strong>Attività di "Power Seller" durata 6 anni.</strong></li>
+                    <li><strong>Gestione autonoma del ciclo completo di vendita online internazionale:</strong> sourcing, pricing, logistica e customer care, anticipando le logiche dell'e-commerce moderno.</li>
                 </ul>
             </div>
         </div>
@@ -1001,9 +1009,15 @@
         <div class="modal-content">
             <div class="modal-header"><h2>Laurea in Economia Aziendale</h2><div class="close-modal" onclick="closeModal('laurea')">&times;</div></div>
             <div class="modal-body">
-                <h3>Facoltà Marco Biagi - Modena</h3>
-                <p>Indirizzo: <strong>Marketing e Distribuzione</strong></p>
-                <p>Un percorso accademico focalizzato sulle dinamiche aziendali, strategie di mercato, diritto commerciale e analisi statistica.</p>
+                <h3>Facoltà Marco Biagi - Univ. Modena e Reggio Emilia</h3>
+                <p>Il Corso di Laurea in Economia Aziendale è progettato per formare professionisti capaci di operare nelle diverse funzioni aziendali (amministrazione, marketing, finanza, organizzazione). </p>
+                <h4>Competenze Chiave:</h4>
+                <ul>
+                    <li><strong>Management:</strong> Comprensione delle dinamiche decisionali e strategiche d'impresa.</li>
+                    <li><strong>Marketing:</strong> Analisi di mercato, comportamento del consumatore e leve del marketing mix.</li>
+                    <li><strong>Contabilità e Bilancio:</strong> Capacità di leggere e interpretare i documenti contabili per valutare lo stato di salute dell'azienda.</li>
+                    <li><strong>Diritto Commerciale:</strong> Basi normative che regolano l'attività d'impresa.</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -1012,8 +1026,15 @@
         <div class="modal-content">
             <div class="modal-header"><h2>Diploma di Geometra</h2><div class="close-modal" onclick="closeModal('geometra')">&times;</div></div>
             <div class="modal-body">
-                <h3>Istituto Tecnico per Geometri</h3>
-                <p>Formazione tecnica che ha fornito le basi per la precisione nel disegno, nella progettazione e nell'analisi strutturale, competenze trasversali applicate oggi nella gestione operativa.</p>
+                <h3>Istituto Tecnico IGT Guarini di Modena</h3>
+                <p>Il percorso di studi (ora denominato Costruzioni, Ambiente e Territorio) fornisce una preparazione tecnica multidisciplinare fondamentale per la gestione di progetti e cantieri.</p>
+                <h4>Competenze Chiave:</h4>
+                <ul>
+                    <li><strong>Progettazione e Disegno Tecnico:</strong> Precisione grafica e uso di software CAD.</li>
+                    <li><strong>Topografia ed Estimo:</strong> Rilievo del territorio e valutazione economica di beni immobili.</li>
+                    <li><strong>Sicurezza e Normativa:</strong> Gestione della sicurezza nei cantieri e conoscenza delle norme edilizie.</li>
+                    <li><strong>Problem Solving Tecnico:</strong> Approccio analitico e concreto alla risoluzione di problemi strutturali e logistici.</li>
+                </ul>
             </div>
         </div>
     </div>
