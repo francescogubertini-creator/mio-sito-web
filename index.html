@@ -21,47 +21,32 @@
     <style>
         /* --- 1. SETUP GRAFICO --- */
         :root {
-            /* PALETTE LUXURY SENIOR */
-            --primary: #0F172A; /* Blu Notte Profondo */
-            --accent: #C5A059;  /* Oro Satinato */
-            --text: #334155;    /* Grigio Ardesia Scuro */
-            --bg-light: #FAFAF9; /* Bianco Caldo */
+            --primary: #0F172A;
+            --accent: #C5A059;
+            --text: #334155;
+            --bg-light: #FAFAF9;
             --white: #FFFFFF;
-            
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         html { scroll-behavior: smooth; }
-
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Manrope', sans-serif; }
-        
         body { color: var(--text); line-height: 1.7; background: var(--bg-light); overflow-x: hidden; width: 100%; }
-        
         a { text-decoration: none !important; cursor: pointer; transition: var(--transition); border: none; }
         ul { list-style: none; }
-        
-        /* Utility */
         .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
-        .section-padding { padding: 80px 0; } /* Leggera riduzione padding sezioni */
-        
+        .section-padding { padding: 80px 0; }
         .bg-light { background-color: var(--bg-light); }
         .bg-dark { background-color: var(--primary); color: var(--white); }
         .bg-dark h2, .bg-dark h3, .bg-dark h4, .bg-dark p { color: var(--white); }
         .bg-dark .section-subtitle { color: var(--accent); opacity: 1; }
-        
         .text-center { text-align: center; }
         .text-justify { text-align: justify; }
-        
-        /* Typography */
         h1, h2, h3, h4 { color: var(--primary); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
         .section-title { font-size: 2.5rem; margin-bottom: 1rem; }
         .section-subtitle { color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 0.5rem; }
-
-        /* ANIMAZIONI SCROLL */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* Buttons */
         .btn { padding: 12px 30px; border-radius: 4px; font-weight: 700; display: inline-block; border: 1px solid transparent; font-size: 0.9rem; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: var(--transition); text-transform: uppercase; letter-spacing: 0.5px; }
         .btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.3); background: #18233f; }
@@ -73,55 +58,29 @@
         .btn-file { background: #f1f5f9; color: var(--primary); border: 1px solid #cbd5e1; margin-left: 5px; margin-bottom: 5px; display: inline-block;}
         .btn-file:hover { background: var(--accent); color: white; border-color: var(--accent); }
 
-        /* --- HERO SECTION --- */
-        header { 
-            padding: 120px 0 80px; 
-            min-height: 90vh; 
-            display: flex; 
-            align-items: center; 
-            position: relative; 
-            overflow: hidden; 
-            background: radial-gradient(circle at 70% 50%, #ffffff 0%, #f0f0ed 100%);
-        }
+        header { padding: 120px 0 80px; min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden; background: radial-gradient(circle at 70% 50%, #ffffff 0%, #f0f0ed 100%); }
         .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .hero-content { opacity: 0; animation: fadeUp 1s ease-out forwards; position: relative; z-index: 2; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-        
         .hero-content h1 { font-size: 3.2rem; margin-bottom: 25px; letter-spacing: -1.5px; }
         .highlight { color: var(--primary); position: relative; z-index: 1; display:inline-block; }
         .highlight::after { content:''; position: absolute; bottom: 5px; left: 0; width: 0%; height: 12px; background: rgba(197, 160, 89, 0.4); z-index: -1; animation: underline 1s 0.8s ease-out forwards; }
         @keyframes underline { to { width: 100%; } }
-
         .hero-img { position: relative; z-index: 1; display: flex; justify-content: center; align-items: flex-end; }
-        .hero-img img { 
-            width: 100%; max-height: 700px; object-fit: contain; 
-            mix-blend-mode: multiply; 
-            opacity: 0; animation: fadeIn 1.5s 0.5s ease-out forwards; 
-        }
+        .hero-img img { width: 100%; max-height: 700px; object-fit: contain; mix-blend-mode: multiply; opacity: 0; animation: fadeIn 1.5s 0.5s ease-out forwards; }
         @keyframes fadeIn { to { opacity: 1; } }
 
-        /* --- SEZIONE BIO --- */
         .bio-text p { font-size: 1.05rem; color: #555; margin-bottom: 20px; }
         .bio-quote { border-left: 4px solid var(--accent); padding-left: 20px; font-style: italic; font-weight: 600; color: var(--primary); margin: 30px 0; background: white; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
 
-        /* --- AI STRATEGY & CARDS (MODIFICATO PER RIDURRE ALTEZZA) --- */
         .ai-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
-        .ai-card { 
-            background: rgba(255,255,255,0.05); 
-            backdrop-filter: blur(10px); 
-            border: 1px solid rgba(255,255,255,0.1); 
-            padding: 20px; /* RIDOTTO da 35px */
-            border-radius: 8px; 
-            transition: var(--transition); 
-            border-top: 4px solid var(--accent); 
-        }
+        .ai-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; transition: var(--transition); border-top: 4px solid var(--accent); }
         .ai-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.1); border-color: var(--accent); }
         .ai-icon { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
         .ai-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
         .ai-card li { margin-bottom: 8px; font-size: 0.9rem; position: relative; padding-left: 20px; color: rgba(255,255,255,0.8); }
         .ai-card li::before { content: '✓'; color: var(--accent); font-weight: bold; position: absolute; left: 0; }
 
-        /* --- TIMELINE (MODIFICATO PER RIDURRE ALTEZZA) --- */
         .timeline { position: relative; max-width: 900px; margin: 0 auto; }
         .timeline::after { content: ''; position: absolute; width: 1px; background: rgba(255,255,255,0.2); top: 0; bottom: 0; left: 50%; margin-left: -0.5px; }
         .t-item { padding: 15px 40px; position: relative; width: 50%; box-sizing: border-box; cursor: pointer; }
@@ -129,23 +88,13 @@
         .t-item:hover::after { background: var(--accent); transform: scale(1.3); border-color: white; }
         .left { left: 0; text-align: right; } .left::after { right: -9.5px; }
         .right { left: 50%; } .right::after { left: -9.5px; }
-        
-        .t-content { 
-            background: white; 
-            padding: 20px; /* RIDOTTO da 30px */
-            border-radius: 8px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
-            border: none; 
-            transition: var(--transition); 
-            text-align: left; 
-        }
+        .t-content { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border: none; transition: var(--transition); text-align: left; }
         .t-content:hover { transform: scale(1.02) translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
         .t-content .date { color: var(--accent); font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; display: block; margin-bottom: 5px; text-transform: uppercase; }
         .t-content .role { font-size: 1.2rem; color: var(--primary); font-weight: 800; margin-bottom: 2px; word-wrap: break-word; }
         .t-content .company { font-size: 0.95rem; color: #666; font-weight: 600; margin-bottom: 10px; }
         .t-content p { font-size: 0.9rem; margin-bottom: 0; }
         
-        /* --- FORMAZIONE --- */
         .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 40px; }
         .edu-card { border-left: 4px solid var(--accent); padding-left: 20px; margin-bottom: 25px; position: relative; }
         .edu-card h4 { font-size: 1.1rem; margin-bottom: 5px; color: var(--primary); }
@@ -153,27 +102,19 @@
         .edu-year { font-size: 0.75rem; background: #eee; padding: 2px 8px; border-radius: 4px; color: #555; }
         .edu-desc { font-size: 0.9rem; color: #555; margin-top: 5px; }
         
-        /* SKILLS AGGIORNATE */
         .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
         .skill-box h3 { font-size: 1.3rem; margin-bottom: 20px; border-bottom: 2px solid var(--accent); padding-bottom: 8px; display: inline-block; }
         .skill-item { background: white; padding: 10px 15px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; font-weight: 600; transition: 0.3s; font-size: 0.9rem; }
         .skill-item:hover { border-color: var(--accent); transform: translateX(5px); }
         .badge { background: #f5f5f4; color: var(--primary); padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; border: 1px solid #e7e5e4; text-align: center;}
 
-        /* --- DOCS PORTFOLIO (RIDOTTO PADDING) --- */
         .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
         .doc-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; }
         .doc-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1); }
         .doc-preview { height: 160px; background: #f8fafc; display: flex; align-items: center; justify-content: center; position: relative; border-bottom: 1px solid #eee; }
         .doc-icon-large { font-size: 3.5rem; color: var(--primary); opacity: 0.8; }
         .doc-badge { position: absolute; top: 15px; right: 15px; background: var(--primary); color: white; padding: 4px 10px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; border-radius: 4px; }
-        
-        .doc-body { 
-            padding: 20px; /* RIDOTTO da 25px */
-            flex-grow: 1; 
-            display: flex; 
-            flex-direction: column; 
-        }
+        .doc-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
         .doc-body h4 { font-size: 1.1rem; margin-bottom: 5px; }
         .doc-body p { font-size: 0.9rem; color: #666; }
         .doc-files { margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px; }
@@ -181,46 +122,19 @@
         .doc-files a:hover { color: var(--accent); transform: translateX(5px); }
         .doc-files i { margin-right: 8px; color: var(--primary); }
 
-        /* --- LINKEDIN SKILLS --- */
         .linkedin-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
         .linkedin-group h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-        .skill-card { 
-            background: rgba(255,255,255,0.05); 
-            border: 1px solid rgba(255,255,255,0.1); 
-            padding: 10px 15px; 
-            margin-bottom: 8px; 
-            border-radius: 6px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            transition: 0.3s;
-        }
+        .skill-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 10px 15px; margin-bottom: 8px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
         .skill-card:hover { background: rgba(255,255,255,0.1); transform: translateX(5px); }
         .skill-name { color: white; font-weight: 600; font-size: 0.9rem; }
-        .skill-count { 
-            background: #0072b1; /* LinkedIn Blue */
-            color: white; 
-            font-size: 0.7rem; 
-            font-weight: 700; 
-            padding: 2px 8px; 
-            border-radius: 10px;
-            min-width: 25px;
-            text-align: center;
-        }
+        .skill-count { background: #0072b1; color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; min-width: 25px; text-align: center; }
         .zenit-badge { background: var(--accent); color: var(--primary); font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-left: 10px; }
 
-        /* --- INFO PERSONALI (RIDOTTO PADDING) --- */
         .personal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .personal-item { 
-            background: rgba(255,255,255,0.05); 
-            padding: 20px; /* RIDOTTO da 30px */
-            border-radius: 8px; 
-            border: 1px solid rgba(255,255,255,0.1); 
-        }
+        .personal-item { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
         .personal-item h3 { color: var(--accent); font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
         .personal-item p { font-size: 0.95rem; }
 
-        /* Navbar & Footer */
         nav { position: sticky; top: 0; background: rgba(255,255,255,0.98); padding: 15px 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border-bottom: 1px solid #f0f0f0; }
         .nav-inner { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: 900; font-size: 1.3rem; color: var(--primary); text-transform: uppercase; letter-spacing: -0.5px; }
@@ -229,17 +143,13 @@
         footer { background: var(--primary); color: white; padding: 60px 0; text-align: center; }
         .social-link { font-size: 1.2rem; color: white; margin: 0 15px; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
         .social-link:hover { color: var(--accent); }
-        
         .footer-quote { font-family: 'Manrope', sans-serif; font-size: 1.4rem; font-style: italic; color: white; opacity: 0.9; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6; }
-
-        /* MENU MOBILE (HAMBURGER) */
         .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
         .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: var(--primary); z-index: 2000; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: translateX(100%); transition: transform 0.4s ease; }
         .mobile-menu.active { transform: translateX(0); }
         .mobile-menu a { color: white; font-size: 1.5rem; margin: 15px 0; font-weight: 700; }
         .mobile-close { position: absolute; top: 20px; right: 20px; color: white; font-size: 2rem; cursor: pointer; }
 
-        /* Modals */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(5px); z-index: 2000; display: none; opacity: 0; transition: opacity 0.3s; justify-content: center; align-items: center; }
         .modal-overlay.open { display: flex; opacity: 1; }
         .modal-content { background: white; width: 95%; max-width: 900px; max-height: 90vh; border-radius: 8px; overflow-y: auto; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.25); animation: slideUp 0.4s ease; padding: 0; }
@@ -248,8 +158,6 @@
         .close-modal { font-size: 2rem; color: #999; cursor: pointer; transition: 0.2s; }
         .close-modal:hover { color: var(--primary); transform: rotate(90deg); }
         .modal-body { padding: 30px; }
-        
-        /* Modal Typography for Long Text */
         .modal-body h3 { font-size: 1.4rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-top: 25px; margin-bottom: 15px; }
         .modal-body h3:first-child { margin-top: 0; }
         .modal-body h4 { font-size: 1.05rem; color: var(--text); font-weight: 700; margin-top: 20px; margin-bottom: 10px; color: var(--primary); }
@@ -257,30 +165,24 @@
         .modal-body ul { margin-bottom: 15px; padding-left: 20px; list-style: disc; }
         .modal-body li { margin-bottom: 6px; color: #555; font-size: 0.95rem; }
         
-        /* RESPONSIVE & MOBILE ADAPTATION */
         @media(max-width: 992px) {
             .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
             .hero-img { order: -1; margin-bottom: 20px; }
             .hero-img img { max-height: 400px; }
             .hero-content { display: flex; flex-direction: column; align-items: center; }
             h1 { font-size: 2.2rem; }
-            
             .skills-grid, .edu-grid, .personal-grid, .linkedin-cols { grid-template-columns: 1fr; gap: 25px; }
-            
             .nav-links { display: none; }
             .hamburger { display: block; }
-
             .timeline::after { left: 31px; margin-left: 0; }
             .t-item { width: 100%; padding-left: 70px; padding-right: 15px; text-align: left; margin-bottom: 10px; }
             .t-item.left, .t-item.right { left: 0; }
             .t-item::after { left: 21px; } 
             .t-item.left::after { left: 21px; right: auto; }
-            
             .modal-header { padding: 15px 20px; }
             .modal-body { padding: 20px; }
             .modal-header h2 { font-size: 1.1rem; }
         }
-
         @media(max-width: 480px) {
             h1 { font-size: 1.8rem; }
             .section-title { font-size: 1.8rem; }
@@ -290,8 +192,6 @@
             .doc-card { margin-bottom: 15px; }
             .footer-quote { font-size: 1.1rem; }
             .ai-card:hover, .doc-card:hover, .t-content:hover { transform: none; }
-            
-            /* ULTERIORE RIDUZIONE PADDING MOBILE */
             .ai-card, .doc-body, .t-content, .personal-item { padding: 15px; }
         }
     </style>
@@ -311,7 +211,6 @@
     <nav>
         <div class="container nav-inner">
             <div class="logo">Francesco Gubertini</div>
-            
             <div class="nav-links">
                 <a href="#bio">Chi Sono</a>
                 <a href="#ai">AI Strategy</a>
@@ -321,7 +220,6 @@
                 <a href="#personal">Info</a>
                 <a href="#contact" class="btn btn-primary" style="padding: 8px 20px; color: white;">Contattami</a>
             </div>
-
             <div class="hamburger" onclick="toggleMenu()">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -338,7 +236,7 @@
                 </p>
                 <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; md:justify-content: flex-start;">
                     <a href="#docs" class="btn btn-primary">Vedi il Portfolio</a>
-                    <a href="assets/docs/cv-francesco-gubertini.pdf" class="btn btn-secondary" download>Scarica CV <i class="fa-solid fa-download"></i></a>
+                    <a href="assets/docs/CV_Gubertini_Francesco.pdf" class="btn btn-secondary" download>Scarica CV <i class="fa-solid fa-download"></i></a>
                 </div>
             </div>
             <div class="hero-img">
@@ -458,7 +356,6 @@
                 <p style="opacity: 0.9;">Clicca sulle card per visualizzare l'approfondimento dettagliato.</p>
             </div>
             <div class="timeline">
-                
                 <div class="t-item left reveal" onclick="openModal('opera')">
                     <div class="t-content">
                         <span class="date">DIC 2017 - OGGI</span>
@@ -468,7 +365,6 @@
                         <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
-
                 <div class="t-item right reveal" onclick="openModal('acetaia')">
                     <div class="t-content">
                         <span class="date">DIC 2019 - OGGI</span>
@@ -478,7 +374,6 @@
                         <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
-
                 <div class="t-item left reveal" onclick="openModal('waterline')">
                     <div class="t-content">
                         <span class="date">SET 2016 - DIC 2017</span>
@@ -488,7 +383,6 @@
                         <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
-
                 <div class="t-item right reveal" onclick="openModal('bmw')">
                     <div class="t-content">
                         <span class="date">GEN 2014 - SET 2016</span>
@@ -498,7 +392,6 @@
                         <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
-
                 <div class="t-item left reveal" onclick="openModal('lapam')">
                     <div class="t-content">
                         <span class="date">DIC 2010 - DIC 2013</span>
@@ -508,7 +401,6 @@
                         <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
-
                 <div class="t-item right reveal" onclick="openModal('htv')">
                     <div class="t-content">
                         <span class="date">2006 - 2010</span>
@@ -518,7 +410,6 @@
                         <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
-
                 <div class="t-item left reveal" onclick="openModal('ebay')">
                     <div class="t-content">
                         <span class="date">2002 - 2008</span>
@@ -528,7 +419,6 @@
                         <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -542,29 +432,21 @@
             <div class="edu-grid reveal">
                 <div>
                     <h3 style="margin-bottom:25px; border-bottom: 2px solid var(--accent); display:inline-block;">Titoli di Studio</h3>
-                    
                     <div class="edu-card">
                         <h4>Laurea in Economia Aziendale</h4>
                         <div class="edu-inst"><span>Facoltà Marco Biagi - Univ. Modena e Reggio Emilia</span></div>
-                        <div class="edu-desc">
-                            Il corso fornisce solide competenze in management, organizzazione aziendale, contabilità e marketing. Prepara professionisti in grado di comprendere le dinamiche d'impresa e gestire processi decisionali complessi.
-                        </div>
+                        <div class="edu-desc">Il corso fornisce solide competenze in management, organizzazione aziendale, contabilità e marketing. Prepara professionisti in grado di comprendere le dinamiche d'impresa e gestire processi decisionali complessi.</div>
                         <button class="btn btn-secondary btn-small" onclick="openModal('laurea')">Approfondisci</button>
                     </div>
-
                     <div class="edu-card">
                         <h4>Diploma di Geometra</h4>
                         <div class="edu-inst"><span>Istituto Tecnico IGT Guarini di Modena</span></div>
-                        <div class="edu-desc">
-                            Percorso focalizzato su costruzioni, topografia e sicurezza. Fornisce una mentalità tecnica rigorosa, orientata al problem solving, alla progettazione precisa e al rispetto delle normative.
-                        </div>
+                        <div class="edu-desc">Percorso focalizzato su costruzioni, topografia e sicurezza. Fornisce una mentalità tecnica rigorosa, orientata al problem solving, alla progettazione precisa e al rispetto delle normative.</div>
                         <button class="btn btn-secondary btn-small" onclick="openModal('geometra')">Approfondisci</button>
                     </div>
                 </div>
-
                 <div>
                     <h3 style="margin-bottom:25px; border-bottom: 2px solid var(--accent); display:inline-block;">Corsi di Perfezionamento</h3>
-                    
                     <div class="edu-card">
                         <h4>Modelli di IA per la Business Intelligence</h4>
                         <div class="edu-inst"><span>Zenit Formazione</span> <span class="edu-year">2025</span></div>
@@ -572,7 +454,6 @@
                         <button class="btn btn-secondary btn-small" onclick="openModal('ai-course1')">Approfondisci</button>
                         <a href="assets/docs/attestato-gubertini-ia-bi.pdf" target="_blank" class="btn btn-small btn-file"><i class="fa-solid fa-file-pdf"></i> Visualizza Attestato</a>
                     </div>
-
                     <div class="edu-card">
                         <h4>IA ed Excel</h4>
                         <div class="edu-inst"><span>Zenit Formazione</span> <span class="edu-year">2025</span></div>
@@ -580,15 +461,13 @@
                         <button class="btn btn-secondary btn-small" onclick="openModal('ai-course2')">Approfondisci</button>
                         <a href="assets/docs/attestato-gubertini-ia-excel.pdf" target="_blank" class="btn btn-small btn-file"><i class="fa-solid fa-file-pdf"></i> Visualizza Attestato</a>
                     </div>
-
                     <div class="edu-card">
                         <h4>IA nel decision making</h4>
                         <div class="edu-inst"><span>Zenit Formazione</span> <span class="edu-year">2025</span></div>
                         <div class="edu-desc">Modelli collaborativi con IA nel decision making diagnostico e previsionale.</div>
                         <button class="btn btn-secondary btn-small" onclick="openModal('ai-course3')">Approfondisci</button>
-                        <a href="assets/docs/attestato-gubertini-ia-dcision-making.pdf" target="_blank" class="btn btn-small btn-file"><i class="fa-solid fa-file-pdf"></i> Visualizza Attestato</a>
+                        <a href="assets/docs/attestato-gubertini-ia-decision-making.pdf" target="_blank" class="btn btn-small btn-file"><i class="fa-solid fa-file-pdf"></i> Visualizza Attestato</a>
                     </div>
-
                     <div class="edu-card">
                         <h4>Vendite e Servizi al Cliente con AI</h4>
                         <div class="edu-inst"><span>IFOA</span> <span class="edu-year">2024</span></div>
@@ -607,7 +486,6 @@
                 <h2 class="section-title">Portfolio Documentale</h2>
                 <p>Esempi reali di analisi, documenti e progetti.</p>
             </div>
-            
             <div class="doc-grid">
                 <div class="doc-card reveal">
                     <div class="doc-preview"><span class="doc-badge">PUBLISHING</span><i class="fa-solid fa-book-open doc-icon-large"></i></div>
@@ -622,7 +500,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="doc-card reveal">
                     <div class="doc-preview"><span class="doc-badge">TRADE MKTG</span><i class="fa-solid fa-layer-group doc-icon-large"></i></div>
                     <div class="doc-body">
@@ -636,7 +513,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="doc-card reveal">
                     <div class="doc-preview"><span class="doc-badge">ANALYTICS</span><i class="fa-solid fa-chart-line doc-icon-large" style="color:#1D6F42;"></i></div>
                     <div class="doc-body">
@@ -644,12 +520,11 @@
                         <p>Analisi campionamenti, rating e target agenti.</p>
                         <div class="doc-files">
                             <a href="assets/docs/pres.-camp.-riunione.pdf"><i class="fa-solid fa-file-pdf"></i> PRES. CAMP. RIUNIONE.pdf</a>
-                            <a href="assets/docs/reating-di-campionamento-19-20-21.xlsx"><i class="fa-solid fa-file-excel" style="color:#1D6F42;"></i> Reating di campionamento.xlsx</a>
+                            <a href="assets/docs/rating-di-campionamento-19-20-21.xlsx"><i class="fa-solid fa-file-excel" style="color:#1D6F42;"></i> Rating di campionamento.xlsx</a>
                             <a href="assets/docs/target-agenti-2023-merchandising.xlsx"><i class="fa-solid fa-file-excel" style="color:#1D6F42;"></i> Target Agenti 2023_Merchandising.xlsx</a>
                         </div>
                     </div>
                 </div>
-
                 <div class="doc-card reveal">
                     <div class="doc-preview"><span class="doc-badge">PRODUCT</span><i class="fa-solid fa-swatchbook doc-icon-large"></i></div>
                     <div class="doc-body">
@@ -664,7 +539,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="doc-card reveal">
                     <div class="doc-preview"><span class="doc-badge">SALES</span><i class="fa-solid fa-briefcase doc-icon-large"></i></div>
                     <div class="doc-body">
@@ -678,7 +552,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="doc-card reveal">
                     <div class="doc-preview"><span class="doc-badge">R&D</span><i class="fa-solid fa-flask doc-icon-large" style="color:var(--accent);"></i></div>
                     <div class="doc-body">
@@ -707,81 +580,31 @@
                     </a>
                 </div>
             </div>
-
             <div class="linkedin-cols reveal">
-                
                 <div class="linkedin-group">
                     <h3><i class="fa-solid fa-microchip"></i> Innovazione & AI</h3>
-                    <div class="skill-card">
-                        <span class="skill-name">AI Business Strategy <span class="zenit-badge">ZENIT</span></span>
-                        <span class="skill-count"><i class="fa-solid fa-check"></i></span>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-name">Generative AI <span class="zenit-badge">ZENIT</span></span>
-                        <span class="skill-count"><i class="fa-solid fa-check"></i></span>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-name">Power BI & Analytics <span class="zenit-badge">ZENIT</span></span>
-                        <span class="skill-count"><i class="fa-solid fa-check"></i></span>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-name">Digital Strategy</span>
-                        <span class="skill-count">19</span>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-name">E-commerce</span>
-                        <span class="skill-count">18</span>
-                    </div>
+                    <div class="skill-card"><span class="skill-name">AI Business Strategy <span class="zenit-badge">ZENIT</span></span><span class="skill-count"><i class="fa-solid fa-check"></i></span></div>
+                    <div class="skill-card"><span class="skill-name">Generative AI <span class="zenit-badge">ZENIT</span></span><span class="skill-count"><i class="fa-solid fa-check"></i></span></div>
+                    <div class="skill-card"><span class="skill-name">Power BI & Analytics <span class="zenit-badge">ZENIT</span></span><span class="skill-count"><i class="fa-solid fa-check"></i></span></div>
+                    <div class="skill-card"><span class="skill-name">Digital Strategy</span><span class="skill-count">19</span></div>
+                    <div class="skill-card"><span class="skill-name">E-commerce</span><span class="skill-count">18</span></div>
                 </div>
-
                 <div class="linkedin-group">
                     <h3><i class="fa-solid fa-briefcase"></i> Management</h3>
-                    <div class="skill-card">
-                        <span class="skill-name">Marketing Strategy</span>
-                        <span class="skill-count">26</span>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-name">Management</span>
-                        <span class="skill-count">21</span>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-name">Business Planning</span>
-                        <span class="skill-count">12</span>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-name">Marketing Communications</span>
-                        <span class="skill-count">14</span>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-name">Public Relations</span>
-                        <span class="skill-count">14</span>
-                    </div>
+                    <div class="skill-card"><span class="skill-name">Marketing Strategy</span><span class="skill-count">26</span></div>
+                    <div class="skill-card"><span class="skill-name">Management</span><span class="skill-count">21</span></div>
+                    <div class="skill-card"><span class="skill-name">Business Planning</span><span class="skill-count">12</span></div>
+                    <div class="skill-card"><span class="skill-name">Marketing Communications</span><span class="skill-count">14</span></div>
+                    <div class="skill-card"><span class="skill-name">Public Relations</span><span class="skill-count">14</span></div>
                 </div>
-
                 <div class="linkedin-group">
                     <h3><i class="fa-solid fa-cogs"></i> Digital & Ops</h3>
-                    <div class="skill-card">
-                        <span class="skill-name">Microsoft Office</span>
-                        <span class="skill-count">16</span>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-name">Google Analytics</span>
-                        <span class="skill-count">10</span>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-name">Microsoft Excel</span>
-                        <span class="skill-count">9</span>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-name">Sales Management</span>
-                        <span class="skill-count">12</span>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-name">Social Media</span>
-                        <span class="skill-count">15</span>
-                    </div>
+                    <div class="skill-card"><span class="skill-name">Microsoft Office</span><span class="skill-count">16</span></div>
+                    <div class="skill-card"><span class="skill-name">Google Analytics</span><span class="skill-count">10</span></div>
+                    <div class="skill-card"><span class="skill-name">Microsoft Excel</span><span class="skill-count">9</span></div>
+                    <div class="skill-card"><span class="skill-name">Sales Management</span><span class="skill-count">12</span></div>
+                    <div class="skill-card"><span class="skill-name">Social Media</span><span class="skill-count">15</span></div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -811,72 +634,47 @@
 
     <section class="section-padding bg-dark" style="padding-top:0;">
         <div class="container text-center reveal">
-            <p class="footer-quote">
-                "Sono curioso di natura, cerco costantemente nuove soluzioni e strade addentrandomi nei problemi fino a trovare una soluzione. Credo nelle best practice e nell'evoluzione progressiva sistemica."
-            </p>
+            <p class="footer-quote">"Sono curioso di natura, cerco costantemente nuove soluzioni e strade addentrandomi nei problemi fino a trovare una soluzione. Credo nelle best practice e nell'evoluzione progressiva sistemica."</p>
         </div>
     </section>
 
     <footer id="contact">
         <div class="container">
             <h2>Pronto per il prossimo obiettivo?</h2>
-            <p style="opacity: 0.8; margin-bottom: 30px; font-size: 1.1rem;">
-                Portiamo valore, metodo e innovazione all'interno della tua azienda.
-            </p>
-            
+            <p style="opacity: 0.8; margin-bottom: 30px; font-size: 1.1rem;">Portiamo valore, metodo e innovazione all'interno della tua azienda.</p>
             <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom: 40px;">
-                <a href="mailto:info@francescogubertini.it" class="btn btn-primary" style="background:white; color:var(--primary); border:none;">
-                    <i class="fa-solid fa-envelope"></i> info@francescogubertini.it
-                </a>
-                <a href="tel:+393398552008" class="btn btn-secondary" style="background:transparent; color:white; border-color:white;">
-                    <i class="fa-solid fa-phone"></i> +39 339 855 2008
-                </a>
-                <a href="https://calendly.com/francesco-gubertini/30min" target="_blank" class="btn btn-accent">
-                    fissiamo un colloquio? <i class="fa-solid fa-calendar-check" style="margin-left:8px;"></i>
-                </a>
+                <a href="mailto:info@francescogubertini.it" class="btn btn-primary" style="background:white; color:var(--primary); border:none;"><i class="fa-solid fa-envelope"></i> info@francescogubertini.it</a>
+                <a href="tel:+393398552008" class="btn btn-secondary" style="background:transparent; color:white; border-color:white;"><i class="fa-solid fa-phone"></i> +39 339 855 2008</a>
+                <a href="https://calendly.com/francesco-gubertini/30min" target="_blank" class="btn btn-accent">FISSIAMO UN COLLOQUIO <i class="fa-solid fa-calendar-check" style="margin-left:8px;"></i></a>
             </div>
-
             <div style="margin-bottom: 30px;">
-                <a href="https://www.linkedin.com/in/gubertini/" target="_blank" class="social-link" title="LinkedIn">
-                    <i class="fa-brands fa-linkedin" style="font-size: 1.5rem;"></i>
-                    <span style="border-bottom: 1px solid var(--accent); border:none;">@francesco.gubertini</span>
-                </a>
+                <a href="https://www.linkedin.com/in/gubertini/" target="_blank" class="social-link" title="LinkedIn"><i class="fa-brands fa-linkedin" style="font-size: 1.5rem;"></i><span style="border-bottom: 1px solid var(--accent); border:none;">@francesco.gubertini</span></a>
             </div>
-
-            <div style="margin-top: 50px; opacity: 0.6; font-size: 0.9rem;">
-                &copy; <span id="year"></span> Francesco Gubertini. All Rights Reserved. | <a href="#" style="color:white; opacity:0.8;">Privacy Policy</a>
-            </div>
+            <div style="margin-top: 50px; opacity: 0.6; font-size: 0.9rem;">&copy; <span id="year"></span> Francesco Gubertini. All Rights Reserved. | <a href="#" style="color:white; opacity:0.8;">Privacy Policy</a></div>
         </div>
     </footer>
 
     <div id="modal-opera" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-header">
-                <div><h2>Responsabile Marketing & Business Analyst</h2><span style="color:#666;">OPERA GROUP | DIC 2017 - OGGI</span></div>
-                <div class="close-modal" onclick="closeModal('opera')">&times;</div>
-            </div>
+            <div class="modal-header"><div><h2>Responsabile Marketing & Business Analyst</h2><span style="color:#666;">OPERA GROUP | DIC 2017 - OGGI</span></div><div class="close-modal" onclick="closeModal('opera')">&times;</div></div>
             <div class="modal-body">
                 <p>In un contesto industriale caratterizzato da alti volumi produttivi e forte presenza nella GDO, il mio ruolo si è focalizzato sulla trasformazione dell'approccio al mercato: passare dalla vendita di prodotto alla valorizzazione del brand per incrementare il markup, specialmente nel canale retail tradizionale.</p>
-
                 <h3>Innovazione di Prodotto & AI Strategy</h3>
                 <ul>
                     <li><strong>Coordinamento dello sviluppo prodotto</strong> con tecnologia Lamgea System (grandi lastre), curando il ciclo di vita dall'analisi dei trend alla dismissione.</li>
                     <li><strong>Implementazione AI Predittiva:</strong> Utilizzo di algoritmi per l'analisi dei dati di vendita storici e il forecasting degli stock, ottimizzando la rotazione di magazzino.</li>
                     <li><strong>Generative AI per i Contenuti:</strong> Integrazione di strumenti di Intelligenza Artificiale Generativa per la creazione automatizzata di testi tecnici, traduzioni multilingua e supporto alla creazione di asset visivi per cataloghi e moodboard, riducendo drasticamente il Time-to-Market.</li>
                 </ul>
-
                 <h3>Rebranding & Corporate Identity</h3>
                 <ul>
                     <li><strong>Sviluppo dell'architettura di marca</strong> (Opera, Element, Grip 1.0) per segmentare l'offerta su diverse fasce di prezzo.</li>
                     <li><strong>Direzione creativa e operativa</strong> su cataloghi, packaging e strumenti di merchandising, garantendo coerenza visiva dalla produzione alla logistica.</li>
                 </ul>
-
                 <h3>Trade Marketing & Retail</h3>
                 <ul>
                     <li><strong>Progettazione di soluzioni espositive</strong> (Shop-in-Shop, Box) per grandi player del DIY (OBI, Leroy Merlin, Tecnomat).</li>
                     <li><strong>Analisi del ROI sul Merchandising:</strong> mappatura delle campionature e calcolo del ritorno sull'investimento per ogni espositore posizionato.</li>
                 </ul>
-
                 <h3>Analisi Dati & CRM</h3>
                 <ul>
                     <li><strong>Implementazione di dashboard in Power BI</strong> per il monitoraggio dei KPI di vendita.</li>
@@ -888,24 +686,18 @@
 
     <div id="modal-acetaia" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-header">
-                <div><h2>Responsabile Marketing</h2><span style="color:#666;">ACETAIA GUBERTINI | DIC 2019 - OGGI</span></div>
-                <div class="close-modal" onclick="closeModal('acetaia')">&times;</div>
-            </div>
+            <div class="modal-header"><div><h2>Responsabile Marketing</h2><span style="color:#666;">ACETAIA GUBERTINI | DIC 2019 - OGGI</span></div><div class="close-modal" onclick="closeModal('acetaia')">&times;</div></div>
             <div class="modal-body">
                 <p>Progetto imprenditoriale che ha trasformato una realtà familiare in un brand orientato al profitto, riposizionando il prodotto da semplice condimento a "bene di investimento" tramite leve di marketing digitale e storytelling emozionale.</p>
-
                 <h3>Digital Strategy & Piattaforme</h3>
                 <ul>
                     <li><strong>Sviluppo autonomo dell'ecosistema e-commerce</strong> proprietario (WooCommerce) e integrazione con Marketplace (Amazon, eBay).</li>
                     <li><strong>Gestione campagne Performance Marketing</strong> (Google Ads, Meta) con focus su SEO e indicizzazione organica.</li>
                 </ul>
-
                 <h3>Brand Positioning</h3>
                 <ul>
                     <li><strong>Creazione di un'identità visiva "Luxury"</strong> (Packaging, Etichette) basata sui valori di Slow Made e Made in Italy.</li>
                 </ul>
-
                 <h3>Segmentazione Omnicanale</h3>
                 <ul>
                     <li><strong>Strategia differenziata per cluster:</strong> B2C (Social/Web), Ho.Re.Ca. (Linee Riserva) e GDO (Linee dedicate), gestendo internamente la logistica e il Customer Service.</li>
@@ -919,13 +711,11 @@
             <div class="modal-header"><div><h2>Responsabile Marketing</h2><span style="color:#666;">WATERLINE - BEVCO (SOLIDO GROUP) | 2016 - 2017</span></div><div class="close-modal" onclick="closeModal('waterline')">&times;</div></div>
             <div class="modal-body">
                 <p>In un contesto di post-acquisizione aziendale, il focus è stato l'unificazione e la standardizzazione. Ho agito come collettore tra diverse realtà produttive per costruire una "Corporate Identity" univoca e coerente.</p>
-
                 <h3>Change Management & Identity</h3>
                 <ul>
                     <li><strong>Riprogettazione dei marchi</strong> e dell'immagine coordinata di gruppo per allineare le aziende acquisite sotto un unico "ombrello" valoriale.</li>
                     <li><strong>Restyling delle sedi fisiche</strong> e dei materiali di vendita per trasmettere la nuova filosofia aziendale.</li>
                 </ul>
-
                 <h3>Sviluppo & Lancio Prodotto</h3>
                 <ul>
                     <li><strong>Analisi dello scenario competitivo</strong> e coordinamento del lancio di nuove linee (es. Drinkit), traducendo le specifiche tecniche in vantaggi commerciali comunicabili.</li>
@@ -936,19 +726,14 @@
 
     <div id="modal-bmw" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-header">
-                <div><h2>Specialista Marketing Retail & CRM</h2><span style="color:#666;">RETE VENDITA BMW ITALIA | 2014 - 2016</span></div>
-                <div class="close-modal" onclick="closeModal('bmw')">&times;</div>
-            </div>
+            <div class="modal-header"><div><h2>Specialista Marketing Retail & CRM</h2><span style="color:#666;">RETE VENDITA BMW ITALIA | 2014 - 2016</span></div><div class="close-modal" onclick="closeModal('bmw')">&times;</div></div>
             <div class="modal-body">
                 <p>Il marketing inteso non come promozione, ma come strumento di controllo finanziario e di processo. Il ruolo richiedeva una gestione rigorosa dei flussi di lead e del budget.</p>
-
                 <h3>CRM & Processi Finanziari</h3>
                 <ul>
                     <li><strong>Utilizzo intensivo del CRM Sugar</strong> per il monitoraggio del funnel di vendita, dal primo contatto alla fatturazione.</li>
                     <li><strong>Analisi dei KPI della forza vendita</strong> finalizzata all'ottenimento dei bonus qualitativi erogati dalla Casa Madre.</li>
                 </ul>
-
                 <h3>Budgeting & Media Planning</h3>
                 <ul>
                     <li><strong>Pianificazione trimestrale degli investimenti media</strong> e gestione fornitori (agenzie, stampa, radio).</li>
@@ -963,12 +748,10 @@
             <div class="modal-header"><div><h2>Analista Marketing & Sistemi</h2><span style="color:#666;">LAPAM CONFARTIGIANATO | 2010 - 2013</span></div><div class="close-modal" onclick="closeModal('lapam')">&times;</div></div>
             <div class="modal-body">
                 <p>Ruolo tecnico-istituzionale focalizzato sull'implementazione di sistemi informativi e sull'analisi economica del territorio.</p>
-
                 <h3>IT & System Administration</h3>
                 <ul>
                     <li><strong>Responsabile dell'introduzione e configurazione del CRM V-Tiger</strong>, coordinando lo sviluppo tecnico e la personalizzazione dei flussi.</li>
                 </ul>
-
                 <h3>Ricerca & Analisi</h3>
                 <ul>
                     <li><strong>Elaborazione di studi di settore</strong> (es. impatto della crisi sulla subfornitura meccanica) e presentazione dei risultati a stakeholder istituzionali.</li>
@@ -1103,11 +886,7 @@
         function openModal(id) { document.getElementById('modal-'+id).classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeModal(id) { document.getElementById('modal-'+id).classList.remove('open'); document.body.style.overflow = 'auto'; }
         window.onclick = function(e) { if(e.target.classList.contains('modal-overlay')) { e.target.classList.remove('open'); document.body.style.overflow = 'auto'; }}
-        
-        // Year Auto-Update
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Scroll Animation
         window.addEventListener('scroll', reveal);
         function reveal(){
             var reveals = document.querySelectorAll('.reveal');
@@ -1119,12 +898,7 @@
             }
         }
         reveal();
-
-        // Menu Mobile Toggle
-        function toggleMenu() {
-            var menu = document.getElementById("mobileMenu");
-            menu.classList.toggle("active");
-        }
+        function toggleMenu() { var menu = document.getElementById("mobileMenu"); menu.classList.toggle("active"); }
     </script>
 </body>
 </html>
