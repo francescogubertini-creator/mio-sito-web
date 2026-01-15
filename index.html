@@ -76,6 +76,7 @@
         .highlight::after { content:''; position: absolute; bottom: 5px; left: 0; width: 0%; height: 12px; background: rgba(197, 160, 89, 0.4); z-index: -1; animation: underline 1s 0.8s ease-out forwards; }
         @keyframes underline { to { width: 100%; } }
         .hero-img { position: relative; z-index: 1; display: flex; justify-content: center; align-items: flex-end; }
+        /* mix-blend-mode aiuta a fondere il bianco della foto con lo sfondo */
         .hero-img img { width: 100%; max-height: 700px; object-fit: contain; mix-blend-mode: multiply; opacity: 0; animation: fadeIn 1.5s 0.5s ease-out forwards; }
         @keyframes fadeIn { to { opacity: 1; } }
 
@@ -103,6 +104,9 @@
         .t-content .role { font-size: 1.2rem; color: var(--primary); font-weight: 800; margin-bottom: 2px; word-wrap: break-word; }
         .t-content .company { font-size: 0.95rem; color: #666; font-weight: 600; margin-bottom: 10px; }
         .t-content p { font-size: 0.9rem; margin-bottom: 0; }
+        /* Nuova classe per i link nella timeline */
+        .t-link { color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block; transition: var(--transition); }
+        .t-content:hover .t-link { color: var(--primary); }
         
         .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 40px; }
         .edu-card { border-left: 4px solid var(--accent); padding-left: 20px; margin-bottom: 25px; position: relative; }
@@ -174,26 +178,43 @@
         .modal-body ul { margin-bottom: 15px; padding-left: 20px; list-style: disc; }
         .modal-body li { margin-bottom: 6px; color: #555; font-size: 0.95rem; }
         
+        /* --- MEDIA QUERIES PER MOBILE E TABLET --- */
         @media(max-width: 992px) {
+            /* Header: sfondo bianco per fondere la foto JPG */
+            header { background: white; }
             .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
-            .hero-img { order: -1; margin-bottom: 20px; }
-            .hero-img img { max-height: 400px; }
+            /* Rimosso order: -1 per far apparire prima il testo poi la foto */
+            .hero-img { margin-bottom: 20px; }
+            /* Ridotta dimensione foto su mobile */
+            .hero-img img { max-height: 280px; }
             .hero-content { display: flex; flex-direction: column; align-items: center; }
             h1 { font-size: 2.2rem; }
-            .skills-grid, .edu-grid, .personal-grid, .linkedin-cols { grid-template-columns: 1fr; gap: 25px; }
+            
+            /* Navigazione Mobile */
+            .nav-inner { gap: 20px; } /* Spazio tra nome e burger */
+            .logo { font-weight: 700; } /* Nome meno in grassetto */
             .nav-links { display: none; }
             .hamburger { display: block; }
+
+            /* Griglie e Timeline */
+            .skills-grid, .edu-grid, .personal-grid, .linkedin-cols { grid-template-columns: 1fr; gap: 25px; }
             .timeline::after { left: 31px; margin-left: 0; }
             .t-item { width: 100%; padding-left: 70px; padding-right: 15px; text-align: left; margin-bottom: 10px; }
             .t-item.left, .t-item.right { left: 0; }
             .t-item::after { left: 21px; } 
             .t-item.left::after { left: 21px; right: auto; }
+            
+            /* Timeline: rimuove spazio bianco sopra il pulsante "Vedi dettagli" */
+            .t-link { margin-top: 0; }
+
             .modal-header { padding: 15px 20px; }
             .modal-body { padding: 20px; }
             .modal-header h2 { font-size: 1.1rem; }
         }
         @media(max-width: 480px) {
             h1 { font-size: 1.8rem; }
+            /* Foto ancora più piccola su smartphone */
+            .hero-img img { max-height: 220px; }
             .section-title { font-size: 1.8rem; }
             .section-padding { padding: 50px 0; }
             .hero-content div { flex-direction: column; width: 100%; gap: 10px; }
@@ -371,7 +392,7 @@
                         <div class="role">Responsabile Marketing & Analyst</div>
                         <div class="company">Opera Group</div>
                         <p>Trasformazione approccio al mercato e innovazione prodotto (Lamgea System) con supporto AI.</p>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <span class="t-link">VEDI DETTAGLI →</span>
                     </div>
                 </div>
                 <div class="t-item right reveal" onclick="openModal('acetaia')">
@@ -380,7 +401,7 @@
                         <div class="role">Responsabile Marketing</div>
                         <div class="company">Acetaia Gubertini</div>
                         <p>Riposizionamento Luxury, ecosistema digitale proprietario e strategia omnicanale.</p>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <span class="t-link">VEDI DETTAGLI →</span>
                     </div>
                 </div>
                 <div class="t-item left reveal" onclick="openModal('waterline')">
@@ -389,7 +410,7 @@
                         <div class="role">Responsabile Marketing</div>
                         <div class="company">Waterline - Bevco (Solido Group)</div>
                         <p>Change management post-acquisizione, unificazione Corporate Identity e lancio nuovi prodotti.</p>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <span class="t-link">VEDI DETTAGLI →</span>
                     </div>
                 </div>
                 <div class="t-item right reveal" onclick="openModal('bmw')">
@@ -398,7 +419,7 @@
                         <div class="role">Marketing Retail & CRM</div>
                         <div class="company">RETE VENDITA BMW ITALIA</div>
                         <p>Gestione rigorosa funnel di vendita, budget media e monitoraggio KPI finanziari.</p>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <span class="t-link">VEDI DETTAGLI →</span>
                     </div>
                 </div>
                 <div class="t-item left reveal" onclick="openModal('lapam')">
@@ -407,7 +428,7 @@
                         <div class="role">Analista Marketing & Sistemi</div>
                         <div class="company">LAPAM Confartigianato</div>
                         <p>Implementazione CRM V-Tiger, analisi economica territoriale e rapporti istituzionali.</p>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <span class="t-link">VEDI DETTAGLI →</span>
                     </div>
                 </div>
                 <div class="t-item right reveal" onclick="openModal('htv')">
@@ -416,7 +437,7 @@
                         <div class="role">Responsabile Punto Vendita</div>
                         <div class="company">HTV (Retail Fisico)</div>
                         <p>Gestione diretta cassa, fatturazione, magazzino e visual merchandising.</p>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <span class="t-link">VEDI DETTAGLI →</span>
                     </div>
                 </div>
                 <div class="t-item left reveal" onclick="openModal('ebay')">
@@ -425,7 +446,7 @@
                         <div class="role">E-commerce Specialist</div>
                         <div class="company">eBay (Digital Pioneer)</div>
                         <p>Power Seller per 6 anni: gestione autonoma ciclo vendita online internazionale.</p>
-                        <span style="color:var(--accent); font-weight:700; font-size:0.8rem; margin-top:10px; display:block;">VEDI DETTAGLI →</span>
+                        <span class="t-link">VEDI DETTAGLI →</span>
                     </div>
                 </div>
             </div>
