@@ -94,6 +94,7 @@
         
         .section-subtitle { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 15px; display: block; font-weight: 600; }
         .section-title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 40px; font-weight: 400; text-transform: uppercase; line-height: 1.1; }
+        .text-center { text-align: center; }
 
         /* --- NAVIGATION --- */
         nav { 
@@ -147,9 +148,13 @@
         
         .hero-image-container {
             position: absolute; right: 5%; top: 20%; width: 30vw; height: 50vh; z-index: -1; 
-            opacity: 0.8; filter: grayscale(100%); transition: 0.5s; mix-blend-mode: multiply;
+            opacity: 1; transition: 0.5s; 
         }
-        .hero-image-container img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-image-container img { 
+            width: 100%; height: 100%; 
+            object-fit: contain; /* Impedisce il taglio */
+            filter: grayscale(100%); /* Bianco e nero */
+        }
 
         /* --- BIO --- */
         .bio-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: start; }
@@ -304,7 +309,7 @@
 
         /* --- MOBILE OPTIMIZATION (<900px) --- */
         @media (max-width: 900px) {
-            .hero-image-container { position: relative; width: 100%; height: 350px; top: 0; right: 0; margin-bottom: 30px; opacity: 1; filter: none; mix-blend-mode: normal; }
+            .hero-image-container { position: relative; width: 100%; height: 350px; top: 0; right: 0; margin-bottom: 30px; opacity: 1; filter: grayscale(100%); mix-blend-mode: normal; }
             .bio-grid, .edu-grid, .linkedin-cols, .personal-grid { grid-template-columns: 1fr; }
             .timeline-container { padding-left: 20px; border-left: 2px solid var(--lines); }
             .exp-row::before { width: 16px; height: 16px; left: -29px; }
@@ -352,7 +357,7 @@
         <div class="close-menu hover-trigger" onclick="toggleMenu()">&times;</div>
         <a href="#bio" class="menu-link hover-trigger" onclick="toggleMenu()">Profile</a>
         <a href="#ai" class="menu-link hover-trigger" onclick="toggleMenu()">Strategy</a>
-        <a href="#experience" class="menu-link hover-trigger" onclick="toggleMenu()">Timeline</a>
+        <a href="#experience" class="menu-link hover-trigger" onclick="toggleMenu()">Esperienze di lavoro</a>
         <a href="#portfolio-section" class="menu-link hover-trigger" onclick="toggleMenu()">Portfolio</a>
         <a href="#education" class="menu-link hover-trigger" onclick="toggleMenu()">Education</a>
         <a href="#contact" class="menu-link hover-trigger" onclick="toggleMenu()">Contact</a>
@@ -753,7 +758,7 @@
     </section>
 
     <div class="section-padding container text-center">
-        <p class="footer-quote">"Sono curioso di natura, cerco costantemente nuove soluzioni e strade addentrandomi nei problemi fino a trovare una soluzione. Credo nelle best practice e nell'evoluzione progressiva sistemica."</p>
+        <p class="footer-quote" style="margin-left: auto; margin-right: auto;">"Sono curioso di natura, cerco costantemente nuove soluzioni e strade addentrandomi nei problemi fino a trovare una soluzione. Credo nelle best practice e nell'evoluzione progressiva sistemica."</p>
     </div>
 
     <footer id="contact">
