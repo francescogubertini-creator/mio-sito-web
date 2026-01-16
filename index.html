@@ -15,7 +15,7 @@
     </script>
 
     <title>Francesco Gubertini | Marketing Data-Driven Decision Making</title>
-    <meta name="description" content="Unisco una solida competenza tecnica (CRM, Business Intelligence, AI) a una sensibilità creativa (Branding, Design).">
+    <meta name="description" content="Unisco una solida competenza tecnica (CRM, Business Intelligence, AI) a una sensibilità creativa.">
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://francescogubertini.it/">
@@ -25,7 +25,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -57,6 +57,7 @@
             font-family: 'Manrope', sans-serif; 
             overflow-x: hidden; 
             width: 100%;
+            line-height: 1.7;
         }
 
         h1, h2, h3, h4, .menu-link, .hero-role, .section-subtitle, .exp-date, .gallery-num { font-family: 'Space Grotesk', sans-serif; }
@@ -87,6 +88,10 @@
         .section-padding { padding: 100px 0; border-bottom: 1px solid var(--lines); }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
+        /* Utilità per liste nei testi descrittivi */
+        .content-list { list-style: disc; padding-left: 20px; margin-top: 10px; margin-bottom: 10px; }
+        .content-list li { margin-bottom: 5px; color: var(--text-muted); }
+        
         .section-subtitle { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 15px; display: block; font-weight: 600; }
         .section-title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 40px; font-weight: 400; text-transform: uppercase; line-height: 1.1; }
 
@@ -137,7 +142,7 @@
         
         .hero-image-container {
             position: absolute; right: 5%; top: 20%; width: 30vw; height: 50vh; z-index: -1; 
-            opacity: 0.8; filter: grayscale(100%); transition: 0.5s;
+            opacity: 0.8; filter: grayscale(100%); transition: 0.5s; mix-blend-mode: multiply;
         }
         .hero-image-container img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -156,7 +161,10 @@
         .ai-box:last-child { border: none; }
         .ai-box:hover { background: var(--card-bg-hover); transform: translateY(-5px); } 
         .ai-icon { font-size: 2rem; color: var(--accent); margin-bottom: 20px; display: block;}
-        
+        .ai-box ul { list-style: none; margin-top: 15px; }
+        .ai-box li { position: relative; padding-left: 20px; margin-bottom: 8px; font-size: 0.95rem; color: var(--text-muted); }
+        .ai-box li::before { content: '✓'; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
+
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
         .skill-group { opacity: 0; transform: translateY(20px); }
         .skill-group h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 20px; border-bottom: 1px solid var(--lines); padding-bottom: 10px; display: block; }
@@ -179,7 +187,7 @@
         .exp-row:hover { background: #fff; border-color: var(--lines); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transform: translateX(10px); }
         .exp-row:hover::before { background: var(--accent); transform: scale(1.3); }
         .exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
-        .exp-date { color: var(--accent); font-size: 0.85rem; font-weight: 700; }
+        .exp-date { color: var(--accent); font-size: 0.85rem; font-weight: 700; text-transform: uppercase;}
         .exp-role { font-size: 1.3rem; font-weight: 500; width: 100%; }
         .exp-company { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
         .exp-details { font-size: 0.95rem; margin-top: 15px; color: var(--text-muted); line-height: 1.5; border-top: 1px dashed var(--lines); padding-top: 15px; }
@@ -227,17 +235,38 @@
         .gallery-files a { display: block; padding: 12px 0; border-bottom: 1px solid #333; transition: 0.3s; color: #888; font-size: 0.9rem; }
         .gallery-files a:hover { color: var(--accent); padding-left: 10px; border-color: var(--accent); }
 
-        /* --- EDUCATION & PERSONAL --- */
+        /* --- EDUCATION & NEW SECTIONS --- */
         .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .edu-card { padding: 25px; border: 1px solid var(--lines); background: var(--card-bg); transition: 0.3s; margin-bottom: 20px;}
+        .edu-card { padding: 25px; border: 1px solid var(--lines); background: var(--card-bg); transition: 0.3s; margin-bottom: 20px; position: relative;}
         .edu-card:hover { border-color: var(--accent); background: #fff; }
+        .edu-card h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .edu-inst { font-size: 0.9rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .edu-year { font-size: 0.75rem; background: #eee; padding: 2px 8px; border-radius: 4px; color: #555; }
+        .edu-desc { font-size: 0.9rem; color: #555; margin-bottom: 15px; }
+        .btn-small { padding: 6px 15px; font-size: 0.75rem; border: 1px solid #000; text-transform: uppercase; display: inline-block; background: transparent; }
+        .btn-small:hover { background: #000; color: #fff; }
+        .btn-file { background: #f1f5f9; border: 1px solid #cbd5e1; color: #333; margin-left: 5px; margin-top: 5px;}
+        .btn-file:hover { background: var(--accent); color: white; border-color: var(--accent); }
+
+        /* --- LINKEDIN & PERSONAL --- */
+        .linkedin-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .linkedin-group h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 20px; text-transform: uppercase; }
+        .skill-card { background: #fff; border: 1px solid var(--lines); padding: 10px 15px; margin-bottom: 10px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
+        .skill-card:hover { transform: translateX(5px); border-color: var(--accent); }
+        .skill-name { font-weight: 600; font-size: 0.9rem; }
+        .skill-count { background: #0e0e0e; color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; min-width: 25px; text-align: center; }
+        .zenit-badge { background: var(--accent); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-left: 10px; }
+
+        .personal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .personal-item { background: var(--card-bg); padding: 30px; border-radius: 4px; border: 1px solid var(--lines); }
+        .personal-item h3 { color: var(--accent); font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .personal-item p { font-size: 0.95rem; margin-bottom: 10px; color: var(--text-muted); }
 
         /* --- FOOTER FULL PAGE --- */
         footer { 
             min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
             background: var(--accent); color: #0e0e0e; padding: 20px; margin: 0; position: relative;
         }
-        .footer-quote { font-size: 1.2rem; font-style: italic; max-width: 700px; text-align: center; margin-bottom: 50px; line-height: 1.6; opacity: 0.9; }
         .footer-cta { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1; margin: 20px 0; text-transform: uppercase; text-align: center; }
         .footer-cta a { border-bottom: 4px solid #0e0e0e; }
         .social-container { display: flex; gap: 60px; margin-top: 60px; flex-wrap: wrap; justify-content: center; }
@@ -249,6 +278,7 @@
         }
         .social-item a:hover { background: #0e0e0e; color: var(--accent); transform: scale(1.1) rotate(10deg); }
         .social-desc { font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+        .footer-quote { font-family: 'Manrope', sans-serif; font-size: 1.2rem; font-style: italic; color: #0e0e0e; opacity: 0.8; margin-bottom: 40px; max-width: 800px; text-align: center; }
 
         /* --- MODALS --- */
         .modal-overlay { 
@@ -258,16 +288,19 @@
             opacity: 0; transition: opacity 0.4s; backdrop-filter: blur(8px); 
         }
         .modal-overlay.open { display: flex; opacity: 1; }
-        .modal-content { background: #ffffff; width: 90%; max-width: 800px; padding: 40px; max-height: 90vh; overflow-y: auto; position: relative; border-radius: 8px; }
-        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--text-muted); }
-        .modal-body ul { padding-left: 20px; list-style: disc; margin-bottom: 20px; }
-        .modal-body li { margin-bottom: 8px; color: #444; }
-        .modal-body h3 { font-size: 1.1rem; color: var(--accent); margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }
+        .modal-content { background: #ffffff; width: 90%; max-width: 900px; padding: 0; max-height: 90vh; overflow-y: auto; position: relative; border-radius: 8px; }
+        .modal-header { background: #f9f9f9; padding: 25px 30px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; }
+        .modal-body { padding: 30px; }
+        .modal-body h3 { font-size: 1.2rem; color: var(--accent); margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }
+        .modal-body ul { list-style: disc; padding-left: 20px; margin-bottom: 15px; }
+        .modal-body li { margin-bottom: 6px; color: #444; }
+        .close-modal { font-size: 2rem; cursor: pointer; color: var(--text-muted); transition: 0.2s;}
+        .close-modal:hover { color: #000; transform: rotate(90deg); }
 
         /* --- MOBILE OPTIMIZATION (<900px) --- */
         @media (max-width: 900px) {
-            .hero-image-container { position: relative; width: 100%; height: 350px; top: 0; right: 0; margin-bottom: 30px; opacity: 1; filter: none; }
-            .bio-grid, .edu-grid { grid-template-columns: 1fr; }
+            .hero-image-container { position: relative; width: 100%; height: 350px; top: 0; right: 0; margin-bottom: 30px; opacity: 1; filter: none; mix-blend-mode: normal; }
+            .bio-grid, .edu-grid, .linkedin-cols, .personal-grid { grid-template-columns: 1fr; }
             .timeline-container { padding-left: 20px; border-left: 2px solid var(--lines); }
             .exp-row::before { width: 16px; height: 16px; left: -29px; }
             
@@ -275,33 +308,29 @@
             #portfolio-section { 
                 height: auto; 
                 padding-top: 0; padding-bottom: 80px; 
-                overflow-x: hidden; /* Evita scroll orizzontale durante animazioni */
+                overflow-x: hidden; 
             }
-            /* Titolo Statico */
             .portfolio-sticky-header { 
                 position: relative; top: auto; left: auto; 
                 padding: 60px 5% 0 5%; width: 100%; margin-bottom: 20px; max-width: 100%; 
             }
             .portfolio-sticky-header h2 { font-size: 2rem; }
             
-            /* Container Verticale */
             .h-scroll-container { display: block; height: auto; overflow: visible; }
             .h-scroll-section { display: block; width: 100%; height: auto; }
             
-            /* Elementi Verticali */
             .gallery-item { 
                 width: 100%; height: auto; 
                 padding: 40px 5%; margin-bottom: 20px;
                 border-bottom: 1px solid #333; border-right: none; 
-                flex-direction: column; /* Numero sopra, card sotto */
+                flex-direction: column; 
                 gap: 15px; align-items: center; justify-content: flex-start;
-                opacity: 0; /* Nascondi inizialmente per GSAP */
+                opacity: 0; 
             }
             
             .gallery-num { font-size: 3rem; -webkit-text-stroke: 1px var(--accent); margin-right: auto; }
             .gallery-card { width: 100%; margin: 0; padding: 30px; margin-top: 0; max-width: 100%; }
             
-            /* Footer */
             .social-container { gap: 30px; }
             .footer-cta { font-size: 3rem; }
             .cursor, .cursor-dot { display: none; }
@@ -316,12 +345,12 @@
 
     <div class="menu-overlay" id="menuOverlay">
         <div class="close-menu hover-trigger" onclick="toggleMenu()">&times;</div>
-        <a href="#bio" class="menu-link hover-trigger" onclick="toggleMenu()">Chi Sono</a>
+        <a href="#bio" class="menu-link hover-trigger" onclick="toggleMenu()">Profile</a>
         <a href="#ai" class="menu-link hover-trigger" onclick="toggleMenu()">Strategy</a>
-        <a href="#experience" class="menu-link hover-trigger" onclick="toggleMenu()">Esperienze</a>
+        <a href="#experience" class="menu-link hover-trigger" onclick="toggleMenu()">Timeline</a>
         <a href="#portfolio-section" class="menu-link hover-trigger" onclick="toggleMenu()">Portfolio</a>
-        <a href="#personal" class="menu-link hover-trigger" onclick="toggleMenu()">Info</a>
-        <a href="#contact" class="menu-link hover-trigger" onclick="toggleMenu()">Contatti</a>
+        <a href="#education" class="menu-link hover-trigger" onclick="toggleMenu()">Education</a>
+        <a href="#contact" class="menu-link hover-trigger" onclick="toggleMenu()">Contact</a>
     </div>
 
     <nav id="navbar">
@@ -353,13 +382,13 @@
 
     <section id="bio" class="section-padding container">
         <div class="bio-grid">
-            <div class="section-subtitle">PROFILO ESECUTIVO</div>
+            <div class="section-subtitle">STRATEGIC ASSET & ANALYSIS</div>
             <div class="bio-text hover-trigger">
                 Sono Francesco Gubertini. Nel mercato attuale, l'intuizione non basta più: serve la certezza del dato. Il mio approccio al <strong>Go-to-Market</strong> si fonda sul <strong>Data Driven Decision Making</strong>. Non mi limito al marketing operativo: integro i numeri dell'economista e la precisione tecnica per costruire strategie che riducono il rischio d'impresa e garantiscono risultati misurabili.
                 <div class="bio-quote">
                     "Il mio profilo unisce una solida competenza tecnica (CRM, Business Intelligence, AI) a una sensibilità creativa (Branding, Design)."
                 </div>
-                Il mio percorso professionale è una costante evoluzione: dall'operatività commerciale diretta alla definizione di strategie basate sui dati. Ho maturato una solida esperienza lavorando sia in <strong>gruppi strutturati</strong> che in <strong>PMI</strong>, gestendo budget significativi e coordinando reparti trasversali. Oggi, potenziando queste competenze con l'<strong>Intelligenza Artificiale Predittiva</strong>, offro alle aziende un vantaggio competitivo basato su fatti, efficienza e previsione.
+                Il mio percorso professionale è una costante evoluzione: dall'operatività commerciale diretta alla definizione di strategie basate sui dati. Ho maturato una solida esperienza lavorando sia in <strong>gruppi strutturati</strong> che in <strong>PMI</strong>, gestendo budget significativi e coordinando reparti trasversali. Oggi, potenziando queste competenze con l'<strong>Intelligenza Artificiale Predittiva</strong>, offro alle aziende un vantaggio competitivo basato su fatti, efficienza e previsione. Questa duplice natura mi permette di operare trasversalmente in settori complessi come la ceramica industriale, l'automotive e il luxury food, trasformandomi da esecutore ad asset strategico focalizzato sul <strong>ROI</strong> e sulle vendite.
             </div>
         </div>
     </section>
@@ -367,34 +396,49 @@
     <section id="ai" class="container" style="padding: 100px 0;">
         <span class="section-subtitle">INNOVAZIONE APPLICATA</span>
         <h2 class="section-title">AI STRATEGY & EXECUTION</h2>
+        <div style="max-width: 800px; margin-bottom: 40px; color: var(--text-muted);">
+            L'IA non è solo generazione di contenuti, è uno strumento di calcolo e previsione per supportare il management.
+        </div>
         <div class="ai-stripe">
             <div class="ai-box hover-trigger">
                 <i class="fa-solid fa-chart-pie ai-icon"></i>
                 <h3>Predictive Analysis</h3>
-                <p>Forecasting vendite e scenari di mercato. Analisi predittiva su Business Intelligence. Identificazione trend nascosti nei dati aziendali.</p>
+                <ul>
+                    <li>Forecasting vendite e scenari di mercato.</li>
+                    <li>Analisi predittiva su Business Intelligence.</li>
+                    <li>Identificazione trend nascosti nei dati aziendali.</li>
+                </ul>
             </div>
             <div class="ai-box hover-trigger">
                 <i class="fa-solid fa-brain ai-icon"></i>
                 <h3>Governance & Strategy</h3>
-                <p>Roadmap adozione AI in azienda. Gestione etica e compliance (EU AI Act). Change Management e integrazione flussi.</p>
+                <ul>
+                    <li>Roadmap adozione AI in azienda.</li>
+                    <li>Gestione etica e compliance (EU AI Act).</li>
+                    <li>Change Management e integrazione flussi.</li>
+                </ul>
             </div>
             <div class="ai-box hover-trigger">
                 <i class="fa-solid fa-robot ai-icon"></i>
                 <h3>Generative AI & Content</h3>
-                <p>Advanced Prompt Engineering per Marketing. Automazione creazione report e documenti. Supporto creativo per Naming e Payoff.</p>
+                <ul>
+                    <li>Advanced Prompt Engineering per Marketing.</li>
+                    <li>Automazione creazione report e documenti.</li>
+                    <li>Supporto creativo per Naming e Payoff.</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <section class="section-padding container">
-        <span class="section-subtitle">TECH STACK</span>
+        <span class="section-subtitle">STRUMENTI DECISIONALI</span>
         <h2 class="section-title">COMPETENZE TECNICHE</h2>
         <div class="skills-grid hover-trigger">
             <div class="skill-group">
                 <h3><i class="fa-solid fa-brain"></i> BI & AI</h3>
-                <div class="skill-item">Power BI & Excel <span class="skill-badge">EXPERT</span></div>
-                <div class="skill-item">ChatGPT/Claude <span class="skill-badge">ADVANCED</span></div>
-                <div class="skill-item">Midjourney <span class="skill-badge">INTERM.</span></div>
+                <div class="skill-item">Power BI & Excel (Adv/VBA) <span class="skill-badge">EXPERT</span></div>
+                <div class="skill-item">ChatGPT/Claude (Prompt Eng.) <span class="skill-badge">ADVANCED</span></div>
+                <div class="skill-item">Midjourney (GenAI Images) <span class="skill-badge">INTERM.</span></div>
             </div>
             <div class="skill-group">
                 <h3><i class="fa-solid fa-database"></i> CRM & ERP</h3>
@@ -403,20 +447,22 @@
                 <div class="skill-item">AS400 & SAP <span class="skill-badge">USER</span></div>
             </div>
             <div class="skill-group">
-                <h3><i class="fa-solid fa-bullhorn"></i> Digital</h3>
+                <h3><i class="fa-solid fa-bullhorn"></i> Digital Marketing</h3>
                 <div class="skill-item">GA4 & Ads <span class="skill-badge">SENIOR</span></div>
                 <div class="skill-item">MailChimp <span class="skill-badge">SENIOR</span></div>
+                <div class="skill-item">Meta Business <span class="skill-badge">SENIOR</span></div>
             </div>
             <div class="skill-group">
-                <h3><i class="fa-solid fa-shopping-cart"></i> E-Commerce</h3>
-                <div class="skill-item">WordPress & Woo <span class="skill-badge">EXPERT</span></div>
-                <div class="skill-item">Amazon Seller <span class="skill-badge">EXPERT</span></div>
+                <h3><i class="fa-solid fa-shopping-cart"></i> E-commerce & Web</h3>
+                <div class="skill-item">WordPress & WooCommerce <span class="skill-badge">EXPERT</span></div>
+                <div class="skill-item">Amazon Seller Central <span class="skill-badge">EXPERT</span></div>
+                <div class="skill-item">Adobe Creative Suite <span class="skill-badge">INTERM.</span></div>
             </div>
              <div class="skill-group">
-                <h3><i class="fa-solid fa-users"></i> Lingue</h3>
+                <h3><i class="fa-solid fa-language"></i> Lingue</h3>
                 <div class="skill-item">Italiano <span class="skill-badge">NATIVE</span></div>
                 <div class="skill-item">Inglese <span class="skill-badge">B2</span></div>
-                <div class="skill-item">Francese/Spagnolo <span class="skill-badge">BASE</span></div>
+                <div class="skill-item">Francese <span class="skill-badge">A2</span></div>
             </div>
         </div>
     </section>
@@ -447,7 +493,7 @@
             <div class="exp-row hover-trigger" onclick="openModal('waterline')">
                 <div class="exp-header">
                     <span class="exp-role">Responsabile Marketing</span>
-                    <span class="exp-date">SET 2016 - DIC 2017</span>
+                    <span class="exp-date">2016 - 2017</span>
                 </div>
                 <div class="exp-company">Waterline - Bevco (Solido Group)</div>
                 <div class="exp-details">Change management post-acquisizione, unificazione Corporate Identity e lancio nuovi prodotti.</div>
@@ -456,22 +502,22 @@
             <div class="exp-row hover-trigger" onclick="openModal('bmw')">
                 <div class="exp-header">
                     <span class="exp-role">Marketing Retail & CRM</span>
-                    <span class="exp-date">GEN 2014 - SET 2016</span>
+                    <span class="exp-date">2014 - 2016</span>
                 </div>
-                <div class="exp-company">Rete Vendita BMW Italia</div>
+                <div class="exp-company">RETE VENDITA BMW ITALIA</div>
                 <div class="exp-details">Gestione rigorosa funnel di vendita, budget media e monitoraggio KPI finanziari.</div>
             </div>
 
-            <div class="exp-row hover-trigger" onclick="openModal('lapam')">
+             <div class="exp-row hover-trigger" onclick="openModal('lapam')">
                 <div class="exp-header">
                     <span class="exp-role">Analista Marketing & Sistemi</span>
-                    <span class="exp-date">DIC 2010 - DIC 2013</span>
+                    <span class="exp-date">2010 - 2013</span>
                 </div>
                 <div class="exp-company">LAPAM Confartigianato</div>
                 <div class="exp-details">Implementazione CRM V-Tiger, analisi economica territoriale e rapporti istituzionali.</div>
             </div>
 
-            <div class="exp-row hover-trigger" onclick="openModal('htv')">
+             <div class="exp-row hover-trigger" onclick="openModal('htv')">
                 <div class="exp-header">
                     <span class="exp-role">Responsabile Punto Vendita</span>
                     <span class="exp-date">2006 - 2010</span>
@@ -480,7 +526,7 @@
                 <div class="exp-details">Gestione diretta cassa, fatturazione, magazzino e visual merchandising.</div>
             </div>
 
-            <div class="exp-row hover-trigger" onclick="openModal('ebay')">
+             <div class="exp-row hover-trigger" onclick="openModal('ebay')">
                 <div class="exp-header">
                     <span class="exp-role">E-commerce Specialist</span>
                     <span class="exp-date">2002 - 2008</span>
@@ -505,12 +551,13 @@
                     <div class="gallery-num">01</div>
                     <div class="gallery-card hover-trigger">
                         <i class="fa-solid fa-book-open gallery-icon-large"></i>
-                        <h4>Cataloghi & Identity</h4>
+                        <h4>Cataloghi & Brand Identity</h4>
                         <p>Cataloghi generali e Company Profile. Sviluppo identità visiva.</p>
                         <div class="gallery-files">
                             <a href="assets/docs/cat.archi-element-23.pdf"><i class="fa-solid fa-file-pdf"></i> Cat.Archi_Element_23.pdf</a>
                             <a href="assets/docs/company-profile-it-element.pdf"><i class="fa-solid fa-file-pdf"></i> Company-Profile.pdf</a>
-                             <a href="assets/docs/element-catalogo-generale-interno-25.pdf"><i class="fa-solid fa-file-pdf"></i> ELEMENT Catalogo Gen. 25.pdf</a>
+                            <a href="assets/docs/element-catalogo-generale-interno-25.pdf"><i class="fa-solid fa-file-pdf"></i> Element Catalogo Generale.pdf</a>
+                            <a href="assets/docs/element-cat-21-ld.pdf"><i class="fa-solid fa-file-pdf"></i> Element_Cat_21_LD.pdf</a>
                         </div>
                     </div>
                 </div>
@@ -523,8 +570,9 @@
                         <p>Box, Pallet e presentazioni per Grandi Clienti (Bauhaus, OBI, etc).</p>
                         <div class="gallery-files">
                             <a href="assets/docs/bauhaus-opera-2022-m21-01502-001.pdf"><i class="fa-solid fa-file-pdf"></i> BAUHAUS-OPERA 2022.pdf</a>
-                            <a href="assets/docs/presentazione-diy.pdf"><i class="fa-solid fa-file-pdf"></i> Presentazione DIY.pdf</a>
                             <a href="assets/docs/box-bauhaus-beton-urban-presentazione-2025.pdf"><i class="fa-solid fa-file-pdf"></i> BOX BAUHAUS PRES. 2025.pdf</a>
+                            <a href="assets/docs/presentazione-box-ikon.pdf"><i class="fa-solid fa-file-pdf"></i> Presentazione Box IKON.pdf</a>
+                            <a href="assets/docs/presentazione-diy.pdf"><i class="fa-solid fa-file-pdf"></i> Presentazione DIY.pdf</a>
                         </div>
                     </div>
                 </div>
@@ -536,9 +584,9 @@
                         <h4>Data Analysis & KPI</h4>
                         <p>Analisi campionamenti, rating e target agenti.</p>
                         <div class="gallery-files">
+                            <a href="assets/docs/pres.-camp.-riunione.pdf"><i class="fa-solid fa-file-pdf"></i> PRES. CAMP. RIUNIONE.pdf</a>
                             <a href="assets/docs/rating-di-campionamento-19-20-21.xlsx"><i class="fa-solid fa-file-excel"></i> Rating Campionamento.xlsx</a>
                             <a href="assets/docs/target-agenti-2023-merchandising.xlsx"><i class="fa-solid fa-file-excel"></i> Target Agenti 2023.xlsx</a>
-                            <a href="assets/docs/pres.-camp.-riunione.pdf"><i class="fa-solid fa-file-pdf"></i> PRES. CAMP. RIUNIONE.pdf</a>
                         </div>
                     </div>
                 </div>
@@ -551,8 +599,9 @@
                         <p>Strumenti fisici di vendita, folder e sinottici tecnici.</p>
                         <div class="gallery-files">
                             <a href="assets/docs/cat.merch-element-23.pdf"><i class="fa-solid fa-file-pdf"></i> Cat.Merch_Element.pdf</a>
-                            <a href="assets/docs/milestone-20mm-2025-megaflis.pdf"><i class="fa-solid fa-file-pdf"></i> Milestone_20mm.pdf</a>
-                            <a href="assets/docs/sinottici-element-100x200-2025.pdf"><i class="fa-solid fa-file-pdf"></i> SINOTTICI ELEMENT 2025.pdf</a>
+                            <a href="assets/docs/folder-30x30-element-2022.pdf"><i class="fa-solid fa-file-pdf"></i> Folder 30x30 Element.pdf</a>
+                            <a href="assets/docs/milestone-20mm-2025-megaflis.pdf"><i class="fa-solid fa-file-pdf"></i> Milestone_20mm_Megaflis.pdf</a>
+                            <a href="assets/docs/sinottici-element-100x200-2025.pdf"><i class="fa-solid fa-file-pdf"></i> SINOTTICI_ELEMENT.pdf</a>
                         </div>
                     </div>
                 </div>
@@ -561,11 +610,12 @@
                      <div class="gallery-num">05</div>
                     <div class="gallery-card hover-trigger">
                          <i class="fa-solid fa-briefcase gallery-icon-large"></i>
-                        <h4>Rete Comm.le & Vendite</h4>
+                        <h4>Rete Commerciale e Vendite</h4>
                          <p>Gestione listini, previsioni di vendita e questionari.</p>
                         <div class="gallery-files">
                              <a href="assets/docs/articoli-a-magazzino-e-previsione-di-vendita.xlsx"><i class="fa-solid fa-file-excel"></i> Previsione Vendita.xlsx</a>
                             <a href="assets/docs/listino-element-2025.xlsx"><i class="fa-solid fa-file-excel"></i> LISTINO ELEMENT.xlsx</a>
+                            <a href="assets/docs/listino-upec.xlsx"><i class="fa-solid fa-file-excel"></i> LISTINO UPEC.xlsx</a>
                             <a href="assets/docs/questionario-cersaie-online.xlsx"><i class="fa-solid fa-file-excel"></i> QUESTIONARIO CERSAIE.xlsx</a>
                         </div>
                     </div>
@@ -575,12 +625,12 @@
                      <div class="gallery-num">06</div>
                     <div class="gallery-card hover-trigger">
                         <i class="fa-solid fa-flask gallery-icon-large"></i>
-                        <h4>Reparto campioni & R&D</h4>
+                        <h4>Reparto campioni e R&D</h4>
                          <p>Analisi merchandising Italia, posizionamento e report campioni.</p>
                         <div class="gallery-files">
                              <a href="assets/docs/analisi-merchandising-italia.xlsx"><i class="fa-solid fa-file-excel"></i> ANALISI MERCHANDISING.xlsx</a>
+                             <a href="assets/docs/posizionamento-nord-italia-2019.xlsx"><i class="fa-solid fa-file-excel"></i> posizionamento Nord italia.xlsx</a>
                             <a href="assets/docs/rep.-campioni-25.xlsx"><i class="fa-solid fa-file-excel"></i> REP. CAMPIONI 25.xlsx</a>
-                            <a href="assets/docs/posizionamento-nord-italia-2019.xlsx"><i class="fa-solid fa-file-excel"></i> Posizionamento Nord.xlsx</a>
                         </div>
                     </div>
                 </div>
@@ -589,79 +639,126 @@
         </div>
     </div>
 
-    <section class="section-padding container">
-        <span class="section-subtitle">FORMAZIONE</span>
-        <h2 class="section-title">EDUCAZIONE CONTINUA</h2>
+    <section id="education" class="section-padding container">
+        <span class="section-subtitle">APPRENDIMENTO CONTINUO</span>
+        <h2 class="section-title">FORMAZIONE & CERTIFICATI</h2>
         <div class="edu-grid hover-trigger">
             <div>
-                <h3 style="margin-bottom:20px;">Titoli di Studio</h3>
+                <h3 style="margin-bottom:20px; border-bottom: 2px solid var(--accent); padding-bottom: 5px; display:inline-block;">Titoli di Studio</h3>
                 <div class="edu-card">
                     <h4>Laurea in Economia Aziendale</h4>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Facoltà Marco Biagi - UNIMORE</p>
-                    <p style="font-size:0.85rem; margin-top:10px;">Competenze in Management, Marketing Strategico, Contabilità e Diritto Commerciale.</p>
-                    <button class="menu-btn" style="margin-top:10px; font-size:0.7rem; border-bottom:1px solid #000;" onclick="openModal('laurea')">DETTAGLI</button>
+                    <div class="edu-inst"><span>Facoltà Marco Biagi - UNIMORE</span></div>
+                    <p class="edu-desc">Il corso fornisce solide competenze in management, organizzazione aziendale, contabilità e marketing. Prepara professionisti in grado di comprendere le dinamiche d'impresa e gestire processi decisionali complessi.</p>
+                    <button class="btn-small" onclick="openModal('laurea')">DETTAGLI</button>
                 </div>
                 <div class="edu-card">
                     <h4>Diploma di Geometra</h4>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Istituto Tecnico IGT Guarini</p>
-                    <p style="font-size:0.85rem; margin-top:10px;">Progettazione, topografia e sicurezza. Mentalità tecnica orientata al problem solving.</p>
-                    <button class="menu-btn" style="margin-top:10px; font-size:0.7rem; border-bottom:1px solid #000;" onclick="openModal('geometra')">DETTAGLI</button>
+                    <div class="edu-inst"><span>Istituto Tecnico IGT Guarini</span></div>
+                    <p class="edu-desc">Percorso focalizzato su costruzioni, topografia e sicurezza. Fornisce una mentalità tecnica rigorosa, orientata al problem solving, alla progettazione precisa e al rispetto delle normative.</p>
+                    <button class="btn-small" onclick="openModal('geometra')">DETTAGLI</button>
                 </div>
             </div>
             <div>
-                <h3 style="margin-bottom:20px;">Corsi di Perfezionamento</h3>
+                <h3 style="margin-bottom:20px; border-bottom: 2px solid var(--accent); padding-bottom: 5px; display:inline-block;">Corsi di Perfezionamento</h3>
                 
                 <div class="edu-card">
-                     <h4 onclick="openModal('ai-course1')">Modelli di IA per la Business Intelligence</h4>
-                     <p style="color:var(--text-muted); font-size:0.85rem;">Zenit Formazione (2025)</p>
-                     <button class="menu-btn" style="margin-top:5px; font-size:0.7rem; border-bottom:1px solid #000;" onclick="openModal('ai-course1')">APPROFONDISCI</button>
-                </div>
-                
-                <div class="edu-card">
-                     <h4 onclick="openModal('ai-course2')">IA ed Excel</h4>
-                     <p style="color:var(--text-muted); font-size:0.85rem;">Zenit Formazione (2025)</p>
-                     <button class="menu-btn" style="margin-top:5px; font-size:0.7rem; border-bottom:1px solid #000;" onclick="openModal('ai-course2')">APPROFONDISCI</button>
+                    <h4>Modelli di IA per la Business Intelligence</h4>
+                    <div class="edu-inst"><span>Zenit Formazione</span> <span class="edu-year">2025</span></div>
+                    <p class="edu-desc">Corso su Analytics, decision making diagnostico e Prompt Engineering.</p>
+                    <button class="btn-small" onclick="openModal('ai-course1')">DETTAGLI</button>
+                    <a href="assets/docs/attestato-gubertini-ia-bi.pdf" target="_blank" class="btn-small btn-file"><i class="fa-solid fa-file-pdf"></i> ATTESTATO</a>
                 </div>
 
                 <div class="edu-card">
-                     <h4 onclick="openModal('ai-course3')">IA nel decision making</h4>
-                     <p style="color:var(--text-muted); font-size:0.85rem;">Zenit Formazione (2025)</p>
-                     <button class="menu-btn" style="margin-top:5px; font-size:0.7rem; border-bottom:1px solid #000;" onclick="openModal('ai-course3')">APPROFONDISCI</button>
+                    <h4>IA ed Excel</h4>
+                    <div class="edu-inst"><span>Zenit Formazione</span> <span class="edu-year">2025</span></div>
+                    <p class="edu-desc">Analizzare dati con l'aiuto degli strumenti più recenti.</p>
+                    <button class="btn-small" onclick="openModal('ai-course2')">DETTAGLI</button>
+                    <a href="assets/docs/attestato-gubertini-ia-excel.pdf" target="_blank" class="btn-small btn-file"><i class="fa-solid fa-file-pdf"></i> ATTESTATO</a>
                 </div>
 
-                <div class="edu-card">
-                     <h4 onclick="openModal('ai-course4')">Vendite e Servizi con AI</h4>
-                     <p style="color:var(--text-muted); font-size:0.85rem;">IFOA (2024)</p>
-                     <button class="menu-btn" style="margin-top:5px; font-size:0.7rem; border-bottom:1px solid #000;" onclick="openModal('ai-course4')">APPROFONDISCI</button>
+                 <div class="edu-card">
+                    <h4>IA nel decision making</h4>
+                    <div class="edu-inst"><span>Zenit Formazione</span> <span class="edu-year">2025</span></div>
+                    <p class="edu-desc">Modelli collaborativi con IA nel decision making diagnostico e previsionale.</p>
+                    <button class="btn-small" onclick="openModal('ai-course3')">DETTAGLI</button>
+                    <a href="assets/docs/attestato-gubertini-ia-decision-making.pdf" target="_blank" class="btn-small btn-file"><i class="fa-solid fa-file-pdf"></i> ATTESTATO</a>
+                </div>
+
+                 <div class="edu-card">
+                    <h4>Vendite e Servizi con AI</h4>
+                    <div class="edu-inst"><span>IFOA</span> <span class="edu-year">2024</span></div>
+                    <p class="edu-desc">L'evoluzione delle vendite e dei servizi al cliente ai tempi dell'AI.</p>
+                    <button class="btn-small" onclick="openModal('ai-course4')">DETTAGLI</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="personal" class="section-padding container">
+    <section class="section-padding container">
+        <span class="section-subtitle">COMPETENZE VALIDATE</span>
+        <h2 class="section-title">PROFILO LINKEDIN & CERTIFICAZIONI</h2>
+        <div style="margin-bottom: 30px; font-size: 1rem; color: var(--text-muted);">
+            Overview delle competenze principali e conferme ricevute sul network professionale.
+             <a href="https://www.linkedin.com/in/gubertini/" target="_blank" style="color:var(--accent); font-weight:700; margin-left: 10px;">VAI AL PROFILO <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="linkedin-cols hover-trigger">
+            <div class="linkedin-group">
+                <h3><i class="fa-solid fa-microchip"></i> Innovazione & AI</h3>
+                <div class="skill-card"><span class="skill-name">AI Business Strategy <span class="zenit-badge">ZENIT</span></span><span class="skill-count"><i class="fa-solid fa-check"></i></span></div>
+                <div class="skill-card"><span class="skill-name">Generative AI <span class="zenit-badge">ZENIT</span></span><span class="skill-count"><i class="fa-solid fa-check"></i></span></div>
+                <div class="skill-card"><span class="skill-name">Power BI & Analytics <span class="zenit-badge">ZENIT</span></span><span class="skill-count"><i class="fa-solid fa-check"></i></span></div>
+                <div class="skill-card"><span class="skill-name">Digital Strategy</span><span class="skill-count">19</span></div>
+                <div class="skill-card"><span class="skill-name">E-commerce</span><span class="skill-count">18</span></div>
+            </div>
+            <div class="linkedin-group">
+                <h3><i class="fa-solid fa-briefcase"></i> Management</h3>
+                <div class="skill-card"><span class="skill-name">Marketing Strategy</span><span class="skill-count">26</span></div>
+                <div class="skill-card"><span class="skill-name">Management</span><span class="skill-count">21</span></div>
+                <div class="skill-card"><span class="skill-name">Business Planning</span><span class="skill-count">12</span></div>
+                <div class="skill-card"><span class="skill-name">Marketing Communications</span><span class="skill-count">14</span></div>
+            </div>
+            <div class="linkedin-group">
+                <h3><i class="fa-solid fa-cogs"></i> Digital & Ops</h3>
+                <div class="skill-card"><span class="skill-name">Microsoft Office</span><span class="skill-count">16</span></div>
+                <div class="skill-card"><span class="skill-name">Google Analytics</span><span class="skill-count">10</span></div>
+                <div class="skill-card"><span class="skill-name">Microsoft Excel</span><span class="skill-count">9</span></div>
+                <div class="skill-card"><span class="skill-name">Sales Management</span><span class="skill-count">12</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding container">
         <span class="section-subtitle">OLTRE IL LAVORO</span>
-        <h2 class="section-title">INFO PERSONALI</h2>
-        <div class="bio-grid">
-            <div class="section-subtitle" style="color:#000;">PASSIONI & IMPEGNO</div>
-            <div class="bio-text hover-trigger">
-                <p style="margin-bottom:20px;"><strong>Volontariato:</strong> Sono un volontario attivo presso la Pro Loco di Formigine. Contribuisco all'organizzazione e alla promozione di eventi locali, applicando le mie competenze gestionali per il bene della comunità.</p>
-                <p style="margin-bottom:20px;"><strong>Sport & Tech:</strong> Pratico costantemente Corsa e Fitness. Sono un esperto appassionato di tecnologia, sistemi informatici, Cinema e Giardinaggio.</p>
-                <p>Amo passare il tempo con gli amici e la famiglia. Convivo e ho una bellissima bambina di nome Sophia Chloé.</p>
+        <h2 class="section-title">INFORMAZIONI PERSONALI</h2>
+        <div class="personal-grid hover-trigger">
+            <div class="personal-item">
+                <h3><i class="fa-solid fa-hand-holding-heart"></i> Volontariato & Impegno Sociale</h3>
+                <p>Sono un volontario attivo presso la <strong>Pro Loco di Formigine</strong>.</p>
+                <p>Contribuisco attivamente all'organizzazione e alla promozione di eventi locali, applicando le mie competenze gestionali per il bene della comunità.</p>
+            </div>
+            <div class="personal-item">
+                <h3><i class="fa-solid fa-heart"></i> Passioni & Interessi</h3>
+                <p><strong>Sport:</strong> Pratico costantemente Corsa e Fitness.</p>
+                <p><strong>Informatica:</strong> Sono un esperto appassionato di tecnologia e sistemi informatici.</p>
+                <p><strong>Tempo Libero:</strong> Appassionato di Cinema e Giardinaggio. Quando il tempo me lo permette, amo visitare città d'arte o rilassandomi al mare e in montagna.</p>
+                <p style="margin-top:15px; border-top:1px solid var(--lines); padding-top:10px;">Amo passare il tempo con gli amici e la famiglia. Convivo e ho una bellissima bambina di nome <strong>Sophia Chloé</strong>.</p>
             </div>
         </div>
     </section>
+
+    <div class="section-padding container text-center">
+        <p class="footer-quote">"Sono curioso di natura, cerco costantemente nuove soluzioni e strade addentrandomi nei problemi fino a trovare una soluzione. Credo nelle best practice e nell'evoluzione progressiva sistemica."</p>
+    </div>
 
     <footer id="contact">
         <div class="container" style="text-align: center;">
-            <p class="footer-quote">"Sono curioso di natura, cerco costantemente nuove soluzioni e strade addentrandomi nei problemi fino a trovare una soluzione. Credo nelle best practice e nell'evoluzione progressiva sistemica."</p>
-            
-            <span class="section-subtitle" style="color:#000;">PRONTO PER IL PROSSIMO OBIETTIVO?</span>
+            <span class="section-subtitle" style="color:#000;">PRONTO PER IL PROSSIMO STEP?</span>
             
             <div class="footer-cta hover-trigger">
                 <a href="mailto:info@francescogubertini.it">LET'S TALK</a>
             </div>
-            <p style="margin-bottom:20px;">Portiamo valore, metodo e innovazione all'interno della tua azienda.</p>
-
+            
             <div class="social-container">
                 <div class="social-item">
                     <a href="mailto:info@francescogubertini.it"><i class="fa-solid fa-envelope"></i></a>
@@ -683,38 +780,39 @@
 
             <div style="margin-top: 80px; font-size: 0.8rem; opacity: 0.6; line-height: 1.6;">
                 &copy; <span id="year"></span> Francesco Gubertini. All Rights Reserved.<br>
-                Formigine (Mo) 41043 Italia
+                Formigine (Mo) 41043 Italia | <a href="#" style="color:#0e0e0e; font-weight:700;">Privacy Policy</a>
             </div>
         </div>
     </footer>
 
     <div id="modal-opera" class="modal-overlay">
         <div class="modal-content">
-            <div class="close-modal" onclick="closeModal('opera')">&times;</div>
-            <h2>OPERA GROUP</h2>
-            <span class="modal-role">Responsabile Marketing & Analyst</span>
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">OPERA GROUP</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">RESPONSABILE MARKETING & ANALYST</span></div>
+                <div class="close-modal" onclick="closeModal('opera')">&times;</div>
+            </div>
             <div class="modal-body">
-                <p>In un contesto industriale caratterizzato da alti volumi produttivi e forte presenza nella GDO, il mio ruolo si è focalizzato sulla trasformazione dell'approccio al mercato.</p>
+                <p>In un contesto industriale caratterizzato da alti volumi produttivi e forte presenza nella GDO, il mio ruolo si è focalizzato sulla trasformazione dell'approccio al mercato: passare dalla vendita di prodotto alla valorizzazione del brand per incrementare il markup, specialmente nel canale retail tradizionale.</p>
                 <h3>Innovazione di Prodotto & AI Strategy</h3>
-                <ul>
-                    <li>Coordinamento sviluppo prodotto (Lamgea System).</li>
-                    <li>Implementazione AI Predittiva per forecasting stock.</li>
-                    <li>Generative AI per creazione automatizzata di testi tecnici e traduzioni.</li>
+                <ul class="content-list">
+                    <li><strong>Coordinamento dello sviluppo prodotto</strong> con tecnologia Lamgea System (grandi lastre), curando il ciclo di vita dall'analisi dei trend alla dismissione.</li>
+                    <li><strong>Implementazione AI Predittiva:</strong> Utilizzo di algoritmi per l'analisi dei dati di vendita storici e il forecasting degli stock, ottimizzando la rotazione di magazzino.</li>
+                    <li><strong>Generative AI per i Contenuti:</strong> Integrazione di strumenti di Intelligenza Artificiale Generativa per la creazione automatizzata di testi tecnici, traduzioni multilingua e supporto alla creazione di asset visivi per cataloghi e moodboard, riducendo drasticamente il Time-to-Market.</li>
                 </ul>
-                <h3>Rebranding & Identity</h3>
-                <ul>
-                    <li>Sviluppo architettura di marca (Opera, Element, Grip 1.0).</li>
-                    <li>Direzione creativa su cataloghi e packaging.</li>
+                <h3>Rebranding & Corporate Identity</h3>
+                <ul class="content-list">
+                    <li><strong>Sviluppo dell'architettura di marca</strong> (Opera, Element, Grip 1.0) per segmentare l'offerta su diverse fasce di prezzo.</li>
+                    <li><strong>Direzione creativa e operativa</strong> su cataloghi, packaging e strumenti di merchandising, garantendo coerenza visiva dalla produzione alla logistica.</li>
                 </ul>
-                <h3>Trade Marketing</h3>
-                <ul>
-                    <li>Progettazione soluzioni espositive per DIY (OBI, Leroy Merlin).</li>
-                    <li>Analisi ROI sul Merchandising.</li>
+                <h3>Trade Marketing & Retail</h3>
+                <ul class="content-list">
+                    <li><strong>Progettazione di soluzioni espositive</strong> (Shop-in-Shop, Box) per grandi player del DIY (OBI, Leroy Merlin, Tecnomat).</li>
+                    <li><strong>Analisi del ROI sul Merchandising:</strong> mappatura delle campionature e calcolo del ritorno sull'investimento per ogni espositore posizionato.</li>
                 </ul>
-                 <h3>Analisi Dati & CRM</h3>
-                <ul>
-                    <li>Implementazione dashboard Power BI.</li>
-                    <li>Gestione digitalizzata Customer Care (-8% contestazioni).</li>
+                <h3>Analisi Dati & CRM</h3>
+                <ul class="content-list">
+                    <li><strong>Implementazione di dashboard in Power BI</strong> per il monitoraggio dei KPI di vendita.</li>
+                    <li><strong>Gestione digitalizzata del Customer Care</strong> per ridurre le contestazioni (-8%) e mappare le causali di reso.</li>
                 </ul>
             </div>
         </div>
@@ -722,23 +820,24 @@
     
     <div id="modal-acetaia" class="modal-overlay">
         <div class="modal-content">
-            <div class="close-modal" onclick="closeModal('acetaia')">&times;</div>
-            <h2>ACETAIA GUBERTINI</h2>
-            <span class="modal-role">Responsabile Marketing</span>
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">ACETAIA GUBERTINI</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">RESPONSABILE MARKETING</span></div>
+                <div class="close-modal" onclick="closeModal('acetaia')">&times;</div>
+            </div>
             <div class="modal-body">
-                <p>Riposizionamento Luxury e strategia digitale proprietaria.</p>
-                <h3>Digital Strategy</h3>
-                <ul>
-                    <li>Sviluppo ecosistema e-commerce proprietario (WooCommerce) e Marketplace.</li>
-                    <li>Gestione campagne Performance Marketing (Google Ads, Meta).</li>
+                <p>Progetto imprenditoriale che ha trasformato una realtà familiare in un brand orientato al profitto, riposizionando il prodotto da semplice condimento a "bene di investimento" tramite leve di marketing digitale e storytelling emozionale.</p>
+                <h3>Digital Strategy & Piattaforme</h3>
+                <ul class="content-list">
+                    <li><strong>Sviluppo autonomo dell'ecosistema e-commerce</strong> proprietario (WooCommerce) e integrazione con Marketplace (Amazon, eBay).</li>
+                    <li><strong>Gestione campagne Performance Marketing</strong> (Google Ads, Meta) con focus su SEO e indicizzazione organica.</li>
                 </ul>
                 <h3>Brand Positioning</h3>
-                <ul>
-                    <li>Branding "Slow Made" e identità visiva Luxury.</li>
+                <ul class="content-list">
+                    <li><strong>Creazione di un'identità visiva "Luxury"</strong> (Packaging, Etichette) basata sui valori di Slow Made e Made in Italy.</li>
                 </ul>
-                <h3>Segmentazione</h3>
-                <ul>
-                    <li>Strategia differenziata B2C, Ho.Re.Ca. e GDO.</li>
+                <h3>Segmentazione Omnicanale</h3>
+                <ul class="content-list">
+                    <li><strong>Strategia differenziata per cluster:</strong> B2C (Social/Web), Ho.Re.Ca. (Linee Riserva) e GDO (Linee dedicate), gestendo internamente la logistica e il Customer Service.</li>
                 </ul>
             </div>
         </div>
@@ -746,19 +845,20 @@
 
     <div id="modal-waterline" class="modal-overlay">
          <div class="modal-content">
-            <div class="close-modal" onclick="closeModal('waterline')">&times;</div>
-            <h2>WATERLINE</h2>
-            <span class="modal-role">Responsabile Marketing</span>
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">WATERLINE</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">MARKETING LEAD</span></div>
+                <div class="close-modal" onclick="closeModal('waterline')">&times;</div>
+            </div>
             <div class="modal-body">
-                <p>Change Management e Corporate Identity unificata post-acquisizione.</p>
-                <h3>Change Management</h3>
-                <ul>
-                    <li>Riprogettazione dei marchi e immagine coordinata di gruppo.</li>
-                    <li>Restyling sedi fisiche.</li>
+                <p>In un contesto di post-acquisizione aziendale, il focus è stato l'unificazione e la standardizzazione. Ho agito come collettore tra diverse realtà produttive per costruire una "Corporate Identity" univoca e coerente.</p>
+                <h3>Change Management & Identity</h3>
+                <ul class="content-list">
+                    <li><strong>Riprogettazione dei marchi</strong> e dell'immagine coordinata di gruppo per allineare le aziende acquisite sotto un unico "ombrello" valoriale.</li>
+                    <li><strong>Restyling delle sedi fisiche</strong> e dei materiali di vendita per trasmettere la nuova filosofia aziendale.</li>
                 </ul>
-                <h3>Sviluppo Prodotto</h3>
-                <ul>
-                    <li>Analisi scenario competitivo e lancio nuove linee (es. Drinkit).</li>
+                <h3>Sviluppo & Lancio Prodotto</h3>
+                <ul class="content-list">
+                    <li><strong>Analisi dello scenario competitivo</strong> e coordinamento del lancio di nuove linee (es. Drinkit), traducendo le specifiche tecniche in vantaggi commerciali comunicabili.</li>
                 </ul>
             </div>
         </div>
@@ -766,69 +866,75 @@
 
      <div id="modal-bmw" class="modal-overlay">
          <div class="modal-content">
-            <div class="close-modal" onclick="closeModal('bmw')">&times;</div>
-            <h2>BMW ITALIA</h2>
-            <span class="modal-role">Marketing Retail & CRM</span>
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">BMW ITALIA</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">CRM SPECIALIST</span></div>
+                <div class="close-modal" onclick="closeModal('bmw')">&times;</div>
+            </div>
             <div class="modal-body">
-                <p>Gestione rigorosa, finanziaria e analitica del marketing e dei lead.</p>
-                <h3>CRM & Processi</h3>
-                <ul>
-                    <li>Utilizzo intensivo CRM Sugar per monitoraggio funnel.</li>
-                    <li>Analisi KPI forza vendita per bonus qualitativi.</li>
+                <p>Il marketing inteso non come promozione, ma come strumento di controllo finanziario e di processo. Il ruolo richiedeva una gestione rigorosa dei flussi di lead e del budget.</p>
+                <h3>CRM & Processi Finanziari</h3>
+                <ul class="content-list">
+                    <li><strong>Utilizzo intensivo del CRM Sugar</strong> per il monitoraggio del funnel di vendita, dal primo contatto alla fatturazione.</li>
+                    <li><strong>Analisi dei KPI della forza vendita</strong> finalizzata all'ottenimento dei bonus qualitativi erogati dalla Casa Madre.</li>
                 </ul>
-                <h3>Budgeting</h3>
-                <ul>
-                    <li>Pianificazione investimenti media e organizzazione eventi Lead Generation.</li>
+                <h3>Budgeting & Media Planning</h3>
+                <ul class="content-list">
+                    <li><strong>Pianificazione trimestrale degli investimenti media</strong> e gestione fornitori (agenzie, stampa, radio).</li>
+                    <li><strong>Organizzazione operativa di eventi</strong> di lancio e "Open Weekend" per la Lead Generation.</li>
                 </ul>
             </div>
         </div>
     </div>
 
     <div id="modal-lapam" class="modal-overlay">
-         <div class="modal-content">
-            <div class="close-modal" onclick="closeModal('lapam')">&times;</div>
-            <h2>LAPAM CONFARTIGIANATO</h2>
-            <span class="modal-role">Analista Marketing & Sistemi</span>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">LAPAM CONFARTIGIANATO</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">ANALISTA MARKETING & SISTEMI</span></div>
+                <div class="close-modal" onclick="closeModal('lapam')">&times;</div>
+            </div>
             <div class="modal-body">
-                <p>Ruolo tecnico-istituzionale focalizzato sull'implementazione di sistemi informativi.</p>
-                <h3>IT & Systems</h3>
-                <ul>
-                    <li>Responsabile introduzione e configurazione CRM V-Tiger.</li>
+                <p>Ruolo tecnico-istituzionale focalizzato sull'implementazione di sistemi informativi e sull'analisi economica del territorio.</p>
+                <h3>IT & System Administration</h3>
+                <ul class="content-list">
+                    <li><strong>Responsabile dell'introduzione e configurazione del CRM V-Tiger</strong>, coordinando lo sviluppo tecnico e la personalizzazione dei flussi.</li>
                 </ul>
-                <h3>Ricerca</h3>
-                <ul>
-                    <li>Elaborazione studi di settore ed eventi tecnologici B2B.</li>
+                <h3>Ricerca & Analisi</h3>
+                <ul class="content-list">
+                    <li><strong>Elaborazione di studi di settore</strong> (es. impatto della crisi sulla subfornitura meccanica) e presentazione dei risultati a stakeholder istituzionali.</li>
+                    <li><strong>Organizzazione di eventi tecnologici B2B</strong> per favorire l'innovazione tra le imprese associate.</li>
                 </ul>
             </div>
         </div>
     </div>
 
     <div id="modal-htv" class="modal-overlay">
-         <div class="modal-content">
-            <div class="close-modal" onclick="closeModal('htv')">&times;</div>
-            <h2>HTV RETAIL</h2>
-            <span class="modal-role">Responsabile Punto Vendita</span>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">HTV (RETAIL FISICO)</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">RESPONSABILE PUNTO VENDITA</span></div>
+                <div class="close-modal" onclick="closeModal('htv')">&times;</div>
+            </div>
             <div class="modal-body">
-                <p>Le fondamenta operative della vendita fisica.</p>
-                <ul>
-                    <li>Responsabile di punto vendita.</li>
-                    <li>Gestione diretta cassa, fatturazione, magazzino e visual merchandising.</li>
-                    <li>Utilizzo ERP gestionali.</li>
+                <p>Le fondamenta operative che mi permettono oggi di comprendere le dinamiche reali della vendita fisica.</p>
+                <ul class="content-list">
+                    <li><strong>Responsabile di punto vendita</strong>.</li>
+                    <li><strong>Gestione diretta di cassa</strong>, fatturazione, magazzino e visual merchandising.</li>
+                    <li><strong>Utilizzo di ERP gestionali</strong> per il controllo stock.</li>
                 </ul>
             </div>
         </div>
     </div>
 
     <div id="modal-ebay" class="modal-overlay">
-         <div class="modal-content">
-            <div class="close-modal" onclick="closeModal('ebay')">&times;</div>
-            <h2>EBAY</h2>
-            <span class="modal-role">E-commerce Specialist</span>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">EBAY</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">E-COMMERCE SPECIALIST</span></div>
+                <div class="close-modal" onclick="closeModal('ebay')">&times;</div>
+            </div>
             <div class="modal-body">
-                <p>Le fondamenta operative della vendita digitale.</p>
-                <ul>
-                    <li>Attività di "Power Seller" durata 6 anni.</li>
-                    <li>Gestione autonoma ciclo vendita online internazionale: sourcing, pricing, logistica.</li>
+                <p>Le fondamenta operative che mi permettono oggi di comprendere le dinamiche reali della vendita digitale.</p>
+                <ul class="content-list">
+                    <li><strong>Attività di "Power Seller" durata 6 anni</strong>.</li>
+                    <li><strong>Gestione autonoma del ciclo completo di vendita online internazionale:</strong> sourcing, pricing, logistica e customer care, anticipando le logiche dell'e-commerce moderno.</li>
                 </ul>
             </div>
         </div>
@@ -836,93 +942,106 @@
 
     <div id="modal-laurea" class="modal-overlay">
          <div class="modal-content">
-            <div class="close-modal" onclick="closeModal('laurea')">&times;</div>
-            <h2>Laurea Economia Aziendale</h2>
-            <div class="modal-body">
-                <p>Competenze in Management, Marketing Strategico, Contabilità e Diritto Commerciale.</p>
-                <ul>
-                    <li>Management: Dinamiche decisionali e strategiche.</li>
-                    <li>Marketing: Analisi di mercato e comportamento consumatore.</li>
-                    <li>Contabilità: Valutazione stato di salute aziendale.</li>
-                </ul>
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">LAUREA ECONOMIA AZIENDALE</h2></div>
+                <div class="close-modal" onclick="closeModal('laurea')">&times;</div>
             </div>
-        </div>
-    </div>
-
-    <div id="modal-geometra" class="modal-overlay">
-         <div class="modal-content">
-            <div class="close-modal" onclick="closeModal('geometra')">&times;</div>
-            <h2>Diploma Geometra</h2>
             <div class="modal-body">
-                <p>Competenze tecniche di progettazione, precisione e sicurezza.</p>
-                <ul>
-                    <li>Progettazione e Disegno Tecnico.</li>
-                    <li>Topografia ed Estimo.</li>
-                    <li>Problem Solving Tecnico e Normativa.</li>
+                <p>Il Corso di Laurea in Economia Aziendale è progettato per formare professionisti capaci di operare nelle diverse funzioni aziendali (amministrazione, marketing, finanza, organizzazione).</p>
+                <h3>Competenze Chiave</h3>
+                <ul class="content-list">
+                    <li><strong>Management:</strong> Comprensione delle dinamiche decisionali e strategiche d'impresa.</li>
+                    <li><strong>Marketing:</strong> Analisi di mercato, comportamento del consumatore e leve del marketing mix.</li>
+                    <li><strong>Contabilità e Bilancio:</strong> Capacità di leggere e interpretare i documenti contabili per valutare lo stato di salute dell'azienda.</li>
+                    <li><strong>Diritto Commerciale:</strong> Basi normative che regolano l'attività d'impresa.</li>
                 </ul>
             </div>
         </div>
     </div>
     
-    <div id="modal-ai-course1" class="modal-overlay">
-        <div class="modal-content">
-            <div class="close-modal" onclick="closeModal('ai-course1')">&times;</div>
-            <h2>Modelli IA per Business Intelligence</h2>
-            <span class="modal-role">Zenit Formazione</span>
+    <div id="modal-geometra" class="modal-overlay">
+         <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">DIPLOMA GEOMETRA</h2></div>
+                <div class="close-modal" onclick="closeModal('geometra')">&times;</div>
+            </div>
             <div class="modal-body">
-                <ul>
+                <p>Il percorso di studi (ora denominato Costruzioni, Ambiente e Territorio) fornisce una preparazione tecnica multidisciplinare fondamentale per la gestione di progetti e cantieri.</p>
+                <h3>Competenze Chiave</h3>
+                <ul class="content-list">
+                    <li><strong>Progettazione e Disegno Tecnico:</strong> Precisione grafica e uso di software CAD.</li>
+                    <li><strong>Topografia ed Estimo:</strong> Rilievo del territorio e valutazione economica di beni immobili.</li>
+                    <li><strong>Sicurezza e Normativa:</strong> Gestione della sicurezza nei cantieri e conoscenza delle norme edilizie.</li>
+                    <li><strong>Problem Solving Tecnico:</strong> Approccio analitico e concreto alla risoluzione di problemi strutturali e logistici.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-ai-course1" class="modal-overlay">
+         <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">MODELLI DI IA PER LA BI</h2></div>
+                <div class="close-modal" onclick="closeModal('ai-course1')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p><strong>Ente:</strong> Zenit Formazione (Rif. PA 2024-23356/RER)</p>
+                <ul class="content-list">
                     <li>Formulare previsioni (analytics e forecasting data driven).</li>
                     <li>Assumere decisioni (decision making diagnostico).</li>
                     <li>Generare nuovi contenuti (Generative AI).</li>
-                    <li>Prompt Engineering avanzato.</li>
+                    <li>Prompt Engineering avanzato per ottimizzare l'interazione con i modelli LLM.</li>
                 </ul>
-                <a href="assets/docs/attestato-gubertini-ia-bi.pdf" target="_blank" style="text-decoration:underline; font-weight:bold;">Visualizza Attestato <i class="fa-solid fa-file-pdf"></i></a>
             </div>
         </div>
     </div>
 
     <div id="modal-ai-course2" class="modal-overlay">
-        <div class="modal-content">
-            <div class="close-modal" onclick="closeModal('ai-course2')">&times;</div>
-            <h2>IA ed Excel</h2>
-            <span class="modal-role">Zenit Formazione</span>
+         <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">IA ED EXCEL</h2></div>
+                <div class="close-modal" onclick="closeModal('ai-course2')">&times;</div>
+            </div>
             <div class="modal-body">
-                <p>Analizzare dati con l'aiuto degli strumenti più recenti.</p>
-                <ul>
+                <p><strong>Titolo completo:</strong> Analizzare dati con l'aiuto degli strumenti più recenti (Fogli di calcolo e cruscotti per l'intelligenza operativa)</p>
+                <p><strong>Ente:</strong> Zenit Formazione</p>
+                <ul class="content-list">
                     <li>Utilizzo di AI per potenziare l'analisi dati in Excel.</li>
-                    <li>Creazione di Dashboard dinamiche.</li>
+                    <li>Creazione di Dashboard dinamiche per il monitoraggio dei KPI.</li>
                     <li>Automazione di reportistica complessa.</li>
                 </ul>
-                <a href="assets/docs/attestato-gubertini-ia-excel.pdf" target="_blank" style="text-decoration:underline; font-weight:bold;">Visualizza Attestato <i class="fa-solid fa-file-pdf"></i></a>
             </div>
         </div>
     </div>
 
     <div id="modal-ai-course3" class="modal-overlay">
-        <div class="modal-content">
-            <div class="close-modal" onclick="closeModal('ai-course3')">&times;</div>
-            <h2>IA nel decision making</h2>
-            <span class="modal-role">Zenit Formazione</span>
+         <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">IA NEL DECISION MAKING</h2></div>
+                <div class="close-modal" onclick="closeModal('ai-course3')">&times;</div>
+            </div>
             <div class="modal-body">
-                <p>Modelli collaborativi con IA nel decision making diagnostico e previsionale.</p>
-                <ul>
+                <p><strong>Titolo completo:</strong> Modelli collaborativi con IA nel decision making diagnostico e previsionale</p>
+                <p><strong>Ente:</strong> Zenit Formazione (Rif. PA 2024-23357/RER)</p>
+                <ul class="content-list">
                     <li>Competenze per la doppia transizione nella gestione d'impresa.</li>
                     <li>Supporto decisionale tramite modelli predittivi.</li>
-                    <li>Analisi di scenari complessi.</li>
+                    <li>Analisi di scenari complessi supportata da algoritmi di IA.</li>
                 </ul>
-                 <a href="assets/docs/attestato-gubertini-ia-decision-making.pdf" target="_blank" style="text-decoration:underline; font-weight:bold;">Visualizza Attestato <i class="fa-solid fa-file-pdf"></i></a>
             </div>
         </div>
     </div>
 
     <div id="modal-ai-course4" class="modal-overlay">
-        <div class="modal-content">
-            <div class="close-modal" onclick="closeModal('ai-course4')">&times;</div>
-            <h2>Vendite e Servizi con AI</h2>
-            <span class="modal-role">IFOA</span>
+         <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">VENDITE E SERVIZI CON AI</h2></div>
+                <div class="close-modal" onclick="closeModal('ai-course4')">&times;</div>
+            </div>
             <div class="modal-body">
-                <p>L'evoluzione delle vendite e dei servizi al cliente ai tempi dell'AI.</p>
-                <ul>
+                <p><strong>Titolo completo:</strong> L'evoluzione delle vendite e dei servizi al cliente ai tempi dell'AI</p>
+                <p><strong>Ente:</strong> IFOA (Rif PA 2024-23361/RER)</p>
+                <ul class="content-list">
                     <li>Impatto dell'Intelligenza Artificiale sui processi di vendita.</li>
                     <li>Personalizzazione della Customer Experience tramite AI.</li>
                     <li>Nuovi strumenti digitali per la rete vendita.</li>
@@ -935,7 +1054,7 @@
         // --- 1. Custom Cursor Logic ---
         const cursor = document.querySelector('.cursor');
         const dot = document.querySelector('.cursor-dot');
-        const hoverTriggers = document.querySelectorAll('.hover-trigger, a, button, h4');
+        const hoverTriggers = document.querySelectorAll('.hover-trigger, a, button');
 
         if (window.matchMedia("(pointer: fine)").matches) {
             document.addEventListener('mousemove', (e) => {
