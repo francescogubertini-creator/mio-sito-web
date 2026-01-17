@@ -123,27 +123,49 @@
         }
         .menu-btn { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: var(--text-color); cursor: none; white-space: nowrap; }
         
-        /* Menu Overlay */
+        /* --- MENU OVERLAY (CORRETTO) --- */
         .menu-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: var(--accent); color: #0e0e0e; 
-            z-index: 2001; /* Aumentato z-index per coprire la nav bar (1000) */
-            transform: translateY(-100%); transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 2001; 
+            
+            /* FIX VISIBILITÀ E TRANSIZIONI */
+            transform: translateY(-100%); 
+            visibility: hidden; /* Nasconde quando chiuso */
+            opacity: 0;
+            
+            transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.3s, visibility 0.6s;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
-        .menu-overlay.active { transform: translateY(0); }
-        
-        /* --- MENU LIST CONTAINER (Nuovo per allineamento a sx centrato) --- */
-        .menu-list-container {
-            display: flex; 
-            flex-direction: column; 
-            align-items: flex-start; /* Allinea i testi a sinistra */
-            justify-content: center;
+
+        .menu-overlay.active { 
+            transform: translateY(0); 
+            visibility: visible; 
+            opacity: 1;
         }
 
-        .menu-link { font-size: clamp(2rem, 5vw, 4rem); margin: 10px 0; font-weight: 700; cursor: none; transition: 0.3s; position: relative; text-align: left; }
-        .menu-link:hover { color: #fff; transform: skewX(-10deg) translateX(10px); }
-        .close-menu { position: absolute; top: 30px; right: 5%; font-size: 2rem; cursor: pointer; }
+        /* VOCI DI MENU ADATTIVE */
+        .menu-link { 
+            /* Font basato sull'altezza viewport (vh) per evitare scroll */
+            font-size: clamp(1.5rem, 5vh, 3rem); 
+            margin: 1vh 0; 
+            font-weight: 700; 
+            cursor: none; 
+            transition: 0.3s; 
+            position: relative; 
+            line-height: 1.1;
+        }
+        
+        .menu-link:hover { color: #fff; transform: skewX(-10deg); }
+        
+        .close-menu { 
+            position: absolute; 
+            top: 20px; 
+            right: 5%; 
+            font-size: 2.5rem; 
+            cursor: pointer; 
+            z-index: 2002;
+        }
 
         /* --- HERO --- */
         .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; padding-top: 100px; }
@@ -287,15 +309,7 @@
             background: var(--accent); color: #0e0e0e; padding: 20px; margin: 0; position: relative;
         }
         .footer-cta { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1; margin: 20px 0; text-transform: uppercase; text-align: center; }
-        
-        /* MODIFICA PER LA SOTTOLINEATURA SU MOBILE */
-        .footer-cta a { 
-            border-bottom: 4px solid #0e0e0e; 
-            padding-bottom: 10px; /* Spazio aggiuntivo per staccare la linea dal testo */
-            display: inline-block; /* Necessario affinché il padding funzioni correttamente */
-            line-height: 1.1;
-        }
-
+        .footer-cta a { border-bottom: 4px solid #0e0e0e; }
         .social-container { display: flex; gap: 60px; margin-top: 60px; flex-wrap: wrap; justify-content: center; }
         .social-item { display: flex; flex-direction: column; align-items: center; gap: 15px; }
         .social-item a { 
@@ -330,12 +344,6 @@
             .bio-grid, .edu-grid, .linkedin-cols, .personal-grid { grid-template-columns: 1fr; }
             .timeline-container { padding-left: 20px; border-left: 2px solid var(--lines); }
             .exp-row::before { width: 16px; height: 16px; left: -29px; }
-            
-            /* --- MODIFICA MOBILE NAVBAR PER EVITARE SOVRAPPOSIZIONE --- */
-            nav { padding: 15px 4%; }
-            .logo { font-size: 0.9rem; letter-spacing: 0.5px; }
-            .nav-role { font-size: 0.5rem; letter-spacing: 0.5px; }
-            .menu-btn { font-size: 0.75rem; }
             
             /* --- PORTFOLIO MOBILE REDESIGN --- */
             #portfolio-section { 
@@ -378,26 +386,23 @@
 
     <div class="menu-overlay" id="menuOverlay">
         <div class="close-menu hover-trigger" onclick="toggleMenu()">&times;</div>
-        
-        <div class="menu-list-container">
-            <a href="#bio" class="menu-link hover-trigger" onclick="toggleMenu()">Profilo</a>
-            <a href="#ai" class="menu-link hover-trigger" onclick="toggleMenu()">IA Strategy</a>
-            <a href="#experience" class="menu-link hover-trigger" onclick="toggleMenu()">Esperienze di lavoro</a>
-            <a href="#portfolio-section" class="menu-link hover-trigger" onclick="toggleMenu()">Portfolio</a>
-            <a href="#education" class="menu-link hover-trigger" onclick="toggleMenu()">Formazione</a>
-            <a href="#contact" class="menu-link hover-trigger" onclick="toggleMenu()">Contatti</a>
-        </div>
+        <a href="#bio" class="menu-link hover-trigger" onclick="toggleMenu()">Profile</a>
+        <a href="#ai" class="menu-link hover-trigger" onclick="toggleMenu()">Strategy</a>
+        <a href="#experience" class="menu-link hover-trigger" onclick="toggleMenu()">Esperienze di lavoro</a>
+        <a href="#portfolio-section" class="menu-link hover-trigger" onclick="toggleMenu()">Portfolio</a>
+        <a href="#education" class="menu-link hover-trigger" onclick="toggleMenu()">Education</a>
+        <a href="#contact" class="menu-link hover-trigger" onclick="toggleMenu()">Contact</a>
     </div>
 
     <nav id="navbar">
-        <a href="#home" class="branding hover-trigger">
+        <div class="branding hover-trigger">
             <div class="logo">FRANCESCO GUBERTINI</div>
             <div class="nav-role">RESPONSABILE MARKETING & IA SPECIALIST</div>
-        </a>
+        </div>
         <div class="menu-btn hover-trigger" onclick="toggleMenu()">MENU +</div>
     </nav>
 
-    <header id="home" class="hero container">
+    <header class="hero container">
         <div class="hero-image-container">
             <img src="assets/img/francesco-gubertini-dimensioni-grandi.jpeg" alt="Francesco Gubertini">
         </div>
