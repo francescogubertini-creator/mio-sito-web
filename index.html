@@ -428,6 +428,127 @@
             .cursor, .cursor-dot { display: none; }
             * { cursor: auto; }
         }
+
+        /* --- NEW TECH MODALS (DARK THEME) --- */
+        .modal-content.tech-theme {
+            background: #0e0e0e; /* Sfondo scuro per effetto wow */
+            color: #e0e0e0;
+            border: 1px solid #333;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+        .modal-content.tech-theme .modal-header {
+            background: #141414;
+            border-bottom: 1px solid #333;
+        }
+        .modal-content.tech-theme .close-modal { color: #fff; }
+        .modal-content.tech-theme h2 { color: #fff; }
+        .modal-content.tech-theme h3 { color: var(--accent); border-bottom: 1px solid #333; }
+        .modal-content.tech-theme li { color: #bbb; }
+        .modal-content.tech-theme strong { color: #fff; }
+
+        /* CONTENITORE VISUAL */
+        .scenographic-container {
+            width: 100%;
+            height: 250px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- 1. PREDICTIVE: RADAR SCANNER --- */
+        .radar-grid {
+            position: absolute; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(197, 160, 89, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(197, 160, 89, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            perspective: 1000px;
+            transform: rotateX(60deg) scale(1.5);
+            opacity: 0.3;
+        }
+        .radar-line {
+            position: absolute;
+            width: 100%; height: 2px;
+            background: var(--accent);
+            box-shadow: 0 0 20px var(--accent);
+            top: 0;
+            animation: scanDown 3s linear infinite;
+            z-index: 2;
+        }
+        .future-bar {
+            position: absolute; bottom: 0; width: 30px; background: rgba(197, 160, 89, 0.5);
+            border-top: 2px solid var(--accent);
+            transform-origin: bottom;
+            animation: growBar 3s infinite;
+        }
+        @keyframes scanDown { 0% { top: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+        @keyframes growBar { 0%, 20% { height: 0; opacity: 0; } 50% { opacity: 1; } 100% { height: var(--h); opacity: 0; } }
+
+        /* --- 2. GOVERNANCE: DIGITAL SHIELD --- */
+        .core-sphere {
+            width: 60px; height: 60px;
+            background: radial-gradient(circle at 30% 30%, var(--accent), #000);
+            border-radius: 50%;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+        }
+        .shield-ring {
+            position: absolute;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .ring-1 { width: 120px; height: 120px; border-color: var(--accent); animation: spinRight 8s linear infinite; border-left: transparent; }
+        .ring-2 { width: 180px; height: 180px; border-style: dashed; animation: spinLeft 12s linear infinite; }
+        .ring-3 { width: 240px; height: 240px; border: 1px dotted rgba(255,255,255,0.1); animation: pulseScale 3s ease-in-out infinite; }
+        .scanner-dot {
+            position: absolute; top: 0; left: 50%; width: 6px; height: 6px; background: #fff; border-radius: 50%;
+            box-shadow: 0 0 10px #fff;
+        }
+        @keyframes spinRight { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+        @keyframes spinLeft { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(-360deg); } }
+        @keyframes pulseScale { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; } 50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.6; } }
+
+        /* --- 3. GENERATIVE: NEURAL ASSEMBLER --- */
+        .particle-stream {
+            position: absolute;
+            width: 4px; height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0;
+        }
+        .central-furnace {
+            width: 80px; height: 100px;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            display: flex; justify-content: center; align-items: center;
+            position: relative;
+            backdrop-filter: blur(5px);
+            animation: glowBox 2s infinite alternate;
+        }
+        .doc-line { width: 60%; height: 4px; background: rgba(255,255,255,0.3); margin: 6px 0; border-radius: 2px; }
+        .doc-line.active { background: var(--accent); box-shadow: 0 0 10px var(--accent); animation: typeLine 1s forwards; width: 0; }
+
+        @keyframes glowBox { from { box-shadow: 0 0 10px rgba(197,160,89,0.1); border-color: rgba(197,160,89,0.3); } to { box-shadow: 0 0 30px rgba(197,160,89,0.4); border-color: var(--accent); } }
+        @keyframes typeLine { to { width: 60%; } }
+
+        /* Particelle */
+        .p1 { top: 20%; left: 10%; animation: flyIn 2s infinite ease-in; animation-delay: 0s; }
+        .p2 { top: 80%; left: 10%; animation: flyIn 2s infinite ease-in; animation-delay: 0.5s; }
+        .p3 { top: 50%; left: 90%; animation: flyInRight 2s infinite ease-in; animation-delay: 1s; }
+        .p4 { top: 10%; left: 80%; animation: flyInRight 2s infinite ease-in; animation-delay: 1.5s; }
+
+        @keyframes flyIn { 0% { opacity: 1; transform: translate(0,0); } 100% { opacity: 0; transform: translate(150px, 0); } }
+        @keyframes flyInRight { 0% { opacity: 1; transform: translate(0,0); } 100% { opacity: 0; transform: translate(-150px, 0); } }
     </style>
 </head>
 <body>
@@ -447,7 +568,7 @@
 
     <nav id="navbar">
         <div class="branding hover-trigger">
-            <div class="logo">FRANCESCO GUBERTINI</div>
+            <a href="#" class="logo">FRANCESCO GUBERTINI</a>
             <div class="nav-role">RESPONSABILE MARKETING & IA SPECIALIST</div>
         </div>
         <div class="menu-btn hover-trigger" onclick="toggleMenu()">MENU +</div>
@@ -498,7 +619,7 @@
             L'IA non è solo generazione di contenuti, è uno strumento di calcolo e previsione per supportare il management.
         </div>
         <div class="ai-stripe">
-            <div class="ai-box hover-trigger">
+            <div class="ai-box hover-trigger" onclick="openModal('ai-predictive')">
                 <i class="fa-solid fa-chart-pie ai-icon"></i>
                 <h3>Predictive Analysis</h3>
                 <ul>
@@ -506,8 +627,10 @@
                     <li>Analisi predittiva su Business Intelligence.</li>
                     <li>Identificazione trend nascosti nei dati aziendali.</li>
                 </ul>
+                <div class="btn-small" style="margin-top:15px; border-color:var(--accent);">APPROFONDISCI +</div>
             </div>
-            <div class="ai-box hover-trigger">
+            
+            <div class="ai-box hover-trigger" onclick="openModal('ai-governance')">
                 <i class="fa-solid fa-brain ai-icon"></i>
                 <h3>Governance & Strategy</h3>
                 <ul>
@@ -515,8 +638,10 @@
                     <li>Gestione etica e compliance (EU AI Act).</li>
                     <li>Change Management e integrazione flussi.</li>
                 </ul>
+                <div class="btn-small" style="margin-top:15px; border-color:var(--accent);">APPROFONDISCI +</div>
             </div>
-            <div class="ai-box hover-trigger">
+            
+            <div class="ai-box hover-trigger" onclick="openModal('ai-gen')">
                 <i class="fa-solid fa-robot ai-icon"></i>
                 <h3>Generative AI & Content</h3>
                 <ul>
@@ -524,6 +649,7 @@
                     <li>Automazione creazione report e documenti.</li>
                     <li>Supporto creativo per Naming e Payoff.</li>
                 </ul>
+                <div class="btn-small" style="margin-top:15px; border-color:var(--accent);">APPROFONDISCI +</div>
             </div>
         </div>
         <div class="text-center">
@@ -902,6 +1028,109 @@
         </div>
     </footer>
 
+    <div id="modal-ai-predictive" class="modal-overlay">
+        <div class="modal-content tech-theme">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">PREDICTIVE VISION</h2><span style="color:#888; font-size:0.8rem; letter-spacing:1px;">ANTICIPARE IL MERCATO</span></div>
+                <div class="close-modal" onclick="closeModal('ai-predictive')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <div class="scenographic-container">
+                    <div class="radar-grid"></div>
+                    <div class="radar-line"></div>
+                    <div class="future-bar" style="left: 20%; height: 40px; animation-delay: 0.5s; --h: 80px;"></div>
+                    <div class="future-bar" style="left: 35%; height: 60px; animation-delay: 0.8s; --h: 120px;"></div>
+                    <div class="future-bar" style="left: 50%; height: 30px; animation-delay: 1.1s; --h: 150px;"></div>
+                    <div class="future-bar" style="left: 65%; height: 90px; animation-delay: 1.4s; --h: 100px;"></div>
+                    <div class="future-bar" style="left: 80%; height: 50px; animation-delay: 1.7s; --h: 180px;"></div>
+                </div>
+                
+                <h3 style="margin-top:0;">Dove ci possiamo spingere?</h3>
+                <p>Non si tratta più solo di reportistica. Con la Predictive AI passiamo dalla "fotografia" dell'esistente al "film" del futuro.</p>
+                
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-top:20px;">
+                    <div>
+                        <h4 style="color:#fff; margin-bottom:10px;">Simulation & What-If</h4>
+                        <p style="font-size:0.9rem; color:#bbb;">Simulazione di scenari complessi prima di investire. <em>"Cosa succede al margine se le materie prime aumentano del 12% e il competitor abbassa i prezzi?"</em>. L'IA risponde con probabilità, non opinioni.</p>
+                    </div>
+                    <div>
+                        <h4 style="color:#fff; margin-bottom:10px;">Dynamic Operations</h4>
+                        <p style="font-size:0.9rem; color:#bbb;">Previsione granulare della domanda per automatizzare gli ordini di riassortimento e ottimizzare la turnazione logistica, riducendo le immobilizzazioni finanziarie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-ai-governance" class="modal-overlay">
+        <div class="modal-content tech-theme">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">AI GOVERNANCE</h2><span style="color:#888; font-size:0.8rem; letter-spacing:1px;">L'ARCHITETTURA DEL CONTROLLO</span></div>
+                <div class="close-modal" onclick="closeModal('ai-governance')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <div class="scenographic-container">
+                    <div class="shield-ring ring-3"></div>
+                    <div class="shield-ring ring-2"><div class="scanner-dot"></div></div>
+                    <div class="shield-ring ring-1"></div>
+                    <div class="core-sphere"></div>
+                </div>
+
+                <h3 style="margin-top:0;">Il rischio non gestito è costo.</h3>
+                <p>L'adozione dell'IA in azienda è un vantaggio competitivo solo se blindata da una strategia di governance solida (EU AI Act).</p>
+                 <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-top:20px;">
+                    <div>
+                        <h4 style="color:#fff; margin-bottom:10px;">Ethical Firewalls</h4>
+                        <p style="font-size:0.9rem; color:#bbb;">Creazione di "recinti digitali" (Sandbox) dove l'IA può operare sui dati aziendali sensibili senza che questi vengano condivisi con modelli pubblici o terze parti.</p>
+                    </div>
+                    <div>
+                        <h4 style="color:#fff; margin-bottom:10px;">Human-in-the-loop</h4>
+                        <p style="font-size:0.9rem; color:#bbb;">Progettazione di flussi decisionali dove l'IA propone e l'umano dispone. L'algoritmo potenzia il manager, non lo sostituisce, garantendo la responsabilità legale delle scelte.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-ai-gen" class="modal-overlay">
+        <div class="modal-content tech-theme">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">GENERATIVE POWER</h2><span style="color:#888; font-size:0.8rem; letter-spacing:1px;">CREAZIONE SINTETICA DI VALORE</span></div>
+                <div class="close-modal" onclick="closeModal('ai-gen')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <div class="scenographic-container">
+                    <div class="particle-stream p1"></div>
+                    <div class="particle-stream p2"></div>
+                    <div class="particle-stream p3"></div>
+                    <div class="particle-stream p4"></div>
+                    
+                    <div class="central-furnace">
+                        <div style="display:flex; flex-direction:column; align-items:center; width:100%;">
+                            <div class="doc-line active" style="animation-delay:0.5s"></div>
+                            <div class="doc-line active" style="animation-delay:1.0s"></div>
+                            <div class="doc-line active" style="animation-delay:1.5s"></div>
+                            <div class="doc-line active" style="animation-delay:2.0s"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top:0;">Automazione Creativa e Cognitiva</h3>
+                <p>La Generative AI non serve solo a scrivere e-mail. È un motore di sintesi in grado di macinare complessità e restituire output pronti all'uso.</p>
+                
+                 <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-top:20px;">
+                    <div>
+                        <h4 style="color:#fff; margin-bottom:10px;">Synthetic Assets</h4>
+                        <p style="font-size:0.9rem; color:#bbb;">Generazione massiva di varianti di prodotto (mockup, ambientazioni) e copy personalizzati per migliaia di cluster clienti. Personalizzazione estrema a costo marginale zero.</p>
+                    </div>
+                    <div>
+                        <h4 style="color:#fff; margin-bottom:10px;">Knowledge Mining</h4>
+                        <p style="font-size:0.9rem; color:#bbb;">Trasformare l'intero archivio storico aziendale (PDF, contratti, manuali) in un assistente conversazionale che risponde in tempo reale a tecnici e commerciali.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="modal-opera" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
