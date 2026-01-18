@@ -15,12 +15,12 @@
     </script>
 
     <title>Francesco Gubertini | Marketing Data-Driven Decision Making</title>
-    <meta name="description" content="Unisco una solida competenza tecnica (CRM, Business Intelligence, AI) a una sensibilità creativa (Branding, Design).">
+    <meta name="description" content="Con un approccio pragmatico e analitico coordino il team marketing creando modelli basati sui dati.">
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://francescogubertini.it/">
     <meta property="og:title" content="Francesco Gubertini | Marketing Data-Driven Decision Making">
-    <meta property="og:description" content="Unisco una solida competenza tecnica (CRM, Business Intelligence, AI) a una sensibilità creativa (Branding, Design).">
+    <meta property="og:description" content="Con un approccio pragmatico e analitico coordino il team marketing creando modelli basati sui dati.">
     <meta property="og:image" content="assets/img/francesco-gubertini-dimensioni-grandi.jpeg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -113,27 +113,45 @@
         .branding { display: flex; flex-direction: column; min-width: 0; }
         .logo { 
             font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-color); line-height: 1.2; 
-            white-space: nowrap; /* Impedisce al testo di andare a capo */
+            white-space: nowrap; /* Default: no wrap desktop */
         }
         .nav-role { 
             font-size: 0.65rem; letter-spacing: 1px; text-transform: uppercase; 
             color: var(--accent) !important; 
             font-weight: 600; margin-top: 2px; font-family: 'Space Grotesk'; 
-            white-space: nowrap; /* Impedisce al testo di andare a capo */
+            white-space: nowrap;
         }
         .menu-btn { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: var(--text-color); cursor: none; white-space: nowrap; }
+
+        /* --- MOBILE NAV OVERLAP FIX --- */
+        @media (max-width: 600px) {
+            .branding {
+                max-width: 65%; /* Limita larghezza per non toccare il menu */
+            }
+            .logo { 
+                font-size: 0.85rem; /* Riduzione Font */
+                white-space: normal; /* Permetti di andare a capo */
+                line-height: 1.1;
+            }
+            .nav-role { 
+                font-size: 0.5rem; 
+                white-space: normal;
+                line-height: 1.2;
+            }
+            .menu-btn { 
+                font-size: 0.75rem; /* Riduzione Font bottone */
+                margin-left: 15px; /* Spazio garantito */
+            }
+        }
         
-        /* --- MENU OVERLAY (CORRETTO) --- */
+        /* --- MENU OVERLAY --- */
         .menu-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: var(--accent); color: #0e0e0e; 
             z-index: 2001; 
-            
-            /* FIX VISIBILITÀ E TRANSIZIONI */
             transform: translateY(-100%); 
-            visibility: hidden; /* Nasconde quando chiuso */
+            visibility: hidden; 
             opacity: 0;
-            
             transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.3s, visibility 0.6s;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
@@ -144,9 +162,7 @@
             opacity: 1;
         }
 
-        /* VOCI DI MENU ADATTIVE */
         .menu-link { 
-            /* Font basato sull'altezza viewport (vh) per evitare scroll */
             font-size: clamp(1.5rem, 5vh, 3rem); 
             margin: 1vh 0; 
             font-weight: 700; 
@@ -167,7 +183,31 @@
             z-index: 2002;
         }
 
-        /* --- HERO --- */
+        /* --- CTA BUTTONS --- */
+        .btn-primary {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            border: 1px solid var(--text-color);
+            background: transparent;
+            color: var(--text-color);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            cursor: none; 
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            background: var(--text-color);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- HERO & VIDEO --- */
         .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; padding-top: 100px; }
         .hero-line { overflow: hidden; }
         .hero-title { 
@@ -181,10 +221,11 @@
             position: absolute; right: 5%; top: 20%; width: 30vw; height: 50vh; z-index: -1; 
             opacity: 1; transition: 0.5s; 
         }
-        .hero-image-container img { 
+        .hero-image-container img, 
+        .hero-image-container video { 
             width: 100%; height: 100%; 
-            object-fit: contain; /* Impedisce il taglio */
-            filter: grayscale(100%); /* Bianco e nero */
+            object-fit: contain; 
+            filter: grayscale(100%); 
         }
 
         /* --- BIO --- */
@@ -233,7 +274,7 @@
         .exp-company { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
         .exp-details { font-size: 0.95rem; margin-top: 15px; color: var(--text-muted); line-height: 1.5; border-top: 1px dashed var(--lines); padding-top: 15px; }
 
-        /* --- PORTFOLIO (Desktop: Horizontal | Mobile: Stacked) --- */
+        /* --- PORTFOLIO --- */
         #portfolio-section { background-color: var(--dark-bg); color: var(--dark-text); position: relative; }
         
         .h-scroll-container { 
@@ -242,7 +283,6 @@
         }
         .h-scroll-section { width: 600%; height: 100%; display: flex; flex-wrap: nowrap; } 
         
-        /* Sticky Header for Portfolio */
         .portfolio-sticky-header {
             position: absolute; top: 10vh; left: 5vw; z-index: 10;
             pointer-events: none; max-width: 450px;
@@ -345,16 +385,8 @@
             .timeline-container { padding-left: 20px; border-left: 2px solid var(--lines); }
             .exp-row::before { width: 16px; height: 16px; left: -29px; }
             
-            /* --- PORTFOLIO MOBILE REDESIGN --- */
-            #portfolio-section { 
-                height: auto; 
-                padding-top: 0; padding-bottom: 80px; 
-                overflow-x: hidden; 
-            }
-            .portfolio-sticky-header { 
-                position: relative; top: auto; left: auto; 
-                padding: 60px 5% 0 5%; width: 100%; margin-bottom: 20px; max-width: 100%; 
-            }
+            #portfolio-section { height: auto; padding-top: 0; padding-bottom: 80px; overflow-x: hidden; }
+            .portfolio-sticky-header { position: relative; top: auto; left: auto; padding: 60px 5% 0 5%; width: 100%; margin-bottom: 20px; max-width: 100%; }
             .portfolio-sticky-header h2 { font-size: 2rem; }
             
             .h-scroll-container { display: block; height: auto; overflow: visible; }
@@ -404,7 +436,10 @@
 
     <header class="hero container">
         <div class="hero-image-container">
-            <img src="assets/img/francesco-gubertini-dimensioni-grandi.jpeg" alt="Francesco Gubertini">
+            <video autoplay muted loop playsinline>
+                <source src="assets/video/francesco-gubertini.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
         <h1 class="hero-title">
             <div class="hero-line"><span>Marketing</span></div>
@@ -412,7 +447,7 @@
             <div class="hero-line"><span>Decision Making.</span></div>
         </h1>
         <div class="hero-desc hover-trigger">
-            Trasformo i dati in decisioni strategiche. 20 anni di esperienza multisettoriale, unendo analisi predittiva e Intelligenza Artificiale per ridurre i costi e massimizzare il ROI nel marketing e nelle vendite.
+            Con un approccio pragmatico e analitico coordino il team marketing creando modelli basati sui dati individuando le strategie posizionamento e di brand piu adatte per ridurre le incertezze e aumentare il ritorno sull'investimento.
             <br><br>
             <div style="display:flex; gap:20px; flex-wrap:wrap;">
                 <a href="#portfolio-section" style="border-bottom: 1px solid var(--accent); font-weight:600;">VEDI PORTFOLIO</a>
@@ -425,11 +460,14 @@
         <div class="bio-grid">
             <div class="section-subtitle">STRATEGIC ASSET & ANALYSIS</div>
             <div class="bio-text hover-trigger">
-                Sono Francesco Gubertini. Nel mercato attuale, l'intuizione non basta più: serve la certezza del dato. Il mio approccio al <strong>Go-to-Market</strong> si fonda sul <strong>Data Driven Decision Making</strong>. Non mi limito al marketing operativo: integro i numeri dell'economista e la precisione tecnica per costruire strategie che riducono il rischio d'impresa e garantiscono risultati misurabili.
+                Unisco una solida competenza tecnica (CRM, Business Intelligence, AI) a una sensibilità creativa (Branding, Design), incarnando la <strong>fusione tra dati e design</strong>. Nel mercato attuale, l'intuizione non basta più: serve la certezza del dato. Il mio approccio al <strong>Go-to-Market</strong> si fonda sul <strong>Data Driven Decision Making</strong>. Non mi limito al marketing operativo: integro i numeri dell'economista e la precisione tecnica per costruire strategie che riducono il rischio d'impresa e garantiscono risultati misurabili.
                 <div class="bio-quote">
-                    "Il mio profilo unisce una solida competenza tecnica (CRM, Business Intelligence, AI) a una sensibilità creativa (Branding, Design)."
+                    "Il mio percorso professionale è una costante evoluzione: dall'operatività commerciale diretta alla definizione di strategie basate sui dati."
                 </div>
-                Il mio percorso professionale è una costante evoluzione: dall'operatività commerciale diretta alla definizione di strategie basate sui dati. Ho maturato una solida esperienza lavorando sia in <strong>gruppi strutturati</strong> che in <strong>PMI</strong>, gestendo budget significativi e coordinando reparti trasversali. Oggi, potenziando queste competenze con l'<strong>Intelligenza Artificiale Predittiva</strong>, offro alle aziende un vantaggio competitivo basato su fatti, efficienza e previsione. Questa duplice natura mi permette di operare trasversalmente in settori complessi come la ceramica industriale, l'automotive e il luxury food, trasformandomi da esecutore ad asset strategico focalizzato sul <strong>ROI</strong> e sulle vendite.
+                Ho maturato una solida esperienza lavorando sia in <strong>gruppi strutturati</strong> che in <strong>PMI</strong>, gestendo budget significativi e coordinando reparti trasversali. Oggi, potenziando queste competenze con l'<strong>Intelligenza Artificiale Predittiva</strong>, offro alle aziende un vantaggio competitivo basato su fatti, efficienza e previsione. Questa duplice natura mi permette di operare trasversalmente in settori complessi come la ceramica industriale, l'automotive e il luxury food, trasformandomi da esecutore ad asset strategico focalizzato sul <strong>ROI</strong> e sulle vendite.
+                
+                <br>
+                <a href="#contact" class="btn-primary">PARLIAMONE</a>
             </div>
         </div>
     </section>
@@ -469,6 +507,9 @@
                 </ul>
             </div>
         </div>
+        <div class="text-center">
+            <a href="#contact" class="btn-primary">PRENOTA UNA CONSULENZA</a>
+        </div>
     </section>
 
     <section class="section-padding container">
@@ -476,35 +517,43 @@
         <h2 class="section-title">COMPETENZE TECNICHE</h2>
         <div class="skills-grid hover-trigger">
             <div class="skill-group">
-                <h3><i class="fa-solid fa-brain"></i> BI & AI</h3>
+                <h3><i class="fa-solid fa-brain"></i> BI & AI Strategy</h3>
                 <div class="skill-item">Power BI & Excel (Adv/VBA) <span class="skill-badge">EXPERT</span></div>
                 <div class="skill-item">ChatGPT/Claude (Prompt Eng.) <span class="skill-badge">ADVANCED</span></div>
                 <div class="skill-item">Midjourney (GenAI Images) <span class="skill-badge">INTERM.</span></div>
+                <div class="skill-item">Analisi predittiva BI <span class="skill-badge">STRATEGY</span></div>
             </div>
             <div class="skill-group">
                 <h3><i class="fa-solid fa-database"></i> CRM & ERP</h3>
                 <div class="skill-item">Salesforce & LeadBook <span class="skill-badge">EXPERT</span></div>
                 <div class="skill-item">V-Tiger / Sugar <span class="skill-badge">ADMIN</span></div>
                 <div class="skill-item">AS400 & SAP <span class="skill-badge">USER</span></div>
+                <div class="skill-item">DB Complessi <span class="skill-badge">DESIGN</span></div>
             </div>
             <div class="skill-group">
-                <h3><i class="fa-solid fa-bullhorn"></i> Digital Marketing</h3>
-                <div class="skill-item">GA4 & Ads <span class="skill-badge">SENIOR</span></div>
+                <h3><i class="fa-solid fa-bullhorn"></i> Digital Marketing & Web</h3>
+                <div class="skill-item">GA4 & Google Analytics <span class="skill-badge">SENIOR</span></div>
+                <div class="skill-item">Google Ads <span class="skill-badge">SENIOR</span></div>
+                <div class="skill-item">Meta Business Suite <span class="skill-badge">SENIOR</span></div>
                 <div class="skill-item">MailChimp <span class="skill-badge">SENIOR</span></div>
-                <div class="skill-item">Meta Business <span class="skill-badge">SENIOR</span></div>
             </div>
             <div class="skill-group">
-                <h3><i class="fa-solid fa-shopping-cart"></i> E-commerce & Web</h3>
+                <h3><i class="fa-solid fa-shopping-cart"></i> E-commerce & Design</h3>
                 <div class="skill-item">WordPress & WooCommerce <span class="skill-badge">EXPERT</span></div>
                 <div class="skill-item">Amazon Seller Central <span class="skill-badge">EXPERT</span></div>
-                <div class="skill-item">Adobe Creative Suite <span class="skill-badge">INTERM.</span></div>
+                <div class="skill-item">Adobe Creative Suite <span class="skill-badge">INTERM./ADV</span></div>
+                <div class="skill-item">SEO/SEM <span class="skill-badge">STRATEGY</span></div>
             </div>
              <div class="skill-group">
                 <h3><i class="fa-solid fa-language"></i> Lingue</h3>
-                <div class="skill-item">Italiano <span class="skill-badge">NATIVE</span></div>
-                <div class="skill-item">Inglese <span class="skill-badge">B2</span></div>
-                <div class="skill-item">Francese <span class="skill-badge">A2</span></div>
+                <div class="skill-item">Italiano <span class="skill-badge">MADRELINGUA</span></div>
+                <div class="skill-item">Inglese (B2) <span class="skill-badge">INTERMEDIO</span></div>
+                <div class="skill-item">Francese (A2) <span class="skill-badge">BASE</span></div>
+                <div class="skill-item">Spagnolo <span class="skill-badge">BASE</span></div>
             </div>
+        </div>
+        <div class="text-center">
+            <a href="#portfolio-section" class="btn-primary">VEDI APPLICAZIONI PRATICHE</a>
         </div>
     </section>
 
@@ -516,65 +565,68 @@
             <div class="exp-row hover-trigger" onclick="openModal('opera')">
                 <div class="exp-header">
                     <span class="exp-role">Responsabile Marketing & Analyst</span>
-                    <span class="exp-date">DIC 2017 - OGGI</span>
+                    <span class="exp-date">GEN 2018 - OGGI</span>
                 </div>
                 <div class="exp-company">Opera Group</div>
-                <div class="exp-details">Trasformazione approccio al mercato e innovazione prodotto (Lamgea System) con supporto AI.</div>
+                <div class="exp-details">Gestione analitica, marketing e merchandising con focus sulla trasformazione dell'approccio al mercato e innovazione prodotto (Lamgea System).</div>
             </div>
 
             <div class="exp-row hover-trigger" onclick="openModal('acetaia')">
                 <div class="exp-header">
-                    <span class="exp-role">Responsabile Marketing</span>
-                    <span class="exp-date">DIC 2019 - OGGI</span>
+                    <span class="exp-role">Responsabile Marketing & E-commerce Specialist</span>
+                    <span class="exp-date">DIC 2013 - OGGI</span>
                 </div>
-                <div class="exp-company">Acetaia Gubertini</div>
-                <div class="exp-details">Riposizionamento Luxury, ecosistema digitale proprietario e strategia omnicanale.</div>
+                <div class="exp-company">Acetaia Gubertini (G.I. Consulenze)</div>
+                <div class="exp-details">Progetto imprenditoriale e di consulenza, trasformazione in brand orientato al profitto tramite marketing digitale e storytelling.</div>
             </div>
 
             <div class="exp-row hover-trigger" onclick="openModal('waterline')">
                 <div class="exp-header">
-                    <span class="exp-role">Responsabile Marketing</span>
-                    <span class="exp-date">2016 - 2017</span>
+                    <span class="exp-role">Marketing Lead</span>
+                    <span class="exp-date">SET 2016 - DIC 2017</span>
                 </div>
                 <div class="exp-company">Waterline - Bevco (Solido Group)</div>
-                <div class="exp-details">Change management post-acquisizione, unificazione Corporate Identity e lancio nuovi prodotti.</div>
+                <div class="exp-details">Definizione strategia di comunicazione e marketing post-acquisizione, unificazione e standardizzazione Corporate Identity.</div>
             </div>
 
             <div class="exp-row hover-trigger" onclick="openModal('bmw')">
                 <div class="exp-header">
-                    <span class="exp-role">Marketing Retail & CRM</span>
-                    <span class="exp-date">2014 - 2016</span>
+                    <span class="exp-role">Marketing Retail & CRM Specialist</span>
+                    <span class="exp-date">GEN 2014 - SET 2016</span>
                 </div>
-                <div class="exp-company">RETE VENDITA BMW ITALIA</div>
-                <div class="exp-details">Gestione rigorosa funnel di vendita, budget media e monitoraggio KPI finanziari.</div>
+                <div class="exp-company">BMW Italia (Rete Vendita)</div>
+                <div class="exp-details">Monitoraggio e ottimizzazione performance marketing, gestione diretta budget e controllo finanziario tramite Data Driven Decision Making.</div>
             </div>
 
              <div class="exp-row hover-trigger" onclick="openModal('lapam')">
                 <div class="exp-header">
                     <span class="exp-role">Analista Marketing & Sistemi</span>
-                    <span class="exp-date">2010 - 2013</span>
+                    <span class="exp-date">GIU 2010 - DIC 2013</span>
                 </div>
                 <div class="exp-company">LAPAM Confartigianato</div>
-                <div class="exp-details">Implementazione CRM V-Tiger, analisi economica territoriale e rapporti istituzionali.</div>
+                <div class="exp-details">Analista commerciale con focus su innovazione e sviluppo, implementazione CRM V-Tiger e analisi economica del territorio.</div>
+            </div>
+
+            <div class="exp-row hover-trigger" onclick="openModal('ebay')">
+                <div class="exp-header">
+                    <span class="exp-role">E-commerce Specialist (Power Seller)</span>
+                    <span class="exp-date">2002 - 2008</span>
+                </div>
+                <div class="exp-company">eBay</div>
+                <div class="exp-details">Gestione autonoma ciclo completo di vendita online internazionale: sourcing, pricing, logistica e customer care.</div>
             </div>
 
              <div class="exp-row hover-trigger" onclick="openModal('htv')">
                 <div class="exp-header">
                     <span class="exp-role">Responsabile Punto Vendita</span>
-                    <span class="exp-date">2006 - 2010</span>
+                    <span class="exp-date">APR 2006 - MAG 2010</span>
                 </div>
                 <div class="exp-company">HTV (Retail Fisico)</div>
-                <div class="exp-details">Gestione diretta cassa, fatturazione, magazzino e visual merchandising.</div>
+                <div class="exp-details">Gestione operativa e commerciale, obiettivi finanziari, gestione cassa, fatturazione e Customer Relationship Management.</div>
             </div>
-
-             <div class="exp-row hover-trigger" onclick="openModal('ebay')">
-                <div class="exp-header">
-                    <span class="exp-role">E-commerce Specialist</span>
-                    <span class="exp-date">2002 - 2008</span>
-                </div>
-                <div class="exp-company">eBay (Digital Pioneer)</div>
-                <div class="exp-details">Power Seller per 6 anni: gestione autonoma ciclo vendita online internazionale.</div>
-            </div>
+        </div>
+        <div class="text-center">
+            <a href="assets/docs/CV_Gubertini_Francesco.pdf?v=2" download class="btn-primary">SCARICA CV COMPLETO</a>
         </div>
     </section>
 
@@ -687,9 +739,9 @@
             <div>
                 <h3 style="margin-bottom:20px; border-bottom: 2px solid var(--accent); padding-bottom: 5px; display:inline-block;">Titoli di Studio</h3>
                 <div class="edu-card">
-                    <h4>Laurea in Economia Aziendale</h4>
+                    <h4>Laurea in Economia Aziendale - Marketing e Distribuzione</h4>
                     <div class="edu-inst"><span>Facoltà Marco Biagi - UNIMORE</span></div>
-                    <p class="edu-desc">Il corso fornisce solide competenze in management, organizzazione aziendale, contabilità e marketing. Prepara professionisti in grado di comprendere le dinamiche d'impresa e gestire processi decisionali complessi.</p>
+                    <p class="edu-desc">Tesi in Strategie del Marketing dei Beni di Lusso. Il corso fornisce solide competenze in management, organizzazione aziendale, contabilità, marketing, diritto commerciale e analisi di bilancio.</p>
                     <button class="btn-small" onclick="openModal('laurea')">DETTAGLI</button>
                 </div>
                 <div class="edu-card">
@@ -705,7 +757,7 @@
                 <div class="edu-card">
                     <h4>Modelli di IA per la Business Intelligence</h4>
                     <div class="edu-inst"><span>Zenit Formazione</span> <span class="edu-year">2025</span></div>
-                    <p class="edu-desc">Corso su Analytics, decision making diagnostico e Prompt Engineering.</p>
+                    <p class="edu-desc">Analytics, decision making diagnostico, Prompt Engineering Avanzato e Generative AI.</p>
                     <button class="btn-small" onclick="openModal('ai-course1')">DETTAGLI</button>
                     <a href="assets/docs/attestato-gubertini-ia-bi.pdf" target="_blank" class="btn-small btn-file"><i class="fa-solid fa-file-pdf"></i> ATTESTATO</a>
                 </div>
@@ -713,15 +765,15 @@
                 <div class="edu-card">
                     <h4>IA ed Excel</h4>
                     <div class="edu-inst"><span>Zenit Formazione</span> <span class="edu-year">2025</span></div>
-                    <p class="edu-desc">Analizzare dati con l'aiuto degli strumenti più recenti.</p>
+                    <p class="edu-desc">Analizzare dati con l'aiuto degli strumenti più recenti. Creazione di Dashboard dinamiche e automazione reportistica.</p>
                     <button class="btn-small" onclick="openModal('ai-course2')">DETTAGLI</button>
                     <a href="assets/docs/attestato-gubertini-ia-excel.pdf" target="_blank" class="btn-small btn-file"><i class="fa-solid fa-file-pdf"></i> ATTESTATO</a>
                 </div>
 
                  <div class="edu-card">
-                    <h4>IA nel decision making</h4>
+                    <h4>IA nel Decision Making</h4>
                     <div class="edu-inst"><span>Zenit Formazione</span> <span class="edu-year">2025</span></div>
-                    <p class="edu-desc">Modelli collaborativi con IA nel decision making diagnostico e previsionale.</p>
+                    <p class="edu-desc">Modelli collaborativi con IA nel decision making diagnostico e previsionale. Supporto decisionale tramite modelli predittivi.</p>
                     <button class="btn-small" onclick="openModal('ai-course3')">DETTAGLI</button>
                     <a href="assets/docs/attestato-gubertini-ia-decision-making.pdf" target="_blank" class="btn-small btn-file"><i class="fa-solid fa-file-pdf"></i> ATTESTATO</a>
                 </div>
@@ -729,7 +781,7 @@
                  <div class="edu-card">
                     <h4>Vendite e Servizi con AI</h4>
                     <div class="edu-inst"><span>IFOA</span> <span class="edu-year">2024</span></div>
-                    <p class="edu-desc">L'evoluzione delle vendite e dei servizi al cliente ai tempi dell'AI.</p>
+                    <p class="edu-desc">L'evoluzione delle vendite e dei servizi al cliente ai tempi dell'AI. Personalizzazione della Customer Experience.</p>
                     <button class="btn-small" onclick="openModal('ai-course4')">DETTAGLI</button>
                 </div>
             </div>
@@ -774,16 +826,14 @@
         <h2 class="section-title">INFORMAZIONI PERSONALI</h2>
         <div class="personal-grid hover-trigger">
             <div class="personal-item">
-                <h3><i class="fa-solid fa-hand-holding-heart"></i> Volontariato & Impegno Sociale</h3>
-                <p>Sono un volontario attivo presso la <strong>Pro Loco di Formigine</strong>.</p>
-                <p>Contribuisco attivamente all'organizzazione e alla promozione di eventi locali, applicando le mie competenze gestionali per il bene della comunità.</p>
+                <h3><i class="fa-solid fa-hand-holding-heart"></i> Personalità</h3>
+                <p>Sono una persona estroversa e curiosa, con una forte propensione all'apprendimento continuo e alla creatività.</p>
+                <p>Sono appassionato di cinema, storia, scienza, motori, tecnologia e fotografia.</p>
             </div>
             <div class="personal-item">
                 <h3><i class="fa-solid fa-heart"></i> Passioni & Interessi</h3>
-                <p><strong>Sport:</strong> Pratico costantemente Corsa e Fitness.</p>
-                <p><strong>Informatica:</strong> Sono un esperto appassionato di tecnologia e sistemi informatici.</p>
-                <p><strong>Tempo Libero:</strong> Appassionato di Cinema e Giardinaggio. Quando il tempo me lo permette, amo visitare città d'arte o rilassandomi al mare e in montagna.</p>
-                <p style="margin-top:15px; border-top:1px solid var(--lines); padding-top:10px;">Amo passare il tempo con gli amici e la famiglia. Convivo e ho una bellissima bambina di nome <strong>Sophia Chloé</strong>.</p>
+                <p><strong>Sport:</strong> Amo fare sport, in particolare fitness e corsa.</p>
+                <p><strong>Vita:</strong> Residente a Formigine (Mo). Amo passare il tempo con gli amici e la famiglia.</p>
             </div>
         </div>
     </section>
@@ -833,27 +883,35 @@
                 <div class="close-modal" onclick="closeModal('opera')">&times;</div>
             </div>
             <div class="modal-body">
-                <p>In un contesto industriale caratterizzato da alti volumi produttivi e forte presenza nella GDO, il mio ruolo si è focalizzato sulla trasformazione dell'approccio al mercato: passare dalla vendita di prodotto alla valorizzazione del brand per incrementare il markup, specialmente nel canale retail tradizionale.</p>
-                <h3>Innovazione di Prodotto & AI Strategy</h3>
+                <p>In un contesto industriale caratterizzato da alti volumi produttivi e forte presenza nella GDO, il mio ruolo si è focalizzato sulla trasformazione dell'approccio al mercato e sull'innovazione del prodotto (Lamgea System) con supporto AI. Mi occupo della gestione analitica, marketing e merchandising dei marchi Opera, Element e Ceramiche di Sassuolo nei canali retail, GDO, DO, conto terzi e progettisti. Attraverso un approccio <strong>Data Driven Decision Making</strong>, passo dalla vendita di prodotto alla valorizzazione del brand per incrementare il markup.</p>
+                
+                <h3>Analisi dati, Strategia AI e Sviluppo Prodotto</h3>
                 <ul class="content-list">
-                    <li><strong>Coordinamento dello sviluppo prodotto</strong> con tecnologia Lamgea System (grandi lastre), curando il ciclo di vita dall'analisi dei trend alla dismissione.</li>
-                    <li><strong>Implementazione AI Predittiva:</strong> Utilizzo di algoritmi per l'analisi dei dati di vendita storici e il forecasting degli stock, ottimizzando la rotazione di magazzino.</li>
+                    <li><strong>Predictive Analysis e Forecasting:</strong> Utilizzo di algoritmi per l'analisi dei dati di vendita storici e il forecasting degli stock, ottimizzando la rotazione di magazzino e riducendo il rischio d'impresa.</li>
+                    <li><strong>Analisi di mercato e trend:</strong> Analisi delle performance dei prodotti e della concorrenza per lo sviluppo di nuove gamme, compresi naming e storytelling, identificando trend nascosti nei dati aziendali.</li>
+                    <li><strong>Analisi del ciclo di vita:</strong> Monitoraggio delle performance dei prodotti dal lancio al declino per identificare aree di miglioramento e opportunità.</li>
+                    <li><strong>Gestione Business Intelligence:</strong> Implementazione di dashboard in Power BI per il monitoraggio dei KPI di vendita e analisi predittiva.</li>
+                    <li><strong>Coordinamento sviluppo prodotto:</strong> Gestione con tecnologia Lamgea System (grandi lastre), curando il ciclo di vita dall'analisi dei trend alla dismissione.</li>
+                    <li><strong>Analisi ROI sul Merchandising:</strong> Mappatura delle campionature nei punti vendita e calcolo del ritorno sull'investimento per clienti, agenti e funzionari.</li>
+                </ul>
+
+                <h3>Fusione tra Dati e Design: Contenuti Multimediali e Branding</h3>
+                <ul class="content-list">
                     <li><strong>Generative AI per i Contenuti:</strong> Integrazione di strumenti di Intelligenza Artificiale Generativa per la creazione automatizzata di testi tecnici, traduzioni multilingua e supporto alla creazione di asset visivi per cataloghi e moodboard, riducendo drasticamente il Time-to-Market.</li>
+                    <li><strong>Rebranding e Identity:</strong> Rebranding del marchio Opera e creazione architettura di marca per Element, Element Extra e Grip 1.0 per segmentare l'offerta su diverse fasce di prezzo.</li>
+                    <li><strong>Progettazione editoriale e cataloghi:</strong> Progettazione e realizzazione di cataloghi (generale, di serie, Cersaie, outdoor, rivestimenti) utilizzando la suite Adobe (Indesign, Illustrator, Acrobat) integrata con Word ed Excel.</li>
+                    <li><strong>Produzione Multimediale:</strong> Creazione di render 3D di prodotti o ambienti. Regia multi-camera di conferenze ed eventi, con gestione e coordinamento delle riprese video per un prodotto di alta qualità.</li>
+                    <li><strong>Web & Digital:</strong> Gestione e aggiornamento dei siti web aziendali (WordPress): testi, immagini, video e news. Creazione di newsletter periodiche (MailChimp) per comunicare novità, promozioni ed eventi.</li>
                 </ul>
-                <h3>Rebranding & Corporate Identity</h3>
+
+                <h3>Merchandising, Go-to-Market e Trade</h3>
                 <ul class="content-list">
-                    <li><strong>Sviluppo dell'architettura di marca</strong> (Opera, Element, Grip 1.0) per segmentare l'offerta su diverse fasce di prezzo.</li>
-                    <li><strong>Direzione creativa e operativa</strong> su cataloghi, packaging e strumenti di merchandising, garantendo coerenza visiva dalla produzione alla logistica.</li>
-                </ul>
-                <h3>Trade Marketing & Retail</h3>
-                <ul class="content-list">
-                    <li><strong>Progettazione di soluzioni espositive</strong> (Shop-in-Shop, Box) per grandi player del DIY (OBI, Leroy Merlin, Tecnomat).</li>
-                    <li><strong>Analisi del ROI sul Merchandising:</strong> mappatura delle campionature e calcolo del ritorno sull'investimento per ogni espositore posizionato.</li>
-                </ul>
-                <h3>Analisi Dati & CRM</h3>
-                <ul class="content-list">
-                    <li><strong>Implementazione di dashboard in Power BI</strong> per il monitoraggio dei KPI di vendita.</li>
-                    <li><strong>Gestione digitalizzata del Customer Care</strong> per ridurre le contestazioni (-8%) e mappare le causali di reso.</li>
+                    <li><strong>Progettazione strumenti di vendita:</strong> Realizzazione di tutti gli strumenti di sell-in e sell-out (flyer, folder, cartelle, valigette, sinottici, pattelle, culle, grafiche sala mostra), unendo funzionalità e <strong>design</strong>.</li>
+                    <li><strong>Progetti GDO & DIY:</strong> Progettazione di soluzioni espositive (Box, Shop-in-Shop, Pallet) per grandi player del DIY e clienti direzionali (OBI, Leroy Merlin, BAHAG/Bauhaus, Bricofer, Tecnomat).</li>
+                    <li><strong>Gestione eventi e fiere:</strong> Progettazione di grafiche per fiere (Cersaie): pannelli, banner, inviti e brochure. Presentazione di nuovi prodotti a clienti, agenti e forza vendita.</li>
+                    <li><strong>Gestione tecnica e documentale:</strong> Creazione di listini prodotto completi di dati tecnici (pesi, imballi, certificazioni, codici a barre).</li>
+                    <li><strong>Customer Care Digitalizzato:</strong> Gestione digitalizzata del Customer Care per ridurre le contestazioni (-8%) e mappare le causali di reso.</li>
+                    <li><strong>Coordinamento esterno:</strong> Selezione e coordinamento di fornitori esterni (grafici, fotografi, agenzie, stampatori, cartotecniche) per la realizzazione di contenuti di alta qualità.</li>
                 </ul>
             </div>
         </div>
@@ -862,23 +920,40 @@
     <div id="modal-acetaia" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">ACETAIA GUBERTINI</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">RESPONSABILE MARKETING</span></div>
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">ACETAIA GUBERTINI</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">RESPONSABILE MARKETING & E-COMMERCE</span></div>
                 <div class="close-modal" onclick="closeModal('acetaia')">&times;</div>
             </div>
             <div class="modal-body">
-                <p>Progetto imprenditoriale che ha trasformato una realtà familiare in un brand orientato al profitto, riposizionando il prodotto da semplice condimento a "bene di investimento" tramite leve di marketing digitale e storytelling emozionale.</p>
-                <h3>Digital Strategy & Piattaforme</h3>
+                <p>Progetto imprenditoriale e di consulenza che ha trasformato una realtà familiare in un brand orientato al profitto, riposizionando il prodotto da semplice condimento a "bene di investimento" tramite leve di marketing digitale, storytelling emozionale e una perfetta <strong>fusione tra dati e design</strong>.</p>
+                
+                <h3>Go-to-Market e Strategia Omnicanale</h3>
                 <ul class="content-list">
-                    <li><strong>Sviluppo autonomo dell'ecosistema e-commerce</strong> proprietario (WooCommerce) e integrazione con Marketplace (Amazon, eBay).</li>
-                    <li><strong>Gestione campagne Performance Marketing</strong> (Google Ads, Meta) con focus su SEO e indicizzazione organica.</li>
+                    <li>Sviluppo e implementazione di una strategia di marketing omnicanale (vendita diretta, indiretta e online).</li>
+                    <li>Strategia differenziata per cluster: B2C (Social/Web), Ho.Re.Ca. (Linee Riserva) e GDO (Linee dedicate).</li>
                 </ul>
-                <h3>Brand Positioning</h3>
+
+                <h3>E-commerce e Piattaforme</h3>
                 <ul class="content-list">
-                    <li><strong>Creazione di un'identità visiva "Luxury"</strong> (Packaging, Etichette) basata sui valori di Slow Made e Made in Italy.</li>
+                    <li>Sviluppo autonomo dell'ecosistema e-commerce proprietario (WooCommerce) e integrazione con Marketplace (Amazon Seller Central, eBay).</li>
+                    <li>Lancio e gestione dell'e-commerce con campagne multipiattaforma.</li>
                 </ul>
-                <h3>Segmentazione Omnicanale</h3>
+
+                <h3>Luxury Brand Positioning</h3>
                 <ul class="content-list">
-                    <li><strong>Strategia differenziata per cluster:</strong> B2C (Social/Web), Ho.Re.Ca. (Linee Riserva) e GDO (Linee dedicate), gestendo internamente la logistica e il Customer Service.</li>
+                    <li>Creazione di un'identità visiva "Luxury" (Packaging, Etichette) basata sui valori di Slow Made e Made in Italy.</li>
+                    <li>Progettazione di tutti i materiali di comunicazione (marchio, packaging, cataloghi).</li>
+                </ul>
+
+                <h3>Performance Marketing Data Driven</h3>
+                <ul class="content-list">
+                    <li>Gestione campagne Google Ads, Meta Business Suite e analisi dei risultati tramite Google Analytics e Merchant Center.</li>
+                    <li>Ottimizzazione SEO per il posizionamento sui motori di ricerca.</li>
+                </ul>
+
+                <h3>Gestione Operativa & Risultati</h3>
+                <ul class="content-list">
+                    <li>Gestione internamente la logistica e il Customer Service.</li>
+                    <li>Risultati: Aumento della visibilità e delle vendite; posizionamento del brand come prodotto di lusso e alta qualità; sviluppo di una presenza online efficace.</li>
                 </ul>
             </div>
         </div>
@@ -891,37 +966,70 @@
                 <div class="close-modal" onclick="closeModal('waterline')">&times;</div>
             </div>
             <div class="modal-body">
-                <p>In un contesto di post-acquisizione aziendale, il focus è stato l'unificazione e la standardizzazione. Ho agito come collettore tra diverse realtà produttive per costruire una "Corporate Identity" univoca e coerente.</p>
+                <p>Responsabile della definizione e implementazione della strategia di comunicazione e marketing. In un contesto di post-acquisizione aziendale, il focus è stato l'unificazione e la standardizzazione, agendo come collettore tra diverse realtà produttive per costruire una "Corporate Identity" univoca, applicando logiche di <strong>Go-to-Market</strong> strutturate.</p>
+                
                 <h3>Change Management & Identity</h3>
                 <ul class="content-list">
-                    <li><strong>Riprogettazione dei marchi</strong> e dell'immagine coordinata di gruppo per allineare le aziende acquisite sotto un unico "ombrello" valoriale.</li>
-                    <li><strong>Restyling delle sedi fisiche</strong> e dei materiali di vendita per trasmettere la nuova filosofia aziendale.</li>
+                    <li>Creazione di una nuova identità di gruppo attraverso il rebranding dei marchi e l'ammodernamento dei siti web e del merchandising.</li>
+                    <li>Riprogettazione dei marchi e dell'immagine coordinata di gruppo per allineare le aziende acquisite sotto un unico "ombrello" valoriale.</li>
+                    <li>Restyling delle sedi fisiche.</li>
                 </ul>
-                <h3>Sviluppo & Lancio Prodotto</h3>
+
+                <h3>Data Driven Strategy</h3>
                 <ul class="content-list">
-                    <li><strong>Analisi dello scenario competitivo</strong> e coordinamento del lancio di nuove linee (es. Drinkit), traducendo le specifiche tecniche in vantaggi commerciali comunicabili.</li>
+                    <li>Analisi del mercato e della concorrenza.</li>
+                    <li>Definizione della strategia di comunicazione per il gruppo, tenendo conto della dimensione multi-brand e multi-canale.</li>
+                </ul>
+
+                <h3>Sviluppo Prodotto</h3>
+                <ul class="content-list">
+                    <li>Progettazione e sviluppo di nuovi prodotti (es. Drinkit).</li>
+                    <li>Analisi dello scenario competitivo e coordinamento del lancio, traducendo le specifiche tecniche in vantaggi commerciali comunicabili.</li>
+                </ul>
+
+                <h3>Gestione Budget e Team</h3>
+                <ul class="content-list">
+                    <li>Gestione del budget marketing e del team (3 risorse interne e collaboratori esterni).</li>
+                    <li>Coordinamento con le diverse sedi del gruppo per garantire una comunicazione coerente e unificata.</li>
+                    <li>Risultati: Creazione di una nuova immagine coordinata per il gruppo; miglioramento della visibilità e della riconoscibilità dei brand.</li>
                 </ul>
             </div>
         </div>
     </div>
 
-     <div id="modal-bmw" class="modal-overlay">
+    <div id="modal-bmw" class="modal-overlay">
          <div class="modal-content">
             <div class="modal-header">
-                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">BMW ITALIA</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">CRM SPECIALIST</span></div>
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">BMW ITALIA</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">MARKETING RETAIL & CRM SPECIALIST</span></div>
                 <div class="close-modal" onclick="closeModal('bmw')">&times;</div>
             </div>
             <div class="modal-body">
-                <p>Il marketing inteso non come promozione, ma come strumento di controllo finanziario e di processo. Il ruolo richiedeva una gestione rigorosa dei flussi di lead e del budget.</p>
+                <p>Monitoraggio e ottimizzazione delle performance marketing della rete vendita BMW Italia per i marchi (BMW, BMW I, BMW M, MINI) in alcune aree dell'Emilia Romagna con la gestione diretta di 1,5 milioni di euro/anno. Il marketing inteso non come promozione, ma come strumento di controllo finanziario e di processo (<strong>Data Driven Decision Making</strong>).</p>
+                
                 <h3>CRM & Processi Finanziari</h3>
                 <ul class="content-list">
-                    <li><strong>Utilizzo intensivo del CRM Sugar</strong> per il monitoraggio del funnel di vendita, dal primo contatto alla fatturazione.</li>
-                    <li><strong>Analisi dei KPI della forza vendita</strong> finalizzata all'ottenimento dei bonus qualitativi erogati dalla Casa Madre.</li>
+                    <li>Monitoraggio delle KPI commerciali e coordinamento delle trattative con il CRM Sugar.</li>
+                    <li>Gestione rigorosa del funnel di vendita, dal primo contatto alla fatturazione.</li>
+                    <li>Analisi dei KPI della forza vendita finalizzata all'ottenimento dei bonus qualitativi erogati dalla Casa Madre.</li>
                 </ul>
+
+                <h3>Gestione Lead</h3>
+                <ul class="content-list">
+                    <li>Gestione dei lead dall'acquisizione alla conversione in clienti.</li>
+                    <li>Monitoraggio della qualità del processo commerciale e individuazione di aree di miglioramento.</li>
+                </ul>
+
                 <h3>Budgeting & Media Planning</h3>
                 <ul class="content-list">
-                    <li><strong>Pianificazione trimestrale degli investimenti media</strong> e gestione fornitori (agenzie, stampa, radio).</li>
-                    <li><strong>Organizzazione operativa di eventi</strong> di lancio e "Open Weekend" per la Lead Generation.</li>
+                    <li>Gestione del budget Marketing e allocazione delle spese per iniziative atte all'incremento di fatturato.</li>
+                    <li>Definizione e implementazione del media plan in linea con il budget trimestrale.</li>
+                </ul>
+
+                <h3>Eventi e Go-to-Market</h3>
+                <ul class="content-list">
+                    <li>Supervisione e organizzazione operativa di eventi (lanci di prodotto, open weekend, fiere) per la Lead Generation.</li>
+                    <li>Gestione dei rapporti con i fornitori (agenzie di comunicazione, grafici, editori).</li>
+                    <li>Risultati: Ottimizzazione del processo di vendita; miglioramento delle performance commerciali della rete vendita; incremento della customer satisfaction.</li>
                 </ul>
             </div>
         </div>
@@ -934,32 +1042,26 @@
                 <div class="close-modal" onclick="closeModal('lapam')">&times;</div>
             </div>
             <div class="modal-body">
-                <p>Ruolo tecnico-istituzionale focalizzato sull'implementazione di sistemi informativi e sull'analisi economica del territorio.</p>
-                <h3>IT & System Administration</h3>
+                <p>Analista commerciale e marketing con focus sull'innovazione e lo sviluppo, a diretto riporto della direzione generale. Ruolo tecnico-istituzionale focalizzato sull'implementazione di sistemi informativi e sull'analisi economica del territorio.</p>
+                
+                <h3>IT & System Administration (CRM)</h3>
                 <ul class="content-list">
-                    <li><strong>Responsabile dell'introduzione e configurazione del CRM V-Tiger</strong>, coordinando lo sviluppo tecnico e la personalizzazione dei flussi.</li>
+                    <li>Responsabile dell'introduzione e configurazione del CRM V-Tiger.</li>
+                    <li>Implementazione del CRM, supervisionando tutte le fasi di sviluppo tecnico e la personalizzazione dei flussi per la gestione delle relazioni con i clienti.</li>
                 </ul>
-                <h3>Ricerca & Analisi</h3>
-                <ul class="content-list">
-                    <li><strong>Elaborazione di studi di settore</strong> (es. impatto della crisi sulla subfornitura meccanica) e presentazione dei risultati a stakeholder istituzionali.</li>
-                    <li><strong>Organizzazione di eventi tecnologici B2B</strong> per favorire l'innovazione tra le imprese associate.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
-    <div id="modal-htv" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">HTV (RETAIL FISICO)</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">RESPONSABILE PUNTO VENDITA</span></div>
-                <div class="close-modal" onclick="closeModal('htv')">&times;</div>
-            </div>
-            <div class="modal-body">
-                <p>Le fondamenta operative che mi permettono oggi di comprendere le dinamiche reali della vendita fisica.</p>
+                <h3>Ricerca & Analisi Economica</h3>
                 <ul class="content-list">
-                    <li><strong>Responsabile di punto vendita</strong>.</li>
-                    <li><strong>Gestione diretta di cassa</strong>, fatturazione, magazzino e visual merchandising.</li>
-                    <li><strong>Utilizzo di ERP gestionali</strong> per il controllo stock.</li>
+                    <li>Elaborazione di studi di settore (es. impatto della crisi sulla subfornitura meccanica) e presentazione dei risultati a stakeholder istituzionali.</li>
+                    <li>Conduzione di ricerche di mercato per analizzare il fabbisogno dei clienti, le criticità della domanda/offerta e il posizionamento dell'azienda.</li>
+                </ul>
+
+                <h3>Data Driven Marketing & Eventi</h3>
+                <ul class="content-list">
+                    <li>Gestione di campagne Google Ads e analisi dei risultati tramite Google Analytics.</li>
+                    <li>Lead Generation e Co-Marketing: Sviluppo e gestione di iniziative per l'acquisizione di nuovi clienti.</li>
+                    <li>Organizzazione di eventi tecnici di settore (es. stampa digitale nel settore ceramico con Epson e Roland) per favorire l'innovazione tra le imprese associate.</li>
+                    <li>Presentazione di una ricerca di mercato al Presidente della Regione Emilia Romagna durante un evento presso la facoltà di Ingegneria di Modena.</li>
                 </ul>
             </div>
         </div>
@@ -972,10 +1074,28 @@
                 <div class="close-modal" onclick="closeModal('ebay')">&times;</div>
             </div>
             <div class="modal-body">
-                <p>Le fondamenta operative che mi permettono oggi di comprendere le dinamiche reali della vendita digitale.</p>
+                <p>Le fondamenta operative che mi permettono oggi di comprendere le dinamiche reali della vendita digitale e del <strong>Go-to-Market</strong> internazionale.</p>
                 <ul class="content-list">
-                    <li><strong>Attività di "Power Seller" durata 6 anni</strong>.</li>
-                    <li><strong>Gestione autonoma del ciclo completo di vendita online internazionale:</strong> sourcing, pricing, logistica e customer care, anticipando le logiche dell'e-commerce moderno.</li>
+                    <li><strong>Attività di "Power Seller":</strong> Esperienza durata 6 anni come venditore ad alto volume e affidabilità.</li>
+                    <li><strong>Gestione Ciclo Vendita:</strong> Gestione autonoma del ciclo completo di vendita online internazionale: sourcing, pricing, logistica e customer care, anticipando le logiche dell'e-commerce moderno.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-htv" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">HTV (RETAIL FISICO)</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">RESPONSABILE PUNTO VENDITA</span></div>
+                <div class="close-modal" onclick="closeModal('htv')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p>Durante il periodo universitario ho lavorato come responsabile della gestione operativa e commerciale di un punto vendita HTV. Le fondamenta operative che mi permettono oggi di comprendere le dinamiche reali della vendita fisica.</p>
+                <ul class="content-list">
+                    <li><strong>Gestione Operativa:</strong> Gestione diretta di cassa, fatturazione, magazzino e visual merchandising. Verifica del corretto flusso degli ordini e delle consegne.</li>
+                    <li><strong>Gestione Finanziaria:</strong> Gestione degli obiettivi commerciali e finanziari, apertura e chiusura cassa, raggiungimento dei target di vendita.</li>
+                    <li><strong>Customer Relationship Management:</strong> Gestione dei clienti, risoluzione dei reclami, utilizzo di CRM e ERP gestionali per il controllo stock.</li>
+                    <li><strong>Promozione:</strong> Sviluppo di piani promozionali, presentazione dei prodotti ai clienti, creazione di un ambiente di vendita accogliente e funzionale.</li>
                 </ul>
             </div>
         </div>
@@ -988,13 +1108,10 @@
                 <div class="close-modal" onclick="closeModal('laurea')">&times;</div>
             </div>
             <div class="modal-body">
-                <p>Il Corso di Laurea in Economia Aziendale è progettato per formare professionisti capaci di operare nelle diverse funzioni aziendali (amministrazione, marketing, finanza, organizzazione).</p>
-                <h3>Competenze Chiave</h3>
+                <p>Laurea in Economia Aziendale - Marketing e Distribuzione presso la Facoltà di Economia Marco Biagi di Modena.</p>
                 <ul class="content-list">
-                    <li><strong>Management:</strong> Comprensione delle dinamiche decisionali e strategiche d'impresa.</li>
-                    <li><strong>Marketing:</strong> Analisi di mercato, comportamento del consumatore e leve del marketing mix.</li>
-                    <li><strong>Contabilità e Bilancio:</strong> Capacità di leggere e interpretare i documenti contabili per valutare lo stato di salute dell'azienda.</li>
-                    <li><strong>Diritto Commerciale:</strong> Basi normative che regolano l'attività d'impresa.</li>
+                    <li>Tesi in Strategie del Marketing dei Beni di Lusso.</li>
+                    <li>Il corso fornisce solide competenze in management, organizzazione aziendale, contabilità, marketing, diritto commerciale e analisi di bilancio.</li>
                 </ul>
             </div>
         </div>
@@ -1007,13 +1124,10 @@
                 <div class="close-modal" onclick="closeModal('geometra')">&times;</div>
             </div>
             <div class="modal-body">
-                <p>Il percorso di studi (ora denominato Costruzioni, Ambiente e Territorio) fornisce una preparazione tecnica multidisciplinare fondamentale per la gestione di progetti e cantieri.</p>
-                <h3>Competenze Chiave</h3>
+                <p>Diploma di Geometra presso l'Istituto Tecnico IGT Guarini.</p>
                 <ul class="content-list">
-                    <li><strong>Progettazione e Disegno Tecnico:</strong> Precisione grafica e uso di software CAD.</li>
-                    <li><strong>Topografia ed Estimo:</strong> Rilievo del territorio e valutazione economica di beni immobili.</li>
-                    <li><strong>Sicurezza e Normativa:</strong> Gestione della sicurezza nei cantieri e conoscenza delle norme edilizie.</li>
-                    <li><strong>Problem Solving Tecnico:</strong> Approccio analitico e concreto alla risoluzione di problemi strutturali e logistici.</li>
+                    <li>Percorso focalizzato su costruzioni, topografia e sicurezza.</li>
+                    <li>Fornisce una mentalità tecnica rigorosa, orientata al problem solving, alla progettazione precisa e al rispetto delle normative.</li>
                 </ul>
             </div>
         </div>
@@ -1142,9 +1256,8 @@
             opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power2.out"
         });
 
-        // RESPONSIVE GSAP LOGIC (New Mobile Implementation)
+        // RESPONSIVE GSAP LOGIC
         ScrollTrigger.matchMedia({
-            
             // DESKTOP: Horizontal Scroll
             "(min-width: 901px)": function() {
                 let sections = gsap.utils.toArray(".gallery-item");
@@ -1163,14 +1276,10 @@
 
             // MOBILE: Alternating Entrance Animation
             "(max-width: 900px)": function() {
-                // Reset any potential conflict props
                 gsap.set(".gallery-item", { clearProps: "all" });
-
                 const items = gsap.utils.toArray(".gallery-item");
                 items.forEach((item, i) => {
-                    // Even items (0, 2...) from Left (-100), Odd items (1, 3...) from Right (100)
                     const xStart = i % 2 === 0 ? -100 : 100;
-                    
                     gsap.fromTo(item, 
                         { opacity: 0, x: xStart },
                         {
@@ -1178,7 +1287,7 @@
                             duration: 1, ease: "power3.out",
                             scrollTrigger: {
                                 trigger: item,
-                                start: "top 85%", // Start animation when item is near bottom of viewport
+                                start: "top 85%", 
                                 end: "top 20%",
                                 toggleActions: "play none none reverse"
                             }
