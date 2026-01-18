@@ -42,7 +42,7 @@
             --card-bg: #f9f9f9; 
             --card-bg-hover: #f0f0f0; 
             
-            /* Dark Theme Variables for Portfolio & Tech Modals */
+            /* Dark Theme Variables (Portfolio & AI Style) */
             --dark-bg: #050505;
             --dark-card: #141414;
             --dark-text: #ffffff;
@@ -124,64 +124,75 @@
         }
         .menu-btn { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: var(--text-color); cursor: none; white-space: nowrap; }
 
-        /* --- MOBILE NAV FIX (TESTO SU UNA RIGA) --- */
+        /* --- MOBILE NAV FIX --- */
         @media (max-width: 600px) {
-            .branding {
-                max-width: 75%; /* Spazio massimo prima di toccare il bottone MENU */
-            }
-            .logo { 
-                /* clamp(minimo, preferito, massimo) assicura che il font si rimpicciolisca fluidamente */
-                font-size: clamp(0.75rem, 3.8vw, 0.9rem); 
-                white-space: nowrap; /* FORZA UNA SOLA RIGA */
-                overflow: visible;
-                line-height: 1.2;
-            }
-            .nav-role { 
-                font-size: 0.5rem; 
-                white-space: nowrap; /* FORZA UNA SOLA RIGA */
-                line-height: 1.2;
-                display: block;
-            }
-            .menu-btn { 
-                font-size: 0.75rem; 
-                margin-left: 10px; 
-            }
+            .branding { max-width: 75%; }
+            .logo { font-size: clamp(0.75rem, 3.8vw, 0.9rem); white-space: nowrap; overflow: visible; line-height: 1.2; }
+            .nav-role { font-size: 0.5rem; white-space: nowrap; line-height: 1.2; display: block; }
+            .menu-btn { font-size: 0.75rem; margin-left: 10px; }
         }
         
-        /* --- MENU OVERLAY --- */
+        /* --- MENU OVERLAY (UPDATED) --- */
         .menu-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: var(--accent); color: #0e0e0e; 
             z-index: 2001; 
             transform: translateY(-100%); 
-            visibility: hidden; 
-            opacity: 0;
+            visibility: hidden; opacity: 0;
             transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.3s, visibility 0.6s;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            display: flex; flex-direction: column; justify-content: center; 
+            align-items: flex-start;
+            padding-left: 10%; 
         }
 
-        .menu-overlay.active { 
-            transform: translateY(0); 
-            visibility: visible; 
-            opacity: 1;
+        .menu-overlay.active { transform: translateY(0); visibility: visible; opacity: 1; }
+
+        .menu-branding-header {
+            margin-bottom: 40px;
+            padding-left: 20px;
+            border-left: 4px solid #0e0e0e;
+        }
+
+        .menu-logo-large {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1;
+            color: #0e0e0e;
+        }
+        
+        .menu-role-large {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff; /* Contrasto sul fondo oro */
+            margin-top: 5px;
         }
 
         .menu-link { 
-            font-size: clamp(1.5rem, 5vh, 3rem); 
+            font-size: clamp(1.5rem, 4vh, 3rem); 
             margin: 1vh 0; 
-            font-weight: 700; 
+            font-weight: 300; 
+            text-transform: capitalize; 
             cursor: none; 
-            transition: 0.3s; 
+            transition: all 0.3s ease; 
             position: relative; 
-            line-height: 1.1;
+            line-height: 1.2;
+            color: #0e0e0e;
+            padding-left: 20px; /* Spazio per la linea verticale */
+            border-left: 1px solid rgba(14, 14, 14, 0.3); /* Linea verticale sempre visibile ma sottile */
         }
         
-        .menu-link:hover { color: #fff; transform: skewX(-10deg); }
-        
-        .close-menu { 
-            position: absolute; 
-            top: 20px; right: 5%; font-size: 2.5rem; cursor: pointer; z-index: 2002;
+        .menu-link:hover { 
+            padding-left: 40px; 
+            border-left: 5px solid #000; /* Linea più spessa al passaggio */
+            font-weight: 600; 
         }
+        
+        .close-menu { position: absolute; top: 20px; right: 5%; font-size: 2.5rem; cursor: pointer; z-index: 2002; }
 
         /* --- CTA BUTTONS --- */
         .btn-primary {
@@ -198,21 +209,18 @@
         
         .btn-small-cta {
             margin-top: 15px; padding: 8px 20px; font-size: 0.75rem;
-            border: 1px solid #ccc; background: transparent;
+            border: 1px solid #666; background: transparent;
             text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;
-            transition: 0.3s; display: inline-block; color: var(--text-color);
+            transition: 0.3s; display: inline-block; color: #aaa;
         }
         .btn-small-cta:hover {
-            background: var(--text-color); color: #fff; border-color: var(--text-color);
+            background: var(--accent); color: #fff; border-color: var(--accent);
         }
 
         /* --- HERO & VIDEO --- */
         .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; padding-top: 100px; }
         .hero-line { overflow: hidden; }
-        .hero-title { 
-            font-size: clamp(3rem, 9vw, 8rem); 
-            line-height: 0.95; font-weight: 300; text-transform: uppercase; margin-bottom: 30px;
-        }
+        .hero-title { font-size: clamp(3rem, 9vw, 8rem); line-height: 0.95; font-weight: 300; text-transform: uppercase; margin-bottom: 30px; }
         .hero-title span { display: block; transform: translateY(100%); }
         .hero-desc { max-width: 600px; font-size: 1.1rem; color: var(--text-muted); opacity: 0; line-height: 1.6; }
         
@@ -220,11 +228,8 @@
             position: absolute; right: 5%; top: 20%; width: 30vw; height: 50vh; z-index: -1; 
             opacity: 1; transition: 0.5s; 
         }
-        .hero-image-container img, 
-        .hero-image-container video { 
-            width: 100%; height: 100%; 
-            object-fit: contain; 
-            filter: grayscale(100%); 
+        .hero-image-container img { 
+            width: 100%; height: 100%; object-fit: contain; filter: grayscale(100%); 
         }
 
         /* --- BIO --- */
@@ -233,19 +238,39 @@
         .bio-text strong { color: var(--accent); font-weight: 500; }
         .bio-quote { margin: 30px 0; padding: 20px; border-left: 3px solid var(--accent); background: var(--card-bg); font-style: italic; font-weight: 500; font-size: 1rem; }
 
-        /* --- AI & SKILLS --- */
-        .ai-stripe { display: flex; border-top: 1px solid var(--lines); border-bottom: 1px solid var(--lines); flex-wrap: wrap; }
+        /* --- AI SECTION (MATCHING PORTFOLIO STYLE) --- */
+        #ai {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        #ai .section-subtitle { color: var(--accent); }
+        #ai .section-title { color: var(--dark-text); }
+        #ai p, #ai li { color: #bbb; }
+        
+        .ai-stripe { display: flex; border-top: 1px solid var(--dark-lines); border-bottom: 1px solid var(--dark-lines); flex-wrap: wrap; }
+        
         .ai-box { 
-            flex: 1; padding: 50px 30px; border-right: 1px solid var(--lines); 
-            transition: 0.3s; position: relative; min-width: 280px; display: flex; flex-direction: column; justify-content: space-between;
+            flex: 1; padding: 50px 30px; border-right: 1px solid var(--dark-lines); 
+            transition: 0.4s; position: relative; min-width: 280px; 
+            display: flex; flex-direction: column; justify-content: space-between;
+            background: var(--dark-bg);
+            cursor: pointer; 
         }
         .ai-box:last-child { border: none; }
-        .ai-box:hover { background: var(--card-bg-hover); transform: translateY(-5px); } 
-        .ai-icon { font-size: 2rem; color: var(--accent); margin-bottom: 20px; display: block;}
+        
+        .ai-box:hover { background: var(--dark-card); }
+        
+        .ai-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; opacity: 0.9; }
+        .ai-box h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--dark-text); }
+        
         .ai-box ul { list-style: none; margin-top: 15px; margin-bottom: 20px; }
-        .ai-box li { position: relative; padding-left: 20px; margin-bottom: 8px; font-size: 0.95rem; color: var(--text-muted); }
-        .ai-box li::before { content: '✓'; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
-
+        .ai-box li { position: relative; padding-left: 20px; margin-bottom: 8px; font-size: 0.95rem; color: #888; }
+        .ai-box li::before { content: '>'; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
+        
+        /* --- SKILLS GRID --- */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
         .skill-group { opacity: 0; transform: translateY(20px); }
         .skill-group h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 20px; border-bottom: 1px solid var(--lines); padding-bottom: 10px; display: block; }
@@ -360,7 +385,7 @@
         .social-desc { font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
         .footer-quote { font-family: 'Manrope', sans-serif; font-size: 1.2rem; font-style: italic; color: #0e0e0e; opacity: 0.8; margin-bottom: 40px; max-width: 800px; text-align: center; }
 
-        /* --- MODALS --- */
+        /* --- MODALS (DARK/TECH THEME - IMPROVED) --- */
         .modal-overlay { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(0,0,0,0.85); z-index: 2000; 
@@ -368,167 +393,159 @@
             opacity: 0; transition: opacity 0.4s; backdrop-filter: blur(8px); 
         }
         .modal-overlay.open { display: flex; opacity: 1; }
-        .modal-content { background: #ffffff; width: 90%; max-width: 900px; padding: 0; max-height: 90vh; overflow-y: auto; position: relative; border-radius: 8px; }
-        .modal-header { background: #f9f9f9; padding: 25px 30px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; }
-        .modal-body { padding: 30px; }
-        .modal-body h3 { font-size: 1.2rem; color: var(--accent); margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }
-        .modal-body ul { list-style: disc; padding-left: 20px; margin-bottom: 15px; }
-        .modal-body li { margin-bottom: 6px; color: #444; }
-        .close-modal { font-size: 2rem; cursor: pointer; color: var(--text-muted); transition: 0.2s;}
-        .close-modal:hover { color: #000; transform: rotate(90deg); }
 
-        /* --- MOBILE OPTIMIZATION (<900px) --- */
-        @media (max-width: 900px) {
-            .hero-image-container { position: relative; width: 100%; height: 350px; top: 0; right: 0; margin-bottom: 30px; opacity: 1; filter: grayscale(100%); mix-blend-mode: normal; }
-            .bio-grid, .edu-grid, .linkedin-cols, .personal-grid { grid-template-columns: 1fr; }
-            .timeline-container { padding-left: 20px; border-left: 2px solid var(--lines); }
-            .exp-row::before { width: 16px; height: 16px; left: -29px; }
-            
-            #portfolio-section { height: auto; padding-top: 0; padding-bottom: 80px; overflow-x: hidden; }
-            .portfolio-sticky-header { position: relative; top: auto; left: auto; padding: 60px 5% 0 5%; width: 100%; margin-bottom: 20px; max-width: 100%; }
-            .portfolio-sticky-header h2 { font-size: 2rem; }
-            
-            .h-scroll-container { display: block; height: auto; overflow: visible; }
-            .h-scroll-section { display: block; width: 100%; height: auto; }
-            
-            .gallery-item { 
-                width: 100%; height: auto; 
-                padding: 40px 5%; margin-bottom: 20px;
-                border-bottom: 1px solid #333; border-right: none; 
-                flex-direction: column; 
-                gap: 15px; align-items: center; justify-content: flex-start;
-                opacity: 0; 
-            }
-            
-            .gallery-num { font-size: 3rem; -webkit-text-stroke: 1px var(--accent); margin-right: auto; }
-            .gallery-card { width: 100%; margin: 0; padding: 30px; margin-top: 0; max-width: 100%; }
-            
-            .social-container { gap: 30px; }
-            .footer-cta { font-size: 3rem; }
-            .cursor, .cursor-dot { display: none; }
-            * { cursor: auto; }
+        /* Default Light Modal (Esperienze) */
+        .modal-content {
+            background: #fff; width: 90%; max-width: 800px; max-height: 90vh;
+            overflow-y: auto; position: relative; border-radius: 4px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            display: flex; flex-direction: column;
+        }
+        .modal-header { padding: 30px 40px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: flex-start; background: #fff; position: sticky; top: 0; z-index: 10; }
+        .close-modal { font-size: 2rem; cursor: pointer; color: #333; line-height: 0.8; transition: 0.3s; }
+        .close-modal:hover { color: var(--accent); transform: rotate(90deg); }
+        .modal-body { padding: 40px; line-height: 1.8; color: #444; overflow-y: auto; }
+        
+        /* UPDATED MODAL TITLES STYLING (GOLD & LINE) */
+        .modal-content h3, .modal-content h4 {
+            color: var(--accent) !important;
+            border-bottom: 1px solid rgba(0,0,0,0.1); /* Linea leggera */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: block;
         }
 
-        /* --- NEW TECH MODALS (DARK THEME) --- */
+        /* TECH THEME MODAL (AI - SCROLLABLE & BIG) */
         .modal-content.tech-theme {
-            background: #0e0e0e; /* Sfondo scuro per effetto wow */
-            color: #e0e0e0;
+            background: var(--dark-card); 
+            color: #fff;
             border: 1px solid #333;
-            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            box-shadow: 0 0 80px rgba(0,0,0,0.9);
+            width: 95%; /* Molto più largo */
+            max-width: 1100px;
+            height: 90vh; /* Alto quasi quanto lo schermo */
         }
+        
         .modal-content.tech-theme .modal-header {
-            background: #141414;
+            background: #111;
             border-bottom: 1px solid #333;
+            padding: 25px 40px;
+            flex-shrink: 0; /* Header fisso */
         }
-        .modal-content.tech-theme .close-modal { color: #fff; }
-        .modal-content.tech-theme h2 { color: #fff; }
-        .modal-content.tech-theme h3 { color: var(--accent); border-bottom: 1px solid #333; }
-        .modal-content.tech-theme li { color: #bbb; }
-        .modal-content.tech-theme strong { color: #fff; }
+        
+        .modal-content.tech-theme .modal-body {
+            padding: 0; /* Reset padding per contenere il visual */
+            overflow-y: auto; /* Abilita lo scroll */
+            flex-grow: 1;
+        }
 
-        /* CONTENITORE VISUAL */
+        .tech-text-content { padding: 40px; } /* Padding per il testo dentro il body */
+        
+        .modal-content.tech-theme .close-modal { color: #fff; }
+        .modal-content.tech-theme h2 { color: #fff; font-size: 2rem; }
+        
+        /* Specific override for Tech Theme titles to have lighter line */
+        .modal-content.tech-theme h3, .modal-content.tech-theme h4 {
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin-top:30px; 
+            margin-bottom: 15px;
+        }
+        
+        .modal-content.tech-theme li { color: #ccc; margin-bottom: 10px; font-size: 1rem; }
+        .modal-content.tech-theme strong { color: #fff; }
+        .modal-content.tech-theme p { line-height: 1.8; color: #ccc; margin-bottom: 20px; font-size: 1.05rem; text-align: justify; }
+
+        /* --- VISUAL SCENICI D'IMPATTO (CSS PURO) --- */
         .scenographic-container {
             width: 100%;
-            height: 250px;
+            height: 350px; /* Altezza aumentata per impatto */
             background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-            border: 1px solid #333;
-            border-radius: 8px;
-            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
             position: relative;
             overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
         }
 
-        /* --- 1. PREDICTIVE: RADAR SCANNER --- */
+        /* 1. RADAR 3D (Predictive) */
         .radar-grid {
-            position: absolute; width: 100%; height: 100%;
+            position: absolute; width: 200%; height: 200%;
             background-image: 
                 linear-gradient(rgba(197, 160, 89, 0.1) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(197, 160, 89, 0.1) 1px, transparent 1px);
-            background-size: 40px 40px;
-            perspective: 1000px;
-            transform: rotateX(60deg) scale(1.5);
-            opacity: 0.3;
+            background-size: 60px 60px;
+            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+            animation: gridMove 10s linear infinite;
         }
-        .radar-line {
-            position: absolute;
-            width: 100%; height: 2px;
+        .scanner-beam {
+            position: absolute; width: 100%; height: 5px;
             background: var(--accent);
-            box-shadow: 0 0 20px var(--accent);
-            top: 0;
-            animation: scanDown 3s linear infinite;
-            z-index: 2;
+            box-shadow: 0 0 30px var(--accent), 0 0 10px #fff;
+            top: 50%; animation: scanVertical 4s ease-in-out infinite alternate; opacity: 0.8; z-index: 2;
         }
-        .future-bar {
-            position: absolute; bottom: 0; width: 30px; background: rgba(197, 160, 89, 0.5);
-            border-top: 2px solid var(--accent);
-            transform-origin: bottom;
-            animation: growBar 3s infinite;
+        .data-pillar {
+            position: absolute; bottom: 80px; width: 40px; 
+            background: linear-gradient(to top, rgba(197,160,89,0.1), rgba(197,160,89,0.6));
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 15px rgba(197,160,89,0.2);
+            transform: perspective(500px) rotateX(10deg);
+            animation: growPillar 3s infinite alternate;
         }
-        @keyframes scanDown { 0% { top: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
-        @keyframes growBar { 0%, 20% { height: 0; opacity: 0; } 50% { opacity: 1; } 100% { height: var(--h); opacity: 0; } }
+        @keyframes gridMove { 0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); } 100% { transform: perspective(500px) rotateX(60deg) translateY(60px) translateZ(-200px); } }
+        @keyframes scanVertical { 0% { top: 10%; opacity:0; } 50% { opacity:1; } 100% { top: 90%; opacity:0;} }
+        @keyframes growPillar { 0% { height: 20px; opacity:0.3; } 100% { height: 150px; opacity:1; } }
 
-        /* --- 2. GOVERNANCE: STRATEGIC CORE --- */
+        /* 2. REATTORE (Governance) */
         .core-sphere {
-            width: 60px; height: 60px;
-            background: radial-gradient(circle at 30% 30%, var(--accent), #000);
-            border-radius: 50%;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+            width: 80px; height: 80px;
+            background: #fff; border-radius: 50%;
+            box-shadow: 0 0 60px var(--accent), 0 0 100px var(--accent);
+            position: relative; z-index: 5; animation: pulseReactor 2s infinite;
         }
         .shield-ring {
-            position: absolute;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
+            position: absolute; border-radius: 50%;
+            border: 2px solid rgba(197, 160, 89, 0.3);
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
         }
-        .ring-1 { width: 120px; height: 120px; border-color: var(--accent); animation: spinRight 8s linear infinite; border-left: transparent; }
-        .ring-2 { width: 180px; height: 180px; border-style: dashed; animation: spinLeft 12s linear infinite; }
-        .ring-3 { width: 240px; height: 240px; border: 1px dotted rgba(255,255,255,0.1); animation: pulseScale 3s ease-in-out infinite; }
-        .scanner-dot {
-            position: absolute; top: 0; left: 50%; width: 6px; height: 6px; background: #fff; border-radius: 50%;
-            box-shadow: 0 0 10px #fff;
-        }
-        @keyframes spinRight { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
-        @keyframes spinLeft { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(-360deg); } }
-        @keyframes pulseScale { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; } 50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.6; } }
+        .orbit-1 { width: 180px; height: 180px; border-top-color: var(--accent); animation: spin 4s linear infinite; }
+        .orbit-2 { width: 260px; height: 260px; border-bottom: 2px solid var(--accent); animation: spinReverse 7s linear infinite; }
+        .orbit-3 { width: 340px; height: 340px; border: 1px dashed rgba(255,255,255,0.1); animation: spin 20s linear infinite; }
+        
+        @keyframes pulseReactor { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.9); opacity: 0.8; } }
+        @keyframes spin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+        @keyframes spinReverse { 100% { transform: translate(-50%, -50%) rotate(-360deg); } }
 
-        /* --- 3. GENERATIVE: DATA ASSEMBLER --- */
+        /* 3. FORNACE (Generative) */
         .particle-stream {
-            position: absolute;
-            width: 4px; height: 4px;
-            background: var(--accent);
-            border-radius: 50%;
-            opacity: 0;
+            position: absolute; width: 4px; height: 4px;
+            background: var(--accent); border-radius: 50%; opacity: 0;
+            box-shadow: 0 0 10px var(--accent);
         }
         .central-furnace {
-            width: 80px; height: 100px;
-            border: 2px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.05);
-            display: flex; justify-content: center; align-items: center;
-            position: relative;
-            backdrop-filter: blur(5px);
-            animation: glowBox 2s infinite alternate;
+            width: 100px; height: 120px;
+            border: 2px solid var(--accent);
+            background: rgba(197, 160, 89, 0.05);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            position: relative; z-index: 5;
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.2);
         }
-        .doc-line { width: 60%; height: 4px; background: rgba(255,255,255,0.3); margin: 6px 0; border-radius: 2px; }
-        .doc-line.active { background: var(--accent); box-shadow: 0 0 10px var(--accent); animation: typeLine 1s forwards; width: 0; }
+        .doc-line { width: 70%; height: 2px; background: rgba(255,255,255,0.1); margin: 8px 0; }
+        .doc-line.active { background: var(--accent); box-shadow: 0 0 8px var(--accent); animation: typeLine 0.5s forwards; width: 0; }
 
-        @keyframes glowBox { from { box-shadow: 0 0 10px rgba(197,160,89,0.1); border-color: rgba(197,160,89,0.3); } to { box-shadow: 0 0 30px rgba(197,160,89,0.4); border-color: var(--accent); } }
-        @keyframes typeLine { to { width: 60%; } }
+        @keyframes typeLine { to { width: 70%; } }
+        
+        /* Particelle Helper */
+        .p1 { top: 20%; left: 10%; animation: flyIn 2.5s infinite ease-in; animation-delay: 0s; }
+        .p2 { top: 80%; left: 10%; animation: flyIn 2.5s infinite ease-in; animation-delay: 0.8s; }
+        .p3 { top: 50%; left: 90%; animation: flyInRight 2.5s infinite ease-in; animation-delay: 1.2s; }
+        .p4 { top: 10%; left: 80%; animation: flyInRight 2.5s infinite ease-in; animation-delay: 1.9s; }
 
-        /* Particelle */
-        .p1 { top: 20%; left: 10%; animation: flyIn 2s infinite ease-in; animation-delay: 0s; }
-        .p2 { top: 80%; left: 10%; animation: flyIn 2s infinite ease-in; animation-delay: 0.5s; }
-        .p3 { top: 50%; left: 90%; animation: flyInRight 2s infinite ease-in; animation-delay: 1s; }
-        .p4 { top: 10%; left: 80%; animation: flyInRight 2s infinite ease-in; animation-delay: 1.5s; }
-
-        @keyframes flyIn { 0% { opacity: 1; transform: translate(0,0); } 100% { opacity: 0; transform: translate(150px, 0); } }
-        @keyframes flyInRight { 0% { opacity: 1; transform: translate(0,0); } 100% { opacity: 0; transform: translate(-150px, 0); } }
+        @keyframes flyIn { 0% { opacity: 1; transform: translate(0,0); } 100% { opacity: 0; transform: translate(120px, 0); } }
+        @keyframes flyInRight { 0% { opacity: 1; transform: translate(0,0); } 100% { opacity: 0; transform: translate(-120px, 0); } }
     </style>
 </head>
 <body>
@@ -537,13 +554,20 @@
     <div class="cursor-dot"></div>
 
     <div class="menu-overlay" id="menuOverlay">
+        
+        <div class="menu-branding-header">
+            <div class="menu-logo-large">FRANCESCO GUBERTINI</div>
+            <div class="menu-role-large">RESPONSABILE MARKETING & IA SPECIALIST</div>
+        </div>
+
         <div class="close-menu hover-trigger" onclick="toggleMenu()">&times;</div>
-        <a href="#bio" class="menu-link hover-trigger" onclick="toggleMenu()">Profile</a>
-        <a href="#ai" class="menu-link hover-trigger" onclick="toggleMenu()">Strategy</a>
+        <a href="#bio" class="menu-link hover-trigger" onclick="toggleMenu()">Profilo</a>
+        <a href="#ai" class="menu-link hover-trigger" onclick="toggleMenu()">IA Strategy</a>
         <a href="#experience" class="menu-link hover-trigger" onclick="toggleMenu()">Esperienze di lavoro</a>
         <a href="#portfolio-section" class="menu-link hover-trigger" onclick="toggleMenu()">Portfolio</a>
-        <a href="#education" class="menu-link hover-trigger" onclick="toggleMenu()">Education</a>
-        <a href="#contact" class="menu-link hover-trigger" onclick="toggleMenu()">Contact</a>
+        <a href="#education" class="menu-link hover-trigger" onclick="toggleMenu()">Formazione</a>
+        <a href="assets/docs/CV_Gubertini_Francesco.pdf?v=2" download class="menu-link hover-trigger" onclick="toggleMenu()">Scarica CV <i class="fa-solid fa-download" style="font-size:1rem; margin-left:10px;"></i></a>
+        <a href="#contact" class="menu-link hover-trigger" onclick="toggleMenu()">Contatti</a>
     </div>
 
     <nav id="navbar">
@@ -589,48 +613,54 @@
         </div>
     </section>
 
-    <section id="ai" class="container" style="padding: 100px 0;">
-        <span class="section-subtitle">INNOVAZIONE APPLICATA</span>
-        <h2 class="section-title">AI STRATEGY & EXECUTION</h2>
-        <div style="max-width: 800px; margin-bottom: 40px; color: var(--text-muted);">
-            L'IA non è solo generazione di contenuti, è uno strumento di calcolo e previsione per supportare il management.
-        </div>
-        <div class="ai-stripe">
-            <div class="ai-box hover-trigger" onclick="openModal('ai-predictive')">
-                <i class="fa-solid fa-chart-pie ai-icon"></i>
-                <h3>Predictive Analysis</h3>
-                <ul>
-                    <li>Forecasting vendite e scenari di mercato.</li>
-                    <li>Analisi predittiva su Business Intelligence.</li>
-                    <li>Identificazione trend nascosti nei dati aziendali.</li>
-                </ul>
-                <div class="btn-small-cta" style="border-color:var(--accent);">APPROFONDISCI +</div>
+    <section id="ai">
+        <div class="container" style="position:relative; z-index:1;">
+            <span class="section-subtitle">L'ERA DELL'INTELLIGENZA AUMENTATA</span>
+            <h2 class="section-title">Dalla Generazione alla Previsione:<br>Il Nuovo Sistema Operativo</h2>
+            <div style="max-width: 800px; margin-bottom: 60px; font-size:1.1rem; line-height:1.6; color:#bbb;">
+                Dimenticate la semplice creazione di contenuti. Qui l'IA è un oracolo, un architetto e un motore. 
+                Passiamo dal semplice "fare" al prendere decisioni basate su un'architettura cognitiva superiore. 
+                Non sostituzione, ma potenziamento strategico del business.
             </div>
             
-            <div class="ai-box hover-trigger" onclick="openModal('ai-governance')">
-                <i class="fa-solid fa-brain ai-icon"></i>
-                <h3>Governance & Strategy</h3>
-                <ul>
-                    <li>Roadmap adozione AI in azienda.</li>
-                    <li>Gestione etica e compliance (EU AI Act).</li>
-                    <li>Change Management e integrazione flussi.</li>
-                </ul>
-                <div class="btn-small-cta" style="border-color:var(--accent);">APPROFONDISCI +</div>
+            <div class="ai-stripe">
+                <div class="ai-box hover-trigger" onclick="openModal('ai-predictive')">
+                    <i class="fa-solid fa-chart-line ai-icon"></i>
+                    <h3>Predictive Analysis</h3>
+                    <ul>
+                        <li>Forecasting con modelli SARIMA e Serie Temporali.</li>
+                        <li>Analisi predittiva e calcolo percentili immediati.</li>
+                        <li>Identificazione trend nascosti (Pattern Recognition).</li>
+                    </ul>
+                    <div class="btn-small-cta">SCOPRI IL MOTORE</div>
+                </div>
+                
+                <div class="ai-box hover-trigger" onclick="openModal('ai-governance')">
+                    <i class="fa-solid fa-shield-halved ai-icon"></i>
+                    <h3>Governance & Strategy</h3>
+                    <ul>
+                        <li>Roadmap adozione (Machine Intelligence Continuum).</li>
+                        <li>Gestione etica, Black Box e mitigazione Bias.</li>
+                        <li>Architettura della Decisione e Teoria dei Giochi.</li>
+                    </ul>
+                    <div class="btn-small-cta">VEDI L'ARCHITETTURA</div>
+                </div>
+                
+                <div class="ai-box hover-trigger" onclick="openModal('ai-gen')">
+                    <i class="fa-solid fa-microchip ai-icon"></i>
+                    <h3>Generative AI & Content</h3>
+                    <ul>
+                        <li>Advanced Prompt Engineering (Chain of Thought).</li>
+                        <li>Automazione reportistica e Smart ETL.</li>
+                        <li>Supporto creativo per Naming e Payoff.</li>
+                    </ul>
+                    <div class="btn-small-cta">ATTIVA LA SCINTILLA</div>
+                </div>
             </div>
             
-            <div class="ai-box hover-trigger" onclick="openModal('ai-gen')">
-                <i class="fa-solid fa-robot ai-icon"></i>
-                <h3>Generative AI & Content</h3>
-                <ul>
-                    <li>Advanced Prompt Engineering per Marketing.</li>
-                    <li>Automazione creazione report e documenti.</li>
-                    <li>Supporto creativo per Naming e Payoff.</li>
-                </ul>
-                <div class="btn-small-cta" style="border-color:var(--accent);">APPROFONDISCI +</div>
+            <div class="text-center" style="margin-top:50px;">
+                <a href="#portfolio-section" class="btn-primary" style="border-color:#fff; color:#fff;">VEDI IL MIO METODO</a>
             </div>
-        </div>
-        <div class="text-center">
-            <a href="#portfolio-section" class="btn-primary">VEDI IL MIO METODO</a>
         </div>
     </section>
 
@@ -1000,7 +1030,7 @@
 
             <div style="margin-top: 80px; font-size: 0.8rem; opacity: 0.6; line-height: 1.6;">
                 &copy; <span id="year"></span> Francesco Gubertini. All Rights Reserved.<br>
-                Formigine (Mo) 41043 Italia | <a href="#" style="color:#0e0e0e; font-weight:700;">Privacy Policy</a>
+                Sito web realizzato da Francesco Gubertini | Formigine (Mo) 41043 Italia | <a href="#" style="color:#0e0e0e; font-weight:700;">Privacy Policy</a>
             </div>
         </div>
     </footer>
@@ -1014,25 +1044,28 @@
             <div class="modal-body">
                 <div class="scenographic-container">
                     <div class="radar-grid"></div>
-                    <div class="radar-line"></div>
-                    <div class="future-bar" style="left: 20%; height: 40px; animation-delay: 0.5s; --h: 80px;"></div>
-                    <div class="future-bar" style="left: 35%; height: 60px; animation-delay: 0.8s; --h: 120px;"></div>
-                    <div class="future-bar" style="left: 50%; height: 30px; animation-delay: 1.1s; --h: 150px;"></div>
-                    <div class="future-bar" style="left: 65%; height: 90px; animation-delay: 1.4s; --h: 100px;"></div>
-                    <div class="future-bar" style="left: 80%; height: 50px; animation-delay: 1.7s; --h: 180px;"></div>
+                    <div class="scanner-beam"></div>
+                    <div class="data-pillar" style="left: 20%; height: 40px; animation-delay: 0.5s;"></div>
+                    <div class="data-pillar" style="left: 35%; height: 60px; animation-delay: 0.8s;"></div>
+                    <div class="data-pillar" style="left: 50%; height: 30px; animation-delay: 1.1s;"></div>
+                    <div class="data-pillar" style="left: 65%; height: 90px; animation-delay: 1.4s;"></div>
+                    <div class="data-pillar" style="left: 80%; height: 50px; animation-delay: 1.7s;"></div>
                 </div>
                 
-                <h3 style="margin-top:0;">Dall'Analisi Descrittiva alla Previsione</h3>
-                <p>Passiamo dal guardare lo specchietto retrovisore ("Cosa è successo?") al navigatore GPS ("Cosa succederà?"). I miei modelli predittivi trasformano i dati storici in probabilità future.</p>
-                
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-top:20px;">
-                    <div>
-                        <h4 style="color:#fff; margin-bottom:10px;">Scenario Planning</h4>
-                        <p style="font-size:0.9rem; color:#bbb;">Simulazione di scenari "What-If" per valutare l'impatto di decisioni di prezzo o budget marketing prima di investire un solo euro.</p>
-                    </div>
-                    <div>
-                        <h4 style="color:#fff; margin-bottom:10px;">Churn Prediction</h4>
-                        <p style="font-size:0.9rem; color:#bbb;">Identificazione proattiva dei clienti a rischio abbandono analizzando segnali deboli nei dati comportamentali, permettendo azioni di retention mirate.</p>
+                <div class="tech-text-content">
+                    <h3 style="margin-top:0;">Dall'Analisi Descrittiva alla Previsione Commerciale</h3>
+                    <p>Nel contesto competitivo odierno, il semplice report del venduto non basta. La mia metodologia sposta il focus dall'analisi storica alla <strong>Forecasting Sales Intelligence</strong>. Utilizzando modelli avanzati di serie temporali come <strong>SARIMA</strong>, proiettiamo i trend di vendita con precisione scientifica. Questo permette ai <strong>Direttori Commerciali</strong> di non affidarsi all'intuizione, ma di pianificare stock e campagne basandosi su curve di domanda previste.</p>
+                    <p>Inoltre, integro principi di <strong>Teoria dei Giochi</strong> per modellare scenari di mercato competitivi. L'obiettivo è supportare l'<strong>Executive Team</strong> nell'identificare l'Equilibrio di Nash ottimale: definire prezzi e promozioni che massimizzano il profitto in risposta alle mosse dei competitor, trasformando l'incertezza del mercato in un calcolo di probabilità gestibile e profittevole.</p>
+                    
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:30px; margin-top:30px;">
+                        <div>
+                            <h4 style="color:#fff; margin-bottom:10px;">Scenario Planning & GTM</h4>
+                            <p style="font-size:0.95rem; color:#bbb;">Simulazione di scenari "What-If" per il <strong>Go-to-Market</strong>: valutiamo l'impatto di variazioni di listino o dell'apertura di nuovi territori prima di investire budget reali, riducendo drasticamente il rischio d'impresa.</p>
+                        </div>
+                        <div>
+                            <h4 style="color:#fff; margin-bottom:10px;">Customer Churn Prediction</h4>
+                            <p style="font-size:0.95rem; color:#bbb;">Identificazione proattiva dei clienti a rischio abbandono analizzando la frequenza d'acquisto e i segnali deboli, permettendo alla forza vendita di attivare strategie di retention mirate per salvaguardare il fatturato ricorrente.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1047,22 +1080,26 @@
             </div>
             <div class="modal-body">
                 <div class="scenographic-container">
-                    <div class="shield-ring ring-3"></div>
-                    <div class="shield-ring ring-2"><div class="scanner-dot"></div></div>
-                    <div class="shield-ring ring-1"></div>
+                    <div class="shield-ring orbit-3"></div>
+                    <div class="shield-ring orbit-2"></div>
+                    <div class="shield-ring orbit-1"></div>
                     <div class="core-sphere"></div>
                 </div>
 
-                <h3 style="margin-top:0;">Bias Mitigation & Game Theory</h3>
-                <p>L'IA non è magica, è statistica. Senza governance, amplifica i bias. Il mio approccio integra principi di Teoria dei Giochi e mitigazione attiva dei bias cognitivi.</p>
-                 <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-top:20px;">
-                    <div>
-                        <h4 style="color:#fff; margin-bottom:10px;">AI Red Teaming</h4>
-                        <p style="font-size:0.9rem; color:#bbb;">Utilizzo l'IA come "Red Team" per sfidare le assunzioni strategiche aziendali, simulando scenari di crisi o contromosse dei competitor.</p>
-                    </div>
-                    <div>
-                        <h4 style="color:#fff; margin-bottom:10px;">Nash Equilibrium</h4>
-                        <p style="font-size:0.9rem; color:#bbb;">Analisi degli scenari competitivi complessi per identificare posizioni di equilibrio stabili, ottimizzando le strategie di pricing e posizionamento.</p>
+                <div class="tech-text-content">
+                    <h3 style="margin-top:0;">Bias Mitigation & Brand Reputation</h3>
+                    <p>L'Intelligenza Artificiale nel Marketing non è una scatola nera, ma un asset che va governato per evitare danni reputazionali. I dati storici di vendita possono contenere bias involontari (es. trascurare determinate aree geografiche o target). La mia strategia implementa protocolli di <strong>Red Teaming</strong> per auditare gli algoritmi, garantendo che le strategie di pricing dinamico o di targeting non siano discriminatorie, proteggendo il valore del Brand e la fiducia del consumatore.</p>
+                    <p>Parallelamente, lavoro sull'<strong>Architettura della Decisione Strategica</strong>. I <strong>Leader Commerciali</strong> e gli Stakeholder operano spesso in condizioni di "Razionalità Limitata" e pressione sui risultati. Il mio ruolo è costruire sistemi di supporto alle decisioni che superino l'inerzia o la <em>Sunk Cost Fallacy</em> (l'ostinazione su prodotti non performanti), offrendo insight oggettivi per ottimizzare il <strong>Funnel di Conversione</strong>.</p>
+
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:30px; margin-top:30px;">
+                        <div>
+                            <h4 style="color:#fff; margin-bottom:10px;">Go-to-Market Dinamico</h4>
+                            <p style="font-size:0.95rem; color:#bbb;">Utilizzo l'AI per mappare in tempo reale le opportunità di mercato scoperte, suggerendo l'allocazione dinamica della forza vendita o del budget media nelle aree con il più alto potenziale di conversione immediata (ROAS).</p>
+                        </div>
+                        <div>
+                            <h4 style="color:#fff; margin-bottom:10px;">Cultural Change & Sales Enablement</h4>
+                            <p style="font-size:0.95rem; color:#bbb;">L'adozione dell'IA richiede un cambio di mindset. Formo i team di vendita e marketing a collaborare con l'IA, spostando il focus dall'operatività ripetitiva alla relazione con il cliente ad alto valore aggiunto.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1092,22 +1129,26 @@
                     </div>
                 </div>
 
-                <h3 style="margin-top:0;">Dalla Pulizia Dati all'Automazione</h3>
-                <p>Non solo "chat". Trasformo l'IA in un analista aumentato capace di pulire dati sporchi, generare codice Python/VBA e creare report complessi in autonomia.</p>
-                
-                 <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-top:20px;">
-                    <div>
-                        <h4 style="color:#fff; margin-bottom:10px;">Smart ETL</h4>
-                        <p style="font-size:0.9rem; color:#bbb;">Automazione della pulizia dati (Data Cleaning) e Feature Engineering per trasformare file grezzi in dataset pronti per la Business Intelligence.</p>
-                    </div>
-                    <div>
-                        <h4 style="color:#fff; margin-bottom:10px;">Chain of Thought</h4>
-                        <p style="font-size:0.9rem; color:#bbb;">Advanced Prompt Engineering per guidare i modelli LLM attraverso processi logici complessi, garantendo output coerenti e utilizzabili nel business.</p>
+                <div class="tech-text-content">
+                    <h3 style="margin-top:0;">Dalla Pulizia Dati all'Automazione Creativa</h3>
+                    <p>Trasformo l'IA da semplice chatbot in un vero <strong>Analista Aumentato</strong>. Utilizzando tecniche avanzate come il <strong>Chain of Thought Prompting</strong>, guido i modelli linguistici (LLM) attraverso processi logici complessi per eseguire compiti che prima richiedevano ore di lavoro manuale. Questo include la pulizia automatizzata di file "sporchi" (Data Cleaning), la standardizzazione di formati e l'estrazione di insight da dati non strutturati.</p>
+                    <p>Nel campo creativo, superiamo il blocco della pagina bianca utilizzando l'IA per sessioni di brainstorming divergenti e convergenti. Generiamo naming, payoff e angoli comunicativi innovativi basati sull'analisi semantica dei valori del brand, sfruttando la capacità dei "Sistemi che Creano" (Livello 4 del MIC) per produrre contenuti originali che risuonano emotivamente con il target.</p>
+                    
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:30px; margin-top:30px;">
+                        <div>
+                            <h4 style="color:#fff; margin-bottom:10px;">Smart ETL</h4>
+                            <p style="font-size:0.95rem; color:#bbb;">Automazione dei processi di estrazione, trasformazione e caricamento (ETL) dei dati. Utilizzo l'IA per scrivere codice Python/VBA che pulisce dataset complessi, gestisce valori mancanti e prepara i dati per l'analisi.</p>
+                        </div>
+                        <div>
+                            <h4 style="color:#fff; margin-bottom:10px;">Automazione Report</h4>
+                            <p style="font-size:0.95rem; color:#bbb;">Automatizzazione del ciclo di vita del reporting: dalla strutturazione dell'indice alla sintesi di enormi moli di dati qualitativi (come interviste e recensioni), fino alla generazione di bozze pronte per la revisione.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div id="modal-opera" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -1323,11 +1364,25 @@
             </div>
             <div class="modal-body">
                 <p>Durante il periodo universitario ho lavorato come responsabile della gestione operativa e commerciale di un punto vendita HTV. Le fondamenta operative che mi permettono oggi di comprendere le dinamiche reali della vendita fisica.</p>
+                
+                <h3>Gestione Operativa</h3>
                 <ul class="content-list">
-                    <li><strong>Gestione Operativa:</strong> Gestione diretta di cassa, fatturazione, magazzino e visual merchandising. Verifica del corretto flusso degli ordini e delle consegne.</li>
-                    <li><strong>Gestione Finanziaria:</strong> Gestione degli obiettivi commerciali e finanziari, apertura e chiusura cassa, raggiungimento dei target di vendita.</li>
-                    <li><strong>Customer Relationship Management:</strong> Gestione dei clienti, risoluzione dei reclami, utilizzo di CRM e ERP gestionali per il controllo stock.</li>
-                    <li><strong>Promozione:</strong> Sviluppo di piani promozionali, presentazione dei prodotti ai clienti, creazione di un ambiente di vendita accogliente e funzionale.</li>
+                    <li>Gestione diretta di cassa, fatturazione, magazzino e visual merchandising. Verifica del corretto flusso degli ordini e delle consegne.</li>
+                </ul>
+
+                <h3>Gestione Finanziaria</h3>
+                <ul class="content-list">
+                    <li>Gestione degli obiettivi commerciali e finanziari, apertura e chiusura cassa, raggiungimento dei target di vendita.</li>
+                </ul>
+
+                <h3>Customer Relationship Management</h3>
+                <ul class="content-list">
+                    <li>Gestione dei clienti, risoluzione dei reclami, utilizzo di CRM e ERP gestionali per il controllo stock.</li>
+                </ul>
+
+                <h3>Promozione</h3>
+                <ul class="content-list">
+                    <li>Sviluppo di piani promozionali, presentazione dei prodotti ai clienti, creazione di un ambiente di vendita accogliente e funzionale.</li>
                 </ul>
             </div>
         </div>
