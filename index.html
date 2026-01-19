@@ -259,8 +259,21 @@
         .ai-box li { position: relative; padding-left: 20px; margin-bottom: 8px; font-size: 0.95rem; color: #888; }
         .ai-box li::before { content: '>'; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
         
-        /* --- SKILLS GRID --- */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
+        /* --- SKILLS GRID FIX (DESKTOP SINGLE LINE) --- */
+        .skills-grid { 
+            display: grid; 
+            gap: 30px; 
+            /* Default: Auto-fit for tablets and mobile */
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+        }
+
+        /* FORCE SINGLE ROW ON DESKTOP */
+        @media (min-width: 1200px) {
+            .skills-grid {
+                grid-template-columns: repeat(4, 1fr); 
+            }
+        }
+
         .skill-group { opacity: 0; transform: translateY(20px); }
         .skill-group h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 20px; border-bottom: 1px solid var(--lines); padding-bottom: 10px; display: block; }
         .skill-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
@@ -658,8 +671,8 @@
                 <h3><i class="fa-solid fa-brain"></i> BI & AI Strategy</h3>
                 <div class="skill-item">Power BI & Excel (Adv/VBA) <span class="skill-badge">EXPERT</span></div>
                 <div class="skill-item">ChatGPT/Claude (Prompt Eng.) <span class="skill-badge">ADVANCED</span></div>
-                <div class="skill-item">Midjourney (GenAI Images) <span class="skill-badge">INTERM.</span></div>
-                <div class="skill-item">Analisi predittiva BI <span class="skill-badge">STRATEGY</span></div>
+                <div class="skill-item">Midjourney, Sora, Nano, Bana <span class="skill-badge">INTERM.</span></div>
+                <div class="skill-item">Analisi predittiva BI & Python <span class="skill-badge">STRATEGY</span></div>
             </div>
             <div class="skill-group">
                 <h3><i class="fa-solid fa-database"></i> CRM & ERP</h3>
@@ -673,14 +686,14 @@
                 <div class="skill-item">GA4 & Google Analytics <span class="skill-badge">SENIOR</span></div>
                 <div class="skill-item">Google Ads <span class="skill-badge">SENIOR</span></div>
                 <div class="skill-item">Meta Business Suite <span class="skill-badge">SENIOR</span></div>
-                <div class="skill-item">MailChimp <span class="skill-badge">SENIOR</span></div>
+                <div class="skill-item">MailChimp & MailerLite (Automation) <span class="skill-badge">SENIOR</span></div>
             </div>
             <div class="skill-group">
                 <h3><i class="fa-solid fa-shopping-cart"></i> E-commerce & Design</h3>
                 <div class="skill-item">WordPress & WooCommerce <span class="skill-badge">EXPERT</span></div>
                 <div class="skill-item">Amazon Seller Central <span class="skill-badge">EXPERT</span></div>
-                <div class="skill-item">Adobe Creative Suite <span class="skill-badge">INTERM./ADV</span></div>
-                <div class="skill-item">SEO/SEM <span class="skill-badge">STRATEGY</span></div>
+                <div class="skill-item">Adobe CS (InDesign, PS, Ai) <span class="skill-badge">INTERM./ADV</span></div>
+                <div class="skill-item">SEO/SEM & Sviluppo HTML/LP <span class="skill-badge">STRATEGY</span></div>
             </div>
              <div class="skill-group">
                 <h3><i class="fa-solid fa-language"></i> Lingue</h3>
