@@ -15,7 +15,7 @@
     </script>
 
     <title>Francesco Gubertini | Marketing Manager & AI Specialist</title>
-    <meta name="description" content="Marketing Manager con approccio consulenziale e Data-Driven. Integro AI, Strategia e Governance per portare valore d'impresa, ridurre i rischi e massimizzare il ROI.">
+    <meta name="description" content="Marketing Manager con approccio consulenziale e Data-Driven. Integro AI, Strategia e Governance per portare valore d'impresa e massimizzare il ROI.">
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://francescogubertini.it/">
@@ -42,7 +42,7 @@
             --card-bg: #f9f9f9; 
             --card-bg-hover: #f0f0f0; 
             
-            /* Dark Theme Variables (Portfolio & AI Style) */
+            /* Dark Theme Variables */
             --dark-bg: #050505;
             --dark-card: #141414;
             --dark-text: #ffffff;
@@ -64,33 +64,40 @@
 
         h1, h2, h3, h4, .menu-link, .hero-role, .section-subtitle, .exp-date, .gallery-num { font-family: 'Space Grotesk', sans-serif; }
         
-        /* --- SCROLL NAVIGATION ARROWS (Nuova Richiesta) --- */
-        .scroll-nav {
+        /* --- RIGHT SIDE SCROLL ANIMATION (CHEVRONS) --- */
+        .scroll-down-indicator {
             position: fixed;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
+            right: 30px;
+            bottom: 40px;
+            z-index: 1500;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            z-index: 1500;
-            opacity: 0.6;
-            transition: opacity 0.3s;
-        }
-        .scroll-nav:hover { opacity: 1; }
-        
-        .scroll-arrow {
-            width: 40px; height: 40px;
-            background: rgba(14, 14, 14, 0.1);
-            border: 1px solid var(--accent);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            color: var(--accent);
-            transition: 0.3s;
-            backdrop-filter: blur(5px);
+            mix-blend-mode: difference; /* Si adatta sia su sfondo bianco che nero */
         }
-        .scroll-arrow:hover { background: var(--accent); color: #fff; transform: scale(1.1); }
+
+        /* Le due frecce stilizzate (Triangoli senza un lato) */
+        .chevron {
+            width: 20px;
+            height: 20px;
+            border-right: 4px solid var(--accent); /* Spessore freccia */
+            border-bottom: 4px solid var(--accent);
+            transform: rotate(45deg);
+            margin: -8px 0; /* Le avvicina */
+            animation: chevronMove 2s infinite ease-in-out;
+            opacity: 0;
+        }
+
+        .chevron:nth-child(1) { animation-delay: 0s; }
+        .chevron:nth-child(2) { animation-delay: 0.3s; }
+
+        @keyframes chevronMove {
+            0% { opacity: 0; transform: rotate(45deg) translate(-10px, -10px); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: rotate(45deg) translate(10px, 10px); }
+        }
 
         /* --- CUSTOM CURSOR --- */
         @media (pointer: fine) {
@@ -119,9 +126,8 @@
         @media (pointer: coarse), (hover: none) {
             * { cursor: auto !important; }
             .cursor, .cursor-dot { display: none !important; }
-            /* Mobile arrows styling */
-            .scroll-nav { right: 5px; gap: 15px; } 
-            .scroll-arrow { width: 35px; height: 35px; background: rgba(255,255,255,0.8); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            /* Mobile adjustment for arrows */
+            .scroll-down-indicator { right: 15px; bottom: 30px; }
         }
 
         /* --- UTILITIES --- */
@@ -334,8 +340,17 @@
 
         /* --- FOOTER --- */
         footer { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: var(--accent); color: #0e0e0e; padding: 20px; margin: 0; position: relative; }
-        .footer-cta { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1; margin: 20px 0; text-transform: uppercase; text-align: center; }
+        
+        .footer-cta { 
+            font-size: clamp(3rem, 8vw, 6rem); 
+            font-weight: 800; 
+            line-height: 1; 
+            margin: 20px 0; 
+            text-transform: uppercase; 
+            text-align: center; 
+        }
         .footer-cta a { border-bottom: 4px solid #0e0e0e; }
+        
         .social-container { display: flex; gap: 60px; margin-top: 60px; flex-wrap: wrap; justify-content: center; }
         .social-item { display: flex; flex-direction: column; align-items: center; gap: 15px; }
         .social-item a { width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; border: 2px solid #0e0e0e; border-radius: 50%; color: #0e0e0e; font-size: 1.8rem; transition: 0.3s; background: transparent; }
@@ -427,6 +442,12 @@
                 margin-right: 10% !important;
             }
 
+            /* 2. FIX LET'S TALK MOBILE */
+            .footer-cta {
+                font-size: clamp(2.5rem, 10vw, 4rem); /* Ridotto per stare su schermi piccoli */
+                white-space: nowrap; /* Forza una singola riga */
+            }
+
             * { cursor: auto !important; }
             .cursor, .cursor-dot { display: none !important; }
 
@@ -477,7 +498,7 @@
             .scenographic-container { height: 200px; flex-shrink: 0; } 
 
             .social-container { gap: 30px; }
-            .footer-cta { font-size: 3.5rem; }
+            
             .branding { max-width: 65%; }
             .logo { font-size: 0.9rem; }
             .nav-role { font-size: 0.55rem; }
@@ -498,13 +519,9 @@
     <div class="cursor"></div>
     <div class="cursor-dot"></div>
 
-    <div class="scroll-nav">
-        <div class="scroll-arrow" onclick="window.scrollBy({top: -300, behavior: 'smooth'})">
-            <i class="fa-solid fa-chevron-up"></i>
-        </div>
-        <div class="scroll-arrow" onclick="window.scrollBy({top: 300, behavior: 'smooth'})">
-            <i class="fa-solid fa-chevron-down"></i>
-        </div>
+    <div class="scroll-down-indicator" onclick="window.scrollBy({top: window.innerHeight, behavior: 'smooth'})">
+        <div class="chevron"></div>
+        <div class="chevron"></div>
     </div>
 
     <div class="menu-overlay" id="menuOverlay">
@@ -718,7 +735,7 @@
                 <button class="btn-small-cta">APPROFONDISCI</button>
             </div>
 
-             <div class="exp-row hover-trigger" onclick="openModal('htv')">
+            <div class="exp-row hover-trigger" onclick="openModal('htv')">
                 <div class="exp-header">
                     <span class="exp-role">Responsabile Punto Vendita</span>
                     <span class="exp-date">APR 2006 - MAG 2010</span>
@@ -964,8 +981,6 @@
                 <a href="mailto:info@francescogubertini.it">LET'S TALK</a>
             </div>
 
-            <p style="margin-top:-10px; margin-bottom:40px; font-weight:600; color:#555;">Valuto nuove opportunità come Manager Marketing & AI Specialist</p>
-            
             <div class="social-container">
                 <div class="social-item">
                     <a href="mailto:info@francescogubertini.it"><i class="fa-solid fa-envelope"></i></a>
@@ -1425,7 +1440,6 @@
         const dot = document.querySelector('.cursor-dot');
         const hoverTriggers = document.querySelectorAll('.hover-trigger, a, button');
 
-        // Check if device has fine pointer (mouse/trackpad)
         if (window.matchMedia("(pointer: fine)").matches) {
             document.addEventListener('mousemove', (e) => {
                 cursor.style.left = e.clientX + 'px';
@@ -1438,7 +1452,6 @@
                 link.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
             });
         } else {
-            // Safe fallback: Hide custom cursor elements if not needed
             if(cursor) cursor.style.display = 'none';
             if(dot) dot.style.display = 'none';
         }
@@ -1496,7 +1509,6 @@
 
             // MOBILE: Alternating Entrance Animation (Vertical)
             "(max-width: 900px)": function() {
-                // Rimuove lo scroll orizzontale e attiva animazioni semplici
                 gsap.set(".gallery-item", { clearProps: "all" });
                 const items = gsap.utils.toArray(".gallery-item");
                 items.forEach((item, i) => {
