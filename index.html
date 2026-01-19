@@ -15,12 +15,12 @@
     </script>
 
     <title>Francesco Gubertini | Marketing Manager & AI Specialist</title>
-    <meta name="description" content="Marketing Manager e AI Specialist. Unisco strategie Data-Driven, Governance AI e Analisi Predittiva per massimizzare il ROI e ridurre le incertezze di business.">
+    <meta name="description" content="Marketing Manager con approccio consulenziale e Data-Driven. Integro AI, Strategia e Governance per portare valore d'impresa, ridurre i rischi e massimizzare il ROI.">
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://francescogubertini.it/">
-    <meta property="og:title" content="Francesco Gubertini | Marketing Data-Driven Decision Making">
-    <meta property="og:description" content="Marketing Manager e AI Specialist. Unisco strategie Data-Driven, Governance AI e Analisi Predittiva per massimizzare il ROI.">
+    <meta property="og:title" content="Francesco Gubertini | Marketing Manager & AI Specialist">
+    <meta property="og:description" content="Approccio da consulente, affidabilità da manager. Integro AI e Dati per massimizzare il ROI aziendale.">
     <meta property="og:image" content="assets/img/francesco-gubertini-dimensioni-grandi.jpeg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,8 +64,35 @@
 
         h1, h2, h3, h4, .menu-link, .hero-role, .section-subtitle, .exp-date, .gallery-num { font-family: 'Space Grotesk', sans-serif; }
         
-        /* --- CUSTOM CURSOR (FIX UX/ACCESSIBILITÀ) --- */
-        /* Il cursore custom appare SOLO su dispositivi con puntatore fine (mouse) */
+        /* --- SCROLL NAVIGATION ARROWS (Nuova Richiesta) --- */
+        .scroll-nav {
+            position: fixed;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1500;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+        .scroll-nav:hover { opacity: 1; }
+        
+        .scroll-arrow {
+            width: 40px; height: 40px;
+            background: rgba(14, 14, 14, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            color: var(--accent);
+            transition: 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        .scroll-arrow:hover { background: var(--accent); color: #fff; transform: scale(1.1); }
+
+        /* --- CUSTOM CURSOR --- */
         @media (pointer: fine) {
             .cursor {
                 position: fixed; top: 0; left: 0; width: 20px; height: 20px;
@@ -74,14 +101,14 @@
                 border-radius: 50%; pointer-events: none; z-index: 9999;
                 transform: translate(-50%, -50%); 
                 transition: width 0.3s, height 0.3s, background 0.3s, border-color 0.3s;
-                will-change: transform; /* Performance fix */
+                will-change: transform; 
             }
             .cursor-dot {
                 position: fixed; top: 0; left: 0; width: 6px; height: 6px;
                 background: var(--text-color); border-radius: 50%;
                 pointer-events: none; z-index: 9999;
                 transform: translate(-50%, -50%);
-                will-change: transform; /* Performance fix */
+                will-change: transform; 
             }
             .cursor.hovered { 
                 width: 50px; height: 50px; 
@@ -89,10 +116,12 @@
                 border-color: var(--text-color);
             }
         }
-        /* Ripristina cursore sistema su touch o se il JS fallisce */
         @media (pointer: coarse), (hover: none) {
             * { cursor: auto !important; }
             .cursor, .cursor-dot { display: none !important; }
+            /* Mobile arrows styling */
+            .scroll-nav { right: 5px; gap: 15px; } 
+            .scroll-arrow { width: 35px; height: 35px; background: rgba(255,255,255,0.8); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         }
 
         /* --- UTILITIES --- */
@@ -114,7 +143,7 @@
             z-index: 1000; transition: all 0.4s ease;
         }
         nav.scrolled {
-            background: rgba(14, 14, 14, 0.95); /* Aumentato leggermente contrasto */
+            background: rgba(14, 14, 14, 0.95); 
             backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             padding: 15px 5%;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
@@ -150,52 +179,16 @@
 
         .menu-overlay.active { transform: translateY(0); visibility: visible; opacity: 1; }
 
-        .menu-branding-header {
-            margin-bottom: 40px;
-            padding-left: 20px;
-            border-left: 4px solid #0e0e0e;
-        }
-
-        .menu-logo-large {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 1;
-            color: #0e0e0e;
-        }
-        
-        .menu-role-large {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(0.8rem, 1.5vw, 1rem);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #fff;
-            margin-top: 5px;
-        }
+        .menu-branding-header { margin-bottom: 40px; padding-left: 20px; border-left: 4px solid #0e0e0e; }
+        .menu-logo-large { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 700; text-transform: uppercase; line-height: 1; color: #0e0e0e; }
+        .menu-role-large { font-family: 'Space Grotesk', sans-serif; font-size: clamp(0.8rem, 1.5vw, 1rem); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #fff; margin-top: 5px; }
 
         .menu-link { 
-            font-size: clamp(1.5rem, 4vh, 3rem); 
-            margin: 1vh 0; 
-            font-weight: 300; 
-            text-transform: capitalize; 
-            cursor: pointer; 
-            transition: all 0.3s ease; 
-            position: relative; 
-            line-height: 1.2;
-            color: #0e0e0e;
-            padding-left: 20px;
-            border-left: 1px solid rgba(14, 14, 14, 0.3);
-            display: block;
+            font-size: clamp(1.5rem, 4vh, 3rem); margin: 1vh 0; font-weight: 300; text-transform: capitalize; 
+            cursor: pointer; transition: all 0.3s ease; position: relative; line-height: 1.2; color: #0e0e0e;
+            padding-left: 20px; border-left: 1px solid rgba(14, 14, 14, 0.3); display: block;
         }
-        
-        .menu-link:hover { 
-            padding-left: 40px; 
-            border-left: 5px solid #000;
-            font-weight: 600; 
-        }
-        
+        .menu-link:hover { padding-left: 40px; border-left: 5px solid #000; font-weight: 600; }
         .close-menu { position: absolute; top: 20px; right: 5%; font-size: 2.5rem; cursor: pointer; z-index: 2002; }
 
         /* --- CTA BUTTONS --- */
@@ -206,10 +199,7 @@
             font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
             font-size: 0.85rem; transition: all 0.3s ease; cursor: pointer; text-decoration: none;
         }
-        .btn-primary:hover {
-            background: var(--text-color); color: #fff;
-            transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+        .btn-primary:hover { background: var(--text-color); color: #fff; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         
         .btn-small-cta {
             margin-top: 15px; padding: 8px 20px; font-size: 0.75rem;
@@ -217,9 +207,7 @@
             text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;
             transition: 0.3s; display: inline-block; color: #aaa; cursor: pointer;
         }
-        .btn-small-cta:hover {
-            background: var(--accent); color: #fff; border-color: var(--accent);
-        }
+        .btn-small-cta:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
         /* --- HERO & VIDEO --- */
         .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; padding-top: 100px; }
@@ -228,13 +216,8 @@
         .hero-title span { display: block; transform: translateY(100%); }
         .hero-desc { max-width: 600px; font-size: 1.1rem; color: var(--text-muted); opacity: 0; line-height: 1.6; }
         
-        .hero-image-container {
-            position: absolute; right: 5%; top: 20%; width: 30vw; height: 50vh; z-index: -1; 
-            opacity: 1; transition: 0.5s; 
-        }
-        .hero-image-container img { 
-            width: 100%; height: 100%; object-fit: contain; filter: grayscale(100%); 
-        }
+        .hero-image-container { position: absolute; right: 5%; top: 20%; width: 30vw; height: 50vh; z-index: -1; opacity: 1; transition: 0.5s; }
+        .hero-image-container img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(100%); }
 
         /* --- BIO --- */
         .bio-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: start; }
@@ -243,13 +226,7 @@
         .bio-quote { margin: 30px 0; padding: 20px; border-left: 3px solid var(--accent); background: var(--card-bg); font-style: italic; font-weight: 500; font-size: 1rem; }
 
         /* --- AI SECTION --- */
-        #ai {
-            background-color: var(--dark-bg);
-            color: var(--dark-text);
-            padding: 100px 0;
-            position: relative;
-        }
-        
+        #ai { background-color: var(--dark-bg); color: var(--dark-text); padding: 100px 0; position: relative; }
         #ai .section-subtitle { color: var(--accent); }
         #ai .section-title { color: var(--dark-text); }
         #ai p, #ai li { color: #bbb; }
@@ -260,15 +237,13 @@
             flex: 1; padding: 50px 30px; border-right: 1px solid var(--dark-lines); 
             transition: 0.4s; position: relative; min-width: 280px; 
             display: flex; flex-direction: column; justify-content: space-between;
-            background: var(--dark-bg);
-            cursor: pointer; 
+            background: var(--dark-bg); cursor: pointer; 
         }
         .ai-box:last-child { border: none; }
         .ai-box:hover { background: var(--dark-card); }
         
         .ai-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; opacity: 0.9; }
         .ai-box h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--dark-text); }
-        
         .ai-box ul { list-style: none; margin-top: 15px; margin-bottom: 20px; }
         .ai-box li { position: relative; padding-left: 20px; margin-bottom: 8px; font-size: 0.95rem; color: #888; }
         .ai-box li::before { content: '>'; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
@@ -310,33 +285,21 @@
         }
         .h-scroll-section { width: 600%; height: 100%; display: flex; flex-wrap: nowrap; } 
         
-        .portfolio-sticky-header {
-            position: absolute; top: 10vh; left: 5vw; z-index: 10;
-            pointer-events: none; max-width: 450px;
-        }
+        .portfolio-sticky-header { position: absolute; top: 10vh; left: 5vw; z-index: 10; pointer-events: none; max-width: 450px; }
         .portfolio-sticky-header .section-subtitle { color: var(--accent); margin-bottom: 10px; }
         .portfolio-sticky-header h2 { color: #fff; font-size: 3rem; text-transform: uppercase; line-height: 1; margin-bottom: 20px; }
         .portfolio-sticky-header p { color: #aaa; font-size: 1rem; line-height: 1.5; }
 
         .gallery-item { 
-            width: 100vw; height: 100vh; 
-            display: flex; align-items: center; justify-content: center;
-            border-right: 1px solid var(--dark-lines); position: relative;
-            flex-shrink: 0; gap: 40px; 
+            width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center;
+            border-right: 1px solid var(--dark-lines); position: relative; flex-shrink: 0; gap: 40px; 
         }
-        
-        .gallery-num {
-            font-size: 8rem; font-weight: 700; color: transparent; 
-            -webkit-text-stroke: 2px var(--accent); opacity: 1; line-height: 1;
-        }
-
+        .gallery-num { font-size: 8rem; font-weight: 700; color: transparent; -webkit-text-stroke: 2px var(--accent); opacity: 1; line-height: 1; }
         .gallery-card { 
             background: var(--dark-card); padding: 40px; width: 45vw; max-width: 600px;
-            border: 1px solid #333; box-shadow: 0 30px 60px rgba(0,0,0,0.6); 
-            position: relative; overflow: hidden; z-index: 2;
+            border: 1px solid #333; box-shadow: 0 30px 60px rgba(0,0,0,0.6); position: relative; overflow: hidden; z-index: 2;
             border-left: 3px solid var(--accent); margin-top: 15vh; 
         }
-        
         .gallery-icon-large { font-size: 2rem; color: var(--accent); margin-bottom: 20px; opacity: 1; }
         .gallery-card h4 { font-size: 2rem; margin-bottom: 10px; color: #fff; font-family: 'Space Grotesk'; }
         .gallery-card p { color: #bbb; margin-bottom: 25px; font-size: 1rem; }
@@ -370,24 +333,17 @@
         .personal-item p { font-size: 0.95rem; margin-bottom: 10px; color: var(--text-muted); }
 
         /* --- FOOTER --- */
-        footer { 
-            min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            background: var(--accent); color: #0e0e0e; padding: 20px; margin: 0; position: relative;
-        }
+        footer { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: var(--accent); color: #0e0e0e; padding: 20px; margin: 0; position: relative; }
         .footer-cta { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1; margin: 20px 0; text-transform: uppercase; text-align: center; }
         .footer-cta a { border-bottom: 4px solid #0e0e0e; }
         .social-container { display: flex; gap: 60px; margin-top: 60px; flex-wrap: wrap; justify-content: center; }
         .social-item { display: flex; flex-direction: column; align-items: center; gap: 15px; }
-        .social-item a { 
-            width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;
-            border: 2px solid #0e0e0e; border-radius: 50%; color: #0e0e0e; font-size: 1.8rem;
-            transition: 0.3s; background: transparent;
-        }
+        .social-item a { width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; border: 2px solid #0e0e0e; border-radius: 50%; color: #0e0e0e; font-size: 1.8rem; transition: 0.3s; background: transparent; }
         .social-item a:hover { background: #0e0e0e; color: var(--accent); transform: scale(1.1) rotate(10deg); }
         .social-desc { font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
         .footer-quote { font-family: 'Manrope', sans-serif; font-size: 1.2rem; font-style: italic; color: #0e0e0e; opacity: 0.8; margin-bottom: 40px; max-width: 800px; text-align: center; }
 
-        /* --- MODALS --- */
+        /* --- MODALS FIX (MOBILE) --- */
         .modal-overlay { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(0,0,0,0.85); z-index: 2000; 
@@ -396,149 +352,65 @@
         }
         .modal-overlay.open { display: flex; opacity: 1; }
 
-        /* Default Light Modal (Esperienze) */
+        /* General Modal Styles */
         .modal-content {
             background: #fff; width: 90%; max-width: 800px; max-height: 90vh;
             overflow-y: auto; position: relative; border-radius: 4px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
             display: flex; flex-direction: column;
         }
-        .modal-header { padding: 30px 40px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: flex-start; background: #fff; position: sticky; top: 0; z-index: 10; }
-        .close-modal { font-size: 2rem; cursor: pointer; color: #333; line-height: 0.8; transition: 0.3s; }
+        /* FIX MOBILE: Sticky Header e Contrasti sicuri */
+        .modal-header { 
+            padding: 30px 40px; 
+            border-bottom: 1px solid #eee; 
+            display: flex; justify-content: space-between; align-items: flex-start; 
+            background: #fff; /* White background forced */
+            position: sticky; top: 0; z-index: 10000; 
+            color: #000; /* Text black forced */
+        }
+        .close-modal { font-size: 2rem; cursor: pointer; color: #000; line-height: 0.8; transition: 0.3s; }
         .close-modal:hover { color: var(--accent); transform: rotate(90deg); }
         .modal-body { padding: 40px; line-height: 1.8; color: #444; overflow-y: auto; }
-        
-        /* Modal Titles Style */
-        .modal-content h3, .modal-content h4 {
-            color: var(--accent) !important;
-            border-bottom: 1px solid rgba(0,0,0,0.1); 
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            display: block;
-        }
+        .modal-content h3, .modal-content h4 { color: var(--accent) !important; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px; margin-bottom: 20px; display: block; }
 
-        /* TECH THEME MODAL (AI - SCROLLABLE & BIG) */
+        /* TECH THEME MODAL (AI) */
         .modal-content.tech-theme {
-            background: var(--dark-card); 
-            color: #fff;
-            border: 1px solid #333;
-            box-shadow: 0 0 80px rgba(0,0,0,0.9);
-            width: 95%; max-width: 1100px; height: 90vh;
+            background: var(--dark-card); color: #fff; border: 1px solid #333;
+            box-shadow: 0 0 80px rgba(0,0,0,0.9); width: 95%; max-width: 1100px; height: 90vh;
         }
-        
         .modal-content.tech-theme .modal-header {
-            background: #111;
-            border-bottom: 1px solid #333;
-            padding: 25px 40px;
-            flex-shrink: 0; 
+            background: #111; border-bottom: 1px solid #333; padding: 25px 40px; flex-shrink: 0; color: #fff; /* Force White Text */
         }
-        
-        .modal-content.tech-theme .modal-body {
-            padding: 0; overflow-y: auto; flex-grow: 1;
-        }
-
+        .modal-content.tech-theme .modal-body { padding: 0; overflow-y: auto; flex-grow: 1; }
         .tech-text-content { padding: 40px; } 
-        
-        .modal-content.tech-theme .close-modal { color: #fff; }
+        .modal-content.tech-theme .close-modal { color: #fff !important; opacity: 1; } /* Force White X */
         .modal-content.tech-theme h2 { color: #fff; font-size: 2rem; }
-        
-        .modal-content.tech-theme h3, .modal-content.tech-theme h4 {
-            border-bottom: 1px solid rgba(255,255,255,0.1); 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            margin-top:30px; 
-            margin-bottom: 15px;
-        }
-        
+        .modal-content.tech-theme h3, .modal-content.tech-theme h4 { border-bottom: 1px solid rgba(255,255,255,0.1); text-transform: uppercase; letter-spacing: 1px; margin-top:30px; margin-bottom: 15px; }
         .modal-content.tech-theme li { color: #ccc; margin-bottom: 10px; font-size: 1rem; }
         .modal-content.tech-theme strong { color: #fff; }
         .modal-content.tech-theme p { line-height: 1.8; color: #ccc; margin-bottom: 20px; font-size: 1.05rem; text-align: justify; }
 
-        /* --- VISUAL SCENICI D'IMPATTO (PERFORMANCE: WILL-CHANGE ADDED) --- */
-        .scenographic-container {
-            width: 100%;
-            height: 350px; 
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-            border-bottom: 1px solid #333;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
-        }
-
-        /* 1. RADAR 3D (Predictive) */
-        .radar-grid {
-            position: absolute; width: 200%; height: 200%;
-            background-image: 
-                linear-gradient(rgba(197, 160, 89, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(197, 160, 89, 0.1) 1px, transparent 1px);
-            background-size: 60px 60px;
-            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
-            animation: gridMove 10s linear infinite;
-            will-change: transform; /* PERFORMANCE FIX */
-        }
-        .scanner-beam {
-            position: absolute; width: 100%; height: 5px;
-            background: var(--accent);
-            box-shadow: 0 0 30px var(--accent), 0 0 10px #fff;
-            top: 50%; animation: scanVertical 4s ease-in-out infinite alternate; opacity: 0.8; z-index: 2;
-        }
-        .data-pillar {
-            position: absolute; bottom: 80px; width: 40px; 
-            background: linear-gradient(to top, rgba(197,160,89,0.1), rgba(197,160,89,0.6));
-            border: 1px solid var(--accent);
-            box-shadow: 0 0 15px rgba(197,160,89,0.2);
-            transform: perspective(500px) rotateX(10deg);
-            animation: growPillar 3s infinite alternate;
-        }
+        /* --- VISUAL SCENICI (PERFORMANCE OPTIMIZED) --- */
+        .scenographic-container { width: 100%; height: 350px; background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%); border-bottom: 1px solid #333; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center; box-shadow: inset 0 0 50px rgba(0,0,0,0.8); }
+        .radar-grid { position: absolute; width: 200%; height: 200%; background-image: linear-gradient(rgba(197, 160, 89, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(197, 160, 89, 0.1) 1px, transparent 1px); background-size: 60px 60px; transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px); animation: gridMove 10s linear infinite; will-change: transform; }
+        .scanner-beam { position: absolute; width: 100%; height: 5px; background: var(--accent); box-shadow: 0 0 30px var(--accent), 0 0 10px #fff; top: 50%; animation: scanVertical 4s ease-in-out infinite alternate; opacity: 0.8; z-index: 2; }
+        .data-pillar { position: absolute; bottom: 80px; width: 40px; background: linear-gradient(to top, rgba(197,160,89,0.1), rgba(197,160,89,0.6)); border: 1px solid var(--accent); box-shadow: 0 0 15px rgba(197,160,89,0.2); transform: perspective(500px) rotateX(10deg); animation: growPillar 3s infinite alternate; }
         @keyframes gridMove { 0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); } 100% { transform: perspective(500px) rotateX(60deg) translateY(60px) translateZ(-200px); } }
         @keyframes scanVertical { 0% { top: 10%; opacity:0; } 50% { opacity:1; } 100% { top: 90%; opacity:0;} }
         @keyframes growPillar { 0% { height: 20px; opacity:0.3; } 100% { height: 150px; opacity:1; } }
-
-        /* 2. REATTORE (Governance) */
-        .core-sphere {
-            width: 80px; height: 80px;
-            background: #fff; border-radius: 50%;
-            box-shadow: 0 0 60px var(--accent), 0 0 100px var(--accent);
-            position: relative; z-index: 5; animation: pulseReactor 2s infinite;
-            will-change: transform, opacity; /* PERFORMANCE FIX */
-        }
-        .shield-ring {
-            position: absolute; border-radius: 50%;
-            border: 2px solid rgba(197, 160, 89, 0.3);
-            top: 50%; left: 50%; transform: translate(-50%, -50%);
-            will-change: transform; /* PERFORMANCE FIX */
-        }
+        .core-sphere { width: 80px; height: 80px; background: #fff; border-radius: 50%; box-shadow: 0 0 60px var(--accent), 0 0 100px var(--accent); position: relative; z-index: 5; animation: pulseReactor 2s infinite; will-change: transform, opacity; }
+        .shield-ring { position: absolute; border-radius: 50%; border: 2px solid rgba(197, 160, 89, 0.3); top: 50%; left: 50%; transform: translate(-50%, -50%); will-change: transform; }
         .orbit-1 { width: 180px; height: 180px; border-top-color: var(--accent); animation: spin 4s linear infinite; }
         .orbit-2 { width: 260px; height: 260px; border-bottom: 2px solid var(--accent); animation: spinReverse 7s linear infinite; }
         .orbit-3 { width: 340px; height: 340px; border: 1px dashed rgba(255,255,255,0.1); animation: spin 20s linear infinite; }
-        
         @keyframes pulseReactor { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.9); opacity: 0.8; } }
         @keyframes spin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
         @keyframes spinReverse { 100% { transform: translate(-50%, -50%) rotate(-360deg); } }
-
-        /* 3. FORNACE (Generative) */
-        .particle-stream {
-            position: absolute; width: 4px; height: 4px;
-            background: var(--accent); border-radius: 50%; opacity: 0;
-            box-shadow: 0 0 10px var(--accent);
-        }
-        .central-furnace {
-            width: 100px; height: 120px;
-            border: 2px solid var(--accent);
-            background: rgba(197, 160, 89, 0.05);
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            position: relative; z-index: 5;
-            box-shadow: 0 0 30px rgba(197, 160, 89, 0.2);
-        }
+        .particle-stream { position: absolute; width: 4px; height: 4px; background: var(--accent); border-radius: 50%; opacity: 0; box-shadow: 0 0 10px var(--accent); }
+        .central-furnace { width: 100px; height: 120px; border: 2px solid var(--accent); background: rgba(197, 160, 89, 0.05); display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; z-index: 5; box-shadow: 0 0 30px rgba(197, 160, 89, 0.2); }
         .doc-line { width: 70%; height: 2px; background: rgba(255,255,255,0.1); margin: 8px 0; }
         .doc-line.active { background: var(--accent); box-shadow: 0 0 8px var(--accent); animation: typeLine 0.5s forwards; width: 0; }
-
         @keyframes typeLine { to { width: 70%; } }
-        
-        /* Particelle Helper */
         .p1 { top: 20%; left: 10%; animation: flyIn 2.5s infinite ease-in; animation-delay: 0s; }
         .p2 { top: 80%; left: 10%; animation: flyIn 2.5s infinite ease-in; animation-delay: 0.8s; }
         .p3 { top: 50%; left: 90%; animation: flyInRight 2.5s infinite ease-in; animation-delay: 1.2s; }
@@ -548,136 +420,70 @@
            RESPONSIVE MOBILE STYLES (ADATTAMENTO)
            ========================================================================== */
         @media (max-width: 900px) {
-            * { cursor: auto !important; } /* Ripristina cursore standard su mobile */
-            .cursor, .cursor-dot { display: none !important; } /* Nasconde custom cursor */
+            /* 1. SAFE ZONE PER FRECCE LATERALI */
+            .container { 
+                width: 85% !important; /* Lascia spazio a destra per le frecce */
+                margin-left: 5% !important;
+                margin-right: 10% !important;
+            }
 
-            .container { width: 90%; margin: 0 auto; }
+            * { cursor: auto !important; }
+            .cursor, .cursor-dot { display: none !important; }
+
             .section-padding { padding: 60px 0; }
             .section-title { font-size: 2.2rem; word-wrap: break-word; }
 
-            /* --- HERO MOBILE FIX (Centratura e Visibilità Foto) --- */
-            .hero { 
-                padding-top: 100px; 
-                justify-content: flex-start; 
-                display: flex;
-                flex-direction: column;
-            }
-            
+            .hero { padding-top: 100px; justify-content: flex-start; display: flex; flex-direction: column; }
             .hero-image-container { 
-                position: relative; 
-                width: 100%; 
-                max-width: 350px; /* Dimensione controllata */
-                height: 350px; /* Altezza fissa per bilanciamento */
-                top: auto; 
-                right: auto; 
-                margin: 30px auto 40px auto; /* Spazio bilanciato Sopra/Sotto e Centratura orizzontale */
-                opacity: 1; /* SCHIARIMENTO RIMOSSO: Ora è pienamente visibile */
-                display: block;
+                position: relative; width: 100%; max-width: 350px; height: 350px; 
+                top: auto; right: auto; margin: 30px auto 40px auto; 
+                opacity: 1; display: block; 
             }
-            
-            .hero-image-container img {
-                object-fit: cover;
-                object-position: center top; /* Inquadra meglio il volto */
-                border-radius: 4px; /* Un tocco estetico leggero */
-            }
-
+            .hero-image-container img { object-fit: cover; object-position: center top; border-radius: 4px; }
             .hero-title { font-size: 3rem; margin-top: 0; line-height: 1.1; }
             .hero-desc { font-size: 1rem; }
 
-            /* --- GRIGLIE MOBILE --- */
             .bio-grid, .edu-grid, .personal-grid { grid-template-columns: 1fr; gap: 30px; }
             .bio-quote { margin: 20px 0; padding: 15px; }
 
-            /* --- AI SECTION FIX (Allineamento) --- */
-            #ai {
-                width: 100%;
-                overflow-x: hidden; /* Evita righe bianche laterali */
-                padding: 80px 0;
-            }
-            #ai .container {
-                width: 90%; /* Assicura che il testo non tocchi i bordi */
-                margin: 0 auto;
-            }
+            /* AI Section Fix */
+            #ai { width: 100%; overflow-x: hidden; padding: 80px 0; }
+            #ai .container { width: 85%; margin-left: 5%; } /* Keep alignment with arrows */
             .ai-stripe { flex-direction: column; width: 100%; }
-            .ai-box { 
-                border-right: none; 
-                border-bottom: 1px solid var(--dark-lines); 
-                padding: 40px 20px; 
-                width: 100%; /* Forza larghezza piena */
-            }
+            .ai-box { border-right: none; border-bottom: 1px solid var(--dark-lines); padding: 40px 20px; width: 100%; }
 
-            /* --- PORTFOLIO MOBILE --- */
-            .h-scroll-container { 
-                height: auto; overflow: visible; display: block; 
-            }
-            .h-scroll-section { 
-                width: 100%; height: auto; display: block; 
-            }
-            .portfolio-sticky-header {
-                position: relative; top: auto; left: auto; padding: 50px 5%; width: 100%; max-width: none;
-            }
-            .gallery-item { 
-                width: 100%; height: auto; min-height: auto; 
-                flex-direction: column; 
-                padding: 60px 0; 
-                border-right: none; border-bottom: 1px solid var(--dark-lines);
-                gap: 20px;
-            }
+            /* Portfolio Mobile */
+            .h-scroll-container { height: auto; overflow: visible; display: block; }
+            .h-scroll-section { width: 100%; height: auto; display: block; }
+            .portfolio-sticky-header { position: relative; top: auto; left: auto; padding: 50px 0; width: 100%; max-width: none; }
+            .gallery-item { width: 100%; height: auto; min-height: auto; flex-direction: column; padding: 60px 0; border-right: none; border-bottom: 1px solid var(--dark-lines); gap: 20px; }
             .gallery-num { font-size: 4rem; position: absolute; top: 20px; left: 20px; opacity: 0.3; }
-            .gallery-card { 
-                width: 90%; margin-top: 0; padding: 30px; 
-                border-left-width: 5px; 
-            }
+            .gallery-card { width: 100%; margin-top: 0; padding: 30px; border-left-width: 5px; }
 
-            /* --- MODALS FIX (Titoli e X visibili) --- */
+            /* MODAL HEADER FIX MOBILE */
             .modal-content, .modal-content.tech-theme {
                 width: 100% !important; height: 100% !important; 
                 max-width: none !important; max-height: none !important;
-                border-radius: 0;
-                display: flex; flex-direction: column;
+                border-radius: 0; display: flex; flex-direction: column;
             }
-            
             .modal-header { 
-                padding: 20px; 
-                flex-shrink: 0; /* Impedisce all'header di sparire scrollando */
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                background-color: #fff; /* Sfondo bianco di base per i modali chiari */
-                z-index: 9999; /* Sempre sopra */
+                padding: 15px 20px; flex-shrink: 0; display: flex; justify-content: space-between; align-items: flex-start;
+                background-color: #fff !important; z-index: 10000;
             }
+            .modal-content.tech-theme .modal-header { background-color: #111 !important; border-bottom: 1px solid #333; }
             
-            /* Fix specifico per modali scuri (AI) */
-            .modal-content.tech-theme .modal-header {
-                background-color: #111; /* Sfondo scuro per coerenza */
-                border-bottom: 1px solid #333;
-            }
-            .modal-content.tech-theme .close-modal {
-                color: #fff !important; /* X bianca forzata */
-                opacity: 1;
-            }
-            .modal-content.tech-theme h2 {
-                color: #fff !important; /* Titolo bianco forzato */
-                font-size: 1.4rem; /* Leggermente più piccolo su mobile */
-            }
-
-            .modal-body { padding: 20px; padding-top: 80px; /* Spazio per non finire sotto l'header */ }
+            .modal-body { padding: 20px; padding-top: 20px; }
             .tech-text-content { padding: 25px; }
             .scenographic-container { height: 200px; flex-shrink: 0; } 
 
-            /* --- FOOTER & NAV --- */
             .social-container { gap: 30px; }
             .footer-cta { font-size: 3.5rem; }
-            
             .branding { max-width: 65%; }
             .logo { font-size: 0.9rem; }
             .nav-role { font-size: 0.55rem; }
-            
             .menu-logo-large { font-size: 1.8rem; }
             .menu-role-large { font-size: 0.7rem; }
             .menu-link { font-size: 1.8rem; padding-left: 15px; }
-            
-            /* Fix Timeline */
             .exp-row { padding: 20px; margin-bottom: 30px; }
             .exp-role { font-size: 1.1rem; line-height: 1.3; }
             .exp-date { font-size: 0.75rem; display: block; margin-top: 5px; width: 100%; }
@@ -692,17 +498,26 @@
     <div class="cursor"></div>
     <div class="cursor-dot"></div>
 
+    <div class="scroll-nav">
+        <div class="scroll-arrow" onclick="window.scrollBy({top: -300, behavior: 'smooth'})">
+            <i class="fa-solid fa-chevron-up"></i>
+        </div>
+        <div class="scroll-arrow" onclick="window.scrollBy({top: 300, behavior: 'smooth'})">
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </div>
+
     <div class="menu-overlay" id="menuOverlay">
         
         <div class="menu-branding-header">
             <div class="menu-logo-large">FRANCESCO GUBERTINI</div>
-            <div class="menu-role-large">RESPONSABILE MARKETING & IA SPECIALIST</div>
+            <div class="menu-role-large">MARKETING MANAGER & AI SPECIALIST</div>
         </div>
 
         <div class="close-menu hover-trigger" onclick="toggleMenu()">&times;</div>
         <a href="#bio" class="menu-link hover-trigger" onclick="toggleMenu()">Profilo</a>
         <a href="#ai" class="menu-link hover-trigger" onclick="toggleMenu()">IA Strategy</a>
-        <a href="#experience" class="menu-link hover-trigger" onclick="toggleMenu()">Esperienze di lavoro</a>
+        <a href="#experience" class="menu-link hover-trigger" onclick="toggleMenu()">Esperienze</a>
         <a href="#portfolio-section" class="menu-link hover-trigger" onclick="toggleMenu()">Portfolio</a>
         <a href="#education" class="menu-link hover-trigger" onclick="toggleMenu()">Formazione</a>
         <a href="assets/docs/CV_Gubertini_Francesco.pdf?v=2" download class="menu-link hover-trigger" onclick="toggleMenu()">Scarica CV <i class="fa-solid fa-download" style="font-size:1rem; margin-left:10px;"></i></a>
@@ -712,7 +527,7 @@
     <nav id="navbar">
         <div class="branding hover-trigger">
             <a href="#" class="logo">FRANCESCO GUBERTINI</a>
-            <div class="nav-role">RESPONSABILE MARKETING & IA SPECIALIST</div>
+            <div class="nav-role">MARKETING MANAGER & AI SPECIALIST</div>
         </div>
         <div class="menu-btn hover-trigger" onclick="toggleMenu()">MENU +</div>
     </nav>
@@ -727,10 +542,11 @@
             <div class="hero-line"><span>Decision Making.</span></div>
         </h1>
         <div class="hero-desc hover-trigger">
-            Con un approccio pragmatico e analitico coordino il team marketing, sviluppando modelli basati sui dati per definire le strategie di posizionamento e di brand più efficaci, riducendo le incertezze e massimizzando il ritorno sull'investimento.
+            <strong>Approccio da Consulente, Affidabilità da Manager.</strong><br>
+            Coordino il team marketing sviluppando modelli basati sui dati per definire strategie di posizionamento efficaci. Porto in azienda la mentalità imprenditoriale per ridurre le incertezze e massimizzare il ritorno sull'investimento.
             <br><br>
             <div style="display:flex; gap:20px; flex-wrap:wrap;">
-                <a href="#portfolio-section" style="border-bottom: 1px solid var(--accent); font-weight:600;">VEDI PORTFOLIO</a>
+                <a href="#experience" style="border-bottom: 1px solid var(--accent); font-weight:600;">VEDI ESPERIENZE</a>
                 <a href="assets/docs/CV_Gubertini_Francesco.pdf?v=2" download style="border-bottom: 1px solid var(--accent); font-weight:600;">SCARICA CV <i class="fa-solid fa-download"></i></a>
             </div>
         </div>
@@ -740,12 +556,11 @@
         <div class="bio-grid">
             <div class="section-subtitle">STRATEGIC ASSET & ANALYSIS</div>
             <div class="bio-text hover-trigger">
-                Unisco una solida competenza tecnica (CRM, Business Intelligence, AI) a una sensibilità creativa (Branding, Design), incarnando la <strong>fusione tra dati e design</strong>. Nel mercato attuale, l'intuizione non basta più: serve la certezza del dato. Il mio approccio al <strong>Go-to-Market</strong> si fonda sul <strong>Data Driven Decision Making</strong>. Non mi limito al marketing operativo: integro i numeri dell'economista e la precisione tecnica per costruire strategie che riducono il rischio d'impresa e garantiscono risultati misurabili.
+                Unisco una solida competenza tecnica (CRM, Business Intelligence, AI) a una sensibilità creativa (Branding, Design). Non mi limito al marketing operativo: integro i numeri dell'economista e la precisione tecnica per costruire strategie che riducono il rischio d'impresa.
                 <div class="bio-quote">
-                    "Il mio percorso professionale è una costante evoluzione: dall'operatività commerciale diretta alla definizione di strategie basate sui dati."
+                    "Porto in azienda l'Intrapreneurship: la capacità di gestire il reparto marketing come se fosse un business autonomo, focalizzato sul profitto."
                 </div>
-                Ho maturato una solida esperienza lavorando sia in <strong>gruppi strutturati</strong> che in <strong>PMI</strong>, gestendo budget significativi e coordinando reparti trasversali. Oggi, potenziando queste competenze con l'<strong>Intelligenza Artificiale Predittiva</strong>, offro alle aziende un vantaggio competitivo basato su fatti, efficienza e previsione. Questa duplice natura mi permette di operare trasversalmente in settori complessi come la ceramica industriale, l'automotive e il luxury food, trasformandomi da esecutore ad asset strategico focalizzato sul <strong>ROI</strong> e sulle vendite.
-                
+                Ho maturato una solida esperienza lavorando sia in <strong>gruppi strutturati</strong> che in <strong>PMI</strong>, gestendo budget significativi. Oggi, potenziando queste competenze con l'<strong>Intelligenza Artificiale Predittiva</strong>, offro all'azienda un vantaggio competitivo basato su fatti, efficienza e previsione. Questa natura ibrida mi permette di operare trasversalmente in settori complessi, trasformandomi da semplice esecutore ad asset strategico.
                 <br>
                 <a href="#contact" class="btn-primary">PARLIAMONE</a>
             </div>
@@ -903,7 +718,7 @@
                 <button class="btn-small-cta">APPROFONDISCI</button>
             </div>
 
-            <div class="exp-row hover-trigger" onclick="openModal('htv')">
+             <div class="exp-row hover-trigger" onclick="openModal('htv')">
                 <div class="exp-header">
                     <span class="exp-role">Responsabile Punto Vendita</span>
                     <span class="exp-date">APR 2006 - MAG 2010</span>
@@ -1149,7 +964,7 @@
                 <a href="mailto:info@francescogubertini.it">LET'S TALK</a>
             </div>
 
-            <p style="margin-top:-10px; margin-bottom:40px; font-weight:600; color:#555;">Disponibile per ruoli Executive o Consulenze Strategiche</p>
+            <p style="margin-top:-10px; margin-bottom:40px; font-weight:600; color:#555;">Valuto nuove opportunità come Manager Marketing & AI Specialist</p>
             
             <div class="social-container">
                 <div class="social-item">
@@ -1193,12 +1008,10 @@
                     <div class="data-pillar" style="left: 65%; height: 90px; animation-delay: 1.4s;"></div>
                     <div class="data-pillar" style="left: 80%; height: 50px; animation-delay: 1.7s;"></div>
                 </div>
-                
                 <div class="tech-text-content">
                     <h3 style="margin-top:0;">Dall'Analisi Descrittiva alla Previsione Commerciale</h3>
                     <p>Nel contesto competitivo odierno, il semplice report del venduto non basta. La mia metodologia sposta il focus dall'analisi storica alla <strong>Forecasting Sales Intelligence</strong>. Utilizzando modelli avanzati di serie temporali come <strong>SARIMA</strong>, proiettiamo i trend di vendita con precisione scientifica. Questo permette ai <strong>Direttori Commerciali</strong> di non affidarsi all'intuizione, ma di pianificare stock e campagne basandosi su curve di domanda previste.</p>
                     <p>Inoltre, integro principi di <strong>Teoria dei Giochi</strong> per modellare scenari di mercato competitivi. L'obiettivo è supportare l'<strong>Executive Team</strong> nell'identificare l'Equilibrio di Nash ottimale: definire prezzi e promozioni che massimizzano il profitto in risposta alle mosse dei competitor, trasformando l'incertezza del mercato in un calcolo di probabilità gestibile e profittevole.</p>
-                    
                     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:30px; margin-top:30px;">
                         <div>
                             <h4 style="color:#fff; margin-bottom:10px;">Scenario Planning & GTM</h4>
@@ -1227,12 +1040,10 @@
                     <div class="shield-ring orbit-1"></div>
                     <div class="core-sphere"></div>
                 </div>
-
                 <div class="tech-text-content">
                     <h3 style="margin-top:0;">Bias Mitigation & Brand Reputation</h3>
                     <p>L'Intelligenza Artificiale nel Marketing non è una scatola nera, ma un asset che va governato per evitare danni reputazionali. I dati storici di vendita possono contenere bias involontari (es. trascurare determinate aree geografiche o target). La mia strategia implementa protocolli di <strong>Red Teaming</strong> per auditare gli algoritmi, garantendo che le strategie di pricing dinamico o di targeting non siano discriminatorie, proteggendo il valore del Brand e la fiducia del consumatore.</p>
                     <p>Parallelamente, lavoro sull'<strong>Architettura della Decisione Strategica</strong>. I <strong>Leader Commerciali</strong> e gli Stakeholder operano spesso in condizioni di "Razionalità Limitata" e pressione sui risultati. Il mio ruolo è costruire sistemi di supporto alle decisioni che superino l'inerzia o la <em>Sunk Cost Fallacy</em> (l'ostinazione su prodotti non performanti), offrendo insight oggettivi per ottimizzare il <strong>Funnel di Conversione</strong>.</p>
-
                     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:30px; margin-top:30px;">
                         <div>
                             <h4 style="color:#fff; margin-bottom:10px;">Go-to-Market Dinamico</h4>
@@ -1260,7 +1071,6 @@
                     <div class="particle-stream p2"></div>
                     <div class="particle-stream p3"></div>
                     <div class="particle-stream p4"></div>
-                    
                     <div class="central-furnace">
                         <div style="display:flex; flex-direction:column; align-items:center; width:100%;">
                             <div class="doc-line active" style="animation-delay:0.5s"></div>
@@ -1270,12 +1080,10 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="tech-text-content">
                     <h3 style="margin-top:0;">Dalla Pulizia Dati all'Automazione Creativa</h3>
                     <p>Trasformo l'IA da semplice chatbot in un vero <strong>Analista Aumentato</strong>. Utilizzando tecniche avanzate come il <strong>Chain of Thought Prompting</strong>, guido i modelli linguistici (LLM) attraverso processi logici complessi per eseguire compiti che prima richiedevano ore di lavoro manuale. Questo include la pulizia automatizzata di file "sporchi" (Data Cleaning), la standardizzazione di formati e l'estrazione di insight da dati non strutturati.</p>
                     <p>Nel campo creativo, superiamo il blocco della pagina bianca utilizzando l'IA per sessioni di brainstorming divergenti e convergenti. Generiamo naming, payoff e angoli comunicativi innovativi basati sull'analisi semantica dei valori del brand, sfruttando la capacità dei "Sistemi che Creano" (Livello 4 del MIC) per produrre contenuti originali che risuonano emotivamente con il target.</p>
-                    
                     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:30px; margin-top:30px;">
                         <div>
                             <h4 style="color:#fff; margin-bottom:10px;">Smart ETL</h4>
@@ -1299,7 +1107,6 @@
             </div>
             <div class="modal-body">
                 <p>In un contesto industriale caratterizzato da alti volumi produttivi e forte presenza nella GDO, il mio ruolo si è focalizzato sulla trasformazione dell'approccio al mercato e sull'innovazione del prodotto (Lamgea System) con supporto AI. Mi occupo della gestione analitica, marketing e merchandising dei marchi Opera, Element e Ceramiche di Sassuolo nei canali retail, GDO, DO, conto terzi e progettisti. Attraverso un approccio <strong>Data Driven Decision Making</strong>, passo dalla vendita di prodotto alla valorizzazione del brand per incrementare il markup.</p>
-                
                 <h3>Analisi dati, Strategia AI e Sviluppo Prodotto</h3>
                 <ul class="content-list">
                     <li><strong>Predictive Analysis e Forecasting:</strong> Utilizzo di algoritmi per l'analisi dei dati di vendita storici e il forecasting degli stock, ottimizzando la rotazione di magazzino e riducendo il rischio d'impresa.</li>
@@ -1309,7 +1116,6 @@
                     <li><strong>Coordinamento sviluppo prodotto:</strong> Gestione con tecnologia Lamgea System (grandi lastre), curando il ciclo di vita dall'analisi dei trend alla dismissione.</li>
                     <li><strong>Analisi ROI sul Merchandising:</strong> Mappatura delle campionature nei punti vendita e calcolo del ritorno sull'investimento per clienti, agenti e funzionari.</li>
                 </ul>
-
                 <h3>Fusione tra Dati e Design: Contenuti Multimediali e Branding</h3>
                 <ul class="content-list">
                     <li><strong>Generative AI per i Contenuti:</strong> Integrazione di strumenti di Intelligenza Artificiale Generativa per la creazione automatizzata di testi tecnici, traduzioni multilingua e supporto alla creazione di asset visivi per cataloghi e moodboard, riducendo drasticamente il Time-to-Market.</li>
@@ -1318,7 +1124,6 @@
                     <li><strong>Produzione Multimediale:</strong> Creazione di render 3D di prodotti o ambienti. Regia multi-camera di conferenze ed eventi, con gestione e coordinamento delle riprese video per un prodotto di alta qualità.</li>
                     <li><strong>Web & Digital:</strong> Gestione e aggiornamento dei siti web aziendali (WordPress): testi, immagini, video e news. Creazione di newsletter periodiche (MailChimp) per comunicare novità, promozioni ed eventi.</li>
                 </ul>
-
                 <h3>Merchandising, Go-to-Market e Trade</h3>
                 <ul class="content-list">
                     <li><strong>Progettazione strumenti di vendita:</strong> Realizzazione di tutti gli strumenti di sell-in e sell-out (flyer, folder, cartelle, valigette, sinottici, pattelle, culle, grafiche sala mostra), unendo funzionalità e <strong>design</strong>.</li>
@@ -1340,31 +1145,26 @@
             </div>
             <div class="modal-body">
                 <p>Progetto imprenditoriale e di consulenza che ha trasformato una realtà familiare in un brand orientato al profitto, riposizionando il prodotto da semplice condimento a "bene di investimento" tramite leve di marketing digitale, storytelling emozionale e una perfetta <strong>fusione tra dati e design</strong>.</p>
-                
                 <h3>Go-to-Market e Strategia Omnicanale</h3>
                 <ul class="content-list">
                     <li>Sviluppo e implementazione di una strategia di marketing omnicanale (vendita diretta, indiretta e online).</li>
                     <li>Strategia differenziata per cluster: B2C (Social/Web), Ho.Re.Ca. (Linee Riserva) e GDO (Linee dedicate).</li>
                 </ul>
-
                 <h3>E-commerce e Piattaforme</h3>
                 <ul class="content-list">
                     <li>Sviluppo autonomo dell'ecosistema e-commerce proprietario (WooCommerce) e integrazione con Marketplace (Amazon Seller Central, eBay).</li>
                     <li>Lancio e gestione dell'e-commerce con campagne multipiattaforma.</li>
                 </ul>
-
                 <h3>Luxury Brand Positioning</h3>
                 <ul class="content-list">
                     <li>Creazione di un'identità visiva "Luxury" (Packaging, Etichette) basata sui valori di Slow Made e Made in Italy.</li>
                     <li>Progettazione di tutti i materiali di comunicazione (marchio, packaging, cataloghi).</li>
                 </ul>
-
                 <h3>Performance Marketing Data Driven</h3>
                 <ul class="content-list">
                     <li>Gestione campagne Google Ads, Meta Business Suite e analisi dei risultati tramite Google Analytics e Merchant Center.</li>
                     <li>Ottimizzazione SEO per il posizionamento sui motori di ricerca.</li>
                 </ul>
-
                 <h3>Gestione Operativa & Risultati</h3>
                 <ul class="content-list">
                     <li>Gestione internamente la logistica e il Customer Service.</li>
@@ -1382,26 +1182,22 @@
             </div>
             <div class="modal-body">
                 <p>Responsabile della definizione e implementazione della strategia di comunicazione e marketing. In un contesto di post-acquisizione aziendale, il focus è stato l'unificazione e la standardizzazione, agendo come collettore tra diverse realtà produttive per costruire una "Corporate Identity" univoca, applicando logiche di <strong>Go-to-Market</strong> strutturate.</p>
-                
                 <h3>Change Management & Identity</h3>
                 <ul class="content-list">
                     <li>Creazione di una nuova identità di gruppo attraverso il rebranding dei marchi e l'ammodernamento dei siti web e del merchandising.</li>
                     <li>Riprogettazione dei marchi e dell'immagine coordinata di gruppo per allineare le aziende acquisite sotto un unico "ombrello" valoriale.</li>
                     <li>Restyling delle sedi fisiche.</li>
                 </ul>
-
                 <h3>Data Driven Strategy</h3>
                 <ul class="content-list">
                     <li>Analisi del mercato e della concorrenza.</li>
                     <li>Definizione della strategia di comunicazione per il gruppo, tenendo conto della dimensione multi-brand e multi-canale.</li>
                 </ul>
-
                 <h3>Sviluppo Prodotto</h3>
                 <ul class="content-list">
                     <li>Progettazione e sviluppo di nuovi prodotti (es. Drinkit).</li>
                     <li>Analisi dello scenario competitivo e coordinamento del lancio, traducendo le specifiche tecniche in vantaggi commerciali comunicabili.</li>
                 </ul>
-
                 <h3>Gestione Budget e Team</h3>
                 <ul class="content-list">
                     <li>Gestione del budget marketing e del team (3 risorse interne e collaboratori esterni).</li>
@@ -1420,26 +1216,22 @@
             </div>
             <div class="modal-body">
                 <p>Monitoraggio e ottimizzazione delle performance marketing della rete vendita BMW Italia per i marchi (BMW, BMW I, BMW M, MINI) in alcune aree dell'Emilia Romagna con la gestione diretta di 1,5 milioni di euro/anno. Il marketing inteso non come promozione, ma come strumento di controllo finanziario e di processo (<strong>Data Driven Decision Making</strong>).</p>
-                
                 <h3>CRM & Processi Finanziari</h3>
                 <ul class="content-list">
                     <li>Monitoraggio delle KPI commerciali e coordinamento delle trattative con il CRM Sugar.</li>
                     <li>Gestione rigorosa del funnel di vendita, dal primo contatto alla fatturazione.</li>
                     <li>Analisi dei KPI della forza vendita finalizzata all'ottenimento dei bonus qualitativi erogati dalla Casa Madre.</li>
                 </ul>
-
                 <h3>Gestione Lead</h3>
                 <ul class="content-list">
                     <li>Gestione dei lead dall'acquisizione alla conversione in clienti.</li>
                     <li>Monitoraggio della qualità del processo commerciale e individuazione di aree di miglioramento.</li>
                 </ul>
-
                 <h3>Budgeting & Media Planning</h3>
                 <ul class="content-list">
                     <li>Gestione del budget Marketing e allocazione delle spese per iniziative atte all'incremento di fatturato.</li>
                     <li>Definizione e implementazione del media plan in linea con il budget trimestrale.</li>
                 </ul>
-
                 <h3>Eventi e Go-to-Market</h3>
                 <ul class="content-list">
                     <li>Supervisione e organizzazione operativa di eventi (lanci di prodotto, open weekend, fiere) per la Lead Generation.</li>
@@ -1458,19 +1250,16 @@
             </div>
             <div class="modal-body">
                 <p>Analista commerciale e marketing con focus sull'innovazione e lo sviluppo, a diretto riporto della direzione generale. Ruolo tecnico-istituzionale focalizzato sull'implementazione di sistemi informativi e sull'analisi economica del territorio.</p>
-                
                 <h3>IT & System Administration (CRM)</h3>
                 <ul class="content-list">
                     <li>Responsabile dell'introduzione e configurazione del CRM V-Tiger.</li>
                     <li>Implementazione del CRM, supervisionando tutte le fasi di sviluppo tecnico e la personalizzazione dei flussi per la gestione delle relazioni con i clienti.</li>
                 </ul>
-
                 <h3>Ricerca & Analisi Economica</h3>
                 <ul class="content-list">
                     <li>Elaborazione di studi di settore (es. impatto della crisi sulla subfornitura meccanica) e presentazione dei risultati a stakeholder istituzionali.</li>
                     <li>Conduzione di ricerche di mercato per analizzare il fabbisogno dei clienti, le criticità della domanda/offerta e il posizionamento dell'azienda.</li>
                 </ul>
-
                 <h3>Data Driven Marketing & Eventi</h3>
                 <ul class="content-list">
                     <li>Gestione di campagne Google Ads e analisi dei risultati tramite Google Analytics.</li>
@@ -1506,22 +1295,18 @@
             </div>
             <div class="modal-body">
                 <p>Durante il periodo universitario ho lavorato come responsabile della gestione operativa e commerciale di un punto vendita HTV. Le fondamenta operative che mi permettono oggi di comprendere le dinamiche reali della vendita fisica.</p>
-                
                 <h3>Gestione Operativa</h3>
                 <ul class="content-list">
                     <li>Gestione diretta di cassa, fatturazione, magazzino e visual merchandising. Verifica del corretto flusso degli ordini e delle consegne.</li>
                 </ul>
-
                 <h3>Gestione Finanziaria</h3>
                 <ul class="content-list">
                     <li>Gestione degli obiettivi commerciali e finanziari, apertura e chiusura cassa, raggiungimento dei target di vendita.</li>
                 </ul>
-
                 <h3>Customer Relationship Management</h3>
                 <ul class="content-list">
                     <li>Gestione dei clienti, risoluzione dei reclami, utilizzo di CRM e ERP gestionali per il controllo stock.</li>
                 </ul>
-
                 <h3>Promozione</h3>
                 <ul class="content-list">
                     <li>Sviluppo di piani promozionali, presentazione dei prodotti ai clienti, creazione di un ambiente di vendita accogliente e funzionale.</li>
@@ -1635,7 +1420,7 @@
     </div>
 
     <script>
-        // --- 1. Custom Cursor Logic (Only if supported) ---
+        // --- 1. Custom Cursor Logic ---
         const cursor = document.querySelector('.cursor');
         const dot = document.querySelector('.cursor-dot');
         const hoverTriggers = document.querySelectorAll('.hover-trigger, a, button');
