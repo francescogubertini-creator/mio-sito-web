@@ -77,7 +77,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            mix-blend-mode: difference; /* Visibile su bianco e nero */
+            mix-blend-mode: difference;
         }
 
         .chevron {
@@ -197,13 +197,14 @@
         .menu-link:hover { padding-left: 40px; border-left: 5px solid #000; font-weight: 600; }
         .close-menu { position: absolute; top: 20px; right: 5%; font-size: 2.5rem; cursor: pointer; z-index: 2002; }
 
-        /* --- CTA BUTTONS --- */
+        /* --- CTA BUTTONS (APPLE STYLE) --- */
         .btn-primary {
             display: inline-block; margin-top: 30px; padding: 12px 30px;
             border: 1px solid var(--text-color); background: transparent;
             color: var(--text-color); font-family: 'Space Grotesk', sans-serif;
             font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
             font-size: 0.85rem; transition: all 0.3s ease; cursor: pointer; text-decoration: none;
+            border-radius: 50px;
         }
         .btn-primary:hover { background: var(--text-color); color: #fff; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         
@@ -212,6 +213,7 @@
             border: 1px solid #666; background: transparent;
             text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;
             transition: 0.3s; display: inline-block; color: #aaa; cursor: pointer;
+            border-radius: 50px;
         }
         .btn-small-cta:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
@@ -223,13 +225,16 @@
         .hero-desc { max-width: 600px; font-size: 1.1rem; color: var(--text-muted); opacity: 0; line-height: 1.6; }
         
         .hero-image-container { position: absolute; right: 5%; top: 20%; width: 30vw; height: 50vh; z-index: -1; opacity: 1; transition: 0.5s; }
-        .hero-image-container img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(100%); }
+        .hero-image-container img { 
+            width: 100%; height: 100%; object-fit: contain; filter: grayscale(100%); 
+            border-radius: 24px;
+        }
 
         /* --- BIO --- */
         .bio-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: start; }
         .bio-text { font-size: clamp(1.1rem, 1.5vw, 1.4rem); line-height: 1.6; font-weight: 300; text-align: justify; }
         .bio-text strong { color: var(--accent); font-weight: 500; }
-        .bio-quote { margin: 30px 0; padding: 20px; border-left: 3px solid var(--accent); background: var(--card-bg); font-style: italic; font-weight: 500; font-size: 1rem; }
+        .bio-quote { margin: 30px 0; padding: 20px; border-left: 3px solid var(--accent); background: var(--card-bg); font-style: italic; font-weight: 500; font-size: 1rem; border-radius: 0 16px 16px 0; }
 
         /* --- AI SECTION --- */
         #ai { background-color: var(--dark-bg); color: var(--dark-text); padding: 100px 0; position: relative; }
@@ -237,15 +242,15 @@
         #ai .section-title { color: var(--dark-text); }
         #ai p, #ai li { color: #bbb; }
         
-        .ai-stripe { display: flex; border-top: 1px solid var(--dark-lines); border-bottom: 1px solid var(--dark-lines); flex-wrap: wrap; }
+        .ai-stripe { display: flex; border-top: 1px solid var(--dark-lines); border-bottom: 1px solid var(--dark-lines); flex-wrap: wrap; gap:10px; border:none; }
         
         .ai-box { 
-            flex: 1; padding: 50px 30px; border-right: 1px solid var(--dark-lines); 
+            flex: 1; padding: 50px 30px; border: 1px solid var(--dark-lines); 
             transition: 0.4s; position: relative; min-width: 280px; 
             display: flex; flex-direction: column; justify-content: space-between;
             background: var(--dark-bg); cursor: pointer; 
+            border-radius: 24px; margin: 10px;
         }
-        .ai-box:last-child { border: none; }
         .ai-box:hover { background: var(--dark-card); }
         
         .ai-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; opacity: 0.9; }
@@ -266,7 +271,8 @@
         .exp-row { 
             position: relative; margin-bottom: 40px; padding: 30px; 
             background: var(--card-bg); border: 1px solid transparent; 
-            transition: 0.3s; border-radius: 4px; cursor: pointer;
+            transition: 0.3s; cursor: pointer;
+            border-radius: 20px;
         }
         .exp-row::before {
             content: ''; position: absolute; left: -36px; top: 30px;
@@ -305,6 +311,7 @@
             background: var(--dark-card); padding: 40px; width: 45vw; max-width: 600px;
             border: 1px solid #333; box-shadow: 0 30px 60px rgba(0,0,0,0.6); position: relative; overflow: hidden; z-index: 2;
             border-left: 3px solid var(--accent); margin-top: 15vh; 
+            border-radius: 24px;
         }
         .gallery-icon-large { font-size: 2rem; color: var(--accent); margin-bottom: 20px; opacity: 1; }
         .gallery-card h4 { font-size: 2rem; margin-bottom: 10px; color: #fff; font-family: 'Space Grotesk'; }
@@ -314,27 +321,35 @@
 
         /* --- EDUCATION & PERSONAL --- */
         .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .edu-card { padding: 25px; border: 1px solid var(--lines); background: var(--card-bg); transition: 0.3s; margin-bottom: 20px; position: relative;}
+        .edu-card { padding: 25px; border: 1px solid var(--lines); background: var(--card-bg); transition: 0.3s; margin-bottom: 20px; position: relative; border-radius: 20px;}
         .edu-card:hover { border-color: var(--accent); background: #fff; }
         .edu-card h4 { font-size: 1.1rem; margin-bottom: 5px; }
         .edu-inst { font-size: 0.9rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; margin-bottom: 10px; }
         .edu-year { font-size: 0.75rem; background: #eee; padding: 2px 8px; border-radius: 4px; color: #555; }
         .edu-desc { font-size: 0.9rem; color: #555; margin-bottom: 15px; }
-        .btn-small { padding: 6px 15px; font-size: 0.75rem; border: 1px solid #000; text-transform: uppercase; display: inline-block; background: transparent; cursor: pointer; }
+        
+        .btn-small { 
+            padding: 6px 15px; font-size: 0.75rem; border: 1px solid #000; text-transform: uppercase; display: inline-block; background: transparent; cursor: pointer; 
+            border-radius: 50px;
+        }
         .btn-small:hover { background: #000; color: #fff; }
-        .btn-file { background: #f1f5f9; border: 1px solid #cbd5e1; color: #333; margin-left: 5px; margin-top: 5px;}
+        
+        .btn-file { 
+            background: #f1f5f9; border: 1px solid #cbd5e1; color: #333; margin-left: 5px; margin-top: 5px;
+            border-radius: 50px;
+        }
         .btn-file:hover { background: var(--accent); color: white; border-color: var(--accent); }
 
         .linkedin-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .linkedin-group h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 20px; text-transform: uppercase; }
-        .skill-card { background: #fff; border: 1px solid var(--lines); padding: 10px 15px; margin-bottom: 10px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
+        .skill-card { background: #fff; border: 1px solid var(--lines); padding: 10px 15px; margin-bottom: 10px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
         .skill-card:hover { transform: translateX(5px); border-color: var(--accent); }
         .skill-name { font-weight: 600; font-size: 0.9rem; }
         .skill-count { background: #0e0e0e; color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; min-width: 25px; text-align: center; }
         .zenit-badge { background: var(--accent); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-left: 10px; }
 
         .personal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .personal-item { background: var(--card-bg); padding: 30px; border-radius: 4px; border: 1px solid var(--lines); }
+        .personal-item { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid var(--lines); }
         .personal-item h3 { color: var(--accent); font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
         .personal-item p { font-size: 0.95rem; margin-bottom: 10px; color: var(--text-muted); }
 
@@ -370,7 +385,7 @@
         /* General Modal Styles */
         .modal-content {
             background: #fff; width: 90%; max-width: 800px; max-height: 90vh;
-            overflow-y: auto; position: relative; border-radius: 4px;
+            overflow-y: auto; position: relative; border-radius: 24px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
             display: flex; flex-direction: column;
         }
@@ -460,7 +475,7 @@
                 top: auto; right: auto; margin: 30px auto 40px auto; 
                 opacity: 1; display: block; 
             }
-            .hero-image-container img { object-fit: cover; object-position: center top; border-radius: 4px; }
+            .hero-image-container img { object-fit: cover; object-position: center top; border-radius: 24px; }
             .hero-title { font-size: 3rem; margin-top: 0; line-height: 1.1; }
             .hero-desc { font-size: 1rem; }
 
@@ -471,7 +486,7 @@
             #ai { width: 100%; overflow-x: hidden; padding: 80px 0; }
             #ai .container { width: 85%; margin-left: 5%; } /* Keep alignment with arrows */
             .ai-stripe { flex-direction: column; width: 100%; }
-            .ai-box { border-right: none; border-bottom: 1px solid var(--dark-lines); padding: 40px 20px; width: 100%; }
+            .ai-box { border: none; border-bottom: 1px solid var(--dark-lines); padding: 40px 20px; width: 100%; margin:0; border-radius:0; }
 
             /* Portfolio Mobile */
             .h-scroll-container { height: auto; overflow: visible; display: block; }
@@ -1117,6 +1132,349 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-opera" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">OPERA GROUP</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">RESPONSABILE MARKETING & DATA ANALYST</span></div>
+                <div class="close-modal" onclick="closeModal('opera')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p>In un contesto industriale caratterizzato da alti volumi produttivi e forte presenza nella GDO, il mio ruolo si è focalizzato sulla trasformazione dell'approccio al mercato e sull'innovazione del prodotto (Lamgea System) con supporto AI. Mi occupo della gestione analitica, marketing e merchandising dei marchi Opera, Element e Ceramiche di Sassuolo nei canali retail, GDO, DO, conto terzi e progettisti. Attraverso un approccio <strong>Data Driven Decision Making</strong>, passo dalla vendita di prodotto alla valorizzazione del brand per incrementare il markup.</p>
+                
+                <h3>Analisi dati, Strategia AI e Sviluppo Prodotto</h3>
+                <ul class="content-list">
+                    <li><strong>Predictive Analysis e Forecasting:</strong> Utilizzo di algoritmi per l'analisi dei dati di vendita storici e il forecasting degli stock, ottimizzando la rotazione di magazzino e riducendo il rischio d'impresa.</li>
+                    <li><strong>Analisi di mercato e trend:</strong> Analisi delle performance dei prodotti e della concorrenza per lo sviluppo di nuove gamme, compresi naming e storytelling, identificando trend nascosti nei dati aziendali.</li>
+                    <li><strong>Analisi del ciclo di vita:</strong> Monitoraggio delle performance dei prodotti dal lancio al declino per identificare aree di miglioramento e opportunità.</li>
+                    <li><strong>Gestione Business Intelligence:</strong> Implementazione di dashboard in Power BI per il monitoraggio dei KPI di vendita e analisi predittiva.</li>
+                    <li><strong>Coordinamento sviluppo prodotto:</strong> Gestione con tecnologia Lamgea System (grandi lastre), curando il ciclo di vita dall'analisi dei trend alla dismissione.</li>
+                    <li><strong>Analisi ROI sul Merchandising:</strong> Mappatura delle campionature nei punti vendita e calcolo del ritorno sull'investimento per clienti, agenti e funzionari.</li>
+                </ul>
+
+                <h3>Fusione tra Dati e Design: Contenuti Multimediali e Branding</h3>
+                <ul class="content-list">
+                    <li><strong>Generative AI per i Contenuti:</strong> Integrazione di strumenti di Intelligenza Artificiale Generativa per la creazione automatizzata di testi tecnici, traduzioni multilingua e supporto alla creazione di asset visivi per cataloghi e moodboard, riducendo drasticamente il Time-to-Market.</li>
+                    <li><strong>Rebranding e Identity:</strong> Rebranding del marchio Opera e creazione architettura di marca per Element, Element Extra e Grip 1.0 per segmentare l'offerta su diverse fasce di prezzo.</li>
+                    <li><strong>Progettazione editoriale e cataloghi:</strong> Progettazione e realizzazione di cataloghi (generale, di serie, Cersaie, outdoor, rivestimenti) utilizzando la suite Adobe (Indesign, Illustrator, Acrobat) integrata con Word ed Excel.</li>
+                    <li><strong>Produzione Multimediale:</strong> Creazione di render 3D di prodotti o ambienti. Regia multi-camera di conferenze ed eventi, con gestione e coordinamento delle riprese video per un prodotto di alta qualità.</li>
+                    <li><strong>Web & Digital:</strong> Gestione e aggiornamento dei siti web aziendali (WordPress): testi, immagini, video e news. Creazione di newsletter periodiche (MailChimp) per comunicare novità, promozioni ed eventi.</li>
+                </ul>
+
+                <h3>Merchandising, Go-to-Market e Trade</h3>
+                <ul class="content-list">
+                    <li><strong>Progettazione strumenti di vendita:</strong> Realizzazione di tutti gli strumenti di sell-in e sell-out (flyer, folder, cartelle, valigette, sinottici, pattelle, culle, grafiche sala mostra), unendo funzionalità e <strong>design</strong>.</li>
+                    <li><strong>Progetti GDO & DIY:</strong> Progettazione di soluzioni espositive (Box, Shop-in-Shop, Pallet) per grandi player del DIY e clienti direzionali (OBI, Leroy Merlin, BAHAG/Bauhaus, Bricofer, Tecnomat).</li>
+                    <li><strong>Gestione eventi e fiere:</strong> Progettazione di grafiche per fiere (Cersaie): pannelli, banner, inviti e brochure. Presentazione di nuovi prodotti a clienti, agenti e forza vendita.</li>
+                    <li><strong>Gestione tecnica e documentale:</strong> Creazione di listini prodotto completi di dati tecnici (pesi, imballi, certificazioni, codici a barre).</li>
+                    <li><strong>Customer Care Digitalizzato:</strong> Gestione digitalizzata del Customer Care per ridurre le contestazioni (-8%) e mappare le causali di reso.</li>
+                    <li><strong>Coordinamento esterno:</strong> Selezione e coordinamento di fornitori esterni (grafici, fotografi, agenzie, stampatori, cartotecniche) per la realizzazione di contenuti di alta qualità.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-acetaia" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">ACETAIA GUBERTINI</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">RESPONSABILE MARKETING</span></div>
+                <div class="close-modal" onclick="closeModal('acetaia')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p>Progetto imprenditoriale e di consulenza che ha trasformato una realtà familiare in un brand orientato al profitto, riposizionando il prodotto da semplice condimento a "bene di investimento" tramite leve di marketing digitale, storytelling emozionale e una perfetta <strong>fusione tra dati e design</strong>.</p>
+                
+                <h3>Go-to-Market e Strategia Omnicanale</h3>
+                <ul class="content-list">
+                    <li>Sviluppo e implementazione di una strategia di marketing omnicanale (vendita diretta, indiretta e online).</li>
+                    <li>Strategia differenziata per cluster: B2C (Social/Web), Ho.Re.Ca. (Linee Riserva) e GDO (Linee dedicate).</li>
+                </ul>
+
+                <h3>E-commerce e Piattaforme</h3>
+                <ul class="content-list">
+                    <li>Sviluppo autonomo dell'ecosistema e-commerce proprietario (WooCommerce) e integrazione con Marketplace (Amazon Seller Central, eBay).</li>
+                    <li>Lancio e gestione dell'e-commerce con campagne multipiattaforma.</li>
+                </ul>
+
+                <h3>Luxury Brand Positioning</h3>
+                <ul class="content-list">
+                    <li>Creazione di un'identità visiva "Luxury" (Packaging, Etichette) basata sui valori di Slow Made e Made in Italy.</li>
+                    <li>Progettazione di tutti i materiali di comunicazione (marchio, packaging, cataloghi).</li>
+                </ul>
+
+                <h3>Performance Marketing Data Driven</h3>
+                <ul class="content-list">
+                    <li>Gestione campagne Google Ads, Meta Business Suite e analisi dei risultati tramite Google Analytics e Merchant Center.</li>
+                    <li>Ottimizzazione SEO per il posizionamento sui motori di ricerca.</li>
+                </ul>
+
+                <h3>Gestione Operativa & Risultati</h3>
+                <ul class="content-list">
+                    <li>Gestione internamente la logistica e il Customer Service.</li>
+                    <li>Risultati: Aumento della visibilità e delle vendite; posizionamento del brand come prodotto di lusso e alta qualità; sviluppo di una presenza online efficace.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-waterline" class="modal-overlay">
+         <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">WATERLINE</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">RESPONSABILE MARKETING</span></div>
+                <div class="close-modal" onclick="closeModal('waterline')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p>Responsabile della definizione e implementazione della strategia di comunicazione e marketing. In un contesto di post-acquisizione aziendale, il focus è stato l'unificazione e la standardizzazione, agendo come collettore tra diverse realtà produttive per costruire una "Corporate Identity" univoca, applicando logiche di <strong>Go-to-Market</strong> strutturate.</p>
+                
+                <h3>Change Management & Identity</h3>
+                <ul class="content-list">
+                    <li>Creazione di una nuova identità di gruppo attraverso il rebranding dei marchi e l'ammodernamento dei siti web e del merchandising.</li>
+                    <li>Riprogettazione dei marchi e dell'immagine coordinata di gruppo per allineare le aziende acquisite sotto un unico "ombrello" valoriale.</li>
+                    <li>Restyling delle sedi fisiche.</li>
+                </ul>
+
+                <h3>Data Driven Strategy</h3>
+                <ul class="content-list">
+                    <li>Analisi del mercato e della concorrenza.</li>
+                    <li>Definizione della strategia di comunicazione per il gruppo, tenendo conto della dimensione multi-brand e multi-canale.</li>
+                </ul>
+
+                <h3>Sviluppo Prodotto</h3>
+                <ul class="content-list">
+                    <li>Progettazione e sviluppo di nuovi prodotti (es. Drinkit).</li>
+                    <li>Analisi dello scenario competitivo e coordinamento del lancio, traducendo le specifiche tecniche in vantaggi commerciali comunicabili.</li>
+                </ul>
+
+                <h3>Gestione Budget e Team</h3>
+                <ul class="content-list">
+                    <li>Gestione del budget marketing e del team (3 risorse interne e collaboratori esterni).</li>
+                    <li>Coordinamento con le diverse sedi del gruppo per garantire una comunicazione coerente e unificata.</li>
+                    <li>Risultati: Creazione di una nuova immagine coordinata per il gruppo; miglioramento della visibilità e della riconoscibilità dei brand.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-bmw" class="modal-overlay">
+         <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">BMW ITALIA</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">MARKETING RETAIL & CRM SPECIALIST</span></div>
+                <div class="close-modal" onclick="closeModal('bmw')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p>Monitoraggio e ottimizzazione delle performance marketing della rete vendita BMW Italia per i marchi (BMW, BMW I, BMW M, MINI) in alcune aree dell'Emilia Romagna con la gestione diretta di 1,5 milioni di euro/anno. Il marketing inteso non come promozione, ma come strumento di controllo finanziario e di processo (<strong>Data Driven Decision Making</strong>).</p>
+                
+                <h3>CRM & Processi Finanziari</h3>
+                <ul class="content-list">
+                    <li>Monitoraggio delle KPI commerciali e coordinamento delle trattative con il CRM Sugar.</li>
+                    <li>Gestione rigorosa del funnel di vendita, dal primo contatto alla fatturazione.</li>
+                    <li>Analisi dei KPI della forza vendita finalizzata all'ottenimento dei bonus qualitativi erogati dalla Casa Madre.</li>
+                </ul>
+
+                <h3>Gestione Lead</h3>
+                <ul class="content-list">
+                    <li>Gestione dei lead dall'acquisizione alla conversione in clienti.</li>
+                    <li>Monitoraggio della qualità del processo commerciale e individuazione di aree di miglioramento.</li>
+                </ul>
+
+                <h3>Budgeting & Media Planning</h3>
+                <ul class="content-list">
+                    <li>Gestione del budget Marketing e allocazione delle spese per iniziative atte all'incremento di fatturato.</li>
+                    <li>Definizione e implementazione del media plan in linea con il budget trimestrale.</li>
+                </ul>
+
+                <h3>Eventi e Go-to-Market</h3>
+                <ul class="content-list">
+                    <li>Supervisione e organizzazione operativa di eventi (lanci di prodotto, open weekend, fiere) per la Lead Generation.</li>
+                    <li>Gestione dei rapporti con i fornitori (agenzie di comunicazione, grafici, editori).</li>
+                    <li>Risultati: Ottimizzazione del processo di vendita; miglioramento delle performance commerciali della rete vendita; incremento della customer satisfaction.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-lapam" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">LAPAM CONFARTIGIANATO</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">ANALISTA MARKETING & SISTEMI</span></div>
+                <div class="close-modal" onclick="closeModal('lapam')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p>Analista commerciale e marketing con focus sull'innovazione e lo sviluppo, a diretto riporto della direzione generale. Ruolo tecnico-istituzionale focalizzato sull'implementazione di sistemi informativi e sull'analisi economica del territorio.</p>
+                
+                <h3>IT & System Administration (CRM)</h3>
+                <ul class="content-list">
+                    <li>Responsabile dell'introduzione e configurazione del CRM V-Tiger.</li>
+                    <li>Implementazione del CRM, supervisionando tutte le fasi di sviluppo tecnico e la personalizzazione dei flussi per la gestione delle relazioni con i clienti.</li>
+                </ul>
+
+                <h3>Ricerca & Analisi Economica</h3>
+                <ul class="content-list">
+                    <li>Elaborazione di studi di settore (es. impatto della crisi sulla subfornitura meccanica) e presentazione dei risultati a stakeholder istituzionali.</li>
+                    <li>Conduzione di ricerche di mercato per analizzare il fabbisogno dei clienti, le criticità della domanda/offerta e il posizionamento dell'azienda.</li>
+                </ul>
+
+                <h3>Data Driven Marketing & Eventi</h3>
+                <ul class="content-list">
+                    <li>Gestione di campagne Google Ads e analisi dei risultati tramite Google Analytics.</li>
+                    <li>Lead Generation e Co-Marketing: Sviluppo e gestione di iniziative per l'acquisizione di nuovi clienti.</li>
+                    <li>Organizzazione di eventi tecnici di settore (es. stampa digitale nel settore ceramico con Epson e Roland) per favorire l'innovazione tra le imprese associate.</li>
+                    <li>Presentazione di una ricerca di mercato al Presidente della Regione Emilia Romagna durante un evento presso la facoltà di Ingegneria di Modena.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-ebay" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">EBAY</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">E-COMMERCE SPECIALIST</span></div>
+                <div class="close-modal" onclick="closeModal('ebay')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p>Le fondamenta operative che mi permettono oggi di comprendere le dinamiche reali della vendita digitale e del <strong>Go-to-Market</strong> internazionale.</p>
+                <ul class="content-list">
+                    <li><strong>Attività di "Power Seller":</strong> Esperienza durata 6 anni come venditore ad alto volume e affidabilità.</li>
+                    <li><strong>Gestione Ciclo Vendita:</strong> Gestione autonoma del ciclo completo di vendita online internazionale: sourcing, pricing, logistica e customer care, anticipando le logiche dell'e-commerce moderno.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-htv" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">HTV (RETAIL FISICO)</h2><span style="color:#666; font-weight:600; font-size:0.8rem;">RESPONSABILE PUNTO VENDITA</span></div>
+                <div class="close-modal" onclick="closeModal('htv')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p>Durante il periodo universitario ho lavorato come responsabile della gestione operativa e commerciale di un punto vendita HTV. Le fondamenta operative che mi permettono oggi di comprendere le dinamiche reali della vendita fisica.</p>
+                
+                <h3>Gestione Operativa</h3>
+                <ul class="content-list">
+                    <li>Gestione diretta di cassa, fatturazione, magazzino e visual merchandising. Verifica del corretto flusso degli ordini e delle consegne.</li>
+                </ul>
+
+                <h3>Gestione Finanziaria</h3>
+                <ul class="content-list">
+                    <li>Gestione degli obiettivi commerciali e finanziari, apertura e chiusura cassa, raggiungimento dei target di vendita.</li>
+                </ul>
+
+                <h3>Customer Relationship Management</h3>
+                <ul class="content-list">
+                    <li>Gestione dei clienti, risoluzione dei reclami, utilizzo di CRM e ERP gestionali per il controllo stock.</li>
+                </ul>
+
+                <h3>Promozione</h3>
+                <ul class="content-list">
+                    <li>Sviluppo di piani promozionali, presentazione dei prodotti ai clienti, creazione di un ambiente di vendita accogliente e funzionale.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-laurea" class="modal-overlay">
+         <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">LAUREA ECONOMIA AZIENDALE</h2></div>
+                <div class="close-modal" onclick="closeModal('laurea')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p>Laurea in Economia Aziendale - Marketing e Distribuzione presso la Facoltà di Economia Marco Biagi di Modena.</p>
+                <ul class="content-list">
+                    <li>Tesi in Strategie del Marketing dei Beni di Lusso.</li>
+                    <li>Il corso fornisce solide competenze in management, organizzazione aziendale, contabilità, marketing, diritto commerciale e analisi di bilancio.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-geometra" class="modal-overlay">
+         <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">DIPLOMA GEOMETRA</h2></div>
+                <div class="close-modal" onclick="closeModal('geometra')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p>Diploma di Geometra presso l'Istituto Tecnico IGT Guarini.</p>
+                <ul class="content-list">
+                    <li>Percorso focalizzato su costruzioni, topografia e sicurezza.</li>
+                    <li>Fornisce una mentalità tecnica rigorosa, orientata al problem solving, alla progettazione precisa e al rispetto delle normative.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-ai-course1" class="modal-overlay">
+         <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">MODELLI DI IA PER LA BI</h2></div>
+                <div class="close-modal" onclick="closeModal('ai-course1')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p><strong>Ente:</strong> Zenit Formazione (Rif. PA 2024-23356/RER)</p>
+                <ul class="content-list">
+                    <li>Formulare previsioni (analytics e forecasting data driven).</li>
+                    <li>Assumere decisioni (decision making diagnostico).</li>
+                    <li>Generare nuovi contenuti (Generative AI).</li>
+                    <li>Prompt Engineering avanzato per ottimizzare l'interazione con i modelli LLM.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-ai-course2" class="modal-overlay">
+         <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">IA ED EXCEL</h2></div>
+                <div class="close-modal" onclick="closeModal('ai-course2')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p><strong>Titolo completo:</strong> Analizzare dati con l'aiuto degli strumenti più recenti (Fogli di calcolo e cruscotti per l'intelligenza operativa)</p>
+                <p><strong>Ente:</strong> Zenit Formazione</p>
+                <ul class="content-list">
+                    <li>Utilizzo di AI per potenziare l'analisi dati in Excel.</li>
+                    <li>Creazione di Dashboard dinamiche per il monitoraggio dei KPI.</li>
+                    <li>Automazione di reportistica complessa.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-ai-course3" class="modal-overlay">
+         <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">IA NEL DECISION MAKING</h2></div>
+                <div class="close-modal" onclick="closeModal('ai-course3')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p><strong>Titolo completo:</strong> Modelli collaborativi con IA nel decision making diagnostico e previsionale</p>
+                <p><strong>Ente:</strong> Zenit Formazione (Rif. PA 2024-23357/RER)</p>
+                <ul class="content-list">
+                    <li>Competenze per la doppia transizione nella gestione d'impresa.</li>
+                    <li>Supporto decisionale tramite modelli predittivi.</li>
+                    <li>Analisi di scenari complessi supportata da algoritmi di IA.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-ai-course4" class="modal-overlay">
+         <div class="modal-content">
+            <div class="modal-header">
+                <div><h2 style="font-family:'Space Grotesk'; font-size:1.5rem;">VENDITE E SERVIZI CON AI</h2></div>
+                <div class="close-modal" onclick="closeModal('ai-course4')">&times;</div>
+            </div>
+            <div class="modal-body">
+                <p><strong>Titolo completo:</strong> L'evoluzione delle vendite e dei servizi al cliente ai tempi dell'AI</p>
+                <p><strong>Ente:</strong> IFOA (Rif PA 2024-23361/RER)</p>
+                <ul class="content-list">
+                    <li>Impatto dell'Intelligenza Artificiale sui processi di vendita.</li>
+                    <li>Personalizzazione della Customer Experience tramite AI.</li>
+                    <li>Nuovi strumenti digitali per la rete vendita.</li>
+                </ul>
             </div>
         </div>
     </div>
