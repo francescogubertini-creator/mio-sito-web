@@ -78,6 +78,12 @@
             justify-content: center;
             cursor: pointer;
             mix-blend-mode: difference;
+            transition: transform 0.5s ease; /* Animazione rotazione */
+        }
+        
+        /* Classe per invertire le frecce */
+        .scroll-down-indicator.flipped {
+            transform: rotate(180deg);
         }
 
         .chevron {
@@ -547,7 +553,7 @@
     <div class="cursor"></div>
     <div class="cursor-dot"></div>
 
-    <div class="scroll-down-indicator" onclick="window.scrollBy({top: window.innerHeight, behavior: 'smooth'})">
+    <div class="scroll-down-indicator" id="scrollIndicator" onclick="handleScrollClick()">
         <div class="chevron"></div>
         <div class="chevron"></div>
     </div>
@@ -913,13 +919,14 @@
                 <h3 style="margin-bottom:20px; border-bottom: 2px solid var(--accent); padding-bottom: 5px; display:inline-block;">Titoli di Studio</h3>
                 <div class="edu-card">
                     <h4>Laurea in Economia Aziendale - Marketing e Distribuzione</h4>
-                    <div class="edu-inst"><span>Facoltà Marco Biagi - UNIMORE</span></div>
+                    <div class="edu-inst"><span>Facoltà Marco Biagi - UNIMORE</span> <span class="edu-year">2010</span></div>
                     <p class="edu-desc">Tesi in Strategie del Marketing dei Beni di Lusso. Il corso fornisce solide competenze in management, organizzazione aziendale, contabilità, marketing, diritto commerciale e analisi di bilancio.</p>
                     <button class="btn-small" onclick="openModal('laurea')">DETTAGLI</button>
+                    <a href="assets/docs/tesi-gubertini-marketing-dei-beni-di-lusso.pdf" target="_blank" class="btn-small btn-file"><i class="fa-solid fa-file-pdf"></i> GUARDA LA TESI</a>
                 </div>
                 <div class="edu-card">
                     <h4>Diploma di Geometra</h4>
-                    <div class="edu-inst"><span>Istituto Tecnico IGT Guarini</span></div>
+                    <div class="edu-inst"><span>Istituto Tecnico IGT Guarini</span> <span class="edu-year">2004</span></div>
                     <p class="edu-desc">Percorso focalizzato su costruzioni, topografia e sicurezza. Fornisce una mentalità tecnica rigorosa, orientata al problem solving, alla progettazione precisa e al rispetto delle normative.</p>
                     <button class="btn-small" onclick="openModal('geometra')">DETTAGLI</button>
                 </div>
@@ -1000,7 +1007,7 @@
         <div class="personal-grid hover-trigger">
             <div class="personal-item">
                 <h3><i class="fa-solid fa-hand-holding-heart"></i> Personalità</h3>
-                <p>Sono una persona estroversa e curiosa, con una forte propensione all'apprendimento continuo e alla creatività.</p>
+                <p>Sono una persona estroversa, con una forte propensione all'apprendimento continuo e alla creatività.</p>
                 <p>Sono appassionato di cinema, storia, scienza, motori, tecnologia e fotografia.</p>
             </div>
             <div class="personal-item">
@@ -1528,12 +1535,31 @@
             if(dot) dot.style.display = 'none';
         }
 
-        // --- 2. Nav Scroll Logic ---
+        // --- 2. Nav Scroll Logic & Arrow Flip ---
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
+            
+            // Nav effect
             if (window.scrollY > 50) { nav.classList.add('scrolled'); } 
             else { nav.classList.remove('scrolled'); }
+
+            // Arrow Flip Logic (Back to Top)
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                scrollIndicator.classList.add('flipped');
+            } else {
+                scrollIndicator.classList.remove('flipped');
+            }
         });
+
+        function handleScrollClick() {
+            if (scrollIndicator.classList.contains('flipped')) {
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll UP
+            } else {
+                window.scrollBy({ top: window.innerHeight, behavior: 'smooth' }); // Scroll DOWN
+            }
+        }
 
         // --- 3. Modals, Menu & Year ---
         function toggleMenu() { document.getElementById('menuOverlay').classList.toggle('active'); }
