@@ -28,30 +28,22 @@
             --card-bg-solid: #121214; 
             --border: rgba(255, 255, 255, 0.08);
             --accent: #6366f1;
-            --accent-sec: #2DD4BF; /* Education Cyan */
+            --accent-sec: #2DD4BF;
             --text-main: #adadad;
-            
-            /* Colors */
             --surface-0: #0C0D0F; 
             --adobe-bg: #262626; 
             --term-bg: #0d1117; --term-sidebar: #010409; --term-border: #30363d;
-            
             --accent-blue: #0A84FF;
             --accent-purple: #5E6AD2;
             --accent-green: #27C93F;
             --accent-orange: #F59E0B;
             --accent-cyan: #00D2FF;
-
             --linear-card-bg: #121214;
             --font-mono: 'JetBrains Mono', monospace;
             --font-code: 'JetBrains Mono', monospace;
-            
-            /* RADAR SPECIFIC */
             --radar-bg: #0C0D0F;
             --radar-line: rgba(255, 255, 255, 0.1);
             --linkedin-blue: #0A66C2;
-
-            /* TERMINAL SPECIFIC */
             --term-text: #c9d1d9;      
             --code-blue: #79c0ff;      
             --code-purple: #d2a8ff;    
@@ -59,16 +51,14 @@
             --code-orange: #ffa657;    
             --code-comment: #8b949e;   
             --cursor-color: #58a6ff;
-
-            /* NEW TECH STACK VARIABLES */
             --tech-bg-deep: #020204;
             --tech-surface: #0E0E10;
             --tech-border-dim: rgba(255, 255, 255, 0.06);
             --tech-border-highlight: rgba(255, 255, 255, 0.15);
-            --col-data: #38bdf8;    /* Sky Blue per BI/AI */
-            --col-crm: #4ade80;     /* Green per CRM/Sales */
-            --col-mkt: #fb923c;     /* Orange per Marketing */
-            --col-des: #a78bfa;     /* Purple per Design */
+            --col-data: #38bdf8;
+            --col-crm: #4ade80;
+            --col-mkt: #fb923c;
+            --col-des: #a78bfa;
         }
 
         body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; }
@@ -102,7 +92,14 @@
         .content-list li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
         .tag { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-size: 10px; color: #fff; }
 
-        /* --- DASHBOARD HERO --- */
+        /* ELEMENTS HIDDEN ON MOBILE */
+        @media (max-width: 768px) {
+            .desktop-only-3d { display: none !important; }
+            .hero-stage { display: none !important; } /* Hide Salesforce 3D */
+            .radar-section-wrapper { display: none !important; } /* Hide Radar */
+        }
+
+        /* --- DASHBOARD HERO (Desktop) --- */
         .hero-stage { 
             width: 100vw; height: 500px; display: flex; justify-content: center; align-items: center; 
             perspective: 2500px; margin-top: 10px; pointer-events: none; overflow: visible; z-index: 1;
@@ -460,15 +457,146 @@
             .modules-grid { grid-template-columns: 1fr; }
             .sys-title { font-size: 2rem; }
         }
+
+        /* --- MOBILE OPTIMIZATION PATCH --- */
+        @media (max-width: 768px) {
+            /* 1. RESET 3D: Appiattisce gli elementi */
+            .tilted-plane-hero, 
+            .indesign-window, 
+            .radar-interface, 
+            .kinetic-core,
+            .card-wrapper-ai,
+            .folder-3d-wrapper,
+            .terminal-window {
+                transform: none !important;
+                perspective: none !important;
+                width: 100% !important;
+                height: auto !important;
+                min-height: unset !important;
+                mask-image: none !important;
+                -webkit-mask-image: none !important;
+            }
+
+            /* 2. MODALI */
+            .modal-box {
+                width: 95% !important;
+                margin: 20px auto !important;
+                max-height: 90vh !important;
+                border-radius: 16px !important;
+            }
+            .m-body {
+                padding: 20px !important;
+                text-align: left !important;
+            }
+            .m-body p {
+                text-align: left !important;
+                font-size: 0.95rem !important;
+            }
+
+            /* 3. TIPOGRAFIA & LAYOUT */
+            h1 {
+                font-size: 2.2rem !important; 
+                line-height: 1.2 !important;
+            }
+            .sys-title {
+                font-size: 1.8rem !important;
+            }
+            .glitch-wrapper {
+                font-size: 3rem !important;
+            }
+            .stack-section, .bento-card {
+                padding: 40px 20px !important;
+            }
+
+            /* 4. EXPERIENCE CHRONICLE */
+            .xp-card-wrapper {
+                position: relative !important;
+                top: 0 !important;
+                margin-bottom: 20px !important;
+                display: block !important;
+            }
+            .xp-meta {
+                width: 100% !important;
+                text-align: left !important;
+                padding-left: 50px !important;
+                margin-bottom: 5px !important;
+            }
+            .xp-card {
+                transform: none !important;
+                opacity: 1 !important;
+                padding: 20px !important;
+            }
+            .beam-track, .beam-fill {
+                left: 20px !important;
+            }
+            .xp-dot {
+                left: 16px !important;
+            }
+
+            /* 5. PORTFOLIO & FOLDERS */
+            .folders-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+            .folder-item {
+                height: auto !important;
+                padding: 15px !important;
+                background: rgba(255,255,255,0.05) !important;
+                border: 1px solid rgba(255,255,255,0.1) !important;
+                border-radius: 12px !important;
+            }
+            .folder-3d-wrapper, .folder-back, .folder-contents, .folder-glass {
+                display: none !important;
+            }
+            .folder-info {
+                margin-top: 0 !important;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+            .folder-info::after {
+                content: "Vedi \2192";
+                font-size: 0.8rem;
+                color: var(--accent);
+            }
+
+            /* 6. TERMINAL */
+            .terminal-hero-container {
+                height: auto !important;
+                overflow: visible !important;
+            }
+            .stage-code {
+                transform: scale(1) !important;
+                padding: 0 !important;
+            }
+            .explorer {
+                display: none !important;
+            }
+
+            /* 7. GENERAL */
+            .text-justify {
+                text-align: left !important;
+            }
+        }
     </style>
 </head>
 <body>
 
     <nav class="fixed top-0 w-full nav-blur">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-8">
-                <span class="text-white font-black tracking-tighter text-xl uppercase">Gubertini</span>
-                <div class="hidden md:flex gap-6 text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+        <div class="max-w-7xl mx-auto px-6 h-auto py-3 md:h-16 flex items-center justify-between">
+            <div class="flex flex-col md:flex-row md:items-center md:gap-8 w-full md:w-auto">
+                <div class="flex justify-between items-center w-full md:w-auto">
+                    <div class="flex flex-col">
+                        <span class="text-white font-black tracking-tighter text-lg md:text-xl uppercase whitespace-nowrap">Francesco Gubertini</span>
+                        <span class="text-[10px] text-zinc-500 uppercase tracking-widest font-bold">Responsabile Marketing & IA Specialist</span>
+                    </div>
+                    <div class="md:hidden text-white text-xl cursor-pointer">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex gap-6 text-[10px] font-bold uppercase tracking-widest text-zinc-500 flex-1 justify-center ml-12">
                     <a href="#bio" class="hover:text-white transition-colors">Profilo</a>
                     <a href="#ai" class="hover:text-white transition-colors">IA Strategy</a>
                     <a href="#experience" class="hover:text-white transition-colors">Esperienze</a>
@@ -476,7 +604,7 @@
                     <a href="#linkedin" class="hover:text-white transition-colors">Network</a>
                 </div>
             </div>
-            <a href="mailto:info@francescogubertini.it" class="bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold hover:bg-zinc-200 transition-all uppercase tracking-widest">Let's Talk</a>
+            <a href="mailto:info@francescogubertini.it" class="hidden md:block bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold hover:bg-zinc-200 transition-all uppercase tracking-widest">Let's Talk</a>
         </div>
     </nav>
 
@@ -555,7 +683,7 @@
             </div>
             <div class="md:col-span-8 bento-card p-10 md:p-14 reveal text-left">
                 <div class="spotlight-overlay"></div>
-                <h3 class="text-3xl font-bold text-white mb-10 tracking-tight leading-tight uppercase">Marketing Strategist & Data-Driven Leader</h3>
+                <h3 class="text-3xl font-bold text-white mb-10 tracking-tight leading-tight uppercase">Marketing Strategist & Data-Driven Specialist</h3>
                 <div class="space-y-10 text-zinc-400 leading-relaxed text-lg text-justify">
                     <p>La mia carriera è definita da un principio cardine: l'integrazione strategica tra la visione di brand e l'intelligenza dei dati. Unisco una solida competenza tecnica (CRM, Business Intelligence, AI) a una spiccata sensibilità creativa (Branding, Design), incarnando la sintesi perfetta tra analisi e intuizione. In un mercato dove l'intuizione non è più sufficiente, trasformo il dato in certezza strategica attraverso il Data-Driven Decision Making.</p>
                     
@@ -565,10 +693,10 @@
                     </div>
 
                     <div>
-                        <h4 class="text-white font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-500 pl-4">Innovazione e Change Management</h4>
+                        <h4 class="text-white font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-500 pl-4">Innovazione e Gestione del Cambiamento</h4>
                         <p class="text-base text-zinc-400 mb-4 text-left">Credo fermamente che la performance sia il risultato di una strategia ben orchestrata. Nel mio percorso ho:</p>
                         <ul class="content-list text-base text-zinc-400">
-                            <li><strong>Guidato progetti di Change Management:</strong> implementando sistemi CRM che hanno digitalizzato i processi e promosso una cultura aziendale orientata al dato.</li>
+                            <li><strong>Guidato progetti di Digitalizzazione:</strong> implementando sistemi CRM che hanno digitalizzato i processi e promosso una cultura aziendale orientata al dato.</li>
                             <li><strong>Ottimizzato le risorse:</strong> trasformando i limiti di budget in opportunità di efficienza, internalizzando attività ad alto valore e superando gli obiettivi di business attraverso l'innovazione tecnologica.</li>
                             <li><strong>Potenziato i risultati con l'AI:</strong> oggi integro l'Intelligenza Artificiale Predittiva per offrire alle aziende un vantaggio competitivo basato su fatti, previsioni accurate ed efficienza operativa.</li>
                         </ul>
@@ -602,7 +730,7 @@
                         <li>Analisi predittiva e calcolo percentili immediati.</li>
                         <li>Identificazione trend nascosti (Pattern Recognition).</li>
                     </ul>
-                    <div class="corner-icon-ai text-white"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
             <div class="card-wrapper-ai tilt-card-ai" onclick="openModal('m-ai-governance')">
@@ -616,7 +744,7 @@
                         <li>Gestione etica, Black Box e mitigazione Bias.</li>
                         <li>Architettura della Decisione e Teoria dei Giochi.</li>
                     </ul>
-                    <div class="corner-icon-ai text-white"><i class="fa-solid fa-chess"></i></div>
+                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
             <div class="card-wrapper-ai tilt-card-ai" onclick="openModal('m-ai-gen')">
@@ -630,7 +758,7 @@
                         <li>Automazione reportistica e Smart ETL.</li>
                         <li>Supporto creativo per Naming e Payoff.</li>
                     </ul>
-                    <div class="corner-icon-ai text-white"><i class="fa-solid fa-terminal"></i></div>
+                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
         </div>
@@ -640,35 +768,29 @@
         <div class="stage-code">
             <div class="terminal-window">
                 <div class="term-layout">
-                    
                     <div class="activity-bar">
                         <div class="act-icon active"><i class="fa-regular fa-file"></i></div>
                         <div class="act-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
                         <div class="act-icon"><i class="fa-solid fa-code-branch"></i></div>
                         <div class="act-icon"><i class="fa-solid fa-robot"></i></div> <div style="margin-top:auto; margin-bottom:20px; opacity:0.5;"><i class="fa-solid fa-gear"></i></div>
                     </div>
-    
                     <div class="explorer">
                         <div class="exp-header">PROJECT: MKTG-AUTO</div>
                         <div class="file-item active"><i class="fa-brands fa-python py-icon"></i> forecast_model.py</div>
                         <div class="file-item"><i class="fa-brands fa-python py-icon"></i> churn_analysis.py</div>
                         <div class="file-item"><i class="fa-solid fa-database json-icon"></i> leads_data.json</div>
                         <div class="file-item"><i class="fa-regular fa-file-code md-icon"></i> strategy.md</div>
-                        
                         <div class="exp-header" style="margin-top:20px;">AGENTS</div>
                         <div class="file-item"><i class="fa-solid fa-robot" style="color:#ff7b72"></i> copywriter_bot</div>
                         <div class="file-item"><i class="fa-solid fa-robot" style="color:#79c0ff"></i> data_analyst</div>
                     </div>
-    
                     <div class="editor-area">
                         <div class="tabs-bar">
                             <div class="tab"><i class="fa-brands fa-python"></i> forecast_model.py <span style="margin-left:10px; font-size:0.7rem;">✕</span></div>
                         </div>
-    
                         <div class="code-content">
                             <div class="ai-chip chip-model"><i class="fa-solid fa-microchip"></i> Model: GPT-4-Turbo</div>
                             <div class="ai-chip chip-status"><i class="fa-solid fa-circle-notch"></i> Processing Data...</div>
-    
                             <div><span class="line-num">1</span><span class="k">import</span> pandas <span class="k">as</span> pd</div>
                             <div><span class="line-num">2</span><span class="k">from</span> ai_engine <span class="k">import</span> SalesPredictor</div>
                             <div><span class="line-num">3</span></div>
@@ -686,7 +808,6 @@
                             <div><span class="line-num">15</span></div>
                             <div><span class="line-num">16</span><span class="v">result</span> = <span class="f">generate_strategy</span>(live_data)<span class="cursor"></span></div>
                         </div>
-    
                         <div class="terminal-panel">
                             <div class="term-header">
                                 <span class="t-tab active">TERMINAL</span>
@@ -701,21 +822,17 @@
                             <div class="log-line"><span class="log-time">[14:02:39]</span> <span>_</span></div>
                         </div>
                     </div>
-    
                 </div>
             </div>
         </div>
     </section>
 
     <section id="skills" class="stack-section reveal" style="background-image: radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.03) 0%, transparent 25%), radial-gradient(circle at 85% 30%, rgba(167, 139, 250, 0.03) 0%, transparent 25%); border-radius: 20px;">
-        
         <div class="header-wrap">
             <span class="sys-label">/// SYSTEM_CAPABILITIES</span>
             <h2 class="sys-title">Strumenti Decisionali &<br>Operational Stack</h2>
         </div>
-
         <div class="modules-grid">
-
             <div class="tech-module" style="--module-color: var(--col-data); --module-glow: rgba(56, 189, 248, 0.4);">
                 <div class="module-header">
                     <div class="m-icon-box"><i class="fa-solid fa-brain"></i></div>
@@ -724,7 +841,6 @@
                         <span class="m-title">BI & AI Strategy</span>
                     </div>
                 </div>
-
                 <div class="skill-row">
                     <div class="s-info">
                         <span class="s-name">Power BI & Excel</span>
@@ -735,7 +851,6 @@
                         <div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment active"></div>
                     </div>
                 </div>
-
                 <div class="skill-row">
                     <div class="s-info">
                         <span class="s-name">GenAI Prompting</span>
@@ -746,7 +861,6 @@
                         <div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment"></div>
                     </div>
                 </div>
-
                 <div class="skill-row">
                     <div class="s-info">
                         <span class="s-name">Python for Data</span>
@@ -758,7 +872,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="tech-module" style="--module-color: var(--col-crm); --module-glow: rgba(74, 222, 128, 0.4);">
                 <div class="module-header">
                     <div class="m-icon-box"><i class="fa-solid fa-network-wired"></i></div>
@@ -767,7 +880,6 @@
                         <span class="m-title">CRM & ERP Architecture</span>
                     </div>
                 </div>
-
                 <div class="skill-row">
                     <div class="s-info">
                         <span class="s-name">Salesforce / LeadBook</span>
@@ -778,7 +890,6 @@
                         <div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment active"></div>
                     </div>
                 </div>
-
                 <div class="skill-row">
                     <div class="s-info">
                         <span class="s-name">V-Tiger Admin</span>
@@ -789,7 +900,6 @@
                         <div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment"></div>
                     </div>
                 </div>
-
                 <div class="skill-row">
                     <div class="s-info">
                         <span class="s-name">SAP & AS400</span>
@@ -801,7 +911,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="tech-module" style="--module-color: var(--col-mkt); --module-glow: rgba(251, 146, 60, 0.4);">
                 <div class="module-header">
                     <div class="m-icon-box"><i class="fa-solid fa-bullhorn"></i></div>
@@ -810,7 +919,6 @@
                         <span class="m-title">Digital Marketing</span>
                     </div>
                 </div>
-
                 <div class="skill-row">
                     <div class="s-info">
                         <span class="s-name">Google Stack</span>
@@ -821,7 +929,6 @@
                         <div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment"></div>
                     </div>
                 </div>
-
                 <div class="skill-row">
                     <div class="s-info">
                         <span class="s-name">Meta Business Suite</span>
@@ -832,7 +939,6 @@
                         <div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment"></div>
                     </div>
                 </div>
-
                 <div class="skill-row">
                     <div class="s-info">
                         <span class="s-name">Email Automation</span>
@@ -844,7 +950,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="tech-module" style="--module-color: var(--col-des); --module-glow: rgba(167, 139, 250, 0.4);">
                 <div class="module-header">
                     <div class="m-icon-box"><i class="fa-solid fa-pen-ruler"></i></div>
@@ -853,7 +958,6 @@
                         <span class="m-title">E-comm & Design</span>
                     </div>
                 </div>
-
                 <div class="skill-row">
                     <div class="s-info">
                         <span class="s-name">WordPress & Woo</span>
@@ -864,7 +968,6 @@
                         <div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment active"></div>
                     </div>
                 </div>
-
                 <div class="skill-row">
                     <div class="s-info">
                         <span class="s-name">Adobe Creative Cloud</span>
@@ -875,7 +978,6 @@
                         <div class="segment active"></div><div class="segment active"></div><div class="segment active"></div><div class="segment"></div><div class="segment"></div>
                     </div>
                 </div>
-
                 <div class="skill-row">
                     <div class="s-info">
                         <span class="s-name">Amazon Seller</span>
@@ -887,7 +989,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -913,6 +1014,7 @@
                     <p class="role-desc-xp">Gestione analitica, marketing e merchandising con focus sulla trasformazione dell'approccio al mercato e innovazione prodotto (Lamgea System).</p>
                     <div class="tags"><span class="tag-xp">Predictive Analysis</span><span class="tag-xp">Power BI</span><span class="tag-xp">GDO</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
+                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
 
@@ -928,6 +1030,7 @@
                     <p class="role-desc-xp">Progetto imprenditoriale e di consulenza, trasformazione in brand orientato al profitto tramite marketing digitale e storytelling emozionale.</p>
                     <div class="tags"><span class="tag-xp">Luxury Positioning</span><span class="tag-xp">Storytelling</span><span class="tag-xp">E-commerce</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
+                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
 
@@ -943,6 +1046,7 @@
                     <p class="role-desc-xp">Responsabile della definizione e implementazione della strategia di comunicazione e marketing post-acquisizione.</p>
                     <div class="tags"><span class="tag-xp">Change Management</span><span class="tag-xp">Corporate Identity</span><span class="tag-xp">GTM</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
+                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
 
@@ -958,6 +1062,7 @@
                     <p class="role-desc-xp">Monitoraggio performance marketing rete vendita BMW e MINI con gestione budget di 1.5M€/anno.</p>
                     <div class="tags"><span class="tag-xp">Retail Marketing</span><span class="tag-xp">Sugar CRM</span><span class="tag-xp">KPI Analysis</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
+                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
 
@@ -973,6 +1078,7 @@
                     <p class="role-desc-xp">Analista commerciale focalizzato sull'implementazione sistemi informativi (CRM V-Tiger) e analisi economica.</p>
                     <div class="tags"><span class="tag-xp">V-Tiger</span><span class="tag-xp">Market Research</span><span class="tag-xp">BI</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
+                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
 
@@ -986,8 +1092,9 @@
                     </div>
                     <div class="role-title-xp">Responsabile Punto Vendita</div>
                     <p class="role-desc-xp">Gestione operativa e commerciale, obiettivi finanziari, gestione cassa, fatturazione e Customer Relationship Management.</p>
-                    <div class="tags"><span class="tag-xp">Store Management</span><span class="tag-xp">Sales</span></div>
+                    <div class="tags"><span class="tag-xp">Store Operations</span><span class="tag-xp">Sales</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
+                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
 
@@ -1003,6 +1110,7 @@
                     <p class="role-desc-xp">Gestione autonoma ciclo completo vendita online internazionale come Power Seller per 6 anni.</p>
                     <div class="tags"><span class="tag-xp">Power Seller</span><span class="tag-xp">Logistics</span><span class="tag-xp">Sourcing</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
+                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
             <div style="height: 15vh;"></div>
@@ -1207,9 +1315,6 @@
     </section>
 
     <section id="linkedin" class="max-w-7xl mx-auto px-6 mb-32">
-        <span class="kicker text-left">NETWORK SYSTEM</span>
-        <h2 class="text-4xl font-bold text-white mb-6 uppercase tracking-tighter text-left">LinkedIn Radar</h2>
-        
         <div class="radar-section-wrapper reveal">
             <div class="radar-stage">
                 <div class="radar-interface tilt-element">
@@ -1325,11 +1430,8 @@
         </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 mb-32 text-left">
+    <section class="max-w-7xl mx-auto px-6 mb-12 text-left">
         <div class="grid md:grid-cols-12 gap-8 items-center text-left">
-            <div class="md:col-span-8 reveal text-left">
-                <h2 class="text-3xl md:text-5xl font-black italic linear-gradient-text leading-[1.1] mb-8 text-left uppercase text-justify">"Sono curioso di natura, cerco costantemente nuove soluzioni addentrandomi nei problemi fino a trovare una soluzione. Credo nelle best practice e nell'evoluzione progressiva sistemica."</h2>
-            </div>
             <div class="md:col-span-4 space-y-4 reveal text-left text-zinc-400">
                 <div class="bento-card p-8 text-left"><h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-4 font-black"><i class="fa-solid fa-hand-holding-heart mr-2 text-indigo-500 text-left"></i>Personalità</h4><p class="text-zinc-500 text-xs leading-relaxed italic text-justify text-left">Sono una persona estroversa, con una forte propensione all'apprendimento continuo e alla creatività. Appassionato di cinema, storia, scienza, motori, tecnologia e fotografia.</p></div>
                 <div class="bento-card p-8 text-left"><h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-4 font-black"><i class="fa-solid fa-heart mr-2 text-indigo-500 text-left"></i>Passioni & Vita</h4><p class="text-zinc-500 text-xs leading-relaxed italic text-justify text-left">Sport: Amo fare sport, in particolare fitness e corsa. Vita: Residente a Formigine (Mo). Amo passare il tempo con gli amici e la famiglia.</p></div>
@@ -1339,6 +1441,10 @@
 
     <div class="footer-stage" id="footer-stage">
         
+        <div class="max-w-4xl mx-auto text-center px-6 mb-12 relative z-20">
+            <h2 class="text-2xl md:text-3xl font-black italic linear-gradient-text leading-[1.3] text-center uppercase">"Sono curioso di natura, cerco costantemente nuove soluzioni addentrandomi nei problemi fino a trovare una soluzione. Credo nelle best practice e nell'evoluzione progressiva sistemica."</h2>
+        </div>
+
         <div class="plasma-bg">
             <div class="plasma-blob blob-1"></div>
             <div class="plasma-blob blob-2"></div>
