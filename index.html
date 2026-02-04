@@ -95,7 +95,6 @@
         /* ELEMENTS HIDDEN ON MOBILE */
         @media (max-width: 768px) {
             .desktop-only-3d { display: none !important; }
-            .hero-stage { display: none !important; } 
             .radar-section-wrapper { display: none !important; }
         }
 
@@ -177,9 +176,8 @@
 
         /* --- PORTFOLIO 3D FOLDERS --- */
         .portfolio-stage-folders { width: 100%; perspective: 3000px; padding: 60px 0; display: flex; justify-content: center; }
-        /* MODIFICA: Aumentato row-gap a 120px per evitare sovrapposizione testi 3D */
-        .folders-grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 50px; row-gap: 120px; max-width: 1200px; width: 100%; }
-        
+        /* MODIFICA: row-gap aumentato a 120px su Desktop per leggibilità */
+        .folders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; row-gap: 120px; max-width: 1200px; width: 100%; }
         .folder-item { position: relative; width: 100%; height: 260px; perspective: 1000px; cursor: pointer; }
         .folder-3d-wrapper { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.1s ease-out; }
         .folder-back { position: absolute; width: 100%; height: 100%; background: linear-gradient(to bottom right, #222, #111); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transform: translateZ(-20px); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
@@ -361,123 +359,188 @@
         @keyframes pulse-width-ai { 0%,100% { width: 60%; opacity:1; } 50% { width: 70%; opacity:0.7; } }
         .reveal { opacity: 0; transform: translateY(30px); }
 
-        /* --- MOBILE OPTIMIZATION PATCH --- */
+        /* --- MOBILE OPTIMIZATION PATCH (LINEAR.APP STYLE) --- */
         @media (max-width: 768px) {
-            /* 1. RESET 3D: Appiattisce gli elementi */
-            .tilted-plane-hero, 
-            .indesign-window, 
-            .radar-interface, 
-            .kinetic-core,
-            .card-wrapper-ai,
-            .folder-3d-wrapper,
-            .terminal-window {
-                transform: none !important;
+            
+            /* RESET 3D & PERSPECTIVE */
+            .hero-stage, .tilted-plane-hero, 
+            .indesign-window, .stage-bio,
+            .terminal-window, .folder-item, 
+            .card-wrapper-ai {
                 perspective: none !important;
-                width: 100% !important;
-                height: auto !important;
-                min-height: unset !important;
+                transform: none !important;
+                transform-style: flat !important;
                 mask-image: none !important;
                 -webkit-mask-image: none !important;
+                box-shadow: none !important;
+                animation: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                left: 0 !important; top: 0 !important;
             }
 
-            /* 2. MODALI */
-            .modal-box {
-                width: 95% !important;
-                margin: 20px auto !important;
-                max-height: 90vh !important;
+            /* --- 1. HERO FIX (NO EMPTY GAP) --- */
+            .hero-stage {
+                display: flex !important;
+                height: auto !important;
+                margin-top: 40px !important;
+                margin-bottom: 40px !important;
+            }
+            .tilted-plane-hero {
+                height: auto !important;
+                background: linear-gradient(180deg, #151619 0%, #0C0D0F 100%);
+                border: 1px solid rgba(255,255,255,0.1);
                 border-radius: 16px !important;
+                padding: 0 !important;
+                overflow: hidden !important;
             }
-            .m-body {
-                padding: 20px !important;
-                text-align: left !important;
+            /* Trasforma la dashboard 3D in una card flat per mobile */
+            .tilted-plane-hero > div {
+                flex-direction: column !important;
+                height: auto !important;
             }
-            .m-body p {
+            .tilted-plane-hero .w-\[300px\] { width: 100% !important; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px !important; }
+            .tilted-plane-hero .flex-1 { padding: 20px !important; }
+            .tilted-plane-hero .grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+            
+            /* Typography Scale */
+            h1 { font-size: 2.25rem !important; line-height: 1.1 !important; letter-spacing: -0.05em !important; }
+            p { font-size: 1rem !important; line-height: 1.6 !important; }
+
+            /* --- 2. AI CARDS (NO SCROLL FATIGUE) --- */
+            .ai-grid-new {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+            .card-wrapper-ai {
+                height: auto !important;
+                min-height: unset !important;
+            }
+            .card-content-ai {
+                padding: 24px !important;
+                height: auto !important;
+            }
+            .visual-area-ai {
+                height: 80px !important;
+                margin-bottom: 16px !important;
+            }
+            /* Riduciamo gli elementi grafici interni */
+            .term-box-ai { transform: scale(0.8) !important; }
+
+            /* --- 3. PORTFOLIO FIX (CONTENTS VISIBLE) --- */
+            .folders-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+            .folder-item {
+                height: auto !important;
+                background: #121214 !important;
+                border: 1px solid rgba(255,255,255,0.1) !important;
+                border-radius: 12px !important;
+                padding: 16px !important;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 15px;
+            }
+            /* Nascondiamo il 3D complesso ma mostriamo un'icona statica */
+            .folder-3d-wrapper, .folder-back, .folder-glass { display: none !important; }
+            
+            .folder-contents {
+                display: block !important;
+                position: static !important;
+                width: 40px !important; height: 40px !important;
+                background: rgba(255,255,255,0.05);
+                border-radius: 8px;
+                display: grid !important; place-items: center;
+            }
+            .folder-contents::after {
+                content: '\f07b'; /* FontAwesome folder icon */
+                font-family: "Font Awesome 6 Free";
+                font-weight: 900;
+                color: var(--accent);
+                font-size: 1.2rem;
+            }
+            .paper { display: none !important; } /* Nascondiamo i fogli 3D per pulizia */
+
+            .folder-info {
+                margin-top: 0 !important;
+                transform: none !important;
                 text-align: left !important;
-                font-size: 0.95rem !important;
+                flex: 1;
+            }
+            .f-title { font-size: 0.85rem !important; margin-bottom: 0 !important; }
+            .f-count { font-size: 0.7rem !important; color: #666; }
+            
+            /* Freccia di navigazione */
+            .folder-item::after {
+                content: '\f054';
+                font-family: "Font Awesome 6 Free";
+                font-weight: 900;
+                color: #444;
+                font-size: 0.8rem;
             }
 
-            /* 3. TIPOGRAFIA & LAYOUT */
-            h1 {
-                font-size: 2.2rem !important; 
-                line-height: 1.2 !important;
+            /* --- 4. TERMINAL FIX (READABILITY) --- */
+            .terminal-hero-container {
+                height: auto !important;
+                margin: 40px 0 !important;
+                background-image: none !important; /* Cleaner look */
             }
-            .sys-title {
-                font-size: 1.8rem !important;
+            .stage-code { padding: 0 !important; }
+            .terminal-window {
+                height: auto !important;
+                border-radius: 8px !important;
             }
-            .stack-section, .bento-card {
-                padding: 40px 20px !important;
+            .explorer { display: none !important; }
+            .activity-bar { display: none !important; }
+            .code-content {
+                font-size: 0.8rem !important;
+                padding: 15px !important;
+                overflow-x: auto !important; /* Scroll orizzontale se serve */
+                white-space: pre-wrap !important; /* Wrap del testo */
             }
+            .terminal-panel { display: none !important; } /* Troppo denso per mobile */
+            .ai-chip { position: static !important; margin-bottom: 10px; transform: none !important; display: inline-flex; margin-right: 5px; }
 
-            /* 4. EXPERIENCE CHRONICLE */
+            /* --- 5. TIMELINE & GENERAL --- */
+            .stack-section { padding: 40px 20px !important; }
             .xp-card-wrapper {
+                flex-direction: column !important;
+                gap: 10px !important;
                 position: relative !important;
                 top: 0 !important;
-                margin-bottom: 20px !important;
-                display: block !important;
+                margin-bottom: 24px !important;
             }
             .xp-meta {
                 width: 100% !important;
                 text-align: left !important;
-                padding-left: 50px !important;
-                margin-bottom: 5px !important;
+                padding: 0 0 0 25px !important;
+                margin-bottom: 8px !important;
             }
-            .xp-card {
+            .beam-track, .beam-fill { left: 8px !important; }
+            .xp-dot { left: 4px !important; width: 10px; height: 10px; }
+            .xp-card { padding: 20px !important; }
+            
+            /* --- 6. MODALS (TOUCH TARGETS) --- */
+            .modal-box {
+                width: 100% !important;
+                height: 100% !important;
+                max-height: 100% !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
                 transform: none !important;
-                opacity: 1 !important;
-                padding: 20px !important;
             }
-            .beam-track, .beam-fill {
-                left: 20px !important;
-            }
-            .xp-dot {
-                left: 16px !important;
+            .m-header { padding: 20px !important; }
+            .close-m {
+                width: 44px !important; height: 44px !important; /* Apple touch target size */
+                background: rgba(255,255,255,0.1) !important;
             }
 
-            /* 5. PORTFOLIO & FOLDERS */
-            .folders-grid {
-                grid-template-columns: 1fr !important;
-                gap: 15px !important;
-            }
-            .folder-item {
-                height: auto !important;
-                padding: 15px !important;
-                background: rgba(255,255,255,0.05) !important;
-                border: 1px solid rgba(255,255,255,0.1) !important;
-                border-radius: 12px !important;
-            }
-            .folder-3d-wrapper, .folder-back, .folder-contents, .folder-glass {
-                display: none !important;
-            }
-            .folder-info {
-                margin-top: 0 !important;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-            }
-            .folder-info::after {
-                content: "Vedi \2192";
-                font-size: 0.8rem;
-                color: var(--accent);
-            }
-
-            /* 6. TERMINAL */
-            .terminal-hero-container {
-                height: auto !important;
-                overflow: visible !important;
-            }
-            .stage-code {
-                transform: scale(1) !important;
-                padding: 0 !important;
-            }
-            .explorer {
-                display: none !important;
-            }
-
-            /* 7. GENERAL */
-            .text-justify {
-                text-align: left !important;
-            }
+            /* --- 7. BIO SECTION FIX --- */
+            .indesign-window { min-height: auto !important; }
+            .indesign-window .h-\[650px\] { height: 400px !important; }
+            .indesign-window .absolute.top-0 { height: 300px !important; }
         }
     </style>
 </head>
