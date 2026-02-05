@@ -92,11 +92,8 @@
         .content-list li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
         .tag { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-size: 10px; color: #fff; }
 
-        /* ELEMENTS HIDDEN ON MOBILE */
-        @media (max-width: 768px) {
-            .desktop-only-3d { display: none !important; }
-            .radar-section-wrapper { display: none !important; }
-        }
+        /* ELEMENTS HIDDEN ON MOBILE VIA CSS CLASSES */
+        /* See Media Query Section for detailed overwrites */
 
         /* --- DASHBOARD HERO (Desktop) --- */
         .hero-stage { 
@@ -130,20 +127,16 @@
         .card-stack-container { position: relative; padding-bottom: 20vh; }
         .beam-track { position: absolute; top: 0; left: 120px; bottom: 0; width: 2px; background: rgba(255,255,255,0.05); z-index: 0; }
         .beam-fill { position: absolute; top: 0; left: 120px; width: 2px; height: 0%; background: linear-gradient(to bottom, var(--accent-purple), var(--accent-blue)); box-shadow: 0 0 15px var(--accent-purple); z-index: 1; transition: height 0.1s linear; }
-        @media (max-width: 768px) { .beam-track, .beam-fill { left: 20px; } }
-
+        
         .xp-card-wrapper { position: sticky; margin-bottom: 40px; display: flex; gap: 40px; z-index: 2; }
-        @media (max-width: 768px) { .xp-card-wrapper { flex-direction: column; gap: 10px; position: relative; top: 0 !important; margin-bottom: 60px;} }
-
+        
         .xp-meta { width: 120px; text-align: right; padding-top: 25px; flex-shrink: 0; z-index: 2; background: var(--bg); }
-        @media (max-width: 768px) { .xp-meta { text-align: left; width: 100%; padding-left: 40px; background: transparent; } }
         .xp-date { font-family: var(--font-mono); font-size: 0.85rem; color: #fff; font-weight: 600; }
         .xp-dur { font-size: 0.7rem; color: #666; margin-top: 5px; }
 
         .xp-dot { position: absolute; left: 116px; top: 30px; width: 10px; height: 10px; background: #000; border: 2px solid var(--accent-purple); border-radius: 50%; z-index: 3; transition: 0.3s; }
         .xp-dot.active { background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue); border-color: var(--accent-blue); }
-        @media (max-width: 768px) { .xp-dot { left: 16px; } }
-
+        
         .xp-card { flex-grow: 1; background-color: var(--card-bg-solid); border: 1px solid var(--border-dim); border-radius: 20px; padding: 35px; position: relative; transform-origin: center top; transition: transform 0.1s linear, filter 0.1s linear, opacity 0.1s linear; box-shadow: 0 10px 40px rgba(0,0,0,0.8); cursor: pointer; overflow: hidden; text-align: left; }
         .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
         .company-logo { display: flex; align-items: center; gap: 12px; font-weight: 600; color: #fff; letter-spacing: -0.5px; font-size: 1.1rem; }
@@ -159,7 +152,6 @@
 
         /* --- IA CORE MODULES --- */
         .ai-grid-new { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; z-index: 10; margin-top: 40px; }
-        @media (max-width: 900px) { .ai-grid-new { grid-template-columns: 1fr; } }
         .card-wrapper-ai { position: relative; height: 520px; border-radius: 20px; --mouse-x: 0px; --mouse-y: 0px; transform-style: preserve-3d; transform: perspective(1000px); transition: transform 0.1s; cursor: pointer; }
         .card-wrapper-ai::before { content: ""; position: absolute; inset: -1px; border-radius: 20px; background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40% ); opacity: 0; transition: opacity 0.4s; z-index: -1; }
         .card-wrapper-ai:hover::before { opacity: 1; }
@@ -176,7 +168,6 @@
 
         /* --- PORTFOLIO 3D FOLDERS --- */
         .portfolio-stage-folders { width: 100%; perspective: 3000px; padding: 60px 0; display: flex; justify-content: center; }
-        /* MODIFICA: row-gap aumentato a 120px su Desktop per leggibilità */
         .folders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; row-gap: 120px; max-width: 1200px; width: 100%; }
         .folder-item { position: relative; width: 100%; height: 260px; perspective: 1000px; cursor: pointer; }
         .folder-3d-wrapper { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.1s ease-out; }
@@ -259,10 +250,6 @@
         .mini-link-btn { font-size: 0.7rem; color: var(--text-main); border: 1px solid var(--border); padding: 6px 12px; border-radius: 20px; text-decoration: none; transition: 0.3s; white-space: nowrap; }
         .mini-link-btn:hover { background: var(--accent); color:#fff; border-color:var(--accent); }
         @media (max-width: 768px) { .bento-grid-edu { display: flex; flex-direction: column; } .vc-content { max-width: 100%; } .graphic-svg { right: -40%; opacity: 0.4; } .visual-card { min-height: auto; padding-top: 100px; } }
-
-        /* --- STILI RADAR LINKEDIN --- */
-        /* Nascosti su mobile e desktop */
-        .radar-section-wrapper { display: none !important; }
 
         /* --- NEW TECH MODULE STYLES --- */
         .header-wrap { margin-bottom: 60px; border-left: 2px solid var(--tech-border-highlight); padding-left: 20px; text-align: left; }
@@ -359,10 +346,12 @@
         @keyframes pulse-width-ai { 0%,100% { width: 60%; opacity:1; } 50% { width: 70%; opacity:0.7; } }
         .reveal { opacity: 0; transform: translateY(30px); }
 
-        /* --- MOBILE OPTIMIZATION PATCH (LINEAR.APP STYLE) --- */
+        /* ==========================================================================
+           MOBILE OPTIMIZATIONS (iPhone 12 Pro / Linear.app Style)
+           ========================================================================== */
         @media (max-width: 768px) {
             
-            /* RESET 3D & PERSPECTIVE */
+            /* RESET 3D & PERSPECTIVE (Flatten EVERYTHING) */
             .hero-stage, .tilted-plane-hero, 
             .indesign-window, .stage-bio,
             .terminal-window, .folder-item, 
@@ -379,150 +368,136 @@
                 left: 0 !important; top: 0 !important;
             }
 
-            /* --- 1. HERO FIX (NO EMPTY GAP) --- */
-            .hero-stage {
-                display: flex !important;
-                height: auto !important;
-                margin-top: 40px !important;
-                margin-bottom: 40px !important;
+            /* --- GLOBAL ALIGNMENT FIX --- */
+            /* Force padding on body sections to fix "shifted left" feel */
+            section, footer, nav .max-w-7xl {
+                padding-left: 24px !important;
+                padding-right: 24px !important;
+                max-width: 100% !important;
             }
-            .tilted-plane-hero {
-                height: auto !important;
-                background: linear-gradient(180deg, #151619 0%, #0C0D0F 100%);
-                border: 1px solid rgba(255,255,255,0.1);
-                border-radius: 16px !important;
-                padding: 0 !important;
-                overflow: hidden !important;
-            }
-            /* Trasforma la dashboard 3D in una card flat per mobile */
-            .tilted-plane-hero > div {
-                flex-direction: column !important;
-                height: auto !important;
-            }
-            .tilted-plane-hero .w-\[300px\] { width: 100% !important; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px !important; }
-            .tilted-plane-hero .flex-1 { padding: 20px !important; }
-            .tilted-plane-hero .grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+            .stack-section { padding: 40px 24px !important; }
+
+            /* --- 1. HERO FIX (Clean & Centered) --- */
+            /* Hide the 3D Dashboard entirely as requested ("Eliminare le parti grafiche") */
+            .hero-stage { display: none !important; }
             
             /* Typography Scale */
-            h1 { font-size: 2.25rem !important; line-height: 1.1 !important; letter-spacing: -0.05em !important; }
-            p { font-size: 1rem !important; line-height: 1.6 !important; }
+            h1 { font-size: 2.25rem !important; line-height: 1.1 !important; letter-spacing: -0.05em !important; text-align: center !important; }
+            p { font-size: 1rem !important; line-height: 1.6 !important; text-align: center !important; }
+            
+            /* --- 2. BIO SECTION (Simplified) --- */
+            .stage-bio { display: none !important; } /* Hide Indesign Window */
+            .bento-card { padding: 24px !important; margin-top: 20px !important; }
 
-            /* --- 2. AI CARDS (NO SCROLL FATIGUE) --- */
+            /* --- 3. AI SECTION (Clean Cards) --- */
             .ai-grid-new {
                 grid-template-columns: 1fr !important;
                 gap: 16px !important;
+                margin-top: 20px !important;
             }
-            .card-wrapper-ai {
-                height: auto !important;
-                min-height: unset !important;
-            }
-            .card-content-ai {
-                padding: 24px !important;
-                height: auto !important;
-            }
-            .visual-area-ai {
-                height: 80px !important;
-                margin-bottom: 16px !important;
-            }
-            /* Riduciamo gli elementi grafici interni */
-            .term-box-ai { transform: scale(0.8) !important; }
+            .card-wrapper-ai { height: auto !important; min-height: unset !important; }
+            .card-content-ai { padding: 24px !important; height: auto !important; }
+            .visual-area-ai { display: none !important; } /* Hide abstract waves/nodes */
+            
+            /* --- 4. TERMINAL (REMOVED as requested) --- */
+            .terminal-hero-container { display: none !important; }
 
-            /* --- 3. PORTFOLIO FIX (CONTENTS VISIBLE) --- */
-            .folders-grid {
-                grid-template-columns: 1fr !important;
-                gap: 16px !important;
+            /* --- 5. SKILLS (Clean Spacing) --- */
+            .header-wrap {
+                margin-bottom: 30px !important;
+                border-left: none !important; /* Remove border */
+                padding-left: 0 !important;
+                text-align: center !important;
             }
+            .tech-module {
+                padding: 20px !important;
+                margin-bottom: 0 !important;
+            }
+            .modules-grid { gap: 16px !important; }
+
+            /* --- 6. PORTFOLIO (THE REDESIGN: 2 COLUMNS, COMPACT) --- */
+            .folders-grid {
+                grid-template-columns: repeat(2, 1fr) !important; /* 2 Columns */
+                gap: 12px !important;
+                row-gap: 12px !important;
+                width: 100% !important;
+            }
+            
             .folder-item {
                 height: auto !important;
+                aspect-ratio: 1 / 1; /* Square shape */
                 background: #121214 !important;
                 border: 1px solid rgba(255,255,255,0.1) !important;
-                border-radius: 12px !important;
+                border-radius: 16px !important;
                 padding: 16px !important;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 15px;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                gap: 10px !important;
             }
-            /* Nascondiamo il 3D complesso ma mostriamo un'icona statica */
-            .folder-3d-wrapper, .folder-back, .folder-glass { display: none !important; }
+
+            /* Hide complex 3D parts */
+            .folder-3d-wrapper, .folder-back, .folder-glass, .paper { display: none !important; }
             
+            /* Create simple icon */
             .folder-contents {
-                display: block !important;
                 position: static !important;
-                width: 40px !important; height: 40px !important;
-                background: rgba(255,255,255,0.05);
-                border-radius: 8px;
+                width: 48px !important; height: 48px !important;
+                background: rgba(99, 102, 241, 0.1);
+                border-radius: 12px;
                 display: grid !important; place-items: center;
+                margin: 0 auto !important;
+                pointer-events: none;
             }
             .folder-contents::after {
                 content: '\f07b'; /* FontAwesome folder icon */
                 font-family: "Font Awesome 6 Free";
                 font-weight: 900;
                 color: var(--accent);
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
-            .paper { display: none !important; } /* Nascondiamo i fogli 3D per pulizia */
 
             .folder-info {
                 margin-top: 0 !important;
                 transform: none !important;
-                text-align: left !important;
-                flex: 1;
+                width: 100%;
             }
-            .f-title { font-size: 0.85rem !important; margin-bottom: 0 !important; }
-            .f-count { font-size: 0.7rem !important; color: #666; }
+            .f-title {
+                font-size: 0.75rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 4px !important;
+                color: #fff !important;
+                display: block !important;
+                white-space: normal !important; /* Allow wrapping */
+            }
+            .f-count { font-size: 0.65rem !important; color: #666; }
             
-            /* Freccia di navigazione */
-            .folder-item::after {
-                content: '\f054';
-                font-family: "Font Awesome 6 Free";
-                font-weight: 900;
-                color: #444;
-                font-size: 0.8rem;
-            }
+            /* Remove arrow for cleaner tile look */
+            .folder-item::after { content: none !important; }
 
-            /* --- 4. TERMINAL FIX (READABILITY) --- */
-            .terminal-hero-container {
-                height: auto !important;
-                margin: 40px 0 !important;
-                background-image: none !important; /* Cleaner look */
-            }
-            .stage-code { padding: 0 !important; }
-            .terminal-window {
-                height: auto !important;
-                border-radius: 8px !important;
-            }
-            .explorer { display: none !important; }
-            .activity-bar { display: none !important; }
-            .code-content {
-                font-size: 0.8rem !important;
-                padding: 15px !important;
-                overflow-x: auto !important; /* Scroll orizzontale se serve */
-                white-space: pre-wrap !important; /* Wrap del testo */
-            }
-            .terminal-panel { display: none !important; } /* Troppo denso per mobile */
-            .ai-chip { position: static !important; margin-bottom: 10px; transform: none !important; display: inline-flex; margin-right: 5px; }
-
-            /* --- 5. TIMELINE & GENERAL --- */
-            .stack-section { padding: 40px 20px !important; }
+            /* --- 7. TIMELINE (Compact) --- */
             .xp-card-wrapper {
                 flex-direction: column !important;
-                gap: 10px !important;
-                position: relative !important;
-                top: 0 !important;
-                margin-bottom: 24px !important;
+                gap: 8px !important;
+                margin-bottom: 30px !important;
+                padding-left: 10px !important; /* Slight offset for line */
             }
             .xp-meta {
                 width: 100% !important;
                 text-align: left !important;
-                padding: 0 0 0 25px !important;
-                margin-bottom: 8px !important;
+                padding: 0 0 0 20px !important; /* Space for dot */
+                margin-bottom: 5px !important;
             }
             .beam-track, .beam-fill { left: 8px !important; }
             .xp-dot { left: 4px !important; width: 10px; height: 10px; }
-            .xp-card { padding: 20px !important; }
+            .xp-card {
+                padding: 20px !important;
+                border-radius: 16px !important;
+            }
             
-            /* --- 6. MODALS (TOUCH TARGETS) --- */
+            /* --- 8. MODALS (Touch Friendly) --- */
             .modal-box {
                 width: 100% !important;
                 height: 100% !important;
@@ -531,16 +506,11 @@
                 margin: 0 !important;
                 transform: none !important;
             }
-            .m-header { padding: 20px !important; }
+            .m-header { padding: 24px !important; }
             .close-m {
                 width: 44px !important; height: 44px !important; /* Apple touch target size */
                 background: rgba(255,255,255,0.1) !important;
             }
-
-            /* --- 7. BIO SECTION FIX --- */
-            .indesign-window { min-height: auto !important; }
-            .indesign-window .h-\[650px\] { height: 400px !important; }
-            .indesign-window .absolute.top-0 { height: 300px !important; }
         }
     </style>
 </head>
