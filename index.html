@@ -50,11 +50,30 @@
         }
 
         body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-        h1, h2, h3, h4 { color: #fff; letter-spacing: -0.04em; }
+        
+        /* STILE TITOLI "GREY SCALE" UNIFICATO */
+        .text-gradient-grey {
+            background: linear-gradient(180deg, #FFFFFF 10%, #555555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
 
-        .linear-gradient-text {
-            background: linear-gradient(to bottom, #FFFFFF 0%, #71717a 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        /* STILE SOTTOTITOLI (KICKER) UNIFICATO */
+        .kicker-grey {
+            font-family: 'JetBrains Mono', monospace;
+            color: #888; /* Grigio fisso */
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+            font-weight: normal;
         }
 
         .bento-card {
@@ -75,7 +94,6 @@
             z-index: 1000;
         }
 
-        .kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 1rem; display: block; }
         .content-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; text-align: left; }
         .content-list li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
         .tag { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-size: 10px; color: #fff; }
@@ -112,9 +130,7 @@
         /* --- EXPERIENCE CHRONICLE --- */
         .stack-section { position: relative; padding: 100px 20px; max-width: 900px; margin: 0 auto; }
         .header-area-xp { text-align: center; margin-bottom: 80px; }
-        .header-title-xp { font-size: 3rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; background: linear-gradient(to bottom, #fff, #666); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .header-sub-xp { color: var(--accent-purple); font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
-
+        
         .card-stack-container { position: relative; padding-bottom: 20vh; }
         .beam-track { position: absolute; top: 0; left: 120px; bottom: 0; width: 2px; background: rgba(255,255,255,0.05); z-index: 0; }
         .beam-fill { position: absolute; top: 0; left: 120px; width: 2px; height: 0%; background: linear-gradient(to bottom, var(--accent-purple), var(--accent-blue)); box-shadow: 0 0 15px var(--accent-purple); z-index: 1; transition: height 0.1s linear; }
@@ -157,7 +173,6 @@
 
         /* --- PORTFOLIO 3D FOLDERS --- */
         .portfolio-stage-folders { width: 100%; perspective: 3000px; padding: 60px 0; display: flex; justify-content: center; }
-        /* GRIGLIA DESKTOP: aumentato row-gap a 120px per evitare sovrapposizione testi 3D */
         .folders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; row-gap: 120px; max-width: 1200px; width: 100%; }
         .folder-item { position: relative; width: 100%; height: 260px; perspective: 1000px; cursor: pointer; }
         .folder-3d-wrapper { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.1s ease-out; }
@@ -316,7 +331,20 @@
         .modal-overlay.open .modal-box { transform: translateY(0) scale(1); }
         .m-header { padding: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; background: rgba(10,10,12,0.95); backdrop-filter: blur(10px); z-index: 10; display: flex; justify-content: space-between; align-items: center; }
         .m-body { padding: 40px; }
-        .m-title { font-size: 1.5rem; font-weight: 700; color: #fff; }
+        
+        /* Stile Titolo Modale con Gradient Grey */
+        .m-title { 
+            font-size: 1.5rem; 
+            background: linear-gradient(180deg, #FFFFFF 10%, #555555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+        }
+        
         .m-company { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-top: 5px; }
         .close-m { width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; transition: 0.2s; }
         .close-m:hover { background: #fff; color: #000; }
@@ -359,26 +387,22 @@
             }
 
             /* --- GLOBAL ALIGNMENT FIX & COMPACT LAYOUT --- */
-            /* Force padding on body sections to fix "shifted left" feel & Remove extra space */
             section, footer, nav .max-w-7xl {
                 padding-left: 12px !important;
                 padding-right: 12px !important;
                 max-width: 100% !important;
-                margin-bottom: 40px !important; /* Reduce section vertical margins */
+                margin-bottom: 40px !important; 
             }
             .stack-section { padding: 20px 10px !important; }
 
-            /* --- ALIGNMENT RULES --- */
-            /* Titles Centered */
+            /* --- ALIGNMENT RULES (Mobile) --- */
             h1, h2, h3, h4, .kicker, .sys-title, .header-title-xp, .vc-title { text-align: center !important; }
-            /* Texts Left Aligned */
             p, ul, li, .role-desc-xp, .vc-desc, .s-name, .s-tag { text-align: left !important; }
 
             /* --- 1. HERO FIX (Clean & Centered) --- */
             .hero-stage { display: none !important; }
             
-            /* Typography Scale */
-            h1 { font-size: 2rem !important; line-height: 1.1 !important; letter-spacing: -0.05em !important; }
+            h1 { font-size: 2.25rem !important; line-height: 1.1 !important; letter-spacing: -0.05em !important; }
             p { font-size: 0.95rem !important; line-height: 1.5 !important; }
             
             /* --- 2. BIO SECTION (Simplified) --- */
@@ -423,9 +447,10 @@
                 height: auto !important;
                 aspect-ratio: 1 / 1; /* Square shape */
                 background: #121214 !important;
+                
                 /* MOBILE NEON EFFECT (Similar to tech-module) */
-                border: 1px solid var(--accent) !important;
-                box-shadow: 0 0 15px rgba(99, 102, 241, 0.2) !important;
+                border: 1px solid rgba(99, 102, 241, 0.5) !important; /* Accent border */
+                box-shadow: 0 0 15px rgba(99, 102, 241, 0.2) !important; /* Glow */
                 background: rgba(99, 102, 241, 0.05) !important;
                 
                 border-radius: 12px !important;
@@ -522,8 +547,8 @@
             <div class="flex flex-col md:flex-row md:items-center md:gap-8 w-full md:w-auto">
                 <div class="flex justify-between items-center w-full md:w-auto gap-4">
                     <a href="#" class="flex flex-col cursor-pointer transition-opacity hover:opacity-80">
-                        <span class="text-white font-black tracking-tighter text-xs md:text-xl uppercase whitespace-nowrap">Francesco Gubertini</span>
-                        <span class="text-[8px] md:text-[10px] text-zinc-500 uppercase tracking-widest font-bold whitespace-nowrap">Responsabile Marketing &amp; Strategy</span>
+                        <span class="text-white font-black tracking-tighter text-sm md:text-xl uppercase whitespace-nowrap">Francesco Gubertini</span>
+                        <span class="text-[9px] md:text-[10px] text-zinc-500 uppercase tracking-widest font-bold whitespace-nowrap">Responsabile Marketing &amp; Strategy</span>
                     </a>
                     
                     <div class="md:hidden text-white text-[9px] font-bold uppercase tracking-widest border border-white/20 px-3 py-1.5 rounded-full cursor-pointer hover:bg-white/10 transition-all whitespace-nowrap" id="burger-btn">
@@ -568,7 +593,7 @@
     <section class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-28 md:pt-32 overflow-hidden text-center">
         <div class="hero-glow top-1/4"></div>
         <div class="max-w-5xl z-10 text-center">
-            <h1 class="text-4xl md:text-[85px] font-black leading-[0.9] mb-8 linear-gradient-text reveal uppercase">
+            <h1 class="text-5xl md:text-[85px] font-black leading-[0.9] mb-8 text-gradient-grey reveal uppercase">
                 IL MARKETING COME<br>CONTROLLO DI GESTIONE.
             </h1>
             <p class="text-lg md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-12 reveal leading-relaxed">
@@ -603,12 +628,12 @@
         </div>
     </section>
 
-    <section id="bio" class="max-w-7xl mx-auto px-6 mb-16 md:mb-32">
+    <section id="bio" class="max-w-7xl mx-auto px-6 mb-12 md:mb-32">
         <div class="grid md:grid-cols-12 gap-12 items-stretch text-left">
             <div class="md:col-span-4 reveal">
                 <div class="h-full flex flex-col">
-                    <span class="kicker">Approccio Operativo &amp; Analitico</span>
-                    <h2 class="text-4xl font-bold text-white mb-6 tracking-tighter uppercase">Profilo Professionale</h2>
+                    <span class="kicker-grey text-center md:text-left">/// APPROCCIO_OPERATIVO</span>
+                    <h2 class="text-3xl md:text-5xl text-gradient-grey mb-6 uppercase text-center md:text-left">Profilo Professionale</h2>
                     <div class="p-6 bg-indigo-500/5 border-l-2 border-indigo-500 rounded-r-2xl mb-1 text-left">
                         <p class="text-zinc-300 italic text-sm">"Marketing, vendite, produzione e amministrazione non parlano lingue diverse, sono punti di vista differenti dello stesso flusso."</p>
                     </div>
@@ -639,17 +664,17 @@
             </div>
             <div class="md:col-span-8 bento-card p-6 md:p-14 reveal text-left">
                 <div class="spotlight-overlay"></div>
-                <h3 class="text-3xl font-bold text-white mb-10 tracking-tight leading-tight uppercase">Marketing Manager &amp; Data Analyst</h3>
+                <h3 class="text-3xl font-bold text-white mb-10 tracking-tight leading-tight uppercase text-center md:text-left">Marketing Manager &amp; Data Analyst</h3>
                 <div class="space-y-10 text-zinc-400 leading-relaxed text-lg text-justify">
                     <p>Gestisco il marketing come asset fondamentale per il <strong>Controllo di Gestione</strong>. Non mi limito al supporto operativo: <strong>Sviluppo piani marketing che supportano il margine</strong>. Il mio lavoro inizia analizzando il vostro storico vendite, il magazzino, i clienti e il posizionamento di mercato, e finisce misurando l'utile netto generato da ogni azione. Supero la logica a compartimenti stagni: integro Business Intelligence e Visione Industriale per prendere decisioni che garantiscono scalabilità e vantaggio competitivo sostenibile.</p>
                     
                     <div>
-                        <h4 class="text-white font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-500 pl-4">Percorso Strategico e Versatilità</h4>
+                        <h4 class="text-white font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-500 pl-4 text-center md:text-left">Percorso Strategico e Versatilità</h4>
                         <p class="text-base text-zinc-400">Ho maturato un'esperienza trasversale in settori ad alta complessità tecnica, operando sia in contesti multinazionali che in realtà imprenditoriali evolute. Questa duplice natura mi permette di agire come un asset strategico capace di governare l'intero processo: dall'analisi di mercato alla performance commerciale, con un focus costante sul ROI e sulla riduzione del rischio d'impresa.</p>
                     </div>
 
                     <div>
-                        <h4 class="text-white font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-500 pl-4">Innovazione e Gestione del Cambiamento</h4>
+                        <h4 class="text-white font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-500 pl-4 text-center md:text-left">Innovazione e Gestione del Cambiamento</h4>
                         <p class="text-base text-zinc-400 mb-4 text-left">Credo fermamente che la performance sia il risultato di una strategia ben orchestrata. Nel mio percorso ho:</p>
                         <ul class="content-list text-base text-zinc-400">
                             <li><strong>Guidato progetti di Digitalizzazione:</strong> implementando sistemi CRM che hanno digitalizzato i processi e promosso una cultura aziendale orientata al dato.</li>
@@ -659,7 +684,7 @@
                     </div>
 
                     <div>
-                        <h4 class="text-white font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-500 pl-4">Perché un approccio analitico?</h4>
+                        <h4 class="text-white font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-500 pl-4 text-center md:text-left">Perché un approccio analitico?</h4>
                         <p class="text-base text-zinc-400 text-left">Perché l'intuizione non basta più. Oggi serve sapere prima quanto costerà acquisire un cliente e quanto renderà nel tempo. Mi propongo come un <strong>Responsabile Marketing</strong> capace di definire una visione chiara, ma soprattutto di tradurre tale visione in risultati concreti, misurabili e profittevoli.</p>
                     </div>
                 </div>
@@ -667,10 +692,10 @@
         </div>
     </section>
 
-    <section id="ai" class="max-w-7xl mx-auto px-6 mb-16 md:mb-32 text-center">
+    <section id="ai" class="max-w-7xl mx-auto px-6 mb-12 md:mb-32 text-center">
         <div class="mb-16 reveal text-center">
-            <span class="kicker">INTELLIGENZA PER L'INDUSTRIA</span>
-            <h2 class="text-4xl md:text-[64px] font-black text-white leading-none mb-6 tracking-tighter uppercase">Previsione della Domanda e Automazione</h2>
+            <span class="kicker-grey">/// INTELLIGENZA_INDUSTRIALE</span>
+            <h2 class="text-3xl md:text-5xl text-gradient-grey mb-6 uppercase">Previsione della Domanda e Automazione</h2>
             <p class="text-zinc-500 max-w-3xl mx-auto text-lg leading-relaxed italic text-center">"Usare l'Intelligenza Artificiale non per generare testi, ma per analizzare migliaia di righe di Excel in secondi, prevedere i picchi d'ordine e automatizzare le attività d'ufficio ripetitive."</p>
         </div>
 
@@ -680,13 +705,13 @@
                     <div class="visual-area-ai">
                         <div class="wave-graph"><div class="wave-line"></div><div class="main-curve"></div></div>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest" style="color: var(--accent-blue)">Ottimizzazione Stock &amp; Acquisti</h3>
+                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest text-center" style="color: var(--accent-blue)">Ottimizzazione Stock &amp; Acquisti</h3>
                     <ul class="content-list text-[11px] text-zinc-400 mb-6">
                         <li>Analisi dati storici per logistica e produzione.</li>
                         <li>Riduzione giacenze magazzino.</li>
                         <li>Supporto al budget di vendita.</li>
                     </ul>
-                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest text-center">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
             <div class="card-wrapper-ai tilt-card-ai" onclick="openModal('m-ai-governance')">
@@ -694,13 +719,13 @@
                     <div class="visual-area-ai">
                         <div class="node-system"><div class="nc-center"></div></div>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest" style="color: var(--accent-purple)">Cruscotti Direzionali</h3>
+                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest text-center" style="color: var(--accent-purple)">Cruscotti Direzionali</h3>
                     <ul class="content-list text-[11px] text-zinc-400 mb-6">
                         <li>Dashboard di controllo KPI.</li>
                         <li>Monitoraggio marginalità per prodotto.</li>
                         <li>Supporto decisionale oggettivo.</li>
                     </ul>
-                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest text-center">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
             <div class="card-wrapper-ai tilt-card-ai" onclick="openModal('m-ai-gen')">
@@ -708,13 +733,13 @@
                     <div class="visual-area-ai">
                         <div class="term-box-ai"><div class="t-line-ai"></div><div class="t-line-ai"></div><div class="t-line-ai active"></div></div>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest" style="color: var(--accent-green)">Efficienza Operativa</h3>
+                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest text-center" style="color: var(--accent-green)">Efficienza Operativa</h3>
                     <ul class="content-list text-[11px] text-zinc-400 mb-6">
                         <li>Liberare ore uomo per il reparto.</li>
                         <li>Automazione traduzioni e schede tecniche.</li>
                         <li>Efficienza dei processi interni.</li>
                     </ul>
-                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest text-center">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
         </div>
@@ -775,8 +800,8 @@
 
     <section id="skills" class="stack-section reveal" style="background-image: radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.03) 0%, transparent 25%), radial-gradient(circle at 85% 30%, rgba(167, 139, 250, 0.03) 0%, transparent 25%); border-radius: 20px;">
         <div class="header-wrap">
-            <span class="sys-label">/// SYSTEM_CAPABILITIES</span>
-            <h2 class="sys-title">Strumenti Decisionali &amp;<br>Operational Stack</h2>
+            <span class="sys-label kicker-grey">/// SYSTEM_CAPABILITIES</span>
+            <h2 class="text-3xl md:text-5xl text-gradient-grey uppercase">Strumenti Decisionali &amp;<br>Operational Stack</h2>
         </div>
         <div class="modules-grid">
             <div class="tech-module" style="--module-color: var(--col-data); --module-glow: rgba(56, 189, 248, 0.4);">
@@ -940,8 +965,8 @@
 
     <section id="experience" class="stack-section text-left">
         <div class="header-area-xp">
-            <div class="header-sub-xp">TIMELINE CARRIERA</div>
-            <div class="header-title-xp uppercase tracking-tighter">Carriera &amp; Risultati Chiave</div>
+            <div class="header-sub-xp kicker-grey">/// TIMELINE_CARRIERA</div>
+            <h2 class="text-3xl md:text-5xl text-gradient-grey uppercase">Carriera &amp; Risultati Chiave</h2>
         </div>
 
         <div class="card-stack-container" id="stackContainer">
@@ -1063,9 +1088,9 @@
         </div>
     </section>
 
-    <section id="portfolio" class="max-w-7xl mx-auto px-6 mb-16 md:mb-32 text-left">
-        <span class="kicker text-left uppercase">Realizzazioni Concrete</span>
-        <h2 class="text-4xl font-bold text-white mb-12 uppercase tracking-tighter text-left">Strumenti Operativi Realizzati</h2>
+    <section id="portfolio" class="max-w-7xl mx-auto px-6 mb-12 md:mb-32 text-left">
+        <span class="kicker-grey text-center md:text-left">/// REALIZZAZIONI_CONCRETE</span>
+        <h2 class="text-3xl md:text-5xl text-gradient-grey uppercase mb-12 text-center md:text-left">Strumenti Operativi Realizzati</h2>
         <div class="portfolio-stage-folders text-left">
             <div class="folders-grid">
                 <div class="folder-item tilt-folder" onclick="openModal('m-port-strat')">
@@ -1143,9 +1168,9 @@
         </div>
     </section>
 
-    <section id="education" class="max-w-7xl mx-auto px-6 mb-16 md:mb-32 education-texture-bg" style="border-radius:24px; padding: 60px 20px;">
+    <section id="education" class="max-w-7xl mx-auto px-6 mb-12 md:mb-32 education-texture-bg" style="border-radius:24px; padding: 60px 20px;">
         
-        <h2 class="text-4xl font-bold text-white mb-2 uppercase tracking-tighter text-left">Formazione Continua su Analisi,<br>Processi e Automazioni.</h2>
+        <h2 class="text-3xl md:text-5xl text-gradient-grey uppercase text-center md:text-left mb-6">Formazione Continua su Analisi,<br>Processi e Automazioni.</h2>
         <p class="text-zinc-400 text-lg max-w-2xl mb-12 text-left">Reskilling tecnico per applicare l'AI ai processi industriali e portare efficienza operativa.</p>
 
         <div class="bento-grid-edu">
@@ -1174,8 +1199,8 @@
                 </div>
 
                 <div class="vc-content">
-                    <span class="vc-year">2024 - 2025 // AI RESKILLING WAVE</span>
-                    <h2 class="vc-title">Business Intelligence &amp;<br>Generative AI Strategy.</h2>
+                    <span class="vc-year kicker-grey">/// AI_RESKILLING_WAVE</span>
+                    <h2 class="vc-title text-center md:text-left">Business Intelligence &amp;<br>Generative AI Strategy.</h2>
                     <p class="vc-desc">Un ciclo intensivo di specializzazione (Zenit, IFOA) focalizzato sull'integrazione pratica dell'IA nei flussi di lavoro: modelli predittivi, automazione di dashboard Excel e nuove frontiere della Customer Experience.</p>
                     <div class="vc-link" onclick="openModal('m-edu-1')">VEDI ATTESTATI &gt;</div>
                 </div>
@@ -1201,15 +1226,15 @@
                 </div>
 
                 <div class="vc-content">
-                    <span class="vc-year" style="color:#fff; opacity:0.7;">2010 // UNIMORE</span>
-                    <h3 class="vc-title">Economia Aziendale:<br>Marketing e Distribuzione.</h3>
+                    <span class="vc-year kicker-grey">/// UNIMORE_2010</span>
+                    <h3 class="vc-title text-center md:text-left">Economia Aziendale:<br>Marketing e Distribuzione.</h3>
                     <p class="vc-desc" style="font-size:0.9rem;">Le fondamenta del business management. Tesi sperimentale in Strategie del Marketing dei Beni di Lusso.</p>
                     <div class="vc-link" onclick="openModal('m-edu-laurea')">VEDI TESI &gt;</div>
                 </div>
             </div>
 
             <div class="span-12 mini-list-container">
-                <h4 style="margin:0 0 10px 0; color:#fff;">/// Dettaglio Corsi di Specializzazione IA</h4>
+                <h4 style="margin:0 0 10px 0; color:#fff;" class="text-center md:text-left kicker-grey">/// SPECIALIZZAZIONE_IA</h4>
                 
                 <div class="mini-item" onclick="openModal('m-edu-1')">
                     <div class="mini-left">
@@ -1258,10 +1283,10 @@
         </div>
     </section>
 
-    <section id="linkedin" class="max-w-7xl mx-auto px-6 mb-32">
+    <section id="linkedin" class="max-w-7xl mx-auto px-6 mb-12 md:mb-32">
         <div class="mb-10 text-left">
-            <span class="kicker">PROFILO LINKEDIN</span>
-            <h2 class="text-4xl font-bold text-white mb-2 uppercase tracking-tighter">Competenze Validate</h2>
+            <span class="kicker-grey text-center md:text-left">/// PROFILO_LINKEDIN</span>
+            <h2 class="text-3xl md:text-5xl text-gradient-grey uppercase text-center md:text-left">Competenze Validate</h2>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6">
@@ -1331,7 +1356,7 @@
     <section class="max-w-4xl mx-auto px-6 mb-32">
         <div class="grid md:grid-cols-2 gap-6 mb-12 reveal">
             <div class="bento-card p-8 text-left h-full">
-                <h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-4 font-black">
+                <h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-4 font-black text-center md:text-left">
                     <i class="fa-solid fa-hand-holding-heart mr-2 text-indigo-500"></i>Approccio Integrato
                 </h4>
                 <p class="text-zinc-500 text-xs leading-relaxed italic text-justify text-left">
@@ -1339,7 +1364,7 @@
                 </p>
             </div>
             <div class="bento-card p-8 text-left h-full">
-                <h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-4 font-black">
+                <h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-4 font-black text-center md:text-left">
                     <i class="fa-solid fa-heart mr-2 text-indigo-500"></i>Focus
                 </h4>
                 <p class="text-zinc-500 text-xs leading-relaxed italic text-justify text-left">
@@ -1357,7 +1382,7 @@
 
     <footer class="bg-black py-20 px-6 border-t border-white/10 text-center">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">PRONTI A COLLABORARE?</h2>
+            <h2 class="text-3xl md:text-5xl text-gradient-grey mb-4 tracking-tight uppercase">PRONTI A COLLABORARE?</h2>
             <p class="text-zinc-500 text-lg mb-10">Trasformiamo i dati in crescita strutturata.</p>
             <a href="mailto:info@francescogubertini.it" class="inline-block bg-white text-black px-8 py-4 rounded-lg font-bold hover:bg-zinc-200 transition-colors">SCRIVIMI UNA MAIL</a>
             <div class="flex justify-center gap-8 mt-12 text-zinc-400 font-medium text-sm">
