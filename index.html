@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="it" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
+<html lang="it" class="scroll-smooth" style="scroll-behavior: smooth;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Francesco Gubertini | Marketing & Controllo di Gestione</title>
+    <title>Francesco Gubertini | Marketing &amp; Controllo di Gestione</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="./Francesco Gubertini _ Marketing &amp; Controllo di Gestione_files/saved_resource"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Francesco Gubertini _ Marketing &amp; Controllo di Gestione_files/css2" rel="stylesheet">
+    <script src="./Francesco Gubertini _ Marketing &amp; Controllo di Gestione_files/gsap.min.js"></script>
+    <script src="./Francesco Gubertini _ Marketing &amp; Controllo di Gestione_files/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="./Francesco Gubertini _ Marketing &amp; Controllo di Gestione_files/all.min.css">
     
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J90FVTS39J"></script>
+    <script async="" src="./Francesco Gubertini _ Marketing &amp; Controllo di Gestione_files/js"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -22,6 +21,7 @@
     </script>
 
     <style>
+        /* --- CONFIGURAZIONE COLORI E VARIABILI (Stile Dark/Linear) --- */
         :root {
             --bg: #080808;
             --card-bg-blur: rgba(255, 255, 255, 0.03);
@@ -37,24 +37,13 @@
             --accent-purple: #5E6AD2;
             --accent-green: #27C93F;
             --accent-orange: #F59E0B;
-            --accent-cyan: #00D2FF;
             --linear-card-bg: #121214;
             --font-mono: 'JetBrains Mono', monospace;
             --font-code: 'JetBrains Mono', monospace;
-            --radar-bg: #0C0D0F;
-            --radar-line: rgba(255, 255, 255, 0.1);
-            --linkedin-blue: #0A66C2;
-            --term-text: #c9d1d9;      
             --code-blue: #79c0ff;      
-            --code-purple: #d2a8ff;    
             --code-green: #7ee787;     
-            --code-orange: #ffa657;    
-            --code-comment: #8b949e;   
             --cursor-color: #58a6ff;
-            --tech-bg-deep: #020204;
-            --tech-surface: #0E0E10;
             --tech-border-dim: rgba(255, 255, 255, 0.06);
-            --tech-border-highlight: rgba(255, 255, 255, 0.15);
             --col-data: #38bdf8;
             --col-crm: #4ade80;
             --col-mkt: #fb923c;
@@ -93,7 +82,10 @@
         .tag { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-size: 10px; color: #fff; }
 
         /* ELEMENTS HIDDEN ON MOBILE VIA CSS CLASSES */
-        /* See Media Query Section for detailed overwrites */
+        @media (max-width: 768px) {
+            .desktop-only-3d { display: none !important; }
+            .radar-section-wrapper { display: none !important; }
+        }
 
         /* --- DASHBOARD HERO (Desktop) --- */
         .hero-stage { 
@@ -129,11 +121,9 @@
         .beam-fill { position: absolute; top: 0; left: 120px; width: 2px; height: 0%; background: linear-gradient(to bottom, var(--accent-purple), var(--accent-blue)); box-shadow: 0 0 15px var(--accent-purple); z-index: 1; transition: height 0.1s linear; }
         
         .xp-card-wrapper { position: sticky; margin-bottom: 40px; display: flex; gap: 40px; z-index: 2; }
-        
         .xp-meta { width: 120px; text-align: right; padding-top: 25px; flex-shrink: 0; z-index: 2; background: var(--bg); }
         .xp-date { font-family: var(--font-mono); font-size: 0.85rem; color: #fff; font-weight: 600; }
         .xp-dur { font-size: 0.7rem; color: #666; margin-top: 5px; }
-
         .xp-dot { position: absolute; left: 116px; top: 30px; width: 10px; height: 10px; background: #000; border: 2px solid var(--accent-purple); border-radius: 50%; z-index: 3; transition: 0.3s; }
         .xp-dot.active { background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue); border-color: var(--accent-blue); }
         
@@ -168,6 +158,7 @@
 
         /* --- PORTFOLIO 3D FOLDERS --- */
         .portfolio-stage-folders { width: 100%; perspective: 3000px; padding: 60px 0; display: flex; justify-content: center; }
+        /* GRIGLIA DESKTOP: aumentato row-gap a 120px per evitare sovrapposizione testi 3D */
         .folders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; row-gap: 120px; max-width: 1200px; width: 100%; }
         .folder-item { position: relative; width: 100%; height: 260px; perspective: 1000px; cursor: pointer; }
         .folder-3d-wrapper { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.1s ease-out; }
@@ -250,10 +241,6 @@
         .mini-link-btn { font-size: 0.7rem; color: var(--text-main); border: 1px solid var(--border); padding: 6px 12px; border-radius: 20px; text-decoration: none; transition: 0.3s; white-space: nowrap; }
         .mini-link-btn:hover { background: var(--accent); color:#fff; border-color:var(--accent); }
         @media (max-width: 768px) { .bento-grid-edu { display: flex; flex-direction: column; } .vc-content { max-width: 100%; } .graphic-svg { right: -40%; opacity: 0.4; } .visual-card { min-height: auto; padding-top: 100px; } }
-
-        /* --- STILI RADAR LINKEDIN --- */
-        /* Nascosti su mobile e desktop */
-        .radar-section-wrapper { display: none !important; }
 
         /* --- NEW TECH MODULE STYLES --- */
         .header-wrap { margin-bottom: 60px; border-left: 2px solid var(--tech-border-highlight); padding-left: 20px; text-align: left; }
@@ -517,16 +504,16 @@
             }
         }
     </style>
-</head>
-<body>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-10{bottom:2.5rem}.left-0{left:0px}.left-10{left:2.5rem}.right-0{right:0px}.right-10{right:2.5rem}.top-0{top:0px}.top-1\/4{top:25%}.z-10{z-index:10}.z-\[3000\]{z-index:3000}.col-span-2{grid-column:span 2 / span 2}.col-span-3{grid-column:span 3 / span 3}.col-span-4{grid-column:span 4 / span 4}.mx-auto{margin-left:auto;margin-right:auto}.mx-2{margin-left:0.5rem;margin-right:0.5rem}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-12{margin-left:3rem}.ml-2{margin-left:0.5rem}.ml-4{margin-left:1rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-4{margin-top:1rem}.mb-32{margin-bottom:8rem}.ml-1{margin-left:0.25rem}.mr-2{margin-right:0.5rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-8{margin-top:2rem}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1{height:0.25rem}.h-10{height:2.5rem}.h-2{height:0.5rem}.h-3{height:0.75rem}.h-4{height:1rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-\[480px\]{height:480px}.h-\[650px\]{height:650px}.h-auto{height:auto}.h-full{height:100%}.h-1\.5{height:0.375rem}.h-2\.5{height:0.625rem}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-2{width:0.5rem}.w-2\/3{width:66.666667%}.w-3{width:0.75rem}.w-5\/6{width:83.333333%}.w-8{width:2rem}.w-\[300px\]{width:300px}.w-full{width:100%}.w-2\.5{width:0.625rem}.w-\[82\%\]{width:82%}.w-px{width:1px}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-5xl{max-width:64rem}.max-w-7xl{max-width:80rem}.max-w-4xl{max-width:56rem}.flex-1{flex:1 1 0%}.cursor-pointer{cursor:pointer}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-rows-2{grid-template-rows:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-12{gap:3rem}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-1\.5{gap:0.375rem}.gap-3{gap:0.75rem}.space-y-10 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.scroll-smooth{scroll-behavior:smooth}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-\[40px\]{border-radius:40px}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.rounded-3xl{border-radius:1.5rem}.rounded-lg{border-radius:0.5rem}.rounded-r-2xl{border-top-right-radius:1rem;border-bottom-right-radius:1rem}.rounded-t-xl{border-top-left-radius:0.75rem;border-top-right-radius:0.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-l-2{border-left-width:2px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-black{--tw-border-opacity:1;border-color:rgb(0 0 0 / var(--tw-border-opacity, 1))}.border-blue-400\/30{border-color:rgb(96 165 250 / 0.3)}.border-indigo-500{--tw-border-opacity:1;border-color:rgb(99 102 241 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/5{border-color:rgb(255 255 255 / 0.05)}.border-emerald-500\/20{border-color:rgb(16 185 129 / 0.2)}.border-green-500\/50{border-color:rgb(34 197 94 / 0.5)}.border-indigo-500\/20{border-color:rgb(99 102 241 / 0.2)}.border-indigo-500\/30{border-color:rgb(99 102 241 / 0.3)}.border-red-500\/50{border-color:rgb(239 68 68 / 0.5)}.border-yellow-500\/50{border-color:rgb(234 179 8 / 0.5)}.border-zinc-500\/20{border-color:rgb(113 113 122 / 0.2)}.bg-\[\#0C0D0F\]{--tw-bg-opacity:1;background-color:rgb(12 13 15 / var(--tw-bg-opacity, 1))}.bg-\[\#151619\]{--tw-bg-opacity:1;background-color:rgb(21 22 25 / var(--tw-bg-opacity, 1))}.bg-\[\#181818\]{--tw-bg-opacity:1;background-color:rgb(24 24 24 / var(--tw-bg-opacity, 1))}.bg-\[\#323232\]{--tw-bg-opacity:1;background-color:rgb(50 50 50 / var(--tw-bg-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-green-200{--tw-bg-opacity:1;background-color:rgb(187 247 208 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-indigo-500{--tw-bg-opacity:1;background-color:rgb(99 102 241 / var(--tw-bg-opacity, 1))}.bg-indigo-500\/5{background-color:rgb(99 102 241 / 0.05)}.bg-indigo-600{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.bg-red-500{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-zinc-100{--tw-bg-opacity:1;background-color:rgb(244 244 245 / var(--tw-bg-opacity, 1))}.bg-zinc-200{--tw-bg-opacity:1;background-color:rgb(228 228 231 / var(--tw-bg-opacity, 1))}.bg-zinc-300{--tw-bg-opacity:1;background-color:rgb(212 212 216 / var(--tw-bg-opacity, 1))}.bg-\[\#0A66C2\]{--tw-bg-opacity:1;background-color:rgb(10 102 194 / var(--tw-bg-opacity, 1))}.bg-\[\#121214\]{--tw-bg-opacity:1;background-color:rgb(18 18 20 / var(--tw-bg-opacity, 1))}.bg-\[\#1A1A1C\]{--tw-bg-opacity:1;background-color:rgb(26 26 28 / var(--tw-bg-opacity, 1))}.bg-emerald-500\/10{background-color:rgb(16 185 129 / 0.1)}.bg-green-500\/20{background-color:rgb(34 197 94 / 0.2)}.bg-indigo-500\/10{background-color:rgb(99 102 241 / 0.1)}.bg-indigo-500\/20{background-color:rgb(99 102 241 / 0.2)}.bg-orange-500{--tw-bg-opacity:1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.bg-red-500\/20{background-color:rgb(239 68 68 / 0.2)}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-yellow-500\/20{background-color:rgb(234 179 8 / 0.2)}.bg-zinc-500\/10{background-color:rgb(113 113 122 / 0.1)}.object-cover{object-fit:cover}.object-top{object-position:top}.p-10{padding:2.5rem}.p-16{padding:4rem}.p-3{padding:0.75rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.p-2{padding:0.5rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-20{padding-top:5rem;padding-bottom:5rem}.pl-4{padding-left:1rem}.pt-24{padding-top:6rem}.pb-2{padding-bottom:0.5rem}.pt-4{padding-top:1rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.text-justify{text-align:justify}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-6xl{font-size:3.75rem;line-height:1}.text-\[9px\]{font-size:9px}.font-black{font-weight:900}.font-bold{font-weight:700}.font-normal{font-weight:400}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-\[0\.9\]{line-height:0.9}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.leading-\[1\.3\]{line-height:1.3}.tracking-tight{letter-spacing:-0.025em}.tracking-tighter{letter-spacing:-0.05em}.tracking-wide{letter-spacing:0.025em}.tracking-widest{letter-spacing:0.1em}.tracking-wider{letter-spacing:0.05em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-green-500{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity, 1))}.text-indigo-400{--tw-text-opacity:1;color:rgb(129 140 248 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-zinc-300{--tw-text-opacity:1;color:rgb(212 212 216 / var(--tw-text-opacity, 1))}.text-zinc-400{--tw-text-opacity:1;color:rgb(161 161 170 / var(--tw-text-opacity, 1))}.text-zinc-500{--tw-text-opacity:1;color:rgb(113 113 122 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-emerald-500{--tw-text-opacity:1;color:rgb(16 185 129 / var(--tw-text-opacity, 1))}.text-indigo-300{--tw-text-opacity:1;color:rgb(165 180 252 / var(--tw-text-opacity, 1))}.text-indigo-500{--tw-text-opacity:1;color:rgb(99 102 241 / var(--tw-text-opacity, 1))}.text-orange-400{--tw-text-opacity:1;color:rgb(251 146 60 / var(--tw-text-opacity, 1))}.text-yellow-500{--tw-text-opacity:1;color:rgb(234 179 8 / var(--tw-text-opacity, 1))}.text-zinc-600{--tw-text-opacity:1;color:rgb(82 82 91 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.opacity-30{opacity:0.3}.opacity-20{opacity:0.2}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_10px_rgba\(249\2c 115\2c 22\2c 0\.4\)\]{--tw-shadow:0 0 10px rgba(249,115,22,0.4);--tw-shadow-colored:0 0 10px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-indigo-500\/20{--tw-shadow-color:rgb(99 102 241 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.shadow-blue-900\/20{--tw-shadow-color:rgb(30 58 138 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:bg-indigo-500:hover{--tw-bg-opacity:1;background-color:rgb(99 102 241 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/5:hover{background-color:rgb(255 255 255 / 0.05)}.hover\:bg-zinc-200:hover{--tw-bg-opacity:1;background-color:rgb(228 228 231 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#004182\]:hover{--tw-bg-opacity:1;background-color:rgb(0 65 130 / var(--tw-bg-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:opacity-80:hover{opacity:0.8}.group:hover .group-hover\:opacity-40{opacity:0.4}@media (min-width: 768px){.md\:col-span-4{grid-column:span 4 / span 4}.md\:col-span-8{grid-column:span 8 / span 8}.md\:mb-32{margin-bottom:8rem}.md\:block{display:block}.md\:flex{display:flex}.md\:hidden{display:none}.md\:h-16{height:4rem}.md\:w-auto{width:auto}.md\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:gap-8{gap:2rem}.md\:p-14{padding:3.5rem}.md\:pt-32{padding-top:8rem}.md\:text-left{text-align:left}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-\[64px\]{font-size:64px}.md\:text-\[85px\]{font-size:85px}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-5xl{font-size:3rem;line-height:1}}</style></head>
+<body style="overflow: auto;">
 
     <nav class="fixed top-0 w-full nav-blur">
         <div class="max-w-7xl mx-auto px-6 h-auto py-3 md:h-16 flex items-center justify-between">
             <div class="flex flex-col md:flex-row md:items-center md:gap-8 w-full md:w-auto">
                 <div class="flex justify-between items-center w-full md:w-auto">
-                    <a href="#" class="flex flex-col cursor-pointer transition-opacity hover:opacity-80">
+                    <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#" class="flex flex-col cursor-pointer transition-opacity hover:opacity-80">
                         <span class="text-white font-black tracking-tighter text-lg md:text-xl uppercase whitespace-nowrap">Francesco Gubertini</span>
-                        <span class="text-[10px] text-zinc-500 uppercase tracking-widest font-bold">Responsabile Marketing & Strategy</span>
+                        <span class="text-[10px] text-zinc-500 uppercase tracking-widest font-bold">Responsabile Marketing &amp; Strategy</span>
                     </a>
                     <div class="md:hidden text-white text-xl cursor-pointer" id="burger-btn">
                         <i class="fa-solid fa-bars"></i>
@@ -534,13 +521,13 @@
                 </div>
                 
                 <div class="hidden md:flex gap-6 text-[10px] font-bold uppercase tracking-widest text-zinc-500 flex-1 justify-center ml-12">
-                    <a href="#bio" class="hover:text-white transition-colors">Profilo</a>
-                    <a href="#ai" class="hover:text-white transition-colors">Business Strategy</a>
-                    <a href="#experience" class="hover:text-white transition-colors">Esperienze</a>
-                    <a href="#skills" class="hover:text-white transition-colors">Operational Stack</a>
-                    <a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a>
-                    <a href="#education" class="hover:text-white transition-colors">Education</a>
-                    <a href="#linkedin" class="hover:text-white transition-colors">Network</a>
+                    <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#bio" class="hover:text-white transition-colors">Profilo</a>
+                    <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#ai" class="hover:text-white transition-colors">Business Strategy</a>
+                    <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#experience" class="hover:text-white transition-colors">Esperienze</a>
+                    <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#skills" class="hover:text-white transition-colors">Operational Stack</a>
+                    <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+                    <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#education" class="hover:text-white transition-colors">Education</a>
+                    <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#linkedin" class="hover:text-white transition-colors">Network</a>
                 </div>
             </div>
             <a href="mailto:info@francescogubertini.it" class="hidden md:block bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold hover:bg-zinc-200 transition-all uppercase tracking-widest">Contattami</a>
@@ -553,16 +540,16 @@
                 <h2 class="text-2xl font-black text-white uppercase leading-none">Francesco Gubertini</h2>
                 <p class="text-xs text-zinc-500 font-bold uppercase tracking-widest mt-1">Responsabile Marketing</p>
             </div>
-            <button id="close-menu" class="text-white text-4xl leading-none">&times;</button>
+            <button id="close-menu" class="text-white text-4xl leading-none">×</button>
         </div>
         <nav class="flex flex-col gap-6 mt-12 text-xl font-bold text-zinc-400">
-            <a href="#bio" class="hover:text-white transition-colors" onclick="toggleMenu()">Profilo</a>
-            <a href="#ai" class="hover:text-white transition-colors" onclick="toggleMenu()">Business Strategy</a>
-            <a href="#experience" class="hover:text-white transition-colors" onclick="toggleMenu()">Esperienze di lavoro</a>
-            <a href="#skills" class="hover:text-white transition-colors" onclick="toggleMenu()">Strumenti & Stack</a>
-            <a href="#portfolio" class="hover:text-white transition-colors" onclick="toggleMenu()">Portfolio</a>
-            <a href="#education" class="hover:text-white transition-colors" onclick="toggleMenu()">Formazione</a>
-            <a href="assets/docs/CV_Gubertini_Francesco.pdf?v=2" download class="hover:text-white transition-colors" onclick="toggleMenu()">Scarica CV</a>
+            <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#bio" class="hover:text-white transition-colors" onclick="toggleMenu()">Profilo</a>
+            <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#ai" class="hover:text-white transition-colors" onclick="toggleMenu()">Business Strategy</a>
+            <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#experience" class="hover:text-white transition-colors" onclick="toggleMenu()">Esperienze di lavoro</a>
+            <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#skills" class="hover:text-white transition-colors" onclick="toggleMenu()">Strumenti &amp; Stack</a>
+            <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#portfolio" class="hover:text-white transition-colors" onclick="toggleMenu()">Portfolio</a>
+            <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#education" class="hover:text-white transition-colors" onclick="toggleMenu()">Formazione</a>
+            <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/assets/docs/CV_Executive_Francesco_Gubertini.pdf" download="" class="hover:text-white transition-colors" onclick="toggleMenu()">Scarica CV</a>
             <a href="mailto:info@francescogubertini.it" class="text-indigo-400 hover:text-white transition-colors" onclick="toggleMenu()">Contatti</a>
         </nav>
     </div>
@@ -570,18 +557,18 @@
     <section class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 md:pt-32 overflow-hidden text-center">
         <div class="hero-glow top-1/4"></div>
         <div class="max-w-5xl z-10 text-center">
-            <h1 class="text-4xl md:text-[85px] font-black leading-[0.9] mb-8 linear-gradient-text reveal uppercase">
+            <h1 class="text-4xl md:text-[85px] font-black leading-[0.9] mb-8 linear-gradient-text reveal uppercase" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
                 IL MARKETING COME<br>CONTROLLO DI GESTIONE.
             </h1>
-            <p class="text-lg md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-12 reveal leading-relaxed">
+            <p class="text-lg md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-12 reveal leading-relaxed" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
                 <strong>Utilizzo i dati di vendita e produzione per sviluppare strategie di mercato a basso rischio.</strong> Non gestisco solo la comunicazione. Integro i dati di vendita, finanziari e di magazzino con il marketing per prevedere la domanda, ottimizzare i margini e ridurre l'invenduto. Un approccio ingegneristico alla crescita del fatturato.
             </p>
-            <div class="flex flex-wrap justify-center gap-4 reveal">
-                <a href="#portfolio" class="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-500/20 uppercase text-xs tracking-widest">Analizza il mio Processo</a>
+            <div class="flex flex-wrap justify-center gap-4 reveal" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+                <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/TESTLINEAR%20WHITE.html#portfolio" class="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-500/20 uppercase text-xs tracking-widest">Analizza il mio Processo</a>
                 <a href="mailto:info@francescogubertini.it" class="border border-white/10 text-white px-8 py-3 rounded-xl font-bold hover:bg-white/5 transition-all flex items-center gap-2 uppercase text-xs tracking-widest">Disponibilità Manageriale <span>↓</span></a>
             </div>
 
-            <div class="hero-stage reveal">
+            <div class="hero-stage reveal" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
                 <div class="tilted-plane-hero">
                     <div class="flex h-full overflow-hidden rounded-[40px] text-left">
                         <div class="w-[300px] bg-[#151619] border-r border-white/5 p-10">
@@ -607,9 +594,9 @@
 
     <section id="bio" class="max-w-7xl mx-auto px-6 mb-16 md:mb-32">
         <div class="grid md:grid-cols-12 gap-12 items-stretch text-left">
-            <div class="md:col-span-4 reveal">
+            <div class="md:col-span-4 reveal" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
                 <div class="h-full flex flex-col">
-                    <span class="kicker">Approccio Operativo & Analitico</span>
+                    <span class="kicker">Approccio Operativo &amp; Analitico</span>
                     <h2 class="text-4xl font-bold text-white mb-6 tracking-tighter uppercase">Profilo Professionale</h2>
                     <div class="p-6 bg-indigo-500/5 border-l-2 border-indigo-500 rounded-r-2xl mb-1 text-left">
                         <p class="text-zinc-300 italic text-sm">"Marketing, vendite, produzione e amministrazione non parlano lingue diverse, sono punti di vista differenti dello stesso flusso."</p>
@@ -625,7 +612,7 @@
                                     <div class="flex-1 bg-[#181818] flex justify-center items-start p-6">
                                         <div class="w-full h-[650px] bg-white relative overflow-hidden shadow-2xl">
                                             <div class="absolute top-0 left-0 right-0 h-[480px] border-b border-blue-400/30 overflow-hidden">
-                                                <img src="assets/img/francesco-gubertini-dimensioni-grandi.jpeg" class="w-full h-full object-cover object-top" alt="Francesco Gubertini">
+                                                <img src="file:///Users/francescogubertini/Desktop/sito%20personale/test/assets/img/francesco-gubertini-dimensioni-grandi.jpeg" class="w-full h-full object-cover object-top" alt="Francesco Gubertini">
                                             </div>
                                             <div class="absolute bottom-10 left-10 right-10 space-y-3">
                                                 <div class="h-2 w-full bg-zinc-100 rounded-full"></div>
@@ -639,9 +626,9 @@
                     </div>
                 </div>
             </div>
-            <div class="md:col-span-8 bento-card p-6 md:p-14 reveal text-left">
+            <div class="md:col-span-8 bento-card p-6 md:p-14 reveal text-left" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; --mouse-x: 447.84375px; --mouse-y: 573.5px;">
                 <div class="spotlight-overlay"></div>
-                <h3 class="text-3xl font-bold text-white mb-10 tracking-tight leading-tight uppercase">Marketing Manager & Data Analyst</h3>
+                <h3 class="text-3xl font-bold text-white mb-10 tracking-tight leading-tight uppercase">Marketing Manager &amp; Data Analyst</h3>
                 <div class="space-y-10 text-zinc-400 leading-relaxed text-lg text-justify">
                     <p>Gestisco il marketing come asset fondamentale per il <strong>Controllo di Gestione</strong>. Non mi limito al supporto operativo: <strong>Sviluppo piani marketing che supportano il margine</strong>. Il mio lavoro inizia analizzando il vostro storico vendite, il magazzino, i clienti e il posizionamento di mercato, e finisce misurando l'utile netto generato da ogni azione. Supero la logica a compartimenti stagni: integro Business Intelligence e Visione Industriale per prendere decisioni che garantiscono scalabilità e vantaggio competitivo sostenibile.</p>
                     
@@ -670,19 +657,19 @@
     </section>
 
     <section id="ai" class="max-w-7xl mx-auto px-6 mb-16 md:mb-32 text-center">
-        <div class="mb-16 reveal text-center">
+        <div class="mb-16 reveal text-center" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
             <span class="kicker">INTELLIGENZA PER L'INDUSTRIA</span>
             <h2 class="text-4xl md:text-[64px] font-black text-white leading-none mb-6 tracking-tighter uppercase">Previsione della Domanda e Automazione</h2>
             <p class="text-zinc-500 max-w-3xl mx-auto text-lg leading-relaxed italic text-center">"Usare l'Intelligenza Artificiale non per generare testi, ma per analizzare migliaia di righe di Excel in secondi, prevedere i picchi d'ordine e automatizzare le attività d'ufficio ripetitive."</p>
         </div>
 
-        <div class="ai-grid-new reveal">
-            <div class="card-wrapper-ai tilt-card-ai" onclick="openModal('m-ai-predictive')">
+        <div class="ai-grid-new reveal" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+            <div class="card-wrapper-ai tilt-card-ai" onclick="openModal(&#39;m-ai-predictive&#39;)">
                 <div class="card-content-ai">
                     <div class="visual-area-ai">
                         <div class="wave-graph"><div class="wave-line"></div><div class="main-curve"></div></div>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest" style="color: var(--accent-blue)">Ottimizzazione Stock & Acquisti</h3>
+                    <h3 class="text-xl font-bold mb-4 uppercase tracking-widest" style="color: var(--accent-blue)">Ottimizzazione Stock &amp; Acquisti</h3>
                     <ul class="content-list text-[11px] text-zinc-400 mb-6">
                         <li>Analisi dati storici per logistica e produzione.</li>
                         <li>Riduzione giacenze magazzino.</li>
@@ -691,7 +678,7 @@
                     <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
-            <div class="card-wrapper-ai tilt-card-ai" onclick="openModal('m-ai-governance')">
+            <div class="card-wrapper-ai tilt-card-ai" onclick="openModal(&#39;m-ai-governance&#39;)" style="transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
                 <div class="card-content-ai">
                     <div class="visual-area-ai">
                         <div class="node-system"><div class="nc-center"></div></div>
@@ -705,7 +692,7 @@
                     <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
-            <div class="card-wrapper-ai tilt-card-ai" onclick="openModal('m-ai-gen')">
+            <div class="card-wrapper-ai tilt-card-ai" onclick="openModal(&#39;m-ai-gen&#39;)" style="transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
                 <div class="card-content-ai">
                     <div class="visual-area-ai">
                         <div class="term-box-ai"><div class="t-line-ai"></div><div class="t-line-ai"></div><div class="t-line-ai active"></div></div>
@@ -722,7 +709,7 @@
         </div>
     </section>
 
-    <section class="terminal-hero-container reveal">
+    <section class="terminal-hero-container reveal" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
         <div class="stage-code">
             <div class="terminal-window">
                 <div class="term-layout">
@@ -749,12 +736,12 @@
                         <div class="code-content">
                             <div class="ai-chip chip-model"><i class="fa-solid fa-microchip"></i> Model: GPT-4-Turbo</div>
                             <div class="ai-chip chip-status"><i class="fa-solid fa-circle-notch"></i> Processing Data...</div>
-                            <div><span class="log-succ"> > SYSTEM UPDATE: AVVIO ANALISI Q4...</span></div>
-                            <div><span class="log-info"> > CARICAMENTO DATI VENDITA CRM... [OK]</span></div>
-                            <div><span class="log-info"> > INCROCIO DATI FATTURATO vs SPESA MEDIA... [OK]</span></div>
-                            <div><span style="color:white;"> > ALERT: MARGINALITÀ PRODOTTO X SOTTO SOGLIA (12%)</span></div>
-                            <div><span class="log-info"> > AZIONE CONSIGLIATA: SPOSTARE BUDGET SU PRODOTTO Z</span></div>
-                            <div><span class="log-succ"> > CALCOLO ROI CAMPAGNA: POSITIVO (+22%).</span><span class="cursor"></span></div>
+                            <div><span class="log-succ"> &gt; SYSTEM UPDATE: AVVIO ANALISI Q4...</span></div>
+                            <div><span class="log-info"> &gt; CARICAMENTO DATI VENDITA CRM... [OK]</span></div>
+                            <div><span class="log-info"> &gt; INCROCIO DATI FATTURATO vs SPESA MEDIA... [OK]</span></div>
+                            <div><span style="color:white;"> &gt; ALERT: MARGINALITÀ PRODOTTO X SOTTO SOGLIA (12%)</span></div>
+                            <div><span class="log-info"> &gt; AZIONE CONSIGLIATA: SPOSTARE BUDGET SU PRODOTTO Z</span></div>
+                            <div><span class="log-succ"> &gt; CALCOLO ROI CAMPAGNA: POSITIVO (+22%).</span><span class="cursor"></span></div>
                         </div>
                         <div class="terminal-panel">
                             <div class="term-header">
@@ -762,9 +749,9 @@
                                 <span class="t-tab">OUTPUT</span>
                                 <span class="t-tab">DEBUG CONSOLE</span>
                             </div>
-                            <div class="log-line"><span class="log-time">[14:02:33]</span> <span>> Executing 'forecast_model.py'...</span></div>
+                            <div class="log-line"><span class="log-time">[14:02:33]</span> <span>&gt; Executing 'forecast_model.py'...</span></div>
                             <div class="log-line"><span class="log-time">[14:02:34]</span> <span class="log-info">ℹ Connecting to Data Warehouse (Snowflake)... Connected.</span></div>
-                            <div class="log-line"><span class="log-time">[14:02:35]</span> <span>> Fetching Q3 Sales Data (14,200 records)</span></div>
+                            <div class="log-line"><span class="log-time">[14:02:35]</span> <span>&gt; Fetching Q3 Sales Data (14,200 records)</span></div>
                             <div class="log-line"><span class="log-time">[14:02:38]</span> <span class="log-succ">✔ Model training complete. Accuracy: 98.4%</span></div>
                             <div class="log-line"><span class="log-time">[14:02:39]</span> <span style="color:#d2a8ff">★ Insight Generated:</span> Increase budget on LinkedIn by 15%.</div>
                             <div class="log-line"><span class="log-time">[14:02:39]</span> <span>_</span></div>
@@ -775,10 +762,10 @@
         </div>
     </section>
 
-    <section id="skills" class="stack-section reveal" style="background-image: radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.03) 0%, transparent 25%), radial-gradient(circle at 85% 30%, rgba(167, 139, 250, 0.03) 0%, transparent 25%); border-radius: 20px;">
+    <section id="skills" class="stack-section reveal" style="background-image: radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.03) 0%, transparent 25%), radial-gradient(circle at 85% 30%, rgba(167, 139, 250, 0.03) 0%, transparent 25%); border-radius: 20px; translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
         <div class="header-wrap">
             <span class="sys-label">/// SYSTEM_CAPABILITIES</span>
-            <h2 class="sys-title">Strumenti Decisionali &<br>Operational Stack</h2>
+            <h2 class="sys-title">Strumenti Decisionali &amp;<br>Operational Stack</h2>
         </div>
         <div class="modules-grid">
             <div class="tech-module" style="--module-color: var(--col-data); --module-glow: rgba(56, 189, 248, 0.4);">
@@ -786,12 +773,12 @@
                     <div class="m-icon-box"><i class="fa-solid fa-brain"></i></div>
                     <div class="m-title-group">
                         <span class="m-id">MOD_01 // CORE</span>
-                        <span class="m-title">BI & AI Strategy</span>
+                        <span class="m-title">BI &amp; AI Strategy</span>
                     </div>
                 </div>
                 <div class="skill-row">
                     <div class="s-info">
-                        <span class="s-name">Power BI & Excel</span>
+                        <span class="s-name">Power BI &amp; Excel</span>
                         <span class="s-tag">VBA • DAX • DASHBOARDS</span>
                     </div>
                     <div class="segment-bar">
@@ -825,7 +812,7 @@
                     <div class="m-icon-box"><i class="fa-solid fa-network-wired"></i></div>
                     <div class="m-title-group">
                         <span class="m-id">MOD_02 // SALES</span>
-                        <span class="m-title">CRM & ERP Architecture</span>
+                        <span class="m-title">CRM &amp; ERP Architecture</span>
                     </div>
                 </div>
                 <div class="skill-row">
@@ -850,7 +837,7 @@
                 </div>
                 <div class="skill-row">
                     <div class="s-info">
-                        <span class="s-name">SAP & AS400</span>
+                        <span class="s-name">SAP &amp; AS400</span>
                         <span class="s-tag">DATA EXTRACTION</span>
                     </div>
                     <div class="segment-bar">
@@ -903,12 +890,12 @@
                     <div class="m-icon-box"><i class="fa-solid fa-pen-ruler"></i></div>
                     <div class="m-title-group">
                         <span class="m-id">MOD_04 // VISUAL</span>
-                        <span class="m-title">E-comm & Design</span>
+                        <span class="m-title">E-comm &amp; Design</span>
                     </div>
                 </div>
                 <div class="skill-row">
                     <div class="s-info">
-                        <span class="s-name">WordPress & Woo</span>
+                        <span class="s-name">WordPress &amp; Woo</span>
                         <span class="s-tag">FULL STACK MANAGEMENT</span>
                     </div>
                     <div class="segment-bar">
@@ -943,22 +930,22 @@
     <section id="experience" class="stack-section text-left">
         <div class="header-area-xp">
             <div class="header-sub-xp">TIMELINE CARRIERA</div>
-            <div class="header-title-xp uppercase tracking-tighter">Carriera & Risultati Chiave</div>
+            <div class="header-title-xp uppercase tracking-tighter">Carriera &amp; Risultati Chiave</div>
         </div>
 
         <div class="card-stack-container" id="stackContainer">
             <div class="beam-track"></div>
-            <div class="beam-fill" id="beamFill"></div>
+            <div class="beam-fill" id="beamFill" style="height: 0px;"></div>
 
             <div class="xp-card-wrapper" style="top: 100px;">
                 <div class="xp-meta"><div class="xp-date uppercase">Gen 2018 - Oggi</div><div class="xp-dur uppercase">Opera Group</div></div>
                 <div class="xp-dot"></div>
-                <div class="xp-card" onclick="openModal('m-opera')">
+                <div class="xp-card" onclick="openModal(&#39;m-opera&#39;)" style="transform: scale(1); opacity: 1;">
                     <div class="card-top">
                         <div class="company-logo"><div class="c-icon" style="background:#5E6AD2;"><i class="fa-solid fa-industry"></i></div><span>Opera Group</span></div>
                         <div class="xp-status active-status">● ACTIVE</div>
                     </div>
-                    <div class="role-title-xp">Direzione Marketing & Controllo Gestione</div>
+                    <div class="role-title-xp">Direzione Marketing &amp; Controllo Gestione</div>
                     <p class="role-desc-xp">L'azienda aveva bisogno di strumenti per la GDO. Ho creato un sistema di analisi dei competitor per posizionare il prodotto al prezzo corretto, massimizzando i volumi senza erodere il margine.</p>
                     <div class="tags"><span class="tag-xp">Predictive Analysis</span><span class="tag-xp">Power BI</span><span class="tag-xp">GDO</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
@@ -969,12 +956,12 @@
             <div class="xp-card-wrapper" style="top: 130px;">
                 <div class="xp-meta"><div class="xp-date uppercase">Dic 2013 - Oggi</div><div class="xp-dur uppercase">Acetaia Gubertini</div></div>
                 <div class="xp-dot" style="border-color:var(--accent-orange)"></div>
-                <div class="xp-card" onclick="openModal('m-acetaia')">
+                <div class="xp-card" onclick="openModal(&#39;m-acetaia&#39;)" style="transform: scale(1); opacity: 1;">
                     <div class="card-top">
                         <div class="company-logo"><div class="c-icon" style="background:#F59E0B; color:#000;"><i class="fa-solid fa-leaf"></i></div><span>Acetaia Gubertini</span></div>
                         <div class="xp-status active-status">● ACTIVE</div>
                     </div>
-                    <div class="role-title-xp">Responsabile Marketing & E-commerce Manager</div>
+                    <div class="role-title-xp">Responsabile Marketing &amp; E-commerce Manager</div>
                     <p class="role-desc-xp">Trasformazione da prodotto agricolo a bene di lusso tramite riposizionamento di prezzo e canale. Start-up divisione digitale e gestione completa E-commerce.</p>
                     <div class="tags"><span class="tag-xp">Luxury Positioning</span><span class="tag-xp">Storytelling</span><span class="tag-xp">E-commerce</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
@@ -985,7 +972,7 @@
             <div class="xp-card-wrapper" style="top: 160px;">
                 <div class="xp-meta"><div class="xp-date uppercase">Set 2016 - Dic 2017</div><div class="xp-dur uppercase">Waterline - Bevco</div></div>
                 <div class="xp-dot" style="border-color:#888; background:#333;"></div>
-                <div class="xp-card" onclick="openModal('m-bevco')">
+                <div class="xp-card" onclick="openModal(&#39;m-bevco&#39;)" style="transform: scale(1); opacity: 1;">
                     <div class="card-top">
                         <div class="company-logo"><div class="c-icon" style="background:#333; border:1px solid #555;"><i class="fa-solid fa-layer-group"></i></div><span>Waterline - Bevco (Solido Group)</span></div>
                         <div class="xp-status">ARCHIVED</div>
@@ -1001,7 +988,7 @@
             <div class="xp-card-wrapper" style="top: 190px;">
                 <div class="xp-meta"><div class="xp-date uppercase">Gen 2014 - Set 2016</div><div class="xp-dur uppercase">BMW Italia (Rete)</div></div>
                 <div class="xp-dot" style="border-color:var(--accent-blue)"></div>
-                <div class="xp-card" onclick="openModal('m-bmw')">
+                <div class="xp-card" onclick="openModal(&#39;m-bmw&#39;)" style="transform: scale(1); opacity: 1;">
                     <div class="card-top">
                         <div class="company-logo"><div class="c-icon" style="background:#40C4FF; color:#000;"><i class="fa-solid fa-car"></i></div><span>BMW Italia</span></div>
                         <div class="xp-status">ARCHIVED</div>
@@ -1017,12 +1004,12 @@
             <div class="xp-card-wrapper" style="top: 220px;">
                 <div class="xp-meta"><div class="xp-date uppercase">Giu 2010 - Dic 2013</div><div class="xp-dur uppercase">Confartigianato</div></div>
                 <div class="xp-dot" style="border-color:var(--accent-green)"></div>
-                <div class="xp-card" onclick="openModal('m-lapam')">
+                <div class="xp-card" onclick="openModal(&#39;m-lapam&#39;)" style="transform: scale(1); opacity: 1;">
                     <div class="card-top">
                         <div class="company-logo"><div class="c-icon" style="background:#27C93F; color:#000;"><i class="fa-solid fa-users"></i></div><span>LAPAM Confartigianato</span></div>
                         <div class="xp-status">ARCHIVED</div>
                     </div>
-                    <div class="role-title-xp">Analista Marketing & Sistemi</div>
+                    <div class="role-title-xp">Analista Marketing &amp; Sistemi</div>
                     <p class="role-desc-xp">Analista commerciale focalizzato sull'implementazione sistemi informativi (CRM V-Tiger) e analisi economica.</p>
                     <div class="tags"><span class="tag-xp">V-Tiger</span><span class="tag-xp">Market Research</span><span class="tag-xp">BI</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
@@ -1033,7 +1020,7 @@
              <div class="xp-card-wrapper" style="top: 240px;">
                 <div class="xp-meta"><div class="xp-date uppercase">Apr 2006 - Mag 2010</div><div class="xp-dur uppercase">HTV Retail</div></div>
                 <div class="xp-dot" style="border-color:#555"></div>
-                <div class="xp-card" onclick="openModal('m-htv')">
+                <div class="xp-card" onclick="openModal(&#39;m-htv&#39;)" style="transform: scale(1); opacity: 1;">
                     <div class="card-top">
                         <div class="company-logo"><div class="c-icon" style="background:#555; color:#fff;"><i class="fa-solid fa-store"></i></div><span>HTV (Retail Fisico)</span></div>
                         <div class="xp-status">ARCHIVED</div>
@@ -1049,7 +1036,7 @@
             <div class="xp-card-wrapper" style="top: 250px;">
                 <div class="xp-meta"><div class="xp-date uppercase">2002 - 2008</div><div class="xp-dur uppercase">eBay</div></div>
                 <div class="xp-dot" style="border-color:#5E6AD2"></div>
-                <div class="xp-card" onclick="openModal('m-ebay')">
+                <div class="xp-card" onclick="openModal(&#39;m-ebay&#39;)" style="transform: scale(1); opacity: 1;">
                     <div class="card-top">
                         <div class="company-logo"><div class="c-icon" style="background:#5E6AD2; color:#fff;"><i class="fa-brands fa-ebay"></i></div><span>eBay Global</span></div>
                         <div class="xp-status">ARCHIVED</div>
@@ -1070,71 +1057,76 @@
         <h2 class="text-4xl font-bold text-white mb-12 uppercase tracking-tighter text-left">Strumenti Operativi Realizzati</h2>
         <div class="portfolio-stage-folders text-left">
             <div class="folders-grid">
+                <div class="folder-item tilt-folder" onclick="openModal('m-port-strat')">
+                    <div class="folder-3d-wrapper" style="transform: rotateX(0deg) rotateY(0deg);">
+                        <div class="folder-back"></div>
+                        <div class="folder-contents">
+                            <div class="paper p1"><div class="paper-label uppercase">Tech_Innovation_Superfast.pdf</div></div>
+                            <div class="paper p2"><div class="paper-label uppercase font-black">DIY_Retail_Channel_Strategy.pdf</div><div class="p-6 opacity-30"><i class="fa-solid fa-chess-knight text-2xl text-zinc-400"></i></div></div>
+                        </div>
+                        <div class="folder-glass"></div>
+                    </div>
+                    <div class="folder-info"><div class="f-title uppercase tracking-tighter text-center">STRATEGY &amp; INNOVATION</div><div class="f-count">3 Files</div></div>
+                </div>
+
+                <div class="folder-item tilt-folder" onclick="openModal('m-port-perf')">
+                    <div class="folder-3d-wrapper" style="transform: rotateX(0deg) rotateY(0deg);">
+                        <div class="folder-back"></div>
+                        <div class="folder-contents">
+                            <div class="paper p1"><div class="paper-label uppercase text-left">Profitability_Audit_FY2025.xlsx</div></div>
+                            <div class="paper p2"><div class="paper-label uppercase font-black text-left">Budget_Control_KPI.pdf</div><div class="doc-preview flex items-end gap-1 p-6 opacity-30"><div class="w-2 h-4 bg-green-500"></div><div class="w-2 h-6 bg-zinc-300"></div></div></div>
+                        </div>
+                        <div class="folder-glass"></div>
+                    </div>
+                    <div class="folder-info"><div class="f-title uppercase tracking-tighter text-center text-left">PERFORMANCE &amp; ANALYTICS</div><div class="f-count">5 Files</div></div>
+                </div>
+
+                <div class="folder-item tilt-folder" onclick="openModal('m-port-retail')">
+                    <div class="folder-3d-wrapper" style="transform: rotateX(0deg) rotateY(0deg);">
+                        <div class="folder-back"></div>
+                        <div class="folder-contents">
+                            <div class="paper p1"><div class="paper-label uppercase">Technical_Project_GDO_Bauhaus.pdf</div></div>
+                            <div class="paper p2"><div class="paper-label uppercase font-black">Display_System_Analysis_IKON.pdf</div><div class="p-6 opacity-30 grid grid-cols-2 gap-1"><div class="h-4 bg-indigo-500"></div><div class="h-4 bg-indigo-200"></div></div></div>
+                        </div>
+                        <div class="folder-glass"></div>
+                    </div>
+                    <div class="folder-info"><div class="f-title uppercase tracking-tighter text-center text-left">RETAIL PROJECTS</div><div class="f-count">3 Files</div></div>
+                </div>
+
                 <div class="folder-item tilt-folder" onclick="openModal('m-port-brand')">
-                    <div class="folder-3d-wrapper">
+                    <div class="folder-3d-wrapper" style="transform: rotateX(0deg) rotateY(0deg);">
                         <div class="folder-back"></div>
                         <div class="folder-contents">
-                            <div class="paper p1"><div class="paper-label uppercase">Company-Profile-IT.pdf</div></div>
-                            <div class="paper p2"><div class="paper-label uppercase font-black">Cat.Archi_Element_23.pdf</div><div class="p-6 opacity-30"><div class="brand-logo bg-black rounded-full w-8 h-8 mx-auto mb-2"></div><div class="h-1 bg-zinc-200 w-full mb-1"></div><div class="h-1 bg-zinc-200 w-2/3"></div></div></div>
+                            <div class="paper p1"><div class="paper-label uppercase">element-catalogo-generale-interno-25.pdf</div></div>
+                            <div class="paper p2"><div class="paper-label uppercase font-black">company-profile-it-element.pdf</div><div class="p-6 opacity-30"><div class="w-full h-8 bg-zinc-100 rounded"></div></div></div>
                         </div>
                         <div class="folder-glass"></div>
                     </div>
-                    <div class="folder-info"><div class="f-title uppercase tracking-tighter text-center">STRUMENTI VENDITA & CATALOGHI</div><div class="f-count">4 Files</div></div>
+                    <div class="folder-info"><div class="f-title uppercase tracking-tighter">BRAND IDENTITY &amp; CATALOGS</div><div class="f-count">3 Files</div></div>
                 </div>
-                <div class="folder-item tilt-folder" onclick="openModal('m-port-gdo')">
-                    <div class="folder-3d-wrapper">
-                        <div class="folder-back"></div>
-                        <div class="folder-contents">
-                            <div class="paper p1"><div class="paper-label uppercase text-left">BAUHAUS-OPERA-2022.pdf</div></div>
-                            <div class="paper p2"><div class="paper-label uppercase font-black text-left">BOX-BAUHAUS-PRES-2025.pdf</div><div class="doc-preview flex items-end gap-1 p-6 opacity-30"><div class="w-2 h-4 bg-indigo-500"></div><div class="w-2 h-6 bg-zinc-300"></div></div></div>
-                        </div>
-                        <div class="folder-glass"></div>
-                    </div>
-                    <div class="folder-info"><div class="f-title uppercase tracking-tighter text-center text-left">MERCHANDISING & SISTEMI ESPOSITIVI</div><div class="f-count">4 Files</div></div>
-                </div>
-                <div class="folder-item tilt-folder" onclick="openModal('m-port-data')">
-                    <div class="folder-3d-wrapper">
-                        <div class="folder-back"></div>
-                        <div class="folder-contents">
-                            <div class="paper p1"><div class="paper-label uppercase">Rating-Campionamento.xlsx</div></div>
-                            <div class="paper p2"><div class="paper-label uppercase font-black">PRES-CAMP-RIUNIONE.pdf</div><div class="p-6 opacity-30 grid grid-cols-3 gap-1"><div class="h-4 bg-green-500"></div><div class="h-4 bg-green-200"></div></div></div>
-                        </div>
-                        <div class="folder-glass"></div>
-                    </div>
-                    <div class="folder-info"><div class="f-title uppercase tracking-tighter text-center text-left">ANALISI VENDITE & KPI</div><div class="f-count">3 Files</div></div>
-                </div>
+
                 <div class="folder-item tilt-folder" onclick="openModal('m-port-merch')">
-                    <div class="folder-3d-wrapper">
+                    <div class="folder-3d-wrapper" style="transform: rotateX(0deg) rotateY(0deg);">
                         <div class="folder-back"></div>
                         <div class="folder-contents">
-                            <div class="paper p1"><div class="paper-label uppercase">SINOTTICI-ELEMENT-2025.pdf</div></div>
-                            <div class="paper p2"><div class="paper-label uppercase font-black">Cat.Merch_Element_23.pdf</div><div class="p-6 opacity-30"><div class="w-full h-8 bg-zinc-100 rounded"></div></div></div>
+                            <div class="paper p1"><div class="paper-label uppercase">Merchandising_Tools_Catalog.pdf</div></div>
+                            <div class="paper p2"><div class="paper-label uppercase font-black">Tech_Panels_Large_Slabs.pdf</div><div class="p-6 opacity-30 flex gap-1"><div class="w-3 h-3 rounded-full bg-red-500"></div></div></div>
                         </div>
                         <div class="folder-glass"></div>
                     </div>
-                    <div class="folder-info"><div class="f-title uppercase tracking-tighter">Merchandising</div><div class="f-count">4 Files</div></div>
+                    <div class="folder-info"><div class="f-title uppercase tracking-tighter">MERCHANDISING TOOLS</div><div class="f-count">4 Files</div></div>
                 </div>
+
                 <div class="folder-item tilt-folder" onclick="openModal('m-port-sales')">
-                    <div class="folder-3d-wrapper">
+                    <div class="folder-3d-wrapper" style="transform: rotateX(0deg) rotateY(0deg);">
                         <div class="folder-back"></div>
                         <div class="folder-contents">
-                            <div class="paper p1"><div class="paper-label uppercase">posizionamento-Nord.xlsx</div></div>
-                            <div class="paper p2"><div class="paper-label uppercase font-black">Modello_Calcolo_Margini_2025.xlsx</div><div class="p-6 opacity-30 flex gap-1"><div class="w-3 h-3 rounded-full bg-red-500"></div><div class="w-3 h-3 rounded-full bg-red-500"></div></div></div>
+                            <div class="paper p1"><div class="paper-label uppercase">Analytical_Price_List_Margin.xlsx</div></div>
+                            <div class="paper p2"><div class="paper-label uppercase font-black">articoli-a-magazzino...xlsx</div><div class="p-6 opacity-30"><i class="fa-solid fa-chart-line text-2xl text-zinc-400"></i></div></div>
                         </div>
                         <div class="folder-glass"></div>
                     </div>
-                    <div class="folder-info"><div class="f-title uppercase tracking-tighter">Sales Network</div><div class="f-count">4 Files</div></div>
-                </div>
-                <div class="folder-item tilt-folder" onclick="openModal('m-port-rnd')">
-                    <div class="folder-3d-wrapper">
-                        <div class="folder-back"></div>
-                        <div class="folder-contents">
-                            <div class="paper p1"><div class="paper-label uppercase">Studio_Fattibilita_Nuovi_Prodotti.pdf</div></div>
-                            <div class="paper p2"><div class="paper-label uppercase font-black">REP-CAMPIONI-25.xlsx</div><div class="p-6 opacity-30"><i class="fa-solid fa-flask text-2xl text-zinc-400"></i></div></div>
-                        </div>
-                        <div class="folder-glass"></div>
-                    </div>
-                    <div class="folder-info"><div class="f-title uppercase tracking-tighter">ANALISI MERCATO & SVILUPPO PRODOTTO</div><div class="f-count">3 Files</div></div>
+                    <div class="folder-info"><div class="f-title uppercase tracking-tighter">SALES MANAGEMENT</div><div class="f-count">2 Files</div></div>
                 </div>
             </div>
         </div>
@@ -1151,30 +1143,30 @@
                 <div class="vc-graphic-container">
                     <svg class="graphic-svg" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
                         <defs>
-                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:var(--accent);stop-opacity:0.1" />
-                                <stop offset="100%" style="stop-color:var(--accent-sec);stop-opacity:0.6" />
-                            </linearGradient>
+                            <lineargradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:var(--accent);stop-opacity:0.1"></stop>
+                                <stop offset="100%" style="stop-color:var(--accent-sec);stop-opacity:0.6"></stop>
+                            </lineargradient>
                         </defs>
                         <g fill="none" stroke="url(#grad1)" stroke-width="1.5">
-                            <circle cx="600" cy="300" r="150" stroke-opacity="0.2" />
-                            <circle cx="600" cy="300" r="250" stroke-opacity="0.1" />
-                            <path d="M400,100 Q500,200 600,300 T800,500" />
-                            <path d="M450,500 Q550,400 600,300 T750,100" />
-                            <path d="M200,300 Q400,300 600,300 T1000,300" />
-                            <circle cx="600" cy="300" r="10" fill="var(--accent)" filter="blur(2px)"/>
-                            <circle cx="400" cy="100" r="5" fill="var(--accent-sec)"/>
-                            <circle cx="450" cy="500" r="5" fill="var(--accent-sec)"/>
-                            <circle cx="800" cy="500" r="5" fill="var(--accent-sec)"/>
+                            <circle cx="600" cy="300" r="150" stroke-opacity="0.2"></circle>
+                            <circle cx="600" cy="300" r="250" stroke-opacity="0.1"></circle>
+                            <path d="M400,100 Q500,200 600,300 T800,500"></path>
+                            <path d="M450,500 Q550,400 600,300 T750,100"></path>
+                            <path d="M200,300 Q400,300 600,300 T1000,300"></path>
+                            <circle cx="600" cy="300" r="10" fill="var(--accent)" filter="blur(2px)"></circle>
+                            <circle cx="400" cy="100" r="5" fill="var(--accent-sec)"></circle>
+                            <circle cx="450" cy="500" r="5" fill="var(--accent-sec)"></circle>
+                            <circle cx="800" cy="500" r="5" fill="var(--accent-sec)"></circle>
                         </g>
                     </svg>
                 </div>
 
                 <div class="vc-content">
                     <span class="vc-year">2024 - 2025 // AI RESKILLING WAVE</span>
-                    <h2 class="vc-title">Business Intelligence &<br>Generative AI Strategy.</h2>
+                    <h2 class="vc-title">Business Intelligence &amp;<br>Generative AI Strategy.</h2>
                     <p class="vc-desc">Un ciclo intensivo di specializzazione (Zenit, IFOA) focalizzato sull'integrazione pratica dell'IA nei flussi di lavoro: modelli predittivi, automazione di dashboard Excel e nuove frontiere della Customer Experience.</p>
-                    <div class="vc-link" onclick="openModal('m-edu-1')">VEDI ATTESTATI ></div>
+                    <div class="vc-link" onclick="openModal(&#39;m-edu-1&#39;)">VEDI ATTESTATI &gt;</div>
                 </div>
             </div>
 
@@ -1182,17 +1174,17 @@
                  <div class="vc-graphic-container">
                      <svg class="graphic-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                             <linearGradient id="grad2" x1="0%" y1="100%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:var(--accent);stop-opacity:0" />
-                                <stop offset="100%" style="stop-color:#fff;stop-opacity:0.3" />
-                            </linearGradient>
+                             <lineargradient id="grad2" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:var(--accent);stop-opacity:0"></stop>
+                                <stop offset="100%" style="stop-color:#fff;stop-opacity:0.3"></stop>
+                            </lineargradient>
                         </defs>
                         <g fill="url(#grad2)" transform="translate(100,100) rotate(-15)">
-                            <rect x="0" y="200" width="80" height="100" opacity="0.5"/>
-                            <rect x="90" y="150" width="80" height="150" opacity="0.7"/>
-                            <rect x="180" y="80" width="80" height="220" opacity="0.9"/>
-                            <rect x="270" y="0" width="80" height="300" />
-                            <path d="M0,250 L350,50" stroke="var(--accent)" stroke-width="3" fill="none"/>
+                            <rect x="0" y="200" width="80" height="100" opacity="0.5"></rect>
+                            <rect x="90" y="150" width="80" height="150" opacity="0.7"></rect>
+                            <rect x="180" y="80" width="80" height="220" opacity="0.9"></rect>
+                            <rect x="270" y="0" width="80" height="300"></rect>
+                            <path d="M0,250 L350,50" stroke="var(--accent)" stroke-width="3" fill="none"></path>
                         </g>
                     </svg>
                 </div>
@@ -1201,25 +1193,25 @@
                     <span class="vc-year" style="color:#fff; opacity:0.7;">2010 // UNIMORE</span>
                     <h3 class="vc-title">Economia Aziendale:<br>Marketing e Distribuzione.</h3>
                     <p class="vc-desc" style="font-size:0.9rem;">Le fondamenta del business management. Tesi sperimentale in Strategie del Marketing dei Beni di Lusso.</p>
-                    <div class="vc-link" onclick="openModal('m-edu-laurea')">VEDI TESI ></div>
+                    <div class="vc-link" onclick="openModal(&#39;m-edu-laurea&#39;)">VEDI TESI &gt;</div>
                 </div>
             </div>
 
             <div class="span-12 mini-list-container">
                 <h4 style="margin:0 0 10px 0; color:#fff;">/// Dettaglio Corsi di Specializzazione IA</h4>
                 
-                <div class="mini-item" onclick="openModal('m-edu-1')">
+                <div class="mini-item" onclick="openModal(&#39;m-edu-1&#39;)">
                     <div class="mini-left">
                         <div class="mini-icon-box"><i class="fa-solid fa-brain"></i></div>
                         <div>
                             <div style="color:#fff; font-weight:600;">Modelli di IA per la BI</div>
-                            <div style="color:var(--text-main); font-size:0.85rem;">Zenit Formazione • Analytics & Prompting</div>
+                            <div style="color:var(--text-main); font-size:0.85rem;">Zenit Formazione • Analytics &amp; Prompting</div>
                         </div>
                     </div>
                     <span class="mini-link-btn">2025</span>
                 </div>
 
-                <div class="mini-item" onclick="openModal('m-edu-2')">
+                <div class="mini-item" onclick="openModal(&#39;m-edu-2&#39;)">
                     <div class="mini-left">
                         <div class="mini-icon-box" style="color:var(--accent-sec); background:rgba(45, 212, 191, 0.1);"><i class="fa-solid fa-table-columns"></i></div>
                         <div>
@@ -1230,7 +1222,7 @@
                     <span class="mini-link-btn">2025</span>
                 </div>
 
-                <div class="mini-item" onclick="openModal('m-edu-3')">
+                <div class="mini-item" onclick="openModal(&#39;m-edu-3&#39;)">
                      <div class="mini-left">
                         <div class="mini-icon-box"><i class="fa-solid fa-chess-knight"></i></div>
                         <div>
@@ -1241,7 +1233,7 @@
                     <span class="mini-link-btn">2025</span>
                 </div>
 
-                <div class="mini-item" onclick="openModal('m-edu-4')"> 
+                <div class="mini-item" onclick="openModal(&#39;m-edu-4&#39;)"> 
                     <div class="mini-left">
                         <div class="mini-icon-box" style="color:#F59E0B; background:rgba(245, 158, 11, 0.1);"><i class="fa-solid fa-headset"></i></div>
                         <div>
@@ -1265,7 +1257,7 @@
             
             <div class="bento-card p-8 border border-white/10 rounded-3xl relative overflow-hidden group">
                 <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity"><i class="fa-solid fa-microchip text-6xl text-indigo-500"></i></div>
-                <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3"><i class="fa-solid fa-brain text-indigo-400"></i> Innovazione & AI</h3>
+                <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3"><i class="fa-solid fa-brain text-indigo-400"></i> Innovazione &amp; AI</h3>
                 <ul class="space-y-4">
                     <li class="flex items-center justify-between text-zinc-400 text-sm border-b border-white/5 pb-2">
                         <span>AI Business Strategy</span>
@@ -1276,14 +1268,14 @@
                         <span class="px-2 py-1 bg-indigo-500/20 text-indigo-300 text-[10px] font-bold rounded uppercase border border-indigo-500/30">Zenit</span>
                     </li>
                     <li class="flex items-center justify-between text-zinc-400 text-sm border-b border-white/5 pb-2">
-                        <span>Power BI & Analytics</span>
+                        <span>Power BI &amp; Analytics</span>
                         <span class="px-2 py-1 bg-indigo-500/20 text-indigo-300 text-[10px] font-bold rounded uppercase border border-indigo-500/30">Zenit</span>
                     </li>
                 </ul>
             </div>
 
             <div class="grid grid-rows-2 gap-6">
-                <div class="bento-card p-6 border border-white/10 rounded-3xl">
+                <div class="bento-card p-6 border border-white/10 rounded-3xl" style="--mouse-x: 413.5px; --mouse-y: 105.265625px;">
                     <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><i class="fa-solid fa-chess text-emerald-400"></i> Endorsement Professionali</h3>
                     <div class="grid grid-cols-2 gap-3">
                         <div class="bg-white/5 p-3 rounded-lg border border-white/5 flex flex-col justify-center">
@@ -1305,8 +1297,8 @@
                     </div>
                 </div>
 
-                <div class="bento-card p-6 border border-white/10 rounded-3xl">
-                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><i class="fa-solid fa-gears text-orange-400"></i> Digital & Ops</h3>
+                <div class="bento-card p-6 border border-white/10 rounded-3xl" style="--mouse-x: 278.5px; --mouse-y: 155.265625px;">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><i class="fa-solid fa-gears text-orange-400"></i> Digital &amp; Ops</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-zinc-400">Microsoft Office <strong class="text-white ml-1">16</strong></span>
                         <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-zinc-400">Mktg Comms <strong class="text-white ml-1">14</strong></span>
@@ -1326,8 +1318,8 @@
     </section>
 
     <section class="max-w-4xl mx-auto px-6 mb-32">
-        <div class="grid md:grid-cols-2 gap-6 mb-12 reveal">
-            <div class="bento-card p-8 text-left h-full">
+        <div class="grid md:grid-cols-2 gap-6 mb-12 reveal" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+            <div class="bento-card p-8 text-left h-full" style="--mouse-x: 64.5px; --mouse-y: 120.265625px;">
                 <h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-4 font-black">
                     <i class="fa-solid fa-hand-holding-heart mr-2 text-indigo-500"></i>Approccio Integrato
                 </h4>
@@ -1335,7 +1327,7 @@
                     Controllo incrociato tra Marketing, Vendite e Produzione. Nessuna decisione viene presa senza la validazione dei dati.
                 </p>
             </div>
-            <div class="bento-card p-8 text-left h-full">
+            <div class="bento-card p-8 text-left h-full" style="--mouse-x: 392.5px; --mouse-y: 134.265625px;">
                 <h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-4 font-black">
                     <i class="fa-solid fa-heart mr-2 text-indigo-500"></i>Focus
                 </h4>
@@ -1345,7 +1337,7 @@
             </div>
         </div>
 
-        <div class="text-center reveal">
+        <div class="text-center reveal" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
             <h2 class="text-2xl md:text-3xl font-black italic linear-gradient-text leading-[1.3] uppercase">
                 "Sono curioso di natura, cerco costantemente nuove soluzioni addentrandomi nei problemi fino a trovare una soluzione. Credo nelle best practice e nell'evoluzione progressiva sistemica."
             </h2>
@@ -1369,7 +1361,7 @@
 
     <div class="modal-overlay" id="m-ai-predictive">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-ai-predictive')">×</div><div class="m-id">/// AI_MOD_01</div><div class="m-title uppercase">Previsione della Domanda</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-ai-predictive&#39;)">×</div><div class="m-id">/// AI_MOD_01</div><div class="m-title uppercase">Previsione della Domanda</div></div>
             <div class="m-body">
                 <div class="m-section">
                     <h3>Dall'Analisi Descrittiva alla Previsione Commerciale</h3>
@@ -1377,7 +1369,7 @@
                     <p>Inoltre, integro principi di <strong>Teoria dei Giochi</strong> per modellare scenari di mercato competitivi. L'obiettivo è supportare l'<strong>Executive Team</strong> nell'identificare l'Equilibrio di Nash ottimale: definire prezzi e promozioni che massimizzano il profitto in risposta alle mosse dei competitor, trasformando l'incertezza del mercato in un calcolo di probabilità gestibile e profittevole.</p>
                 </div>
                 <div class="m-section">
-                     <h3>Scenario Planning & GTM</h3>
+                     <h3>Scenario Planning &amp; GTM</h3>
                      <p>Simulazione di scenari "What-If" per il <strong>Go-to-Market</strong>: valutiamo l'impatto di variazioni di listino o dell'apertura di nuovi territori prima di investire budget reali, riducendo drasticamente il rischio d'impresa.</p>
                 </div>
                 <div class="m-section">
@@ -1390,10 +1382,10 @@
 
     <div class="modal-overlay" id="m-ai-governance">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-ai-governance')">×</div><div class="m-id">/// AI_MOD_02</div><div class="m-title uppercase">Reportistica Direzionale</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-ai-governance&#39;)">×</div><div class="m-id">/// AI_MOD_02</div><div class="m-title uppercase">Reportistica Direzionale</div></div>
             <div class="m-body">
                 <div class="m-section">
-                    <h3>Bias Mitigation & Brand Reputation</h3>
+                    <h3>Bias Mitigation &amp; Brand Reputation</h3>
                     <p>L'Intelligenza Artificiale nel Marketing non è una scatola nera, ma un asset che va governato per evitare danni reputazionali. I dati storici di vendita possono contenere bias involontari. La mia strategia implementa protocolli di <strong>Red Teaming</strong> per auditare gli algoritmi, garantendo che le strategie di pricing dinamico o di targeting non siano discriminatorie, proteggendo il valore del Brand e la fiducia del consumatore.</p>
                     <p>Parallelamente, lavoro sull'<strong>Architettura della Decisione Strategica</strong>. I <strong>Leader Commerciali</strong> e gli Stakeholder operano spesso in condizioni di "Razionalità Limitata" e pressione sui risultati. Il mio ruolo è costruire sistemi di supporto alle decisioni che superino l'inerzia, offrendo insight oggettivi per ottimizzare il <strong>Funnel di Conversione</strong>.</p>
                 </div>
@@ -1407,7 +1399,7 @@
 
     <div class="modal-overlay" id="m-ai-gen">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-ai-gen')">×</div><div class="m-id">/// AI_MOD_03</div><div class="m-title uppercase">Automazione Ufficio</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-ai-gen&#39;)">×</div><div class="m-id">/// AI_MOD_03</div><div class="m-title uppercase">Automazione Ufficio</div></div>
             <div class="m-body">
                 <div class="m-section">
                     <h3>Dalla Pulizia Dati all'Automazione Creativa</h3>
@@ -1429,13 +1421,13 @@
     <div class="modal-overlay" id="m-opera">
         <div class="modal-box">
             <div class="m-header">
-                <div class="close-m" onclick="closeModal('m-opera')">×</div>
+                <div class="close-m" onclick="closeModal(&#39;m-opera&#39;)">×</div>
                 <div class="m-title">Opera Group</div>
             </div>
             <div class="m-body">
                 <p>In un contesto industriale caratterizzato da alti volumi produttivi e forte presenza nella GDO, il mio ruolo si è focalizzato sulla trasformazione dell'approccio al mercato e sull'innovazione del prodotto (Lamgea System) con supporto AI. Mi occupo della gestione analitica, marketing e merchandising nei canali retail, GDO, DO e conto terzi.</p>
                 <div class="m-section">
-                    <h3>Analisi dati & Sviluppo Prodotto</h3>
+                    <h3>Analisi dati &amp; Sviluppo Prodotto</h3>
                     <ul class="m-list">
                         <li><strong>Predictive Analysis e Forecasting:</strong> Utilizzo di algoritmi per l'analisi dei dati di vendita storici e il forecasting degli stock.</li>
                         <li><strong>Analisi di mercato e trend:</strong> Analisi delle performance dei prodotti e della concorrenza per lo sviluppo di nuove gamme e naming.</li>
@@ -1451,10 +1443,10 @@
                     </ul>
                 </div>
                 <div class="m-section">
-                     <h3>Merchandising & GDO</h3>
+                     <h3>Merchandising &amp; GDO</h3>
                     <ul class="m-list">
                         <li><strong>Progettazione strumenti di vendita:</strong> Folder, cartelle, sinottici, pattelle, culle, grafiche sala mostra.</li>
-                        <li><strong>Progetti GDO & DIY:</strong> Soluzioni espositive (Box, Shop-in-Shop, Pallet) per grandi player (OBI, Leroy Merlin, Bauhaus, Tecnomat).</li>
+                        <li><strong>Progetti GDO &amp; DIY:</strong> Soluzioni espositive (Box, Shop-in-Shop, Pallet) per grandi player (OBI, Leroy Merlin, Bauhaus, Tecnomat).</li>
                         <li><strong>Strategia di Canale:</strong> Analisi Scenari Competitivi e posizionamento.</li>
                     </ul>
                 </div>
@@ -1464,18 +1456,18 @@
 
     <div class="modal-overlay" id="m-acetaia">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-acetaia')">×</div><div class="m-title">Acetaia Gubertini</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-acetaia&#39;)">×</div><div class="m-title">Acetaia Gubertini</div></div>
             <div class="m-body">
                 <p>Progetto imprenditoriale e di consulenza che ha trasformato una realtà familiare in un brand orientato al profitto, riposizionando il prodotto da semplice condimento a "bene di investimento" tramite leve di marketing digitale, storytelling emozionale e una perfetta fusione tra dati e design.</p>
                 <div class="m-section">
-                    <h3>Strategia & Luxury Positioning</h3>
+                    <h3>Strategia &amp; Luxury Positioning</h3>
                     <ul class="m-list">
                          <li>Sviluppo strategia omnicanale differenziata per cluster: B2C (Social/Web), Ho.Re.Ca. (Riserva) e GDO.</li>
                          <li>Creazione di un'identità visiva "Luxury" (Packaging, Etichette) basata sui valori di Slow Made e Made in Italy.</li>
                     </ul>
                 </div>
                  <div class="m-section">
-                    <h3>E-commerce & Performance</h3>
+                    <h3>E-commerce &amp; Performance</h3>
                     <ul class="m-list">
                          <li>Sviluppo autonomo ecosistema e-commerce proprietario (WooCommerce) e integrazione Marketplace (Amazon, eBay).</li>
                          <li>Gestione campagne Google Ads, Meta Business Suite e SEO.</li>
@@ -1487,18 +1479,18 @@
 
     <div class="modal-overlay" id="m-bevco">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-bevco')">×</div><div class="m-title">Waterline - Bevco</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-bevco&#39;)">×</div><div class="m-title">Waterline - Bevco</div></div>
             <div class="m-body">
                  <p>Responsabile della definizione e implementazione della strategia di comunicazione e marketing post-acquisizione. Focus su unificazione e standardizzazione per costruire una "Corporate Identity" univoca.</p>
                  <div class="m-section">
-                     <h3>Change Management & Identity</h3>
+                     <h3>Change Management &amp; Identity</h3>
                      <ul class="m-list">
                          <li>Creazione nuova identità di gruppo e rebranding dei marchi acquisiti.</li>
                          <li>Restyling sedi fisiche e ammodernamento siti web.</li>
                      </ul>
                  </div>
                  <div class="m-section">
-                     <h3>Data Driven Strategy & Budget</h3>
+                     <h3>Data Driven Strategy &amp; Budget</h3>
                      <ul class="m-list">
                          <li>Analisi del mercato e definizione strategia multi-brand.</li>
                          <li>Gestione del budget marketing e coordinamento team interno ed esterno.</li>
@@ -1510,18 +1502,18 @@
 
     <div class="modal-overlay" id="m-bmw">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-bmw')">×</div><div class="m-title">BMW Italia</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-bmw&#39;)">×</div><div class="m-title">BMW Italia</div></div>
             <div class="m-body">
                 <p>Monitoraggio e ottimizzazione delle performance marketing della rete vendita BMW Italia (BMW, MINI) in Emilia Romagna. Gestione diretta budget (1,5M€/anno) con approccio Data Driven.</p>
                 <div class="m-section">
-                    <h3>CRM & Processi Finanziari</h3>
+                    <h3>CRM &amp; Processi Finanziari</h3>
                     <ul class="m-list">
                         <li>Monitoraggio KPI commerciali e coordinamento trattative tramite Sugar CRM.</li>
                         <li>Gestione rigorosa del funnel di vendita, dal contatto alla fatturazione.</li>
                     </ul>
                 </div>
                 <div class="m-section">
-                    <h3>Budgeting & Eventi</h3>
+                    <h3>Budgeting &amp; Eventi</h3>
                     <ul class="m-list">
                         <li>Definizione e implementazione del media plan trimestrale.</li>
                         <li>Organizzazione operativa eventi (lanci prodotto, open weekend) per Lead Generation.</li>
@@ -1533,18 +1525,18 @@
 
     <div class="modal-overlay" id="m-lapam">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-lapam')">×</div><div class="m-title">Lapam Confartigianato</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-lapam&#39;)">×</div><div class="m-title">Lapam Confartigianato</div></div>
             <div class="m-body">
                 <p>Analista commerciale e marketing con focus sull'innovazione e lo sviluppo. Ruolo tecnico-istituzionale per l'implementazione di sistemi informativi.</p>
                 <div class="m-section">
-                    <h3>IT & System Administration (CRM)</h3>
+                    <h3>IT &amp; System Administration (CRM)</h3>
                     <ul class="m-list">
                         <li>Responsabile introduzione e configurazione del CRM V-Tiger.</li>
                         <li>Supervisione sviluppo tecnico e personalizzazione flussi.</li>
                     </ul>
                 </div>
                 <div class="m-section">
-                    <h3>Ricerca & Marketing</h3>
+                    <h3>Ricerca &amp; Marketing</h3>
                     <ul class="m-list">
                         <li>Elaborazione studi di settore e ricerche di mercato.</li>
                         <li>Gestione campagne Google Ads e Lead Generation.</li>
@@ -1557,11 +1549,11 @@
 
     <div class="modal-overlay" id="m-htv">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-htv')">×</div><div class="m-title">HTV Retail</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-htv&#39;)">×</div><div class="m-title">HTV Retail</div></div>
             <div class="m-body">
                 <p>Gestione operativa e commerciale di un punto vendita. Le fondamenta operative per comprendere le dinamiche reali della vendita fisica.</p>
                 <div class="m-section">
-                    <h3>Gestione Operativa & Finanziaria</h3>
+                    <h3>Gestione Operativa &amp; Finanziaria</h3>
                     <ul class="m-list">
                         <li>Gestione diretta cassa, fatturazione, magazzino e visual merchandising.</li>
                         <li>Raggiungimento target di vendita e gestione obiettivi finanziari.</li>
@@ -1574,7 +1566,7 @@
 
     <div class="modal-overlay" id="m-ebay">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-ebay')">×</div><div class="m-title">eBay</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-ebay&#39;)">×</div><div class="m-title">eBay</div></div>
             <div class="m-body">
                 <p>Le fondamenta operative della vendita digitale e del Go-to-Market internazionale.</p>
                 <div class="m-section">
@@ -1588,85 +1580,83 @@
         </div>
     </div>
 
+    <div class="modal-overlay" id="m-port-strat">
+        <div class="modal-box">
+            <div class="m-header"><div class="close-m" onclick="closeModal('m-port-strat')">×</div><div class="m-title">STRATEGY &amp; INNOVATION</div></div>
+            <div class="m-body">
+                <p>Piani strategici, innovazione tecnologica e analisi competitor.</p>
+                <a href="assets/docs/Tech_Innovation_Superfast.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🚀 Strategia Innovazione &amp; AI</a>
+                <a href="assets/docs/DIY_Retail_Channel_Strategy.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🛠️ Strategia Canale DIY Retail</a>
+                <a href="assets/docs/Matrix_Posizionamento_Competitor.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> ⚔️ Matrice Posizionamento Competitor</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-port-perf">
+        <div class="modal-box">
+            <div class="m-header"><div class="close-m" onclick="closeModal('m-port-perf')">×</div><div class="m-title">PERFORMANCE &amp; ANALYTICS</div></div>
+            <div class="m-body">
+                <p>Audit finanziari, controllo KPI e analisi operative.</p>
+                <a href="assets/docs/Profitability_Audit_FY2025.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 📉 Audit Redditività FY2025</a>
+                <a href="assets/docs/Budget_Control_KPI.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 📊 Analisi Budget &amp; KPI</a>
+                <a href="assets/docs/Rating_Model_Samples.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 🔢 Modello Rating Campionature</a>
+                <a href="assets/docs/rep.-campioni-25.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 📋 Report Operativo Campioni 2025</a>
+                <a href="assets/docs/Modello_Stock_Rotation_ACID_KPI.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 🔄 Analisi Rotazione Stock (Acid Test)</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-port-retail">
+        <div class="modal-box">
+            <div class="m-header"><div class="close-m" onclick="closeModal('m-port-retail')">×</div><div class="m-title">RETAIL PROJECTS</div></div>
+            <div class="m-body">
+                <p>Progetti tecnici per GDO e strategie espositive.</p>
+                <a href="assets/docs/Technical_Project_GDO_Bauhaus.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🛒 Progetto Tecnico GDO Bauhaus</a>
+                <a href="assets/docs/box-bauhaus-beton-urban-presentazione-2025.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 📦 Concept Box Espositivo 2025</a>
+                <a href="assets/docs/Display_System_Analysis_IKON.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 📐 Analisi Tecnica Sistema Ikon</a>
+            </div>
+        </div>
+    </div>
+
     <div class="modal-overlay" id="m-port-brand">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-port-brand')">×</div><div class="m-title">STRUMENTI VENDITA & CATALOGHI</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal('m-port-brand')">×</div><div class="m-title">BRAND IDENTITY &amp; CATALOGS</div></div>
             <div class="m-body">
-                <p>Cataloghi generali, Company Profile e sviluppo identità visiva.</p>
-                <a href="assets/docs/Catalogo_Tecnico_Architettura_2025.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 📥 Catalogo Tecnico Architettura 2025</a>
-                <a href="assets/docs/Company_Profile_Executive_Overview.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🏢 Company Profile & Executive Overview</a>
-                <a href="assets/docs/Catalogo_Generale_Export_2025.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🌍 Catalogo Generale Export 2025</a>
-                <a href="assets/docs/Schede_Tecniche_High_End.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 💎 Schede Tecniche High-End Collection</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="m-port-gdo">
-        <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-port-gdo')">×</div><div class="m-title">MERCHANDISING & SISTEMI ESPOSITIVI</div></div>
-            <div class="m-body">
-                <p>Box, Pallet e presentazioni per Grandi Clienti (Bauhaus, OBI, etc).</p>
-                <a href="assets/docs/Progetto_GDO_Bauhaus_Analytics.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🛒 Progetto GDO: Bauhaus Analytics</a>
-                <a href="assets/docs/Concept_Box_Espositivo_Urban.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 📦 Concept Box Espositivo: Urban Series</a>
-                <a href="assets/docs/Analisi_Display_System_IKON.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 📐 Analisi Display System IKON</a>
-                <a href="assets/docs/Strategia_Canale_DIY_Retail.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🛠️ Strategia Canale DIY Retail</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="m-port-data">
-        <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-port-data')">×</div><div class="m-title">ANALISI VENDITE & KPI</div></div>
-            <div class="m-body">
-                <p>Analisi campionamenti, rating e target agenti.</p>
-                <a href="assets/docs/Report_Efficienza_Campionature_Q4.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 📉 Report Efficienza Campionature Q4</a>
-                <a href="assets/docs/Modello_Analisi_Rating_Campioni.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 📊 Modello Analisi Rating Campioni</a>
-                <a href="assets/docs/Template_Calcolo_Target_Agenti.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 🎯 Template Calcolo Target Agenti</a>
+                <p>Cataloghi generali e documentazione aziendale.</p>
+                <a href="assets/docs/element-catalogo-generale-interno-25.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🌍 Catalogo Generale 2025</a>
+                <a href="assets/docs/Technical_Architecture_Catalog.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🏗️ Catalogo Tecnico Architettura</a>
+                <a href="assets/docs/company-profile-it-element.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🏢 Company Profile Aziendale</a>
             </div>
         </div>
     </div>
 
     <div class="modal-overlay" id="m-port-merch">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-port-merch')">×</div><div class="m-title">Merchandising Tools</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal('m-port-merch')">×</div><div class="m-title">MERCHANDISING TOOLS</div></div>
             <div class="m-body">
-                <p>Strumenti fisici di vendita, folder e sinottici tecnici.</p>
-                <a href="assets/docs/Catalogo_Strumenti_Merchandising.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🛠️ Catalogo Strumenti Merchandising</a>
-                <a href="assets/docs/Folder_Tecnico_30x30.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 📂 Folder Tecnico 30x30</a>
-                <a href="assets/docs/Progetto_Outdoor_20mm_2025.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🌳 Progetto Outdoor 20mm 2025</a>
-                <a href="assets/docs/Sinottici_Tecnici_Grandi_Lastre.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🖼️ Sinottici Tecnici Grandi Lastre</a>
+                <p>Strumenti di vendita fisici e sinottici tecnici.</p>
+                <a href="assets/docs/Merchandising_Tools_Catalog.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🛠️ Catalogo Strumenti Merchandising</a>
+                <a href="assets/docs/Tech_Panels_Large_Slabs.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🖼️ Sinottici Grandi Lastre</a>
+                <a href="assets/docs/Outdoor_Project_20mm.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🌳 Progetto Outdoor 20mm</a>
+                <a href="assets/docs/presentazione-box-ikon.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> 🎯 Presentazione Display POS</a>
             </div>
         </div>
     </div>
 
     <div class="modal-overlay" id="m-port-sales">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-port-sales')">×</div><div class="m-title">Rete Commerciale</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal('m-port-sales')">×</div><div class="m-title">SALES MANAGEMENT</div></div>
             <div class="m-body">
-                <p>Gestione listini, previsioni di vendita e questionari.</p>
-                <a href="assets/docs/Modello_Previsione_Stock_Rotation.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 🔄 Modello Previsione Stock Rotation</a>
-                <a href="assets/docs/Listino_Analitico_Marginalita_2025.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 💰 Listino Analitico Marginalità 2025</a>
-                <a href="assets/docs/Struttura_Prezzi_Export_Francia.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 🇫🇷 Struttura Prezzi Export Francia</a>
-                <a href="assets/docs/Lead_Scoring_Framework_Fiera.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 📋 Lead Scoring Framework Fiera</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="m-port-rnd">
-        <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-port-rnd')">×</div><div class="m-title">ANALISI MERCATO & SVILUPPO PRODOTTO</div></div>
-            <div class="m-body">
-                <p>Analisi merchandising Italia, posizionamento e report campioni.</p>
-                <a href="assets/docs/Matrix_Posizionamento_Competitor.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> ⚔️ Matrix Posizionamento Competitor</a>
-                <a href="assets/docs/Analisi_Penetrazione_Mercato_Nord.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 📈 Analisi Penetrazione Mercato Nord</a>
-                <a href="assets/docs/Report_Sviluppo_Prodotto_DataDriven.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 🧬 Report Sviluppo Prodotto Data-Driven</a>
+                <p>Analisi prezzi, marginalità e previsioni di vendita.</p>
+                <a href="assets/docs/Analytical_Price_List_Margin.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 💰 Analisi Listini e Marginalità</a>
+                <a href="assets/docs/articoli-a-magazzino-e-previsione-di-vendita.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> 📈 Previsione Vendita e Stock</a>
             </div>
         </div>
     </div>
 
     <div class="modal-overlay" id="m-edu-1">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-edu-1')">×</div><div class="m-title">Modelli di IA per la BI</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-edu-1&#39;)">×</div><div class="m-title">Modelli di IA per la BI</div></div>
             <div class="m-body">
                 <p><strong>Ente:</strong> Zenit Formazione (Rif. PA 2024-23356/RER)</p>
                 <div class="m-section">
@@ -1677,14 +1667,14 @@
                         <li>Prompt Engineering avanzato per ottimizzare l'interazione con i modelli LLM.</li>
                     </ul>
                 </div>
-                <a href="assets/docs/attestato-gubertini-ia-bi.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-certificate"></i> SCARICA ATTESTATO</a>
+                <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/assets/docs/Certificazione_AI_Business_Intelligence.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-certificate"></i> SCARICA ATTESTATO</a>
             </div>
         </div>
     </div>
 
     <div class="modal-overlay" id="m-edu-2">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-edu-2')">×</div><div class="m-title">IA ed Excel Avanzato</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-edu-2&#39;)">×</div><div class="m-title">IA ed Excel Avanzato</div></div>
             <div class="m-body">
                 <p><strong>Ente:</strong> Zenit Formazione</p>
                 <div class="m-section">
@@ -1694,14 +1684,14 @@
                         <li>Automazione di reportistica complessa.</li>
                     </ul>
                 </div>
-                <a href="assets/docs/attestato-gubertini-ia-excel.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-certificate"></i> SCARICA ATTESTATO</a>
+                <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/assets/docs/Certificazione_Advanced_Excel_AI.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-certificate"></i> SCARICA ATTESTATO</a>
             </div>
         </div>
     </div>
 
     <div class="modal-overlay" id="m-edu-3">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-edu-3')">×</div><div class="m-title">IA nel Decision Making</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-edu-3&#39;)">×</div><div class="m-title">IA nel Decision Making</div></div>
             <div class="m-body">
                 <p><strong>Ente:</strong> Zenit Formazione (Rif. PA 2024-23357/RER)</p>
                 <div class="m-section">
@@ -1711,14 +1701,14 @@
                         <li>Analisi di scenari complessi supportata da algoritmi di IA.</li>
                     </ul>
                 </div>
-                <a href="assets/docs/attestato-gubertini-ia-decision-making.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-certificate"></i> SCARICA ATTESTATO</a>
+                <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/assets/docs/Certificazione_Strategic_Decision_Making.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-certificate"></i> SCARICA ATTESTATO</a>
             </div>
         </div>
     </div>
 
     <div class="modal-overlay" id="m-edu-4">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-edu-4')">×</div><div class="m-title">Vendite e Servizi con AI</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-edu-4&#39;)">×</div><div class="m-title">Vendite e Servizi con AI</div></div>
             <div class="m-body">
                 <p><strong>Ente:</strong> IFOA (Rif PA 2024-23361/RER)</p>
                 <div class="m-section">
@@ -1729,14 +1719,14 @@
                         <li>Nuovi strumenti digitali per la rete vendita.</li>
                     </ul>
                 </div>
-                <a href="assets/docs/A8LS11_1_GUBERTINI_FRANCESCO.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-certificate"></i> SCARICA ATTESTATO</a>
+                <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/assets/docs/Certificazione_Sales_Automation_IFOA.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-certificate"></i> SCARICA ATTESTATO</a>
             </div>
         </div>
     </div>
 
     <div class="modal-overlay" id="m-edu-laurea">
         <div class="modal-box">
-            <div class="m-header"><div class="close-m" onclick="closeModal('m-edu-laurea')">×</div><div class="m-title">Laurea Economia Aziendale</div></div>
+            <div class="m-header"><div class="close-m" onclick="closeModal(&#39;m-edu-laurea&#39;)">×</div><div class="m-title">Laurea Economia Aziendale</div></div>
             <div class="m-body">
                 <p>Marketing e Distribuzione presso Facoltà Marco Biagi - UNIMORE (2010).</p>
                 <div class="m-section">
@@ -1745,7 +1735,7 @@
                         <li>Competenze in management, organizzazione aziendale, contabilità, marketing, diritto commerciale e analisi di bilancio.</li>
                     </ul>
                 </div>
-                <a href="assets/docs/tesi-gubertini-marketing-dei-beni-di-lusso.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-book"></i> GUARDA LA TESI</a>
+                <a href="file:///Users/francescogubertini/Desktop/sito%20personale/test/assets/docs/Tesi_Strategia_Beni_Lusso_Unimore.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-book"></i> GUARDA LA TESI</a>
             </div>
         </div>
     </div>
@@ -1882,5 +1872,5 @@
         gsap.registerPlugin(ScrollTrigger);
         document.querySelectorAll('.reveal').forEach(el => gsap.to(el, { scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" }, opacity: 1, y: 0, duration: 1.2, ease: "power4.out", stagger: 0.1 }));
     </script>
-</body>
-</html>
+
+</body></html>
