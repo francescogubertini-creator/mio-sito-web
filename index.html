@@ -1898,6 +1898,30 @@
         // Scroll Reveal
         gsap.registerPlugin(ScrollTrigger);
         document.querySelectorAll('.reveal').forEach(el => gsap.to(el, { scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" }, opacity: 1, y: 0, duration: 1.2, ease: "power4.out", stagger: 0.1 }));
+
+        // --- HAPTIC SCROLL FEEDBACK (INTEGRAZIONE) ---
+        // Simula il click meccanico della rotella durante lo scroll
+        let accumulatedScroll = 0;
+        let lastScrollY = window.scrollY;
+        const threshold = 100; // Distanza in pixel per ogni "click"
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const diff = Math.abs(currentScrollY - lastScrollY);
+            
+            accumulatedScroll += diff;
+            lastScrollY = currentScrollY;
+
+            if (accumulatedScroll >= threshold) {
+                if (navigator.vibrate) {
+                    // 10ms è un impulso molto breve, simile a un click tattile
+                    navigator.vibrate(10); 
+                }
+                // Reset mantenendo il resto per fluidità
+                accumulatedScroll = accumulatedScroll % threshold; 
+            }
+        }, { passive: true });
+
     </script>
 
 </body></html>
