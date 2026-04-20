@@ -21,40 +21,42 @@
     </script>
 
     <style>
-        /* --- CONFIGURAZIONE COLORI E VARIABILI --- */
+        /* --- CONFIGURAZIONE COLORI E VARIABILI (MODIFICATO GRIGIO) --- */
         :root {
-            --bg: #080808;
-            --card-bg-blur: rgba(255, 255, 255, 0.03);
-            --card-bg-solid: #121214; 
-            --border: rgba(255, 255, 255, 0.08);
-            --accent: #6366f1;
-            --accent-sec: #2DD4BF;
-            --text-main: #adadad;
-            --surface-0: #0C0D0F; 
-            --adobe-bg: #262626; 
-            --term-bg: #0d1117; --term-sidebar: #010409; --term-border: #30363d;
+            /* MODIFICA: Fondo grigio più scuro per contrasto */
+            --bg: #d1d5db; 
+            --card-bg-blur: rgba(0, 0, 0, 0.02);
+            --card-bg-solid: #FFFFFF; 
+            --border: rgba(0, 0, 0, 0.08);
+            --border-dim: rgba(0, 0, 0, 0.05);
+            --accent: #4f46e5;
+            --accent-sec: #0d9488;
+            --text-main: #4b5563;
+            --surface-0: #F3F4F6; 
+            --adobe-bg: #E5E7EB; 
+            --term-bg: #FFFFFF; --term-sidebar: #F9FAFB; --term-border: #E5E7EB; --term-text: #24292e;
             --accent-blue: #0A84FF;
             --accent-purple: #5E6AD2;
             --accent-green: #27C93F;
             --accent-orange: #F59E0B;
-            --linear-card-bg: #121214;
+            --linear-card-bg: #FFFFFF;
             --font-mono: 'JetBrains Mono', monospace;
             --font-code: 'JetBrains Mono', monospace;
-            --code-blue: #79c0ff;      
-            --code-green: #7ee787;     
-            --cursor-color: #58a6ff;
-            --tech-border-dim: rgba(255, 255, 255, 0.06);
-            --col-data: #38bdf8;
-            --col-crm: #4ade80;
-            --col-mkt: #fb923c;
-            --col-des: #a78bfa;
+            --code-blue: #0550ae;      
+            --code-green: #116329;     
+            --cursor-color: #0550ae;
+            --tech-border-dim: rgba(0, 0, 0, 0.06);
+            --col-data: #0284c7;
+            --col-crm: #16a34a;
+            --col-mkt: #ea580c;
+            --col-des: #7c3aed;
         }
 
         body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         
-        /* STILE TITOLI "GREY SCALE" */
+        /* STILE TITOLI "GREY SCALE" (LIGHT MODE) */
         .text-gradient-grey {
-            background: linear-gradient(180deg, #FFFFFF 10%, #555555 100%);
+            background: linear-gradient(180deg, #111111 10%, #777777 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -68,36 +70,37 @@
         /* STILE KICKER */
         .kicker-grey {
             font-family: 'JetBrains Mono', monospace;
-            color: #888;
+            color: #6b7280;
             font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             display: block;
             margin-bottom: 10px;
-            font-weight: normal;
+            font-weight: bold;
         }
 
         .bento-card {
-            background: var(--card-bg-blur); border: 1px solid var(--border); border-radius: 24px;
-            position: relative; overflow: hidden; transition: border-color 0.3s ease;
+            background: var(--card-bg-solid); border: 1px solid var(--border); border-radius: 24px;
+            position: relative; overflow: hidden; transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
-        .bento-card:hover { border-color: rgba(255, 255, 255, 0.2); }
+        .bento-card:hover { border-color: rgba(0, 0, 0, 0.15); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
 
         .spotlight-overlay {
             position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.3s;
-            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(99, 102, 241, 0.1), transparent 80%);
+            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(79, 70, 229, 0.05), transparent 80%);
         }
         .bento-card:hover .spotlight-overlay { opacity: 1; }
 
         .nav-blur {
             backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            background: rgba(8, 8, 8, 0.85); border-bottom: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.85); border-bottom: 1px solid var(--border);
             z-index: 1000;
         }
 
         .content-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; text-align: left; }
         .content-list li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
-        .tag { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-size: 10px; color: #fff; }
+        .tag { background: rgba(0,0,0,0.05); border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-size: 10px; color: #111; }
 
         /* ELEMENTS HIDDEN ON MOBILE VIA CSS CLASSES */
         @media (max-width: 768px) {
@@ -113,7 +116,7 @@
         .tilted-plane-hero {
             width: 2400px; height: 550px; background: var(--surface-0); border-radius: 40px; border: 1px solid var(--border-dim); position: relative;
             transform: rotateX(55deg) rotateZ(-18deg) rotateY(10deg) translateY(-30px) translateX(0) scale(1.15);
-            transform-style: preserve-3d; box-shadow: -80px 100px 200px rgba(0,0,0,0.9);
+            transform-style: preserve-3d; box-shadow: -30px 40px 100px rgba(0,0,0,0.1);
             -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 85%);
             mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 85%);
         }
@@ -121,9 +124,9 @@
         /* --- DOCUMENT WINDOW --- */
         .stage-bio { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; perspective: 2000px; overflow: visible; pointer-events: none; margin-top: 5px; position: relative; }
         .indesign-window {
-            width: 600px; height: 100%; min-height: 900px; background: var(--adobe-bg); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); position: relative;
+            width: 600px; height: 100%; min-height: 900px; background: var(--adobe-bg); border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); position: relative;
             transform: rotateY(28deg) rotateX(4deg) rotateZ(-1.5deg) scale(0.75) translateX(-45px);
-            transform-style: preserve-3d; box-shadow: -35px 45px 90px rgba(0,0,0,0.85);
+            transform-style: preserve-3d; box-shadow: -20px 25px 60px rgba(0,0,0,0.15);
             -webkit-mask-image: linear-gradient(to right, black 55%, transparent 92%);
             mask-image: linear-gradient(to right, black 55%, transparent 92%);
         }
@@ -133,140 +136,143 @@
         .header-area-xp { text-align: center; margin-bottom: 80px; }
         
         .card-stack-container { position: relative; padding-bottom: 20vh; }
-        .beam-track { position: absolute; top: 0; left: 120px; bottom: 0; width: 2px; background: rgba(255,255,255,0.05); z-index: 0; }
-        .beam-fill { position: absolute; top: 0; left: 120px; width: 2px; height: 0%; background: linear-gradient(to bottom, var(--accent-purple), var(--accent-blue)); box-shadow: 0 0 15px var(--accent-purple); z-index: 1; transition: height 0.1s linear; }
+        .beam-track { position: absolute; top: 0; left: 120px; bottom: 0; width: 2px; background: rgba(0,0,0,0.05); z-index: 0; }
+        .beam-fill { position: absolute; top: 0; left: 120px; width: 2px; height: 0%; background: linear-gradient(to bottom, var(--accent-purple), var(--accent-blue)); box-shadow: 0 0 10px rgba(94, 106, 210, 0.4); z-index: 1; transition: height 0.1s linear; }
         
         .xp-card-wrapper { position: sticky; margin-bottom: 40px; display: flex; gap: 40px; z-index: 2; }
         .xp-meta { width: 120px; text-align: right; padding-top: 25px; flex-shrink: 0; z-index: 2; background: var(--bg); }
-        .xp-date { font-family: var(--font-mono); font-size: 0.85rem; color: #fff; font-weight: 600; }
-        .xp-dur { font-size: 0.7rem; color: #666; margin-top: 5px; }
-        .xp-dot { position: absolute; left: 116px; top: 30px; width: 10px; height: 10px; background: #000; border: 2px solid var(--accent-purple); border-radius: 50%; z-index: 3; transition: 0.3s; }
-        .xp-dot.active { background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue); border-color: var(--accent-blue); }
+        .xp-date { font-family: var(--font-mono); font-size: 0.85rem; color: #111; font-weight: 700; }
+        .xp-dur { font-size: 0.7rem; color: #6b7280; margin-top: 5px; font-weight: 500;}
+        .xp-dot { position: absolute; left: 116px; top: 30px; width: 10px; height: 10px; background: #fff; border: 2px solid var(--accent-purple); border-radius: 50%; z-index: 3; transition: 0.3s; }
+        .xp-dot.active { background: var(--accent-blue); box-shadow: 0 0 10px rgba(10, 132, 255, 0.4); border-color: var(--accent-blue); }
         
-        .xp-card { flex-grow: 1; background-color: var(--card-bg-solid); border: 1px solid var(--border-dim); border-radius: 20px; padding: 35px; position: relative; transform-origin: center top; transition: transform 0.1s linear, filter 0.1s linear, opacity 0.1s linear; box-shadow: 0 10px 40px rgba(0,0,0,0.8); cursor: pointer; overflow: hidden; text-align: left; }
-        .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
-        .company-logo { display: flex; align-items: center; gap: 12px; font-weight: 600; color: #fff; letter-spacing: -0.5px; font-size: 1.1rem; }
+        .xp-card { flex-grow: 1; background-color: var(--card-bg-solid); border: 1px solid var(--border); border-radius: 20px; padding: 35px; position: relative; transform-origin: center top; transition: transform 0.1s linear, filter 0.1s linear, opacity 0.1s linear; box-shadow: 0 10px 40px rgba(0,0,0,0.06); cursor: pointer; overflow: hidden; text-align: left; }
+        .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 15px; }
+        .company-logo { display: flex; align-items: center; gap: 12px; font-weight: 700; color: #111; letter-spacing: -0.5px; font-size: 1.1rem; }
         .c-icon { width: 36px; height: 36px; border-radius: 8px; display: grid; place-items: center; font-size: 1rem; color: #fff; }
-        .xp-status { font-family: var(--font-mono); font-size: 0.65rem; padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); color: #888; }
+        .xp-status { font-family: var(--font-mono); font-size: 0.65rem; padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.1); color: #6b7280; font-weight: 600;}
         .active-status { border-color: var(--accent-green); color: var(--accent-green); background: rgba(39, 201, 63, 0.1); }
-        .role-title-xp { font-size: 1.8rem; font-weight: 700; margin-bottom: 15px; color: #fff; line-height: 1.1; }
-        .role-desc-xp { font-size: 0.95rem; color: #A0A0B0; line-height: 1.6; margin-bottom: 25px; }
+        .role-title-xp { font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; color: #111; line-height: 1.1; }
+        .role-desc-xp { font-size: 0.95rem; color: #4b5563; line-height: 1.6; margin-bottom: 25px; }
         .tags { display: flex; gap: 8px; flex-wrap: wrap; }
-        .tag-xp { font-size: 0.7rem; color: #ccc; background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); font-family: var(--font-mono); }
-        .expand-hint { position: absolute; bottom: 25px; right: 25px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); display: grid; place-items: center; color: #666; transition: 0.2s; font-size: 0.9rem; }
-        .xp-card:hover .expand-hint { background: #fff; color: #000; border-color: #fff; }
+        .tag-xp { font-size: 0.7rem; color: #4b5563; background: rgba(0,0,0,0.04); padding: 5px 10px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.05); font-family: var(--font-mono); font-weight: 600;}
+        .expand-hint { position: absolute; bottom: 25px; right: 25px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); display: grid; place-items: center; color: #6b7280; transition: 0.2s; font-size: 0.9rem; }
+        .xp-card:hover .expand-hint { background: #111; color: #fff; border-color: #111; }
 
         /* --- IA CORE MODULES --- */
         .ai-grid-new { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; z-index: 10; margin-top: 40px; }
         .card-wrapper-ai { position: relative; height: 520px; border-radius: 20px; --mouse-x: 0px; --mouse-y: 0px; transform-style: preserve-3d; transform: perspective(1000px); transition: transform 0.1s; cursor: pointer; }
-        .card-wrapper-ai::before { content: ""; position: absolute; inset: -1px; border-radius: 20px; background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40% ); opacity: 0; transition: opacity 0.4s; z-index: -1; }
+        .card-wrapper-ai::before { content: ""; position: absolute; inset: -1px; border-radius: 20px; background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(0, 0, 0, 0.05), transparent 40% ); opacity: 0; transition: opacity 0.4s; z-index: -1; }
         .card-wrapper-ai:hover::before { opacity: 1; }
-        .card-content-ai { background: var(--linear-card-bg); border-radius: 19px; height: 100%; padding: 32px; display: flex; flex-direction: column; position: relative; overflow: hidden; text-align: left; background-image: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.04), transparent 40% ); }
+        .card-content-ai { background: var(--linear-card-bg); border-radius: 19px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.03); height: 100%; padding: 32px; display: flex; flex-direction: column; position: relative; overflow: hidden; text-align: left; background-image: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(0, 0, 0, 0.02), transparent 40% ); }
         .visual-area-ai { height: 160px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; position: relative; }
         .wave-graph { width: 100%; height: 80px; position: relative; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent); }
         .wave-line { position: absolute; left: 0; right: 0; height: 100%; background: repeating-linear-gradient(90deg, transparent 0, transparent 49px, var(--accent-blue) 50px); opacity: 0.2; transform: skewX(-20deg); }
-        .main-curve { position: absolute; bottom: 10px; left: 10%; width: 80%; height: 30px; border-top: 2px solid var(--accent-blue); border-radius: 50%; filter: drop-shadow(0 0 10px var(--accent-blue)); animation: breathe-ai 3s infinite ease-in-out; }
-        .nc-center { width: 10px; height: 10px; background: #fff; top: 45%; left: 45%; border-radius: 50%; box-shadow: 0 0 10px #fff; position: absolute; }
-        .term-box-ai { width: 120px; height: 80px; background: #000; border: 1px solid #333; border-radius: 6px; padding: 10px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: rotateY(-10deg) rotateX(10deg); transition: transform 0.3s; }
+        .main-curve { position: absolute; bottom: 10px; left: 10%; width: 80%; height: 30px; border-top: 2px solid var(--accent-blue); border-radius: 50%; filter: drop-shadow(0 0 10px rgba(10,132,255,0.3)); animation: breathe-ai 3s infinite ease-in-out; }
+        .nc-center { width: 10px; height: 10px; background: #111; top: 45%; left: 45%; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.2); position: absolute; }
+        .term-box-ai { width: 120px; height: 80px; background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 10px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transform: rotateY(-10deg) rotateX(10deg); transition: transform 0.3s; }
         .card-wrapper-ai:hover .term-box-ai { transform: rotateY(0) rotateX(0) scale(1.1); }
-        .t-line-ai { height: 4px; background: #333; border-radius: 2px; width: 100%; }
-        .t-line-ai.active { background: var(--accent-green); width: 60%; box-shadow: 0 0 10px var(--accent-green); animation: pulse-width-ai 1s infinite; }
+        .t-line-ai { height: 4px; background: #d1d5db; border-radius: 2px; width: 100%; }
+        .t-line-ai.active { background: var(--accent-green); width: 60%; box-shadow: 0 0 10px rgba(39,201,63,0.3); animation: pulse-width-ai 1s infinite; }
 
         /* --- PORTFOLIO 3D FOLDERS --- */
         .portfolio-stage-folders { width: 100%; perspective: 3000px; padding: 60px 0; display: flex; justify-content: center; }
         .folders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; row-gap: 120px; max-width: 1200px; width: 100%; }
         .folder-item { position: relative; width: 100%; height: 260px; perspective: 1000px; cursor: pointer; }
         .folder-3d-wrapper { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.1s ease-out; }
-        .folder-back { position: absolute; width: 100%; height: 100%; background: linear-gradient(to bottom right, #222, #111); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transform: translateZ(-20px); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
-        .folder-back::before { content: ''; position: absolute; top: -15px; left: 0; width: 120px; height: 20px; background: #222; border-radius: 10px 10px 0 0; border-top: 1px solid rgba(255,255,255,0.1); }
+        .folder-back { position: absolute; width: 100%; height: 100%; background: linear-gradient(to bottom right, #f3f4f6, #e5e7eb); border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); transform: translateZ(-20px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .folder-back::before { content: ''; position: absolute; top: -15px; left: 0; width: 120px; height: 20px; background: #f3f4f6; border-radius: 10px 10px 0 0; border-top: 1px solid rgba(0,0,0,0.05); border-left: 1px solid rgba(0,0,0,0.05); border-right: 1px solid rgba(0,0,0,0.05); }
         .folder-contents { position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px; transform-style: preserve-3d; pointer-events: none; }
-        .paper { background: #fff; height: 180px; width: 92%; left: 4%; border-radius: 6px; position: absolute; bottom: 0; box-shadow: 0 -5px 15px rgba(0,0,0,0.2); transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); display: flex; flex-direction: column; overflow: hidden; border: 1px solid #ddd; }
-        .paper-label { padding: 8px 12px; font-size: 9px; font-weight: 800; color: #000; border-bottom: 1px solid #eee; background: #fafafa; opacity: 0; transition: opacity 0.4s ease 0.2s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .paper { background: #fff; height: 180px; width: 92%; left: 4%; border-radius: 6px; position: absolute; bottom: 0; box-shadow: 0 -2px 10px rgba(0,0,0,0.05); transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); display: flex; flex-direction: column; overflow: hidden; border: 1px solid #e5e7eb; }
+        .paper-label { padding: 8px 12px; font-size: 9px; font-weight: 800; color: #111; border-bottom: 1px solid #f3f4f6; background: #fafafa; opacity: 0; transition: opacity 0.4s ease 0.2s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .folder-item:hover .paper-label { opacity: 1; }
-        .paper.p1 { transform: translateZ(-5px) translateY(5px) rotate(-2deg); background: #f0f0f0; z-index: 1; }
+        .paper.p1 { transform: translateZ(-5px) translateY(5px) rotate(-2deg); background: #f9fafb; z-index: 1; }
         .paper.p2 { transform: translateZ(10px) translateY(10px) rotate(0deg); z-index: 2; background: #fff; }
         .folder-item:hover .paper.p1 { transform: translateZ(-5px) translateY(-50px) rotate(-6deg); }
-        .folder-item:hover .paper.p2 { transform: translateZ(10px) translateY(-90px) rotate(3deg); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
-        .folder-glass { position: absolute; bottom: 0; left: 0; width: 100%; height: 85%; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border-radius: 0 0 12px 12px; border-top: 1px solid rgba(255,255,255,0.2); transform: translateZ(40px); z-index: 10; }
+        .folder-item:hover .paper.p2 { transform: translateZ(10px) translateY(-90px) rotate(3deg); box-shadow: 0 15px 25px rgba(0,0,0,0.1); }
+        .folder-glass { position: absolute; bottom: 0; left: 0; width: 100%; height: 85%; background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(12px); border-radius: 0 0 12px 12px; border-top: 1px solid rgba(255,255,255,0.8); transform: translateZ(40px); z-index: 10; box-shadow: 0 -2px 10px rgba(0,0,0,0.02);}
         .folder-info { text-align: center; margin-top: 30px; transform: translateZ(20px); }
-        .f-title { font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 4px; letter-spacing: 0.05em; }
+        .f-title { font-size: 0.9rem; font-weight: 800; color: #111; margin-bottom: 4px; letter-spacing: 0.05em; }
+        .f-count { font-size: 0.75rem; color: #6b7280; font-weight: 500; }
 
         /* --- TERMINAL 3D SECTION --- */
         .terminal-hero-container {
             width: 100vw; height: 500px; overflow: hidden; margin-top: 100px; margin-bottom: 100px;
             position: relative; z-index: 5; display: flex; justify-content: center; align-items: flex-start; 
-            background-image: linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
             -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
         }
         .stage-code { width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-start; perspective: 1500px; transform: scale(1.3); transform-origin: center top; padding-top: 40px; }
-        .terminal-window { width: 1200px; height: 800px; background: var(--term-bg); border-radius: 12px; border: 1px solid var(--term-border); position: relative; transform: rotateX(20deg) scale(0.95); transform-style: preserve-3d; box-shadow: 0 50px 100px rgba(0,0,0,0.8); -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 98%); mask-image: linear-gradient(to bottom, black 50%, transparent 98%); }
-        .terminal-window::after { content: ''; position: absolute; inset: -2px; border-radius: 14px; background: linear-gradient(45deg, #007cf0, #00dfd8); z-index: -1; opacity: 0.3; filter: blur(20px); }
+        .terminal-window { width: 1200px; height: 800px; background: var(--term-bg); border-radius: 12px; border: 1px solid var(--term-border); position: relative; transform: rotateX(20deg) scale(0.95); transform-style: preserve-3d; box-shadow: 0 30px 80px rgba(0,0,0,0.1); -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 98%); mask-image: linear-gradient(to bottom, black 50%, transparent 98%); }
+        .terminal-window::after { content: ''; position: absolute; inset: -2px; border-radius: 14px; background: linear-gradient(45deg, #007cf0, #00dfd8); z-index: -1; opacity: 0.15; filter: blur(20px); }
         .term-layout { display: flex; height: 100%; overflow: hidden; border-radius: 12px; }
         .activity-bar { width: 50px; background: var(--term-sidebar); border-right: 1px solid var(--term-border); display: flex; flex-direction: column; align-items: center; padding-top: 15px; gap: 20px; }
-        .act-icon { font-size: 1.2rem; color: #8b949e; opacity: 0.7; transition: 0.2s; }
+        .act-icon { font-size: 1.2rem; color: #6b7280; opacity: 0.7; transition: 0.2s; }
         .act-icon.active { color: var(--code-blue); opacity: 1; border-left: 2px solid var(--code-blue); padding-left: 10px; margin-left: -12px; }
         .explorer { width: 220px; background: var(--term-sidebar); border-right: 1px solid var(--term-border); padding: 15px; color: var(--term-text); font-size: 0.85rem; font-family: 'Inter', sans-serif; text-align: left; }
-        .exp-header { font-size: 0.7rem; font-weight: 700; color: #8b949e; letter-spacing: 1px; margin-bottom: 10px; }
-        .file-item { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 4px; cursor: default; }
-        .file-item:hover { background: #161b22; }
-        .file-item.active { background: #1f2428; color: #fff; }
-        .py-icon { color: #f1e05a; } .json-icon { color: #56d364; } .md-icon { color: #79c0ff; } 
+        .exp-header { font-size: 0.7rem; font-weight: 700; color: #6b7280; letter-spacing: 1px; margin-bottom: 10px; }
+        .file-item { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 4px; cursor: default; font-weight: 500; }
+        .file-item:hover { background: #e5e7eb; }
+        .file-item.active { background: #d1d5db; color: #111; }
+        .py-icon { color: #d97706; } .json-icon { color: #16a34a; } .md-icon { color: #0284c7; } 
         .editor-area { flex: 1; background: var(--term-bg); display: flex; flex-direction: column; position: relative; }
         .tabs-bar { height: 35px; background: var(--term-sidebar); display: flex; border-bottom: 1px solid var(--term-border); }
-        .tab { padding: 0 15px; display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--term-text); background: var(--term-bg); border-right: 1px solid var(--term-border); border-top: 1px solid var(--code-orange); }
-        .code-content { padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.9rem; line-height: 1.6; color: var(--term-text); position: relative; transform-style: preserve-3d; text-align: left; }
-        .line-num { color: #484f58; margin-right: 15px; user-select: none; text-align: right; display: inline-block; width: 20px; }
-        .k { color: var(--code-purple); } .f { color: var(--code-blue); } .s { color: var(--code-green); } .c { color: var(--code-comment); font-style: italic; } .v { color: var(--code-orange); } 
+        .tab { padding: 0 15px; display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 500; color: var(--term-text); background: var(--term-bg); border-right: 1px solid var(--term-border); border-top: 1px solid var(--code-orange); }
+        .code-content { padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; line-height: 1.6; color: var(--term-text); position: relative; transform-style: preserve-3d; text-align: left; }
+        .line-num { color: #9ca3af; margin-right: 15px; user-select: none; text-align: right; display: inline-block; width: 20px; }
+        .k { color: var(--code-purple); } .f { color: var(--code-blue); } .s { color: var(--code-green); } .c { color: #6b7280; font-style: italic; } .v { color: var(--code-orange); } 
         .cursor { display: inline-block; width: 8px; height: 18px; background: var(--cursor-color); animation: blink 1s infinite; vertical-align: middle; }
-        .terminal-panel { height: 180px; border-top: 1px solid var(--term-border); background: var(--term-sidebar); padding: 15px; font-family: 'Fira Code', monospace; font-size: 0.8rem; color: #8b949e; display: flex; flex-direction: column; gap: 5px; text-align: left; }
-        .term-header { display: flex; gap: 15px; font-size: 0.75rem; text-transform: uppercase; font-weight: 600; border-bottom: 1px solid var(--term-border); padding-bottom: 5px; margin-bottom: 5px; }
+        .terminal-panel { height: 180px; border-top: 1px solid var(--term-border); background: var(--term-sidebar); padding: 15px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #4b5563; display: flex; flex-direction: column; gap: 5px; text-align: left; }
+        .term-header { display: flex; gap: 15px; font-size: 0.75rem; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid var(--term-border); padding-bottom: 5px; margin-bottom: 5px; }
         .t-tab.active { color: var(--code-blue); border-bottom: 1px solid var(--code-blue); }
         .log-line { display: flex; gap: 10px; }
-        .log-time { color: #484f58; } .log-succ { color: var(--code-green); } .log-info { color: var(--code-blue); }
-        .ai-chip { position: absolute; padding: 8px 16px; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; gap: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); transform: translateZ(40px); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
-        .chip-model { top: 80px; right: 50px; background: rgba(126, 76, 203, 0.2); color: #d2a8ff; border-color: #d2a8ff; }
-        .chip-status { top: 140px; right: 50px; background: rgba(59, 130, 246, 0.2); color: #79c0ff; border-color: #79c0ff; }
+        .log-time { color: #9ca3af; } .log-succ { color: var(--code-green); font-weight: 600;} .log-info { color: var(--code-blue); }
+        .ai-chip { position: absolute; padding: 8px 16px; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; gap: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: translateZ(40px); border: 1px solid rgba(0,0,0,0.05); backdrop-filter: blur(10px); }
+        .chip-model { top: 80px; right: 50px; background: rgba(126, 76, 203, 0.1); color: #6d28d9; border-color: rgba(109, 40, 217, 0.2); }
+        .chip-status { top: 140px; right: 50px; background: rgba(59, 130, 246, 0.1); color: #1d4ed8; border-color: rgba(29, 78, 216, 0.2); }
         .chip-status i { animation: spin 2s linear infinite; }
 
         /* --- STILI EDUCATION VAULT --- */
         .education-texture-bg {
-             background-image: linear-gradient(to bottom, rgba(99,102,241,0.05) 0%, transparent 20%),
-                               url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+             background-image: linear-gradient(to bottom, rgba(79,70,229,0.02) 0%, transparent 20%),
+                               url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+             background-color: #fff;
+             border: 1px solid var(--border);
         }
         .bento-grid-edu { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
-        .visual-card { background: var(--card-bg-blur); border: 1px solid var(--border); border-radius: 24px; padding: 40px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; min-height: 300px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .visual-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 20px 40px -15px rgba(99,102,241,0.3); }
+        .visual-card { background: var(--card-bg-solid); border: 1px solid var(--border); border-radius: 24px; padding: 40px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; min-height: 300px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .visual-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 20px 40px -15px rgba(79,70,229,0.15); }
         .vc-content { position: relative; z-index: 2; max-width: 70%; text-align: left; }
-        .vc-graphic-container { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 0; pointer-events: none; mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.1) 80%); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.1) 80%); transition: 0.5s ease; }
-        .visual-card:hover .vc-graphic-container { mask-image: linear-gradient(to left, rgba(0,0,0,1) 20%, rgba(0,0,0,0.3) 100%); transform: scale(1.05); }
-        .graphic-svg { width: 100%; height: 100%; position: absolute; right: -20%; opacity: 0.6; }
+        .vc-graphic-container { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 0; pointer-events: none; mask-image: linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0.1) 80%); -webkit-mask-image: linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0.1) 80%); transition: 0.5s ease; }
+        .visual-card:hover .vc-graphic-container { transform: scale(1.05); }
+        .graphic-svg { width: 100%; height: 100%; position: absolute; right: -20%; opacity: 0.8; }
         .span-12 { grid-column: span 12; } .span-7 { grid-column: span 7; } .span-5 { grid-column: span 5; }
-        .vc-year { font-family: var(--font-code); color: var(--accent); font-size: 0.8rem; margin-bottom: 10px; display: block; }
-        .vc-title { font-size: 1.8rem; font-weight: 700; color: #fff; margin: 0 0 10px 0; line-height: 1.2; }
-        .vc-desc { font-size: 0.95rem; color: #ccc; margin-bottom: 20px; }
-        .vc-link { font-family: var(--font-code); font-size: 0.75rem; color: #fff; text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 3px; cursor: pointer; }
-        .mini-list-container { background: rgba(255,255,255,0.02); border-radius: 24px; padding: 30px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 20px; text-align: left; }
-        .mini-item { display: flex; align-items: center; justify-content: space-between; padding-bottom: 15px; border-bottom: 1px solid var(--border); cursor: pointer; transition: 0.3s; }
-        .mini-item:hover { background: rgba(255,255,255,0.05); padding-left: 10px; padding-right: 10px; border-radius: 12px; }
+        .vc-year { font-family: var(--font-code); color: var(--accent); font-size: 0.8rem; margin-bottom: 10px; display: block; font-weight: 600;}
+        .vc-title { font-size: 1.8rem; font-weight: 800; color: #111; margin: 0 0 10px 0; line-height: 1.2; }
+        .vc-desc { font-size: 0.95rem; color: #4b5563; margin-bottom: 20px; font-weight: 500;}
+        .vc-link { font-family: var(--font-code); font-size: 0.75rem; font-weight: 700; color: #111; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 3px; cursor: pointer; display: inline-block;}
+        .mini-list-container { background: var(--card-bg-solid); border-radius: 24px; padding: 30px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 20px; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .mini-item { display: flex; align-items: center; justify-content: space-between; padding-bottom: 15px; border-bottom: 1px solid var(--border-dim); cursor: pointer; transition: 0.3s; }
+        .mini-item:hover { background: rgba(0,0,0,0.02); padding-left: 10px; padding-right: 10px; border-radius: 12px; border-bottom-color: transparent;}
         .mini-item:last-child { border-bottom: none; }
         .mini-left { display: flex; align-items: center; gap: 15px; }
-        .mini-icon-box { width: 40px; height: 40px; background: rgba(99,102,241,0.1); color: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-        .mini-link-btn { font-size: 0.7rem; color: var(--text-main); border: 1px solid var(--border); padding: 6px 12px; border-radius: 20px; text-decoration: none; transition: 0.3s; white-space: nowrap; }
+        .mini-icon-box { width: 40px; height: 40px; background: rgba(79,70,229,0.1); color: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .mini-link-btn { font-size: 0.7rem; font-weight: 700; color: #4b5563; border: 1px solid var(--border); padding: 6px 12px; border-radius: 20px; text-decoration: none; transition: 0.3s; white-space: nowrap; }
         .mini-link-btn:hover { background: var(--accent); color:#fff; border-color:var(--accent); }
-        @media (max-width: 768px) { .bento-grid-edu { display: flex; flex-direction: column; } .vc-content { max-width: 100%; } .graphic-svg { right: -40%; opacity: 0.4; } .visual-card { min-height: auto; padding-top: 100px; } }
+        @media (max-width: 768px) { .bento-grid-edu { display: flex; flex-direction: column; } .vc-content { max-width: 100%; } .graphic-svg { right: -40%; opacity: 0.6; } .visual-card { min-height: auto; padding-top: 100px; } }
 
         /* --- NEW TECH MODULE STYLES --- */
-        .header-wrap { margin-bottom: 60px; border-left: 2px solid var(--tech-border-highlight); padding-left: 20px; text-align: left; }
-        .sys-label { font-family: var(--font-code); color: #888; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px; }
-        .sys-title { font-size: 2.5rem; font-weight: 700; color: #fff; margin: 0; line-height: 1; letter-spacing: -1px; }
+        .header-wrap { margin-bottom: 60px; border-left: 2px solid var(--border); padding-left: 20px; text-align: left; }
+        .sys-label { font-family: var(--font-code); color: #6b7280; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px; font-weight: 700;}
+        .sys-title { font-size: 2.5rem; font-weight: 800; color: #111; margin: 0; line-height: 1; letter-spacing: -1px; }
 
         .modules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 
         .tech-module {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--tech-border-dim);
+            background: var(--card-bg-solid);
+            border: 1px solid var(--border);
             border-radius: 16px;
             padding: 30px;
             position: relative;
@@ -274,31 +280,31 @@
             overflow: hidden;
             display: flex; flex-direction: column;
             text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
         .tech-module:hover {
-            background: rgba(255, 255, 255, 0.04);
             border-color: var(--module-color);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
             transform: translateY(-2px);
         }
 
         .module-header {
             display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;
-            border-bottom: 1px solid var(--tech-border-dim); padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-dim); padding-bottom: 15px;
         }
         
         .m-icon-box {
             font-size: 1.5rem; color: var(--module-color);
-            background: rgba(255,255,255,0.05); width: 45px; height: 45px;
+            background: rgba(0,0,0,0.03); width: 45px; height: 45px;
             display: flex; align-items: center; justify-content: center; border-radius: 8px;
             border: 1px solid transparent; transition: 0.3s;
         }
-        .tech-module:hover .m-icon-box { border-color: var(--module-color); box-shadow: 0 0 15px var(--module-glow); }
+        .tech-module:hover .m-icon-box { border-color: var(--module-color); background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
         .m-title-group { text-align: right; }
-        .m-title { font-size: 1.1rem; font-weight: 600; color: #fff; display: block; }
-        .m-id { font-family: var(--font-code); font-size: 0.7rem; color: #555; text-transform: uppercase; letter-spacing: 1px; }
+        .m-title { font-size: 1.1rem; font-weight: 700; color: #111; display: block; }
+        .m-id { font-family: var(--font-code); font-size: 0.7rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; }
 
         .skill-row {
             display: flex; align-items: center; justify-content: space-between;
@@ -307,18 +313,18 @@
         .skill-row:last-child { margin-bottom: 0; }
 
         .s-info { display: flex; flex-direction: column; gap: 4px; }
-        .s-name { font-size: 0.9rem; color: #ddd; font-weight: 500; }
-        .s-tag { font-family: var(--font-code); font-size: 0.65rem; color: #888; text-transform: uppercase; }
+        .s-name { font-size: 0.9rem; color: #111; font-weight: 600; }
+        .s-tag { font-family: var(--font-code); font-size: 0.65rem; font-weight: 600; color: #6b7280; text-transform: uppercase; }
 
         .segment-bar { display: flex; gap: 3px; }
         .segment {
             width: 6px; height: 16px;
-            background: rgba(255,255,255,0.1);
+            background: #e5e7eb;
             border-radius: 2px;
             transition: 0.3s;
         }
-        .tech-module:hover .segment.active { background: var(--module-color); box-shadow: 0 0 5px var(--module-color); }
-        .segment.active { background: #333; }
+        .tech-module:hover .segment.active { background: var(--module-color); }
+        .segment.active { background: #9ca3af; }
 
         @media (max-width: 768px) {
             .modules-grid { grid-template-columns: 1fr; }
@@ -326,17 +332,16 @@
         }
 
         /* MODAL */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(15px); z-index: 2000; opacity: 0; visibility: hidden; transition: 0.4s; display: flex; justify-content: center; align-items: center; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); z-index: 2000; opacity: 0; visibility: hidden; transition: 0.4s; display: flex; justify-content: center; align-items: center; }
         .modal-overlay.open { opacity: 1; visibility: visible; }
-        .modal-box { width: 90%; max-width: 800px; max-height: 90vh; background: #0A0A0C; border: 1px solid rgba(255,255,255,0.15); border-radius: 24px; padding: 0; position: relative; overflow-y: auto; transform: translateY(50px) scale(0.95); transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 50px 100px rgba(0,0,0,0.8); }
+        .modal-box { width: 90%; max-width: 800px; max-height: 90vh; background: #FFFFFF; border: 1px solid var(--border); border-radius: 24px; padding: 0; position: relative; overflow-y: auto; transform: translateY(50px) scale(0.95); transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 30px 80px rgba(0,0,0,0.1); }
         .modal-overlay.open .modal-box { transform: translateY(0) scale(1); }
-        .m-header { padding: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; background: rgba(10,10,12,0.95); backdrop-filter: blur(10px); z-index: 10; display: flex; justify-content: space-between; align-items: center; }
+        .m-header { padding: 30px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 10; display: flex; justify-content: space-between; align-items: center; }
         .m-body { padding: 40px; }
         
-        /* Stile Titolo Modale con Gradient Grey */
-        .m-title { 
+        .m-header .m-title { 
             font-size: 1.5rem; 
-            background: linear-gradient(180deg, #FFFFFF 10%, #555555 100%);
+            background: linear-gradient(180deg, #111111 10%, #777777 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -346,18 +351,18 @@
             letter-spacing: -0.04em;
         }
         
-        .m-company { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-top: 5px; }
-        .close-m { width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; transition: 0.2s; }
-        .close-m:hover { background: #fff; color: #000; }
+        .m-company { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #6b7280; margin-top: 5px; font-weight: 700; }
+        .close-m { width: 30px; height: 30px; border-radius: 50%; background: rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; cursor: pointer; color: #111; font-weight: bold; transition: 0.2s; }
+        .close-m:hover { background: #111; color: #fff; }
         .m-section { margin-bottom: 30px; }
-        .m-section h3 { color: var(--accent-purple); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; display: inline-block; }
-        .m-list li { margin-bottom: 10px; color: #bbb; position: relative; padding-left: 20px; font-size: 0.95rem; line-height: 1.6; }
-        .m-list li::before { content: '>'; color: var(--accent-purple); position: absolute; left: 0; font-weight: bold; }
-        .m-body p { color: #bbb; margin-bottom: 20px; line-height: 1.7; text-align: justify; }
+        .m-section h3 { color: var(--accent); font-size: 0.9rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; border-bottom: 1px solid var(--border-dim); padding-bottom: 5px; display: inline-block; }
+        .m-list li { margin-bottom: 10px; color: #4b5563; font-weight: 500; position: relative; padding-left: 20px; font-size: 0.95rem; line-height: 1.6; }
+        .m-list li::before { content: '>'; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
+        .m-body p { color: #4b5563; font-weight: 500; margin-bottom: 20px; line-height: 1.7; text-align: justify; }
         
         /* Links inside modals */
-        .m-link-file { display: block; padding: 12px 15px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #ccc; text-decoration: none; margin-bottom: 10px; transition: 0.2s; font-size: 0.9rem; }
-        .m-link-file:hover { background: rgba(255,255,255,0.1); border-color: var(--accent); color: #fff; transform: translateX(5px); }
+        .m-link-file { display: block; padding: 12px 15px; background: #f9fafb; border: 1px solid var(--border); border-radius: 8px; color: #111; font-weight: 600; text-decoration: none; margin-bottom: 10px; transition: 0.2s; font-size: 0.9rem; }
+        .m-link-file:hover { background: #fff; border-color: var(--accent); color: var(--accent); transform: translateX(5px); box-shadow: 0 4px 10px rgba(0,0,0,0.05);}
         .m-link-file i { margin-right: 10px; color: var(--accent); }
 
         @keyframes breathe-ai { 0%,100% { opacity: 0.5; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(1.2); } }
@@ -370,7 +375,6 @@
            ========================================================================== */
         @media (max-width: 768px) {
             
-            /* RESET 3D & PERSPECTIVE (Flatten EVERYTHING) */
             .hero-stage, .tilted-plane-hero, 
             .indesign-window, .stage-bio,
             .terminal-window, .folder-item, 
@@ -387,7 +391,6 @@
                 left: 0 !important; top: 0 !important;
             }
 
-            /* --- GLOBAL ALIGNMENT FIX & COMPACT LAYOUT --- */
             section, footer, nav .max-w-7xl {
                 padding-left: 12px !important;
                 padding-right: 12px !important;
@@ -396,25 +399,19 @@
             }
             .stack-section { padding: 20px 10px !important; }
 
-            /* --- ALIGNMENT RULES (Mobile) --- */
             h1, h2, h3, h4, .kicker, .sys-title, .header-title-xp, .vc-title { text-align: center !important; }
             p, ul, li, .role-desc-xp, .vc-desc, .s-name, .s-tag { text-align: left !important; }
 
-            /* HERO TEXT MOBILE SPECIFIC OVERRIDE */
             .hero-text-mobile { text-align: center !important; }
 
-            /* --- 1. HERO FIX (Clean & Centered) --- */
             .hero-stage { display: none !important; }
             
-            /* Aggiornamento per titolo grande e su 3 righe */
             h1 { font-size: 3.2rem !important; line-height: 0.9 !important; letter-spacing: -0.05em !important; }
             p { font-size: 0.95rem !important; line-height: 1.5 !important; }
             
-            /* --- 2. BIO SECTION (Simplified) --- */
-            .stage-bio { display: none !important; } /* Hide Indesign Window */
+            .stage-bio { display: none !important; }
             .bento-card { padding: 20px !important; margin-top: 10px !important; }
 
-            /* --- 3. AI SECTION (Clean Cards) --- */
             .ai-grid-new {
                 grid-template-columns: 1fr !important;
                 gap: 12px !important;
@@ -422,15 +419,13 @@
             }
             .card-wrapper-ai { height: auto !important; min-height: unset !important; }
             .card-content-ai { padding: 20px !important; height: auto !important; }
-            .visual-area-ai { display: none !important; } /* Hide abstract waves/nodes */
+            .visual-area-ai { display: none !important; } 
             
-            /* --- 4. TERMINAL (REMOVED as requested) --- */
             .terminal-hero-container { display: none !important; }
 
-            /* --- 5. SKILLS (Clean Spacing) --- */
             .header-wrap {
                 margin-bottom: 20px !important;
-                border-left: none !important; /* Remove border */
+                border-left: none !important;
                 padding-left: 0 !important;
                 text-align: center !important;
             }
@@ -440,9 +435,8 @@
             }
             .modules-grid { gap: 10px !important; }
 
-            /* --- 6. PORTFOLIO (THE REDESIGN: 2 COLUMNS, COMPACT) --- */
             .folders-grid {
-                grid-template-columns: repeat(2, 1fr) !important; /* 2 Columns */
+                grid-template-columns: repeat(2, 1fr) !important; 
                 gap: 8px !important;
                 row-gap: 8px !important;
                 width: 100% !important;
@@ -450,14 +444,10 @@
             
             .folder-item {
                 height: auto !important;
-                aspect-ratio: 1 / 1; /* Square shape */
-                background: #121214 !important;
-                
-                /* MOBILE NEON EFFECT (Similar to tech-module) */
-                border: 1px solid rgba(99, 102, 241, 0.5) !important; /* Accent border */
-                box-shadow: 0 0 15px rgba(99, 102, 241, 0.2) !important; /* Glow */
-                background: rgba(99, 102, 241, 0.05) !important;
-                
+                aspect-ratio: 1 / 1; 
+                background: #f9fafb !important;
+                border: 1px solid rgba(79, 70, 229, 0.2) !important; 
+                box-shadow: 0 4px 10px rgba(0,0,0,0.02) !important; 
                 border-radius: 12px !important;
                 padding: 12px !important;
                 display: flex !important;
@@ -468,21 +458,19 @@
                 gap: 8px !important;
             }
 
-            /* Hide complex 3D parts */
             .folder-3d-wrapper, .folder-back, .folder-glass, .paper { display: none !important; }
             
-            /* Create simple icon */
             .folder-contents {
                 position: static !important;
                 width: 40px !important; height: 40px !important;
-                background: rgba(99, 102, 241, 0.1);
+                background: rgba(79, 70, 229, 0.1);
                 border-radius: 10px;
                 display: grid !important; place-items: center;
                 margin: 0 auto !important;
                 pointer-events: none;
             }
             .folder-contents::after {
-                content: '\f07b'; /* FontAwesome folder icon */
+                content: '\f07b';
                 font-family: "Font Awesome 6 Free";
                 font-weight: 900;
                 color: var(--accent);
@@ -498,16 +486,13 @@
                 font-size: 0.65rem !important;
                 line-height: 1.1 !important;
                 margin-bottom: 0 !important;
-                color: #fff !important;
+                color: #111 !important;
                 display: block !important;
-                white-space: normal !important; /* Allow wrapping */
+                white-space: normal !important; 
             }
             .f-count { display: none !important; }
-            
-            /* Remove arrow for cleaner tile look */
             .folder-item::after { content: none !important; }
 
-            /* --- 7. TIMELINE (Compact) --- */
             .xp-card-wrapper {
                 flex-direction: column !important;
                 gap: 6px !important;
@@ -517,7 +502,7 @@
             .xp-meta {
                 width: 100% !important;
                 text-align: left !important;
-                padding: 0 0 0 16px !important; /* Space for dot */
+                padding: 0 0 0 16px !important;
                 margin-bottom: 4px !important;
             }
             .beam-track, .beam-fill { left: 6px !important; }
@@ -527,7 +512,6 @@
                 border-radius: 12px !important;
             }
             
-            /* --- 8. MODALS (Touch Friendly) --- */
             .modal-box {
                 width: 100% !important;
                 height: 100% !important;
@@ -538,8 +522,8 @@
             }
             .m-header { padding: 20px !important; }
             .close-m {
-                width: 40px !important; height: 40px !important; /* Apple touch target size */
-                background: rgba(255,255,255,0.1) !important;
+                width: 40px !important; height: 40px !important;
+                background: rgba(0,0,0,0.05) !important;
             }
         }
     </style>
@@ -552,80 +536,79 @@
             <div class="flex flex-col md:flex-row md:items-center md:gap-8 w-full md:w-auto">
                 <div class="flex justify-between items-center w-full md:w-auto gap-4">
                     <a href="#" class="flex flex-col cursor-pointer transition-opacity hover:opacity-80">
-                        <span class="text-white font-black tracking-tighter text-xs md:text-xl uppercase whitespace-nowrap">Francesco Gubertini</span>
-                        <span class="text-[8px] md:text-[10px] text-zinc-500 uppercase tracking-widest font-bold whitespace-nowrap">Marketing Manager &amp; Strategy</span>
+                        <span class="text-gray-900 font-black tracking-tighter text-xs md:text-xl uppercase whitespace-nowrap">Francesco Gubertini</span>
+                        <span class="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest font-bold whitespace-nowrap">Marketing Manager &amp; Strategy</span>
                     </a>
                     
-                    <div class="md:hidden text-white text-[9px] font-bold uppercase tracking-widest border border-white/20 px-3 py-1 rounded-full cursor-pointer hover:bg-white/10 transition-all whitespace-nowrap" id="burger-btn">
+                    <div class="md:hidden text-gray-900 text-[9px] font-bold uppercase tracking-widest border border-black/10 px-3 py-1 rounded-full cursor-pointer hover:bg-black/5 transition-all whitespace-nowrap" id="burger-btn">
                         MENU+
                     </div>
                 </div>
                 
-                <div class="hidden md:flex gap-6 text-[10px] font-bold uppercase tracking-widest text-zinc-500 flex-1 justify-center ml-12">
-                    <a href="#bio" class="hover:text-white transition-colors">Profilo</a>
-                    <a href="#ai" class="hover:text-white transition-colors">Business Strategy</a>
-                    <a href="#experience" class="hover:text-white transition-colors">Esperienze</a>
-                    <a href="#skills" class="hover:text-white transition-colors">Operational Stack</a>
-                    <a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a>
-                    <a href="#education" class="hover:text-white transition-colors">Education</a>
-                    <a href="#linkedin" class="hover:text-white transition-colors">Network</a>
+                <div class="hidden md:flex gap-6 text-[10px] font-bold uppercase tracking-widest text-gray-500 flex-1 justify-center ml-12">
+                    <a href="#bio" class="hover:text-gray-900 transition-colors">Profilo</a>
+                    <a href="#ai" class="hover:text-gray-900 transition-colors">Business Strategy</a>
+                    <a href="#experience" class="hover:text-gray-900 transition-colors">Esperienze</a>
+                    <a href="#skills" class="hover:text-gray-900 transition-colors">Operational Stack</a>
+                    <a href="#portfolio" class="hover:text-gray-900 transition-colors">Portfolio</a>
+                    <a href="#education" class="hover:text-gray-900 transition-colors">Education</a>
+                    <a href="#linkedin" class="hover:text-gray-900 transition-colors">Network</a>
                 </div>
             </div>
-            <a href="mailto:info@francescogubertini.it" class="hidden md:block bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold hover:bg-zinc-200 transition-all uppercase tracking-widest">Contattami</a>
+            <a href="mailto:info@francescogubertini.it" class="hidden md:block bg-gray-900 text-white px-4 py-1.5 rounded-full text-xs font-bold hover:bg-gray-800 transition-all uppercase tracking-widest">Contattami</a>
         </div>
     </nav>
 
-    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black z-[3000] flex flex-col p-8 hidden opacity-0 transition-opacity duration-300">
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-white z-[3000] flex flex-col p-8 hidden opacity-0 transition-opacity duration-300">
         <div class="flex justify-between items-start">
             <div class="flex flex-col text-left">
-                <span class="text-white font-black tracking-tighter text-xs uppercase whitespace-nowrap">Francesco Gubertini</span>
-                <span class="text-[8px] text-zinc-500 uppercase tracking-widest font-bold whitespace-nowrap">Marketing Manager &amp; Strategy</span>
+                <span class="text-gray-900 font-black tracking-tighter text-xs uppercase whitespace-nowrap">Francesco Gubertini</span>
+                <span class="text-[8px] text-gray-500 uppercase tracking-widest font-bold whitespace-nowrap">Marketing Manager &amp; Strategy</span>
             </div>
-            <button id="close-menu" class="text-white text-4xl leading-none">×</button>
+            <button id="close-menu" class="text-gray-900 text-4xl leading-none font-light">×</button>
         </div>
-        <nav class="flex flex-col gap-4 mt-8 text-sm font-bold text-zinc-600 font-mono uppercase tracking-widest">
-            <a href="#bio" class="py-2 border-b border-white/5 hover:text-white active:text-indigo-500 transition-colors" onclick="toggleMenu()">/// PROFILO</a>
-            <a href="#ai" class="py-2 border-b border-white/5 hover:text-white active:text-indigo-500 transition-colors" onclick="toggleMenu()">/// BUSINESS_STRATEGY</a>
-            <a href="#experience" class="py-2 border-b border-white/5 hover:text-white active:text-indigo-500 transition-colors" onclick="toggleMenu()">/// ESPERIENZE_LAVORO</a>
-            <a href="#skills" class="py-2 border-b border-white/5 hover:text-white active:text-indigo-500 transition-colors" onclick="toggleMenu()">/// STRUMENTI_STACK</a>
-            <a href="#portfolio" class="py-2 border-b border-white/5 hover:text-white active:text-indigo-500 transition-colors" onclick="toggleMenu()">/// PORTFOLIO</a>
-            <a href="#education" class="py-2 border-b border-white/5 hover:text-white active:text-indigo-500 transition-colors" onclick="toggleMenu()">/// FORMAZIONE</a>
-            <a href="assets/docs/CV_Executive_Francesco_Gubertini.pdf" download="" class="py-2 border-b border-white/5 hover:text-white active:text-indigo-500 transition-colors" onclick="toggleMenu()">/// SCARICA_CV</a>
-            <a href="mailto:info@francescogubertini.it" class="py-2 hover:text-white active:text-indigo-500 transition-colors text-indigo-400" onclick="toggleMenu()">/// CONTATTI</a>
+        <nav class="flex flex-col gap-4 mt-8 text-sm font-bold text-gray-600 font-mono uppercase tracking-widest">
+            <a href="#bio" class="py-2 border-b border-black/5 hover:text-gray-900 active:text-indigo-600 transition-colors" onclick="toggleMenu()">/// PROFILO</a>
+            <a href="#ai" class="py-2 border-b border-black/5 hover:text-gray-900 active:text-indigo-600 transition-colors" onclick="toggleMenu()">/// BUSINESS_STRATEGY</a>
+            <a href="#experience" class="py-2 border-b border-black/5 hover:text-gray-900 active:text-indigo-600 transition-colors" onclick="toggleMenu()">/// ESPERIENZE_LAVORO</a>
+            <a href="#skills" class="py-2 border-b border-black/5 hover:text-gray-900 active:text-indigo-600 transition-colors" onclick="toggleMenu()">/// STRUMENTI_STACK</a>
+            <a href="#portfolio" class="py-2 border-b border-black/5 hover:text-gray-900 active:text-indigo-600 transition-colors" onclick="toggleMenu()">/// PORTFOLIO</a>
+            <a href="#education" class="py-2 border-b border-black/5 hover:text-gray-900 active:text-indigo-600 transition-colors" onclick="toggleMenu()">/// FORMAZIONE</a>
+            <a href="assets/docs/CV_Executive_Francesco_Gubertini.pdf" download="" class="py-2 border-b border-black/5 hover:text-gray-900 active:text-indigo-600 transition-colors" onclick="toggleMenu()">/// SCARICA_CV</a>
+            <a href="mailto:info@francescogubertini.it" class="py-2 hover:text-gray-900 active:text-indigo-600 transition-colors text-indigo-600" onclick="toggleMenu()">/// CONTATTI</a>
         </nav>
     </div>
 
     <section class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20 md:pt-32 overflow-hidden text-center">
-        <div class="hero-glow top-1/4"></div>
         <div class="max-w-5xl z-10 text-center">
             <h1 class="text-5xl sm:text-6xl md:text-[85px] font-black leading-[0.95] mb-8 text-gradient-grey reveal uppercase">
                 IL MARKETING COME<br>CONTROLLO DI<br>GESTIONE.
             </h1>
-            <p class="text-sm md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-12 reveal leading-relaxed hero-text-mobile">
+            <p class="text-sm md:text-2xl text-gray-600 font-medium max-w-3xl mx-auto mb-12 reveal leading-relaxed hero-text-mobile">
                 <strong>Utilizzo i dati di vendita e produzione per sviluppare strategie di mercato a basso rischio.</strong> Coordino l'ufficio Marketing integrando CRM, storico vendite e rotazione magazzino per massimizzare l'efficacia del budget, con l’obiettivo di aumentare le quote di mercato, ottimizzare i margini e ridurre l'invenduto.<br>
 Un approccio “ingegneristico” alla crescita aziendale.
             </p>
             <div class="flex flex-wrap justify-center gap-4 reveal">
-                <a href="#portfolio" class="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-500/20 uppercase text-xs tracking-widest">Consulta i miei case history</a>
-                <a href="assets/docs/CV_Gubertini_Francesco.pdf" download="" class="border border-white/10 text-white px-8 py-3 rounded-xl font-bold hover:bg-white/5 transition-all flex items-center gap-2 uppercase text-xs tracking-widest">Scarica il CV <span>↓</span></a>
+                <a href="#portfolio" class="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-600/30 uppercase text-xs tracking-widest">Consulta i miei case history</a>
+                <a href="assets/docs/CV_Gubertini_Francesco.pdf" download="" class="border border-black/10 text-gray-900 bg-white px-8 py-3 rounded-xl font-bold hover:bg-gray-50 transition-all flex items-center gap-2 uppercase text-xs tracking-widest shadow-sm">Scarica il CV <span class="text-indigo-600">↓</span></a>
             </div>
 
             <div class="hero-stage reveal">
                 <div class="tilted-plane-hero">
                     <div class="flex h-full overflow-hidden rounded-[40px] text-left">
-                        <div class="w-[300px] bg-[#151619] border-r border-white/5 p-10">
-                            <div class="flex items-center gap-4 mb-12"><div class="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center"><i class="fa-solid fa-cloud text-white"></i></div><span class="text-white font-bold text-lg">Salesforce</span></div>
-                            <div class="text-indigo-400 text-sm font-bold flex items-center gap-4 p-3 bg-white/5 rounded-xl mb-4"><i class="fa-solid fa-chart-pie"></i> Overview</div>
-                            <div class="text-zinc-500 text-sm flex items-center gap-4 p-3"><i class="fa-solid fa-bullseye"></i> Opportunities</div>
-                            <div class="text-zinc-500 text-sm flex items-center gap-4 p-3"><i class="fa-solid fa-users"></i> Customers</div>
+                        <div class="w-[300px] bg-white border-r border-black/5 p-10">
+                            <div class="flex items-center gap-4 mb-12"><div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-md"><i class="fa-solid fa-cloud text-white"></i></div><span class="text-gray-900 font-bold text-lg">Salesforce</span></div>
+                            <div class="text-indigo-600 text-sm font-bold flex items-center gap-4 p-3 bg-indigo-50 rounded-xl mb-4"><i class="fa-solid fa-chart-pie"></i> Overview</div>
+                            <div class="text-gray-500 font-medium text-sm flex items-center gap-4 p-3"><i class="fa-solid fa-bullseye"></i> Opportunities</div>
+                            <div class="text-gray-500 font-medium text-sm flex items-center gap-4 p-3"><i class="fa-solid fa-users"></i> Customers</div>
                         </div>
-                        <div class="flex-1 bg-[#0C0D0F] p-16">
-                            <div class="text-zinc-500 text-xs font-bold uppercase mb-12 tracking-widest text-left">Dashboards / <span class="text-white">Q4 Sales Performance</span></div>
-                            <div class="text-4xl font-bold text-white mb-10 tracking-tight leading-none text-left uppercase">Revenue Overview</div>
+                        <div class="flex-1 bg-gray-50 p-16">
+                            <div class="text-gray-500 text-xs font-bold uppercase mb-12 tracking-widest text-left">Dashboards / <span class="text-gray-900">Q4 Sales Performance</span></div>
+                            <div class="text-4xl font-bold text-gray-900 mb-10 tracking-tight leading-none text-left uppercase">Revenue Overview</div>
                             <div class="grid grid-cols-3 gap-8 text-left">
-                                <div class="bg-[#151619] p-8 rounded-2xl border border-white/5 text-left"><p class="text-zinc-500 text-[10px] uppercase mb-4 tracking-widest">Total Revenue</p><p class="text-3xl font-black text-white">€ 248.5k</p><p class="text-green-500 text-xs mt-4 font-bold">↑ +12.5%</p></div>
-                                <div class="bg-[#151619] p-8 rounded-2xl border border-white/5 text-left"><p class="text-zinc-500 text-[10px] uppercase mb-4 tracking-widest">Active Deals</p><p class="text-3xl font-black text-white">1,240</p></div>
-                                <div class="bg-[#151619] p-8 rounded-2xl border border-white/5 text-left"><p class="text-zinc-500 text-[10px] uppercase mb-4 tracking-widest">Conversion</p><p class="text-3xl font-black text-white">3.8%</p></div>
+                                <div class="bg-white p-8 rounded-2xl border border-black/5 shadow-sm text-left"><p class="text-gray-500 text-[10px] uppercase mb-4 tracking-widest font-bold">Total Revenue</p><p class="text-3xl font-black text-gray-900">€ 248.5k</p><p class="text-green-600 text-xs mt-4 font-bold">↑ +12.5%</p></div>
+                                <div class="bg-white p-8 rounded-2xl border border-black/5 shadow-sm text-left"><p class="text-gray-500 text-[10px] uppercase mb-4 tracking-widest font-bold">Active Deals</p><p class="text-3xl font-black text-gray-900">1,240</p></div>
+                                <div class="bg-white p-8 rounded-2xl border border-black/5 shadow-sm text-left"><p class="text-gray-500 text-[10px] uppercase mb-4 tracking-widest font-bold">Conversion</p><p class="text-3xl font-black text-gray-900">3.8%</p></div>
                             </div>
                         </div>
                     </div>
@@ -640,25 +623,25 @@ Un approccio “ingegneristico” alla crescita aziendale.
                 <div class="h-full flex flex-col">
                     <span class="kicker-grey text-center md:text-left">/// APPROCCIO_OPERATIVO</span>
                     <h2 class="text-3xl md:text-5xl text-gradient-grey mb-6 uppercase text-center md:text-left">Profilo Professionale</h2>
-                    <div class="p-6 bg-indigo-500/5 border-l-2 border-indigo-500 rounded-r-2xl mb-1 text-left">
-                        <p class="text-zinc-300 italic text-sm">"Marketing, vendite, produzione e amministrazione non parlano lingue diverse, sono punti di vista differenti dello stesso flusso."</p>
+                    <div class="p-6 bg-indigo-50 border-l-2 border-indigo-600 rounded-r-2xl mb-1 text-left">
+                        <p class="text-gray-700 font-medium italic text-sm">"Marketing, vendite, produzione e amministrazione non parlano lingue diverse, sono punti di vista differenti dello stesso flusso."</p>
                     </div>
                     <div class="stage-bio">
                         <div class="indesign-window">
                             <div class="flex flex-col h-full overflow-hidden">
-                                <div class="h-10 bg-[#323232] border-b border-black flex items-center px-4 justify-between rounded-t-xl text-left">
-                                    <div class="flex gap-2 items-center"><i class="fa-solid fa-file-pdf text-red-500 ml-4"></i><span class="text-white font-bold ml-2 text-[10px]">Adobe Acrobat Pro - STRATEGIC_PLAN_REVIEW_2026.pdf</span><span class="text-[10px] text-zinc-400 ml-4 font-normal uppercase tracking-wide">File Edit View Sign Window</span></div>
+                                <div class="h-10 bg-gray-200 border-b border-gray-300 flex items-center px-4 justify-between rounded-t-xl text-left">
+                                    <div class="flex gap-2 items-center"><i class="fa-solid fa-file-pdf text-red-600 ml-4"></i><span class="text-gray-800 font-bold ml-2 text-[10px]">Adobe Acrobat Pro - STRATEGIC_PLAN_REVIEW_2026.pdf</span><span class="text-[10px] text-gray-500 ml-4 font-bold uppercase tracking-wide">File Edit View Sign Window</span></div>
                                 </div>
                                 <div class="flex-1 flex overflow-hidden">
-                                    <div class="w-10 bg-[#323232] border-r border-black flex flex-col items-center py-4 gap-4 text-zinc-500 text-xs"><i class="fa-solid fa-arrow-pointer text-indigo-400"></i><i class="fa-solid fa-font"></i><i class="fa-regular fa-square"></i></div>
-                                    <div class="flex-1 bg-[#181818] flex justify-center items-start p-6">
-                                        <div class="w-full h-[650px] bg-white relative overflow-hidden shadow-2xl">
+                                    <div class="w-10 bg-gray-100 border-r border-gray-300 flex flex-col items-center py-4 gap-4 text-gray-500 text-xs"><i class="fa-solid fa-arrow-pointer text-indigo-600"></i><i class="fa-solid fa-font"></i><i class="fa-regular fa-square"></i></div>
+                                    <div class="flex-1 bg-gray-50 flex justify-center items-start p-6">
+                                        <div class="w-full h-[650px] bg-white relative overflow-hidden shadow-lg border border-gray-200">
                                             <div class="absolute top-0 left-0 right-0 h-[480px] border-b border-blue-400/30 overflow-hidden">
                                                 <img src="assets/img/francesco-gubertini-dimensioni-grandi.jpeg" class="w-full h-full object-cover object-top" alt="Francesco Gubertini">
                                             </div>
                                             <div class="absolute bottom-10 left-10 right-10 space-y-3">
-                                                <div class="h-2 w-full bg-zinc-100 rounded-full"></div>
-                                                <div class="h-2 w-5/6 bg-zinc-100 rounded-full"></div>
+                                                <div class="h-2 w-full bg-gray-200 rounded-full"></div>
+                                                <div class="h-2 w-5/6 bg-gray-200 rounded-full"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -670,19 +653,19 @@ Un approccio “ingegneristico” alla crescita aziendale.
             </div>
             <div class="md:col-span-8 bento-card p-6 md:p-14 reveal text-left">
                 <div class="spotlight-overlay"></div>
-                <h3 class="text-3xl font-bold text-white mb-10 tracking-tight leading-tight uppercase text-center md:text-left">Marketing Manager &amp; Data Analyst</h3>
-                <div class="space-y-10 text-zinc-400 leading-relaxed text-lg text-justify">
-                    <p>Gestisco il marketing con le stesse dinamiche del <strong>Controllo di Gestione</strong>. Non mi limito al supporto operativo: <strong>Sviluppo piani marketing che supportano il margine</strong>. Il mio lavoro inizia analizzando lo storico vendite, il magazzino, i clienti e il posizionamento di mercato, e finisce misurando l'utile netto generato da ogni azione. Supero la logica a compartimenti stagni: integro Business Intelligence e Visione Industriale per prendere decisioni che garantiscono scalabilità e vantaggio competitivo sostenibile.</p>
+                <h3 class="text-3xl font-bold text-gray-900 mb-10 tracking-tight leading-tight uppercase text-center md:text-left">Marketing Manager &amp; Data Analyst</h3>
+                <div class="space-y-10 text-gray-600 font-medium leading-relaxed text-lg text-justify">
+                    <p>Gestisco il marketing con le stesse dinamiche del <strong>Controllo di Gestione</strong>. Non mi limito al supporto operativo: <strong>Sviluppo piani marketing che supportano il margine</strong>. Il mio lavoro inizia analizzando lo storico vendite, il magazzino, i clienti e il posizionamento di mercato, e finisce misurando l'utile netto generato da ogni action. Supero la logica a compartimenti stagni: integro Business Intelligence e Visione Industriale per prendere decisioni che garantiscono scalabilità e vantaggio competitivo sostenibile.</p>
                     
                     <div>
-                        <h4 class="text-white font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-500 pl-4 text-center md:text-left">Percorso Strategico e Versatilità</h4>
-                        <p class="text-base text-zinc-400">Ho maturato un'esperienza trasversale in settori ad alta complessità tecnica, operando sia in contesti multinazionali che in realtà imprenditoriali evolute. Questa duplice natura mi permette di agire come un asset strategico capace di governare l'intero processo: dall'analisi di mercato alla performance commerciale, con un focus costante sul ROI e sulla riduzione del rischio d'impresa.</p>
+                        <h4 class="text-gray-900 font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-600 pl-4 text-center md:text-left">Percorso Strategico e Versatilità</h4>
+                        <p class="text-base text-gray-600">Ho maturato un'esperienza trasversale in settori ad alta complessità tecnica, operando sia in contesti multinazionali che in realtà imprenditoriali evolute. Questa duplice natura mi permette di agire come un asset strategico capace di governare l'intero processo: dall'analisi di mercato alla performance commerciale, con un focus costante sul ROI e sulla riduzione del rischio d'impresa.</p>
                     </div>
 
                     <div>
-                        <h4 class="text-white font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-500 pl-4 text-center md:text-left">Innovazione e Gestione del Cambiamento</h4>
-                        <p class="text-base text-zinc-400 mb-4 text-left">Credo fermamente che la performance sia il risultato di una strategia ben orchestrata. Nel mio percorso ho:</p>
-                        <ul class="content-list text-base text-zinc-400">
+                        <h4 class="text-gray-900 font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-600 pl-4 text-center md:text-left">Innovazione e Gestione del Cambiamento</h4>
+                        <p class="text-base text-gray-600 mb-4 text-left">Credo fermamente che la performance sia il risultato di una strategia ben orchestrata. Nel mio percorso ho:</p>
+                        <ul class="content-list text-base text-gray-600">
                             <li><strong>Guidato progetti di Digitalizzazione:</strong> implementando sistemi CRM che hanno digitalizzato i processi e promosso una cultura aziendale orientata al dato.</li>
                             <li><strong>Ottimizzato le risorse:</strong> trasformando i limiti di budget in opportunità di efficienza, internalizzando attività ad alto valore e superando gli obiettivi di business attraverso l'innovazione tecnologica.</li>
                             <li><strong>Potenziato i risultati con l'AI:</strong> oggi integro l'Intelligenza Artificiale Predittiva per offrire alle aziende un vantaggio competitivo basato su fatti, previsioni accurate ed efficienza operativa.</li>
@@ -690,8 +673,8 @@ Un approccio “ingegneristico” alla crescita aziendale.
                     </div>
 
                     <div>
-                        <h4 class="text-white font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-500 pl-4 text-center md:text-left">Perché un approccio analitico?</h4>
-                        <p class="text-base text-zinc-400 text-left">Perché l'intuizione non basta più. Oggi serve sapere prima quanto costerà acquisire un cliente e quanto renderà nel tempo. Mi propongo come un <strong>Marketing Manager</strong> capace di definire una visione chiara, ma soprattutto di tradurre tale visione in risultati concreti, misurabili e profittevoli.</p>
+                        <h4 class="text-gray-900 font-bold text-base uppercase tracking-widest mb-4 border-l-2 border-indigo-600 pl-4 text-center md:text-left">Perché un approccio analitico?</h4>
+                        <p class="text-base text-gray-600 text-left">Perché l'intuizione non basta più. Oggi serve sapere prima quanto costerà acquisire un cliente e quanto renderà nel tempo. Mi propongo come un <strong>Marketing Manager</strong> capace di definire una visione chiara, ma soprattutto di tradurre tale visione in risultati concreti, misurabili e profittevoli.</p>
                     </div>
                 </div>
             </div>
@@ -702,7 +685,7 @@ Un approccio “ingegneristico” alla crescita aziendale.
         <div class="mb-16 reveal text-center">
             <span class="kicker-grey">/// INTELLIGENZA_INDUSTRIALE</span>
             <h2 class="text-3xl md:text-5xl text-gradient-grey mb-6 uppercase">Previsione della Domanda e Automazione</h2>
-            <p class="text-zinc-500 max-w-3xl mx-auto text-lg leading-relaxed italic text-center">"Usare l'Intelligenza Artificiale non per generare testi, ma per analizzare migliaia di righe di Excel in secondi, prevedere i picchi d'ordine e automatizzare le attività d'ufficio ripetitive."</p>
+            <p class="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed italic text-center font-medium">"Usare l'Intelligenza Artificiale non per generare testi, ma per analizzare migliaia di righe di Excel in secondi, prevedere i picchi d'ordine e automatizzare le attività d'ufficio ripetitive."</p>
         </div>
 
         <div class="ai-grid-new reveal">
@@ -712,12 +695,12 @@ Un approccio “ingegneristico” alla crescita aziendale.
                         <div class="wave-graph"><div class="wave-line"></div><div class="main-curve"></div></div>
                     </div>
                     <h3 class="text-xl font-bold mb-4 uppercase tracking-widest text-center" style="color: var(--accent-blue)">Ottimizzazione Stock &amp; Acquisti</h3>
-                    <ul class="content-list text-[11px] text-zinc-400 mb-6">
+                    <ul class="content-list text-[11px] text-gray-600 font-medium mb-6">
                         <li>Analisi dati storici per logistica e produzione.</li>
                         <li>Riduzione giacenze magazzino.</li>
                         <li>Supporto al budget di vendita.</li>
                     </ul>
-                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest text-center">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-4 text-gray-900 text-xs font-bold uppercase tracking-widest text-center hover:text-indigo-600 transition-colors">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
             <div class="card-wrapper-ai tilt-card-ai" onclick="openModal('m-ai-governance')">
@@ -726,12 +709,12 @@ Un approccio “ingegneristico” alla crescita aziendale.
                         <div class="node-system"><div class="nc-center"></div></div>
                     </div>
                     <h3 class="text-xl font-bold mb-4 uppercase tracking-widest text-center" style="color: var(--accent-purple)">Cruscotti Direzionali</h3>
-                    <ul class="content-list text-[11px] text-zinc-400 mb-6">
+                    <ul class="content-list text-[11px] text-gray-600 font-medium mb-6">
                         <li>Dashboard di controllo KPI.</li>
                         <li>Monitoraggio marginalità per prodotto.</li>
                         <li>Supporto decisionale oggettivo.</li>
                     </ul>
-                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest text-center">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-4 text-gray-900 text-xs font-bold uppercase tracking-widest text-center hover:text-indigo-600 transition-colors">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
             <div class="card-wrapper-ai tilt-card-ai" onclick="openModal('m-ai-gen')">
@@ -740,12 +723,12 @@ Un approccio “ingegneristico” alla crescita aziendale.
                         <div class="term-box-ai"><div class="t-line-ai"></div><div class="t-line-ai"></div><div class="t-line-ai active"></div></div>
                     </div>
                     <h3 class="text-xl font-bold mb-4 uppercase tracking-widest text-center" style="color: var(--accent-green)">Efficienza Operativa</h3>
-                    <ul class="content-list text-[11px] text-zinc-400 mb-6">
+                    <ul class="content-list text-[11px] text-gray-600 font-medium mb-6">
                         <li>Liberare ore uomo per il reparto.</li>
                         <li>Automazione traduzioni e schede tecniche.</li>
                         <li>Efficienza dei processi interni.</li>
                     </ul>
-                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest text-center">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-4 text-gray-900 text-xs font-bold uppercase tracking-widest text-center hover:text-indigo-600 transition-colors">Scopri di più <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
         </div>
@@ -768,12 +751,12 @@ Un approccio “ingegneristico” alla crescita aziendale.
                         <div class="file-item"><i class="fa-solid fa-database json-icon"></i> leads_data.json</div>
                         <div class="file-item"><i class="fa-regular fa-file-code md-icon"></i> strategy.md</div>
                         <div class="exp-header" style="margin-top:20px;">AGENTS</div>
-                        <div class="file-item"><i class="fa-solid fa-robot" style="color:#ff7b72"></i> market_simulation</div>
-                        <div class="file-item"><i class="fa-solid fa-robot" style="color:#79c0ff"></i> roi_forecaster</div>
+                        <div class="file-item"><i class="fa-solid fa-robot" style="color:#d97706"></i> market_simulation</div>
+                        <div class="file-item"><i class="fa-solid fa-robot" style="color:#0284c7"></i> roi_forecaster</div>
                     </div>
                     <div class="editor-area">
                         <div class="tabs-bar">
-                            <div class="tab"><i class="fa-brands fa-python"></i> sales_log.txt <span style="margin-left:10px; font-size:0.7rem;">✕</span></div>
+                            <div class="tab"><i class="fa-brands fa-python" style="color:#0550ae;"></i> sales_log.txt <span style="margin-left:10px; font-size:0.7rem;">✕</span></div>
                         </div>
                         <div class="code-content">
                             <div class="ai-chip chip-model"><i class="fa-solid fa-microchip"></i> Model: GPT-4-Turbo</div>
@@ -781,7 +764,7 @@ Un approccio “ingegneristico” alla crescita aziendale.
                             <div><span class="log-succ"> &gt; SYSTEM UPDATE: AVVIO ANALISI Q4...</span></div>
                             <div><span class="log-info"> &gt; CARICAMENTO DATI VENDITA CRM... [OK]</span></div>
                             <div><span class="log-info"> &gt; INCROCIO DATI FATTURATO vs SPESA MEDIA... [OK]</span></div>
-                            <div><span style="color:white;"> &gt; ALERT: MARGINALITÀ PRODOTTO X SOTTO SOGLIA (12%)</span></div>
+                            <div><span style="color:#cf222e; font-weight:bold;"> &gt; ALERT: MARGINALITÀ PRODOTTO X SOTTO SOGLIA (12%)</span></div>
                             <div><span class="log-info"> &gt; AZIONE CONSIGLIATA: SPOSTARE BUDGET SU PRODOTTO Z</span></div>
                             <div><span class="log-succ"> &gt; CALCOLO ROI CAMPAGNA: POSITIVO (+22%).</span><span class="cursor"></span></div>
                         </div>
@@ -795,7 +778,7 @@ Un approccio “ingegneristico” alla crescita aziendale.
                             <div class="log-line"><span class="log-time">[14:02:34]</span> <span class="log-info">ℹ Connecting to Data Warehouse (Snowflake)... Connected.</span></div>
                             <div class="log-line"><span class="log-time">[14:02:35]</span> <span>&gt; Fetching Q3 Sales Data (14,200 records)</span></div>
                             <div class="log-line"><span class="log-time">[14:02:38]</span> <span class="log-succ">✔ Model training complete. Accuracy: 98.4%</span></div>
-                            <div class="log-line"><span class="log-time">[14:02:39]</span> <span style="color:#d2a8ff">★ Insight Generated:</span> Increase budget on LinkedIn by 15%.</div>
+                            <div class="log-line"><span class="log-time">[14:02:39]</span> <span style="color:#8250df; font-weight:bold;">★ Insight Generated:</span> Increase budget on LinkedIn by 15%.</div>
                             <div class="log-line"><span class="log-time">[14:02:39]</span> <span>_</span></div>
                         </div>
                     </div>
@@ -804,13 +787,13 @@ Un approccio “ingegneristico” alla crescita aziendale.
         </div>
     </section>
 
-    <section id="skills" class="stack-section reveal" style="background-image: radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.03) 0%, transparent 25%), radial-gradient(circle at 85% 30%, rgba(167, 139, 250, 0.03) 0%, transparent 25%); border-radius: 20px;">
+    <section id="skills" class="stack-section reveal" style="background-image: radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 25%), radial-gradient(circle at 85% 30%, rgba(167, 139, 250, 0.05) 0%, transparent 25%); border-radius: 20px; background-color: #fff; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
         <div class="header-wrap">
             <span class="sys-label kicker-grey">/// SYSTEM_CAPABILITIES</span>
             <h2 class="text-3xl md:text-5xl text-gradient-grey uppercase">Strumenti Decisionali &amp;<br>Operational Stack</h2>
         </div>
         <div class="modules-grid">
-            <div class="tech-module" style="--module-color: var(--col-data); --module-glow: rgba(56, 189, 248, 0.4);">
+            <div class="tech-module" style="--module-color: var(--col-data);">
                 <div class="module-header">
                     <div class="m-icon-box"><i class="fa-solid fa-brain"></i></div>
                     <div class="m-title-group">
@@ -849,7 +832,7 @@ Un approccio “ingegneristico” alla crescita aziendale.
                     </div>
                 </div>
             </div>
-            <div class="tech-module" style="--module-color: var(--col-crm); --module-glow: rgba(74, 222, 128, 0.4);">
+            <div class="tech-module" style="--module-color: var(--col-crm);">
                 <div class="module-header">
                     <div class="m-icon-box"><i class="fa-solid fa-network-wired"></i></div>
                     <div class="m-title-group">
@@ -888,7 +871,7 @@ Un approccio “ingegneristico” alla crescita aziendale.
                     </div>
                 </div>
             </div>
-            <div class="tech-module" style="--module-color: var(--col-mkt); --module-glow: rgba(251, 146, 60, 0.4);">
+            <div class="tech-module" style="--module-color: var(--col-mkt);">
                 <div class="module-header">
                     <div class="m-icon-box"><i class="fa-solid fa-bullhorn"></i></div>
                     <div class="m-title-group">
@@ -927,7 +910,7 @@ Un approccio “ingegneristico” alla crescita aziendale.
                     </div>
                 </div>
             </div>
-            <div class="tech-module" style="--module-color: var(--col-des); --module-glow: rgba(167, 139, 250, 0.4);">
+            <div class="tech-module" style="--module-color: var(--col-des);">
                 <div class="module-header">
                     <div class="m-icon-box"><i class="fa-solid fa-pen-ruler"></i></div>
                     <div class="m-title-group">
@@ -991,7 +974,7 @@ Un approccio “ingegneristico” alla crescita aziendale.
                     <p class="role-desc-xp">L'azienda aveva bisogno di strumenti per la GDO. Ho creato un sistema di analisi dei competitor per posizionare il prodotto al prezzo corretto, massimizzando i volumi senza erodere il margine.</p>
                     <div class="tags"><span class="tag-xp">Predictive Analysis</span><span class="tag-xp">Power BI</span><span class="tag-xp">GDO</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
-                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-4 text-gray-900 text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
 
@@ -1000,30 +983,30 @@ Un approccio “ingegneristico” alla crescita aziendale.
                 <div class="xp-dot" style="border-color:var(--accent-orange)"></div>
                 <div class="xp-card" onclick="openModal('m-acetaia')">
                     <div class="card-top">
-                        <div class="company-logo"><div class="c-icon" style="background:#F59E0B; color:#000;"><i class="fa-solid fa-leaf"></i></div><span>Acetaia Gubertini</span></div>
+                        <div class="company-logo"><div class="c-icon" style="background:#F59E0B; color:#fff;"><i class="fa-solid fa-leaf"></i></div><span>Acetaia Gubertini</span></div>
                         <div class="xp-status active-status">● ACTIVE</div>
                     </div>
                     <div class="role-title-xp">Marketing Manager &amp; E-commerce Manager</div>
                     <p class="role-desc-xp">Trasformazione da prodotto agricolo a bene di lusso tramite riposizionamento di prezzo e canale. Start-up divisione digitale e gestione completa E-commerce.</p>
                     <div class="tags"><span class="tag-xp">Luxury Positioning</span><span class="tag-xp">Storytelling</span><span class="tag-xp">E-commerce</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
-                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-4 text-gray-900 text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
 
             <div class="xp-card-wrapper" style="top: 160px;">
                 <div class="xp-meta"><div class="xp-date uppercase">Set 2016 - Dic 2017</div><div class="xp-dur uppercase">Waterline - Bevco</div></div>
-                <div class="xp-dot" style="border-color:#888; background:#333;"></div>
+                <div class="xp-dot" style="border-color:#6b7280; background:#f3f4f6;"></div>
                 <div class="xp-card" onclick="openModal('m-bevco')">
                     <div class="card-top">
-                        <div class="company-logo"><div class="c-icon" style="background:#333; border:1px solid #555;"><i class="fa-solid fa-layer-group"></i></div><span>Waterline - Bevco (Solido Group)</span></div>
+                        <div class="company-logo"><div class="c-icon" style="background:#4b5563; border:1px solid #9ca3af;"><i class="fa-solid fa-layer-group text-white"></i></div><span>Waterline - Bevco (Solido Group)</span></div>
                         <div class="xp-status">ARCHIVED</div>
                     </div>
                     <div class="role-title-xp">Responsabile Marketing di Gruppo</div>
                     <p class="role-desc-xp">Gestione post-acquisizione e unificazione Corporate Identity. Coordinamento risorse per il go-to-market dei nuovi prodotti.</p>
                     <div class="tags"><span class="tag-xp">Change Management</span><span class="tag-xp">Corporate Identity</span><span class="tag-xp">GTM</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
-                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-4 text-gray-900 text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
 
@@ -1032,14 +1015,14 @@ Un approccio “ingegneristico” alla crescita aziendale.
                 <div class="xp-dot" style="border-color:var(--accent-blue)"></div>
                 <div class="xp-card" onclick="openModal('m-bmw')">
                     <div class="card-top">
-                        <div class="company-logo"><div class="c-icon" style="background:#40C4FF; color:#000;"><i class="fa-solid fa-car"></i></div><span>BMW Italia</span></div>
+                        <div class="company-logo"><div class="c-icon" style="background:#0284c7; color:#fff;"><i class="fa-solid fa-car"></i></div><span>BMW Italia</span></div>
                         <div class="xp-status">ARCHIVED</div>
                     </div>
                     <div class="role-title-xp">Retail Marketing Specialist</div>
                     <p class="role-desc-xp">Gestione budget marketing (1.5M€/anno). Analisi ROI campagne locali e implementazione standard CRM per la rete di vendita.</p>
                     <div class="tags"><span class="tag-xp">Retail Marketing</span><span class="tag-xp">Sugar CRM</span><span class="tag-xp">KPI Analysis</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
-                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-4 text-gray-900 text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
 
@@ -1048,30 +1031,30 @@ Un approccio “ingegneristico” alla crescita aziendale.
                 <div class="xp-dot" style="border-color:var(--accent-green)"></div>
                 <div class="xp-card" onclick="openModal('m-lapam')">
                     <div class="card-top">
-                        <div class="company-logo"><div class="c-icon" style="background:#27C93F; color:#000;"><i class="fa-solid fa-users"></i></div><span>LAPAM Confartigianato</span></div>
+                        <div class="company-logo"><div class="c-icon" style="background:#16a34a; color:#fff;"><i class="fa-solid fa-users"></i></div><span>LAPAM Confartigianato</span></div>
                         <div class="xp-status">ARCHIVED</div>
                     </div>
                     <div class="role-title-xp">Analista Marketing &amp; Sistemi</div>
                     <p class="role-desc-xp">Analista commerciale focalizzato sull'implementazione sistemi informativi (CRM V-Tiger) e analisi economica.</p>
                     <div class="tags"><span class="tag-xp">V-Tiger</span><span class="tag-xp">Market Research</span><span class="tag-xp">BI</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
-                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-4 text-gray-900 text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
 
              <div class="xp-card-wrapper" style="top: 240px;">
                 <div class="xp-meta"><div class="xp-date uppercase">Apr 2006 - Mag 2010</div><div class="xp-dur uppercase">HTV Retail</div></div>
-                <div class="xp-dot" style="border-color:#555"></div>
+                <div class="xp-dot" style="border-color:#4b5563"></div>
                 <div class="xp-card" onclick="openModal('m-htv')">
                     <div class="card-top">
-                        <div class="company-logo"><div class="c-icon" style="background:#555; color:#fff;"><i class="fa-solid fa-store"></i></div><span>HTV (Retail Fisico)</span></div>
+                        <div class="company-logo"><div class="c-icon" style="background:#4b5563; color:#fff;"><i class="fa-solid fa-store"></i></div><span>HTV (Retail Fisico)</span></div>
                         <div class="xp-status">ARCHIVED</div>
                     </div>
                     <div class="role-title-xp">Responsabile Punto Vendita</div>
                     <p class="role-desc-xp">Gestione operativa e commerciale, obiettivi finanziari, gestione cassa, fatturazione e Customer Relationship Management.</p>
                     <div class="tags"><span class="tag-xp">Store Operations</span><span class="tag-xp">Sales</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
-                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-4 text-gray-900 text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
 
@@ -1087,7 +1070,7 @@ Un approccio “ingegneristico” alla crescita aziendale.
                     <p class="role-desc-xp">Gestione autonoma ciclo completo vendita online internazionale come Power Seller per 6 anni.</p>
                     <div class="tags"><span class="tag-xp">Power Seller</span><span class="tag-xp">Logistics</span><span class="tag-xp">Sourcing</span></div>
                     <div class="expand-hint"><i class="fa-solid fa-expand"></i></div>
-                    <div class="mt-4 text-white text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="mt-4 text-gray-900 text-xs font-bold uppercase tracking-widest md:hidden">Apri Dettagli <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </div>
             <div style="height: 15vh;"></div>
@@ -1104,7 +1087,7 @@ Un approccio “ingegneristico” alla crescita aziendale.
                         <div class="folder-back"></div>
                         <div class="folder-contents">
                             <div class="paper p1"><div class="paper-label uppercase">Tech_Innovation_Superfast.pdf</div></div>
-                            <div class="paper p2"><div class="paper-label uppercase font-black">DIY_Retail_Channel_Strategy.pdf</div><div class="p-6 opacity-30"><i class="fa-solid fa-chess-knight text-2xl text-zinc-400"></i></div></div>
+                            <div class="paper p2"><div class="paper-label uppercase font-black">DIY_Retail_Channel_Strategy.pdf</div><div class="p-6 opacity-30"><i class="fa-solid fa-chess-knight text-2xl text-gray-400"></i></div></div>
                         </div>
                         <div class="folder-glass"></div>
                     </div>
@@ -1116,7 +1099,7 @@ Un approccio “ingegneristico” alla crescita aziendale.
                         <div class="folder-back"></div>
                         <div class="folder-contents">
                             <div class="paper p1"><div class="paper-label uppercase text-left">Profitability_Audit_FY2025.xlsx</div></div>
-                            <div class="paper p2"><div class="paper-label uppercase font-black text-left">Budget_Control_KPI.pdf</div><div class="doc-preview flex items-end gap-1 p-6 opacity-30"><div class="w-2 h-4 bg-green-500"></div><div class="w-2 h-6 bg-zinc-300"></div></div></div>
+                            <div class="paper p2"><div class="paper-label uppercase font-black text-left">Budget_Control_KPI.pdf</div><div class="doc-preview flex items-end gap-1 p-6 opacity-30"><div class="w-2 h-4 bg-green-500"></div><div class="w-2 h-6 bg-gray-400"></div></div></div>
                         </div>
                         <div class="folder-glass"></div>
                     </div>
@@ -1140,7 +1123,7 @@ Un approccio “ingegneristico” alla crescita aziendale.
                         <div class="folder-back"></div>
                         <div class="folder-contents">
                             <div class="paper p1"><div class="paper-label uppercase">element-catalogo-generale-interno-25.pdf</div></div>
-                            <div class="paper p2"><div class="paper-label uppercase font-black">company-profile-it-element.pdf</div><div class="p-6 opacity-30"><div class="w-full h-8 bg-zinc-100 rounded"></div></div></div>
+                            <div class="paper p2"><div class="paper-label uppercase font-black">company-profile-it-element.pdf</div><div class="p-6 opacity-30"><div class="w-full h-8 bg-gray-200 rounded"></div></div></div>
                         </div>
                         <div class="folder-glass"></div>
                     </div>
@@ -1164,7 +1147,7 @@ Un approccio “ingegneristico” alla crescita aziendale.
                         <div class="folder-back"></div>
                         <div class="folder-contents">
                             <div class="paper p1"><div class="paper-label uppercase">Analytical_Price_List_Margin.xlsx</div></div>
-                            <div class="paper p2"><div class="paper-label uppercase font-black">articoli-a-magazzino...xlsx</div><div class="p-6 opacity-30"><i class="fa-solid fa-chart-line text-2xl text-zinc-400"></i></div></div>
+                            <div class="paper p2"><div class="paper-label uppercase font-black">articoli-a-magazzino...xlsx</div><div class="p-6 opacity-30"><i class="fa-solid fa-chart-line text-2xl text-gray-400"></i></div></div>
                         </div>
                         <div class="folder-glass"></div>
                     </div>
@@ -1177,7 +1160,7 @@ Un approccio “ingegneristico” alla crescita aziendale.
     <section id="education" class="max-w-7xl mx-auto px-6 mb-12 md:mb-32 education-texture-bg" style="border-radius:24px; padding: 60px 20px;">
         
         <h2 class="text-3xl md:text-5xl text-gradient-grey uppercase text-center md:text-left mb-6">Formazione Continua su Analisi,<br>Processi e Automazioni.</h2>
-        <p class="text-zinc-400 text-lg max-w-2xl mb-12 text-left">Reskilling tecnico per applicare l'AI ai processi industriali e portare efficienza operativa.</p>
+        <p class="text-gray-600 text-lg font-medium max-w-2xl mb-12 text-left">Reskilling tecnico per applicare l'AI ai processi industriali e portare efficienza operativa.</p>
 
         <div class="bento-grid-edu">
 
@@ -1186,13 +1169,13 @@ Un approccio “ingegneristico” alla crescita aziendale.
                     <svg class="graphic-svg" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
                         <defs>
                             <lineargradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:var(--accent);stop-opacity:0.1"></stop>
-                                <stop offset="100%" style="stop-color:var(--accent-sec);stop-opacity:0.6"></stop>
+                                <stop offset="0%" style="stop-color:var(--accent);stop-opacity:0.2"></stop>
+                                <stop offset="100%" style="stop-color:var(--accent-sec);stop-opacity:0.8"></stop>
                             </lineargradient>
                         </defs>
                         <g fill="none" stroke="url(#grad1)" stroke-width="1.5">
-                            <circle cx="600" cy="300" r="150" stroke-opacity="0.2"></circle>
-                            <circle cx="600" cy="300" r="250" stroke-opacity="0.1"></circle>
+                            <circle cx="600" cy="300" r="150" stroke-opacity="0.4"></circle>
+                            <circle cx="600" cy="300" r="250" stroke-opacity="0.2"></circle>
                             <path d="M400,100 Q500,200 600,300 T800,500"></path>
                             <path d="M450,500 Q550,400 600,300 T750,100"></path>
                             <path d="M200,300 Q400,300 600,300 T1000,300"></path>
@@ -1217,8 +1200,8 @@ Un approccio “ingegneristico” alla crescita aziendale.
                      <svg class="graphic-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                              <lineargradient id="grad2" x1="0%" y1="100%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:var(--accent);stop-opacity:0"></stop>
-                                <stop offset="100%" style="stop-color:#fff;stop-opacity:0.3"></stop>
+                                <stop offset="0%" style="stop-color:var(--accent);stop-opacity:0.1"></stop>
+                                <stop offset="100%" style="stop-color:#4f46e5;stop-opacity:0.6"></stop>
                             </lineargradient>
                         </defs>
                         <g fill="url(#grad2)" transform="translate(100,100) rotate(-15)">
@@ -1240,14 +1223,14 @@ Un approccio “ingegneristico” alla crescita aziendale.
             </div>
 
             <div class="span-12 mini-list-container">
-                <h4 style="margin:0 0 10px 0; color:#fff;" class="text-center md:text-left kicker-grey">/// SPECIALIZZAZIONE_IA</h4>
+                <h4 style="margin:0 0 10px 0;" class="text-gray-900 text-center md:text-left kicker-grey">/// SPECIALIZZAZIONE_IA</h4>
                 
                 <div class="mini-item" onclick="openModal('m-edu-1')">
                     <div class="mini-left">
                         <div class="mini-icon-box"><i class="fa-solid fa-brain"></i></div>
                         <div>
-                            <div style="color:#fff; font-weight:600;">Modelli di IA per la BI</div>
-                            <div style="color:var(--text-main); font-size:0.85rem;">Zenit Formazione • Analytics &amp; Prompting</div>
+                            <div style="color:#111; font-weight:700;">Modelli di IA per la BI</div>
+                            <div style="color:#6b7280; font-weight:500; font-size:0.85rem;">Zenit Formazione • Analytics &amp; Prompting</div>
                         </div>
                     </div>
                     <span class="mini-link-btn">2025</span>
@@ -1255,10 +1238,10 @@ Un approccio “ingegneristico” alla crescita aziendale.
 
                 <div class="mini-item" onclick="openModal('m-edu-2')">
                     <div class="mini-left">
-                        <div class="mini-icon-box" style="color:var(--accent-sec); background:rgba(45, 212, 191, 0.1);"><i class="fa-solid fa-table-columns"></i></div>
+                        <div class="mini-icon-box" style="color:var(--accent-sec); background:rgba(13, 148, 136, 0.1);"><i class="fa-solid fa-table-columns"></i></div>
                         <div>
-                            <div style="color:#fff; font-weight:600;">IA ed Excel Avanzato</div>
-                            <div style="color:var(--text-main); font-size:0.85rem;">Zenit Formazione • Dashboard Dinamiche</div>
+                            <div style="color:#111; font-weight:700;">IA ed Excel Avanzato</div>
+                            <div style="color:#6b7280; font-weight:500; font-size:0.85rem;">Zenit Formazione • Dashboard Dinamiche</div>
                         </div>
                     </div>
                     <span class="mini-link-btn">2025</span>
@@ -1268,8 +1251,8 @@ Un approccio “ingegneristico” alla crescita aziendale.
                      <div class="mini-left">
                         <div class="mini-icon-box"><i class="fa-solid fa-chess-knight"></i></div>
                         <div>
-                            <div style="color:#fff; font-weight:600;">IA nel Decision Making</div>
-                            <div style="color:var(--text-main); font-size:0.85rem;">Zenit Formazione • Strategia Predittiva</div>
+                            <div style="color:#111; font-weight:700;">IA nel Decision Making</div>
+                            <div style="color:#6b7280; font-weight:500; font-size:0.85rem;">Zenit Formazione • Strategia Predittiva</div>
                         </div>
                     </div>
                     <span class="mini-link-btn">2025</span>
@@ -1279,8 +1262,8 @@ Un approccio “ingegneristico” alla crescita aziendale.
                     <div class="mini-left">
                         <div class="mini-icon-box" style="color:#F59E0B; background:rgba(245, 158, 11, 0.1);"><i class="fa-solid fa-headset"></i></div>
                         <div>
-                            <div style="color:#fff; font-weight:600;">Vendite e Servizi con AI</div>
-                            <div style="color:var(--text-main); font-size:0.85rem;">IFOA • Customer Experience</div>
+                            <div style="color:#111; font-weight:700;">Vendite e Servizi con AI</div>
+                            <div style="color:#6b7280; font-weight:500; font-size:0.85rem;">IFOA • Customer Experience</div>
                         </div>
                     </div>
                     <span class="mini-link-btn">2024</span>
@@ -1297,63 +1280,63 @@ Un approccio “ingegneristico” alla crescita aziendale.
 
         <div class="grid md:grid-cols-2 gap-6">
             
-            <div class="bento-card p-8 border border-white/10 rounded-3xl relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity"><i class="fa-solid fa-microchip text-6xl text-indigo-500"></i></div>
-                <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3"><i class="fa-solid fa-brain text-indigo-400"></i> Innovazione &amp; AI</h3>
+            <div class="bento-card p-8 border border-black/5 rounded-3xl relative overflow-hidden group shadow-sm bg-white">
+                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"><i class="fa-solid fa-microchip text-6xl text-indigo-600"></i></div>
+                <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3"><i class="fa-solid fa-brain text-indigo-500"></i> Innovazione &amp; AI</h3>
                 <ul class="space-y-4">
-                    <li class="flex items-center justify-between text-zinc-400 text-sm border-b border-white/5 pb-2">
+                    <li class="flex items-center justify-between text-gray-600 font-medium text-sm border-b border-gray-100 pb-2">
                         <span>AI Business Strategy</span>
-                        <span class="px-2 py-1 bg-indigo-500/20 text-indigo-300 text-[10px] font-bold rounded uppercase border border-indigo-500/30">Zenit</span>
+                        <span class="px-2 py-1 bg-indigo-50 text-indigo-600 text-[10px] font-bold rounded uppercase border border-indigo-200">Zenit</span>
                     </li>
-                    <li class="flex items-center justify-between text-zinc-400 text-sm border-b border-white/5 pb-2">
+                    <li class="flex items-center justify-between text-gray-600 font-medium text-sm border-b border-gray-100 pb-2">
                         <span>Generative AI</span>
-                        <span class="px-2 py-1 bg-indigo-500/20 text-indigo-300 text-[10px] font-bold rounded uppercase border border-indigo-500/30">Zenit</span>
+                        <span class="px-2 py-1 bg-indigo-50 text-indigo-600 text-[10px] font-bold rounded uppercase border border-indigo-200">Zenit</span>
                     </li>
-                    <li class="flex items-center justify-between text-zinc-400 text-sm border-b border-white/5 pb-2">
+                    <li class="flex items-center justify-between text-gray-600 font-medium text-sm border-b border-gray-100 pb-2">
                         <span>Power BI &amp; Analytics</span>
-                        <span class="px-2 py-1 bg-indigo-500/20 text-indigo-300 text-[10px] font-bold rounded uppercase border border-indigo-500/30">Zenit</span>
+                        <span class="px-2 py-1 bg-indigo-50 text-indigo-600 text-[10px] font-bold rounded uppercase border border-indigo-200">Zenit</span>
                     </li>
                 </ul>
             </div>
 
             <div class="grid grid-rows-2 gap-6">
-                <div class="bento-card p-6 border border-white/10 rounded-3xl">
-                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><i class="fa-solid fa-chess text-emerald-400"></i> Endorsement Professionali</h3>
+                <div class="bento-card p-6 border border-black/5 rounded-3xl shadow-sm bg-white">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-chess text-emerald-500"></i> Endorsement Professionali</h3>
                     <div class="grid grid-cols-2 gap-3">
-                        <div class="bg-white/5 p-3 rounded-lg border border-white/5 flex flex-col justify-center">
-                            <div class="text-2xl font-black text-white leading-none mb-1">26</div>
-                            <div class="text-[10px] text-zinc-500 uppercase tracking-wider">Progetti Gestiti</div>
+                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 flex flex-col justify-center">
+                            <div class="text-2xl font-black text-gray-900 leading-none mb-1">26</div>
+                            <div class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Progetti Gestiti</div>
                         </div>
-                        <div class="bg-white/5 p-3 rounded-lg border border-white/5 flex flex-col justify-center">
-                            <div class="text-2xl font-black text-white leading-none mb-1">21</div>
-                            <div class="text-[10px] text-zinc-500 uppercase tracking-wider">Team Gestiti</div>
+                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 flex flex-col justify-center">
+                            <div class="text-2xl font-black text-gray-900 leading-none mb-1">21</div>
+                            <div class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Team Gestiti</div>
                         </div>
-                        <div class="bg-white/5 p-3 rounded-lg border border-white/5 flex flex-col justify-center">
-                            <div class="text-2xl font-black text-white leading-none mb-1">19</div>
-                            <div class="text-[10px] text-zinc-500 uppercase tracking-wider">Digital Transf.</div>
+                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 flex flex-col justify-center">
+                            <div class="text-2xl font-black text-gray-900 leading-none mb-1">19</div>
+                            <div class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Digital Transf.</div>
                         </div>
-                        <div class="bg-white/5 p-3 rounded-lg border border-white/5 flex flex-col justify-center">
-                            <div class="text-2xl font-black text-white leading-none mb-1">18</div>
-                            <div class="text-[10px] text-zinc-500 uppercase tracking-wider">E-commerce</div>
+                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 flex flex-col justify-center">
+                            <div class="text-2xl font-black text-gray-900 leading-none mb-1">18</div>
+                            <div class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">E-commerce</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bento-card p-6 border border-white/10 rounded-3xl">
-                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><i class="fa-solid fa-gears text-orange-400"></i> Digital &amp; Ops</h3>
+                <div class="bento-card p-6 border border-black/5 rounded-3xl shadow-sm bg-white">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-gears text-orange-500"></i> Digital &amp; Ops</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-zinc-400">Microsoft Office <strong class="text-white ml-1">16</strong></span>
-                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-zinc-400">Mktg Comms <strong class="text-white ml-1">14</strong></span>
-                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-zinc-400">Business Planning <strong class="text-white ml-1">12</strong></span>
-                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-zinc-400">Sales Mgmt <strong class="text-white ml-1">12</strong></span>
-                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-zinc-400">Google Analytics <strong class="text-white ml-1">10</strong></span>
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs font-medium text-gray-600">Microsoft Office <strong class="text-gray-900 ml-1">16</strong></span>
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs font-medium text-gray-600">Mktg Comms <strong class="text-gray-900 ml-1">14</strong></span>
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs font-medium text-gray-600">Business Planning <strong class="text-gray-900 ml-1">12</strong></span>
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs font-medium text-gray-600">Sales Mgmt <strong class="text-gray-900 ml-1">12</strong></span>
+                        <span class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-xs font-medium text-gray-600">Google Analytics <strong class="text-gray-900 ml-1">10</strong></span>
                     </div>
                 </div>
             </div>
         </div>
         
         <div class="mt-8 text-center md:text-left">
-             <a href="https://www.linkedin.com/in/gubertini/" target="_blank" class="inline-flex items-center gap-2 bg-[#0A66C2] hover:bg-[#004182] text-white px-6 py-3 rounded-xl font-bold transition-all text-sm uppercase tracking-widest shadow-lg shadow-blue-900/20">
+             <a href="https://www.linkedin.com/in/gubertini/" target="_blank" class="inline-flex items-center gap-2 bg-[#0A66C2] hover:bg-[#004182] text-white px-6 py-3 rounded-xl font-bold transition-all text-sm uppercase tracking-widest shadow-md">
                 <i class="fa-brands fa-linkedin text-lg"></i> Vai al profilo completo
              </a>
         </div>
@@ -1362,40 +1345,40 @@ Un approccio “ingegneristico” alla crescita aziendale.
     <section class="max-w-4xl mx-auto px-6 mb-32">
         <div class="grid md:grid-cols-2 gap-6 mb-12 reveal">
             <div class="bento-card p-8 text-left h-full">
-                <h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-4 font-black text-center md:text-left">
-                    <i class="fa-solid fa-hand-holding-heart mr-2 text-indigo-500"></i>Approccio Integrato
+                <h4 class="text-gray-900 font-bold text-[10px] uppercase tracking-widest mb-4 font-black text-center md:text-left">
+                    <i class="fa-solid fa-hand-holding-heart mr-2 text-indigo-600"></i>Approccio Integrato
                 </h4>
-                <p class="text-zinc-500 text-xs leading-relaxed italic text-justify text-left">
+                <p class="text-gray-600 text-xs font-medium leading-relaxed italic text-justify text-left">
                     Controllo incrociato tra Marketing, Vendite e Produzione. Nessuna decisione viene presa senza la validazione dei dati.
                 </p>
             </div>
             <div class="bento-card p-8 text-left h-full">
-                <h4 class="text-white font-bold text-[10px] uppercase tracking-widest mb-4 font-black text-center md:text-left">
-                    <i class="fa-solid fa-heart mr-2 text-indigo-500"></i>Focus
+                <h4 class="text-gray-900 font-bold text-[10px] uppercase tracking-widest mb-4 font-black text-center md:text-left">
+                    <i class="fa-solid fa-heart mr-2 text-indigo-600"></i>Focus
                 </h4>
-                <p class="text-zinc-500 text-xs leading-relaxed italic text-justify text-left">
+                <p class="text-gray-600 text-xs font-medium leading-relaxed italic text-justify text-left">
                     Dedizione totale al raggiungimento degli obiettivi. La mia passione è costruire sistemi che funzionano e generano valore misurabile nel tempo.
                 </p>
             </div>
         </div>
 
         <div class="text-center reveal">
-            <h2 class="text-2xl md:text-3xl font-black italic linear-gradient-text leading-[1.3] uppercase">
+            <h2 class="text-2xl md:text-3xl font-black italic text-gray-900 leading-[1.3] uppercase">
                 "Sono curioso di natura, cerco costantemente nuove soluzioni addentrandomi nei problemi fino a trovare una soluzione. Credo nelle best practice e nell'evoluzione progressiva sistemica."
             </h2>
         </div>
     </section>
 
-    <footer class="bg-black py-20 px-6 border-t border-white/10 text-center">
+    <footer class="bg-gray-100 py-20 px-6 border-t border-gray-200 text-center">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-5xl text-gradient-grey mb-4 tracking-tight uppercase">PRONTI A COLLABORARE?</h2>
-            <p class="text-zinc-500 text-lg mb-10">Trasformiamo i dati in crescita strutturata.</p>
-            <a href="mailto:info@francescogubertini.it" class="inline-block bg-white text-black px-8 py-4 rounded-lg font-bold hover:bg-zinc-200 transition-colors">SCRIVIMI UNA MAIL</a>
-            <div class="flex justify-center gap-8 mt-12 text-zinc-400 font-medium text-sm">
-                <a href="https://www.linkedin.com/in/gubertini/" class="hover:text-white transition-colors">LINKEDIN</a>
-                <a href="mailto:info@francescogubertini.it" class="hover:text-white transition-colors">EMAIL</a>
+            <p class="text-gray-600 font-medium text-lg mb-10">Trasformiamo i dati in crescita strutturata.</p>
+            <a href="mailto:info@francescogubertini.it" class="inline-block bg-gray-900 text-white px-8 py-4 rounded-lg font-bold hover:bg-gray-800 shadow-md transition-colors">SCRIVIMI UNA MAIL</a>
+            <div class="flex justify-center gap-8 mt-12 text-gray-500 font-bold text-sm">
+                <a href="https://www.linkedin.com/in/gubertini/" class="hover:text-gray-900 transition-colors">LINKEDIN</a>
+                <a href="mailto:info@francescogubertini.it" class="hover:text-gray-900 transition-colors">EMAIL</a>
             </div>
-            <div class="mt-12 text-zinc-600 text-[10px] font-bold uppercase tracking-widest">
+            <div class="mt-12 text-gray-400 text-[10px] font-bold uppercase tracking-widest">
                 © 2026 Francesco Gubertini. Senior Marketing Manager. Based in Emilia-Romagna.
             </div>
         </div>
