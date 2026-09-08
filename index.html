@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- GSAP & ScrollTrigger -->
+    <!-- GSAP & ScrollTrigger per le animazioni -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -192,6 +192,7 @@
             margin-bottom: 16px;
             line-height: 1.7;
         }
+        /* Aggiunti stili lista per modali mancanti */
         .m-list li {
             margin-bottom: 8px;
             color: #334155;
@@ -207,7 +208,6 @@
             left: 0;
             font-weight: bold;
         }
-        
         .m-link-file {
             display: flex; align-items: center; padding: 12px 16px; background: #f8fafc;
             border: 1px solid rgba(0,0,0,0.05); border-radius: 8px; color: #0f172a;
@@ -261,8 +261,8 @@
             <a href="#competenze" class="border-b border-gray-100 pb-4 mobile-link">I 3 Pilastri Operativi</a>
             <a href="#esperienza" class="border-b border-gray-100 pb-4 mobile-link">Carriera Operativa</a>
             <a href="#portfolio" class="border-b border-gray-100 pb-4 mobile-link">Portfolio Progetti</a>
-            <a href="#stack" class="border-b border-gray-100 pb-4 mobile-link">Competenze Core</a>
             <a href="#formazione" class="border-b border-gray-100 pb-4 mobile-link">Formazione</a>
+            <a href="#stack" class="border-b border-gray-100 pb-4 mobile-link">Competenze Core</a>
             <a href="assets/docs/CV_Gubertini_Francesco.pdf" download class="border-b border-gray-100 pb-4 mobile-link text-brand-blue"><i class="fa-solid fa-download mr-2"></i>Scarica l'Executive CV (PDF)</a>
             <a href="#contatti" class="text-brand-terracotta pb-4 mobile-link">Parliamone</a>
         </div>
@@ -291,7 +291,7 @@
         </div>
     </section>
 
-    <!-- SEZIONE 2: PROFILO E METODO (Il Manifesto del Manager) -->
+    <!-- SEZIONE 2: PROFILO E METODO -->
     <section id="profilo" class="py-20 bg-white border-t border-gray-100 px-6">
         <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-start">
             <div class="md:col-span-5 reveal">
@@ -525,66 +525,134 @@
             <span class="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-3 block">Realizzazioni Concrete</span>
             <h2 class="text-3xl md:text-4xl font-serif text-gray-900 mb-12">Portfolio Documentale</h2>
             
-            <div class="folders-grid">
-                <div class="folder-item cursor-pointer" onclick="openModal('m-port-strat')">
-                    <div class="f-title">Strategy & Innovation</div>
-                    <div class="f-count">3 Documenti</div>
-                    <div class="folder-contents-flat">
-                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> Tech_Innovation_Superfast.pdf</div>
-                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> DIY_Retail_Channel_Strategy.pdf</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left">
+                
+                <div class="executive-card p-8 flex flex-col h-full cursor-pointer group" onclick="openModal('m-port-strat')">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="fa-solid fa-chess-knight text-brand-blue text-2xl"></i>
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-text-heading">Strategy & Innovation</h3>
+                            <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">3 Documenti</span>
+                        </div>
                     </div>
-                    <div class="mt-4 text-brand-blue text-xs font-bold uppercase tracking-widest text-right"><i class="fa-solid fa-expand"></i> Apri Dettagli</div>
+                    <div class="flex flex-col gap-3 mb-6 flex-grow">
+                        <div class="bg-surface-50 py-3 px-4 rounded-md border border-gray-100 text-xs text-text-main font-medium flex items-center gap-3">
+                            <i class="fa-solid fa-file-pdf text-brand-blue opacity-70"></i> Tech_Innovation_Superfast.pdf
+                        </div>
+                        <div class="bg-surface-50 py-3 px-4 rounded-md border border-gray-100 text-xs text-text-main font-medium flex items-center gap-3">
+                            <i class="fa-solid fa-file-pdf text-brand-blue opacity-70"></i> DIY_Retail_Channel_Strategy.pdf
+                        </div>
+                    </div>
+                    <div class="mt-auto text-brand-blue text-xs font-bold uppercase tracking-widest flex items-center justify-end gap-2 group-hover:translate-x-1 transition-transform">
+                        Apri Dettagli <i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
 
-                <div class="folder-item cursor-pointer" onclick="openModal('m-port-perf')">
-                    <div class="f-title">Performance & Analytics</div>
-                    <div class="f-count">5 Documenti</div>
-                    <div class="folder-contents-flat">
-                        <div class="paper-flat"><i class="fa-solid fa-file-excel"></i> Profitability_Audit_FY2025.xlsx</div>
-                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> Budget_Control_KPI.pdf</div>
+                <div class="executive-card p-8 flex flex-col h-full cursor-pointer group" onclick="openModal('m-port-perf')">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="fa-solid fa-chart-line text-brand-terracotta text-2xl"></i>
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-text-heading">Performance & Analytics</h3>
+                            <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">5 Documenti</span>
+                        </div>
                     </div>
-                    <div class="mt-4 text-brand-terracotta text-xs font-bold uppercase tracking-widest text-right"><i class="fa-solid fa-expand"></i> Apri Dettagli</div>
+                    <div class="flex flex-col gap-3 mb-6 flex-grow">
+                        <div class="bg-surface-50 py-3 px-4 rounded-md border border-gray-100 text-xs text-text-main font-medium flex items-center gap-3">
+                            <i class="fa-solid fa-file-excel text-brand-terracotta opacity-70"></i> Profitability_Audit_FY2025.xlsx
+                        </div>
+                        <div class="bg-surface-50 py-3 px-4 rounded-md border border-gray-100 text-xs text-text-main font-medium flex items-center gap-3">
+                            <i class="fa-solid fa-file-pdf text-brand-terracotta opacity-70"></i> Budget_Control_KPI.pdf
+                        </div>
+                    </div>
+                    <div class="mt-auto text-brand-terracotta text-xs font-bold uppercase tracking-widest flex items-center justify-end gap-2 group-hover:translate-x-1 transition-transform">
+                        Apri Dettagli <i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
 
-                <div class="folder-item cursor-pointer" onclick="openModal('m-port-retail')">
-                    <div class="f-title">Retail Projects</div>
-                    <div class="f-count">3 Documenti</div>
-                    <div class="folder-contents-flat">
-                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> Technical_Project_GDO_Bauhaus.pdf</div>
-                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> Display_System_Analysis_IKON.pdf</div>
+                <div class="executive-card p-8 flex flex-col h-full cursor-pointer group" onclick="openModal('m-port-retail')">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="fa-solid fa-store text-brand-salvia text-2xl"></i>
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-text-heading">Retail Projects</h3>
+                            <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">3 Documenti</span>
+                        </div>
                     </div>
-                    <div class="mt-4 text-brand-salvia text-xs font-bold uppercase tracking-widest text-right"><i class="fa-solid fa-expand"></i> Apri Dettagli</div>
+                    <div class="flex flex-col gap-3 mb-6 flex-grow">
+                        <div class="bg-surface-50 py-3 px-4 rounded-md border border-gray-100 text-xs text-text-main font-medium flex items-center gap-3">
+                            <i class="fa-solid fa-file-pdf text-brand-salvia opacity-70"></i> Technical_Project_GDO_Bauhaus.pdf
+                        </div>
+                        <div class="bg-surface-50 py-3 px-4 rounded-md border border-gray-100 text-xs text-text-main font-medium flex items-center gap-3">
+                            <i class="fa-solid fa-file-pdf text-brand-salvia opacity-70"></i> Display_System_Analysis_IKON.pdf
+                        </div>
+                    </div>
+                    <div class="mt-auto text-brand-salvia text-xs font-bold uppercase tracking-widest flex items-center justify-end gap-2 group-hover:translate-x-1 transition-transform">
+                        Apri Dettagli <i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
 
-                <div class="folder-item cursor-pointer" onclick="openModal('m-port-brand')">
-                    <div class="f-title">Brand Identity & Catalogs</div>
-                    <div class="f-count">3 Documenti</div>
-                    <div class="folder-contents-flat">
-                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> element-catalogo-generale-interno.pdf</div>
-                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> company-profile-it-element.pdf</div>
+                <div class="executive-card p-8 flex flex-col h-full cursor-pointer group" onclick="openModal('m-port-brand')">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="fa-solid fa-swatchbook text-gray-600 text-2xl"></i>
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-text-heading">Brand Identity & Catalogs</h3>
+                            <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">3 Documenti</span>
+                        </div>
                     </div>
-                    <div class="mt-4 text-gray-600 text-xs font-bold uppercase tracking-widest text-right"><i class="fa-solid fa-expand"></i> Apri Dettagli</div>
+                    <div class="flex flex-col gap-3 mb-6 flex-grow">
+                        <div class="bg-surface-50 py-3 px-4 rounded-md border border-gray-100 text-xs text-text-main font-medium flex items-center gap-3">
+                            <i class="fa-solid fa-file-pdf text-gray-500 opacity-70"></i> element-catalogo-generale.pdf
+                        </div>
+                        <div class="bg-surface-50 py-3 px-4 rounded-md border border-gray-100 text-xs text-text-main font-medium flex items-center gap-3">
+                            <i class="fa-solid fa-file-pdf text-gray-500 opacity-70"></i> company-profile-it-element.pdf
+                        </div>
+                    </div>
+                    <div class="mt-auto text-gray-600 text-xs font-bold uppercase tracking-widest flex items-center justify-end gap-2 group-hover:translate-x-1 transition-transform">
+                        Apri Dettagli <i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
 
-                <div class="folder-item cursor-pointer" onclick="openModal('m-port-merch')">
-                    <div class="f-title">Merchandising Tools</div>
-                    <div class="f-count">4 Documenti</div>
-                    <div class="folder-contents-flat">
-                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> Merchandising_Tools_Catalog.pdf</div>
-                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> Tech_Panels_Large_Slabs.pdf</div>
+                <div class="executive-card p-8 flex flex-col h-full cursor-pointer group" onclick="openModal('m-port-merch')">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="fa-solid fa-cubes text-gray-600 text-2xl"></i>
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-text-heading">Merchandising Tools</h3>
+                            <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">4 Documenti</span>
+                        </div>
                     </div>
-                    <div class="mt-4 text-gray-600 text-xs font-bold uppercase tracking-widest text-right"><i class="fa-solid fa-expand"></i> Apri Dettagli</div>
+                    <div class="flex flex-col gap-3 mb-6 flex-grow">
+                        <div class="bg-surface-50 py-3 px-4 rounded-md border border-gray-100 text-xs text-text-main font-medium flex items-center gap-3">
+                            <i class="fa-solid fa-file-pdf text-gray-500 opacity-70"></i> Merchandising_Tools_Catalog.pdf
+                        </div>
+                        <div class="bg-surface-50 py-3 px-4 rounded-md border border-gray-100 text-xs text-text-main font-medium flex items-center gap-3">
+                            <i class="fa-solid fa-file-pdf text-gray-500 opacity-70"></i> Tech_Panels_Large_Slabs.pdf
+                        </div>
+                    </div>
+                    <div class="mt-auto text-gray-600 text-xs font-bold uppercase tracking-widest flex items-center justify-end gap-2 group-hover:translate-x-1 transition-transform">
+                        Apri Dettagli <i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
 
-                <div class="folder-item cursor-pointer" onclick="openModal('m-port-sales')">
-                    <div class="f-title">Sales Management</div>
-                    <div class="f-count">2 Documenti</div>
-                    <div class="folder-contents-flat">
-                        <div class="paper-flat"><i class="fa-solid fa-file-excel"></i> Analytical_Price_List_Margin.xlsx</div>
-                        <div class="paper-flat"><i class="fa-solid fa-file-excel"></i> articoli-a-magazzino.xlsx</div>
+                <div class="executive-card p-8 flex flex-col h-full cursor-pointer group" onclick="openModal('m-port-sales')">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="fa-solid fa-hand-holding-dollar text-gray-600 text-2xl"></i>
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-text-heading">Sales Management</h3>
+                            <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">2 Documenti</span>
+                        </div>
                     </div>
-                    <div class="mt-4 text-gray-600 text-xs font-bold uppercase tracking-widest text-right"><i class="fa-solid fa-expand"></i> Apri Dettagli</div>
+                    <div class="flex flex-col gap-3 mb-6 flex-grow">
+                        <div class="bg-surface-50 py-3 px-4 rounded-md border border-gray-100 text-xs text-text-main font-medium flex items-center gap-3">
+                            <i class="fa-solid fa-file-excel text-gray-500 opacity-70"></i> Analytical_Price_List_Margin.xlsx
+                        </div>
+                        <div class="bg-surface-50 py-3 px-4 rounded-md border border-gray-100 text-xs text-text-main font-medium flex items-center gap-3">
+                            <i class="fa-solid fa-file-excel text-gray-500 opacity-70"></i> articoli-a-magazzino.xlsx
+                        </div>
+                    </div>
+                    <div class="mt-auto text-gray-600 text-xs font-bold uppercase tracking-widest flex items-center justify-end gap-2 group-hover:translate-x-1 transition-transform">
+                        Apri Dettagli <i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -667,46 +735,89 @@
         </div>
     </section>
 
-    <!-- SEZIONE FORMAZIONE -->
+    <!-- SEZIONE FORMAZIONE E UPSKILLING (Reintegrata da TESTLINEAR) -->
     <section id="formazione" class="py-20 md:py-32 bg-surface-50 border-t border-gray-100 px-6">
-        <div class="max-w-4xl mx-auto text-center mb-16 reveal">
+        <div class="max-w-6xl mx-auto mb-16 text-center reveal">
             <span class="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-3 block">Focus Accademico ed Executive</span>
             <h2 class="font-serif text-3xl md:text-4xl text-text-heading mb-6">Formazione & Upskilling</h2>
+            <p class="text-gray-600 text-base max-w-3xl mx-auto">Reskilling tecnico per applicare l'AI ai processi industriali e portare efficienza operativa.</p>
         </div>
 
-        <div class="max-w-4xl mx-auto space-y-6 reveal">
-            <div class="executive-card p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 cursor-pointer hover:bg-white" onclick="openModal('m-edu-1')">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-white rounded border border-brand-blue/20 flex-shrink-0 flex items-center justify-center text-brand-blue"><i class="fa-solid fa-brain"></i></div>
-                    <div>
-                        <h4 class="font-serif text-lg font-bold text-text-heading">Executive Masterclasses: Gestione Dati e IA</h4>
-                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Zenit Formazione • Analisi di scenario e Business Intelligence</div>
-                    </div>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 reveal">
+            
+            <div class="executive-card p-8 flex flex-col justify-between cursor-pointer group" onclick="openModal('m-edu-1')">
+                <div>
+                    <span class="text-[10px] text-gray-500 font-mono tracking-widest uppercase mb-4 block">/// AI_RESKILLING_WAVE</span>
+                    <h2 class="font-serif text-2xl font-bold text-text-heading mb-4">Business Intelligence & Generative AI Strategy.</h2>
+                    <p class="text-text-main text-sm mb-6 leading-relaxed">Un ciclo intensivo di specializzazione (Zenit, IFOA) focalizzato sull'integrazione pratica dell'IA nei flussi di lavoro: modelli predittivi, automazione di dashboard Excel e nuove frontiere della Customer Experience.</p>
                 </div>
-                <span class="text-sm font-bold text-text-main px-3 py-1 border border-gray-200 rounded">2025</span>
+                <div class="text-xs font-semibold uppercase tracking-widest text-brand-blue flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                    Vedi Attestati <i class="fa-solid fa-arrow-right"></i>
+                </div>
             </div>
 
-            <div class="executive-card p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 cursor-pointer hover:bg-white" onclick="openModal('m-edu-4')">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-white rounded border border-brand-terracotta/20 flex-shrink-0 flex items-center justify-center text-brand-terracotta"><i class="fa-solid fa-headset"></i></div>
-                    <div>
-                        <h4 class="font-serif text-lg font-bold text-text-heading">Executive Education: Tecnologie per le Vendite</h4>
-                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest">IFOA • Automazione e AI per la rete vendita</div>
-                    </div>
+            <div class="executive-card p-8 flex flex-col justify-between cursor-pointer group" onclick="openModal('m-edu-laurea')">
+                <div>
+                    <span class="text-[10px] text-gray-500 font-mono tracking-widest uppercase mb-4 block">/// UNIMORE_2010</span>
+                    <h3 class="font-serif text-2xl font-bold text-text-heading mb-4">Economia Aziendale: Marketing e Distribuzione.</h3>
+                    <p class="text-text-main text-sm mb-6 leading-relaxed">Le fondamenta del business management. Tesi sperimentale in Strategie del Marketing dei Beni di Lusso. Basi rigorose in contabilità, bilancio e diritto commerciale.</p>
                 </div>
-                <span class="text-sm font-bold text-text-main px-3 py-1 border border-gray-200 rounded">2024</span>
+                <div class="text-xs font-semibold uppercase tracking-widest text-brand-blue flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                    Vedi Tesi <i class="fa-solid fa-arrow-right"></i>
+                </div>
             </div>
 
-            <div class="executive-card p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 cursor-pointer hover:bg-white" onclick="openModal('m-edu-laurea')">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-gray-100 rounded flex-shrink-0 flex items-center justify-center text-gray-600"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <div>
-                        <h4 class="font-serif text-lg font-bold text-text-heading">Laurea in Economia Aziendale</h4>
-                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest">UNIMORE • Focus su Marketing e Controllo Industriale</div>
+            <!-- Mini List Container per le specializzazioni -->
+            <div class="md:col-span-2 executive-card p-8">
+                <h4 class="text-text-heading font-bold text-sm uppercase tracking-wider mb-6 border-l-2 border-brand-blue pl-3">/// Specializzazione_IA</h4>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-center justify-between p-4 border border-gray-100 rounded-lg cursor-pointer hover:border-brand-blue hover:shadow-sm transition-all bg-surface-50" onclick="openModal('m-edu-1')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-white rounded flex items-center justify-center text-brand-blue border border-gray-200"><i class="fa-solid fa-brain"></i></div>
+                            <div>
+                                <div class="text-sm font-bold text-text-heading">Modelli di IA per la BI</div>
+                                <div class="text-[10px] text-gray-500 font-mono">ZENIT FORMAZIONE • ANALYTICS</div>
+                            </div>
+                        </div>
+                        <span class="text-xs font-bold text-gray-400">2025</span>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 border border-gray-100 rounded-lg cursor-pointer hover:border-brand-salvia hover:shadow-sm transition-all bg-surface-50" onclick="openModal('m-edu-2')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-white rounded flex items-center justify-center text-brand-salvia border border-gray-200"><i class="fa-solid fa-table-columns"></i></div>
+                            <div>
+                                <div class="text-sm font-bold text-text-heading">IA ed Excel Avanzato</div>
+                                <div class="text-[10px] text-gray-500 font-mono">ZENIT FORMAZIONE • DASHBOARD</div>
+                            </div>
+                        </div>
+                        <span class="text-xs font-bold text-gray-400">2025</span>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 border border-gray-100 rounded-lg cursor-pointer hover:border-gray-600 hover:shadow-sm transition-all bg-surface-50" onclick="openModal('m-edu-3')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-white rounded flex items-center justify-center text-gray-600 border border-gray-200"><i class="fa-solid fa-chess-knight"></i></div>
+                            <div>
+                                <div class="text-sm font-bold text-text-heading">IA nel Decision Making</div>
+                                <div class="text-[10px] text-gray-500 font-mono">ZENIT FORMAZIONE • STRATEGIA</div>
+                            </div>
+                        </div>
+                        <span class="text-xs font-bold text-gray-400">2025</span>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 border border-gray-100 rounded-lg cursor-pointer hover:border-brand-terracotta hover:shadow-sm transition-all bg-surface-50" onclick="openModal('m-edu-4')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-white rounded flex items-center justify-center text-brand-terracotta border border-gray-200"><i class="fa-solid fa-headset"></i></div>
+                            <div>
+                                <div class="text-sm font-bold text-text-heading">Vendite e Servizi con AI</div>
+                                <div class="text-[10px] text-gray-500 font-mono">IFOA • CUSTOMER EXPERIENCE</div>
+                            </div>
+                        </div>
+                        <span class="text-xs font-bold text-gray-400">2024</span>
                     </div>
                 </div>
-                <span class="text-sm font-bold text-text-main px-3 py-1 border border-gray-200 rounded">2010</span>
             </div>
+            
         </div>
     </section>
 
@@ -805,7 +916,7 @@
         </div>
     </div>
 
-    <!-- Modali Carriera Reintegrati -->
+    <!-- Modali Carriera -->
     <div class="modal-overlay" id="m-opera">
         <div class="modal-box">
             <div class="m-header">
@@ -1015,7 +1126,7 @@
             <div class="m-header"><div class="m-title">BRAND IDENTITY & CATALOGS</div><div class="close-m" onclick="closeModal('m-port-brand')"><i class="fa-solid fa-xmark"></i></div></div>
             <div class="m-body">
                 <p class="text-sm mb-6 text-gray-600">Materiali corporate redatti per la forza vendita aziendale.</p>
-                <a href="assets/docs/element-catalogo-generale-interno-25.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Catalogo Prodotti 2025</a>
+                <a href="assets/docs/element-catalogo-generale-interno.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Catalogo Prodotti 2025</a>
                 <a href="assets/docs/Technical_Architecture_Catalog.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Master Tecnico per Architetti</a>
                 <a href="assets/docs/company-profile-it-element.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Company Profile Aziendale</a>
             </div>
@@ -1056,6 +1167,7 @@
                     <ul class="m-list">
                         <li>Formulare previsioni (analytics e forecasting data driven).</li>
                         <li>Assumere decisioni (decision making diagnostico).</li>
+                        <li>Generare nuovi contenuti (Generative AI).</li>
                         <li>Prompt Engineering avanzato per ottimizzare l'interazione con i modelli LLM.</li>
                     </ul>
                 </div>
@@ -1107,6 +1219,7 @@
                     <ul class="m-list">
                         <li>L'evoluzione delle vendite e dei servizi al cliente ai tempi dell'AI.</li>
                         <li>Impatto dell'Intelligenza Artificiale sui processi di vendita.</li>
+                        <li>Personalizzazione della Customer Experience tramite AI.</li>
                         <li>Nuovi strumenti digitali per la rete vendita.</li>
                     </ul>
                 </div>
