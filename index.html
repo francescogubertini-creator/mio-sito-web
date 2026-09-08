@@ -12,8 +12,8 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Francesco Gubertini | Direttore Marketing e Sales Operations</title>
-    <meta name="description" content="Francesco Gubertini, Direttore Marketing e Sales Operations. Allineo il Marketing e le Vendite per proteggere i Margini e scalare il Fatturato aziendale.">
+    <title>Francesco Gubertini | Marketing & Sales Operations Manager</title>
+    <meta name="description" content="Francesco Gubertini, Marketing & Sales Operations Manager. Allineo il Marketing e le Vendite per proteggere i Margini e scalare il Fatturato aziendale.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- GSAP & ScrollTrigger per le animazioni -->
+    <!-- GSAP & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -192,6 +192,29 @@
             margin-bottom: 16px;
             line-height: 1.7;
         }
+        .m-list li {
+            margin-bottom: 8px;
+            color: #334155;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 20px;
+        }
+        .m-list li::before {
+            content: '•';
+            color: #1e3a8a;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .m-link-file {
+            display: flex; align-items: center; padding: 12px 16px; background: #f8fafc;
+            border: 1px solid rgba(0,0,0,0.05); border-radius: 8px; color: #0f172a;
+            font-weight: 600; text-decoration: none; margin-bottom: 8px; transition: 0.2s; font-size: 0.9rem;
+        }
+        .m-link-file:hover { background: #fff; border-color: #1e3a8a; color: #1e3a8a; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .m-link-file i { margin-right: 12px; color: #1e3a8a; }
 
         @media (max-width: 768px) {
             .modal-box {
@@ -210,7 +233,7 @@
             <div class="flex items-center gap-2">
                 <a href="#" class="flex flex-col cursor-pointer">
                     <span class="text-text-heading font-serif font-bold text-lg leading-tight">Francesco Gubertini</span>
-                    <span class="text-[10px] text-gray-500 uppercase tracking-widest font-medium">Direttore Marketing & Sales Ops</span>
+                    <span class="text-[10px] text-gray-500 uppercase tracking-widest font-medium">Marketing & Sales Operations Manager</span>
                 </a>
             </div>
             
@@ -218,7 +241,8 @@
                 <a href="#profilo" class="hover:text-brand-blue transition-colors">La Visione</a>
                 <a href="#competenze" class="hover:text-brand-blue transition-colors">I 3 Pilastri</a>
                 <a href="#esperienza" class="hover:text-brand-blue transition-colors">Carriera</a>
-                <a href="#stack" class="hover:text-brand-blue transition-colors">Competenze Core</a>
+                <a href="#portfolio" class="hover:text-brand-blue transition-colors">Portfolio</a>
+                <a href="#stack" class="hover:text-brand-blue transition-colors">Stack</a>
                 <a href="assets/docs/CV_Gubertini_Francesco.pdf" download class="bg-brand-blue text-white px-5 py-2.5 rounded-sm hover:bg-blue-900 transition-colors flex items-center gap-2"><i class="fa-solid fa-download"></i> Executive CV</a>
             </div>
 
@@ -236,6 +260,7 @@
             <a href="#profilo" class="border-b border-gray-100 pb-4 mobile-link">La Visione</a>
             <a href="#competenze" class="border-b border-gray-100 pb-4 mobile-link">I 3 Pilastri Operativi</a>
             <a href="#esperienza" class="border-b border-gray-100 pb-4 mobile-link">Carriera Operativa</a>
+            <a href="#portfolio" class="border-b border-gray-100 pb-4 mobile-link">Portfolio Progetti</a>
             <a href="#stack" class="border-b border-gray-100 pb-4 mobile-link">Competenze Core</a>
             <a href="#formazione" class="border-b border-gray-100 pb-4 mobile-link">Formazione</a>
             <a href="assets/docs/CV_Gubertini_Francesco.pdf" download class="border-b border-gray-100 pb-4 mobile-link text-brand-blue"><i class="fa-solid fa-download mr-2"></i>Scarica l'Executive CV (PDF)</a>
@@ -247,7 +272,7 @@
     <section class="relative pt-40 pb-20 md:pt-52 md:pb-32 px-6 flex flex-col justify-center items-center text-center">
         <div class="max-w-5xl mx-auto reveal">
             <h1 class="font-serif text-4xl md:text-6xl text-text-heading leading-tight mb-6 font-bold">
-                Francesco Gubertini | Direttore Marketing e Sales Operations
+                Francesco Gubertini | Marketing & Sales Operations Manager
             </h1>
             <h2 class="text-xl md:text-3xl text-brand-blue font-serif mb-8 font-semibold">
                 Gestisco il marketing, le strategie di vendita e il posizionamento di prodotto. 
@@ -271,7 +296,7 @@
         <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-start">
             <div class="md:col-span-5 reveal">
                 <div class="sticky top-24">
-                    <h2 class="font-serif text-3xl md:text-4xl text-text-heading mb-6 uppercase">La Direzione Manageriale: dai Dati al Bilancio.</h2>
+                    <h2 class="font-serif text-3xl md:text-4xl text-text-heading mb-6 uppercase">La Gestione Operativa: dai Dati al Bilancio.</h2>
                     
                     <div class="p-6 bg-surface-50 border-l-4 border-brand-blue rounded-r-lg mb-8">
                         <p class="text-text-main font-serif italic text-lg leading-relaxed">
@@ -327,11 +352,11 @@
         </div>
     </section>
 
-    <!-- SEZIONE 3: I 3 PILASTRI OPERATIVI (Competenze Core) -->
+    <!-- SEZIONE 3: I 3 PILASTRI OPERATIVI -->
     <section id="competenze" class="py-20 md:py-32 bg-surface-50 px-6">
         <div class="max-w-6xl mx-auto mb-16 text-center reveal">
             <span class="text-brand-terracotta text-xs font-semibold uppercase tracking-widest mb-3 block">Il Metodo Operativo</span>
-            <h2 class="font-serif text-3xl md:text-4xl text-text-heading mb-6">I 3 Pilastri di Governo</h2>
+            <h2 class="font-serif text-3xl md:text-4xl text-text-heading mb-6">I 3 Pilastri Operativi</h2>
         </div>
 
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 reveal">
@@ -385,7 +410,7 @@
         </div>
     </section>
 
-    <!-- SEZIONE 4: CARRIERA OPERATIVA (Esperienze "Derisked") -->
+    <!-- SEZIONE 4: CARRIERA OPERATIVA -->
     <section id="esperienza" class="py-20 md:py-32 bg-white px-6">
         <div class="max-w-4xl mx-auto text-center mb-20 reveal">
             <span class="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-3 block">Carriera Operativa</span>
@@ -402,9 +427,9 @@
                     <div class="executive-card p-6 text-left cursor-pointer" onclick="openModal('m-opera')">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-serif text-lg text-text-heading font-bold">Opera Group</h3>
-                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-brand-light text-brand-blue rounded-sm">Gennaio 2018 - Giugno 2026</span>
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-brand-light text-brand-blue rounded-sm">2017 - Presente</span>
                         </div>
-                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Direttore Marketing e Sales Operations</div>
+                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Marketing & Sales Operations Manager</div>
                         <p class="text-sm text-text-main mb-4">Responsabilità diretta sul marketing e sull'allineamento tra Produzione e Rete Vendita in un contesto industriale ad altissimi volumi.</p>
                         <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">Scopri Impatto e Risultati &rarr;</span>
                     </div>
@@ -418,8 +443,8 @@
                             <h3 class="font-serif text-lg text-text-heading font-bold">Acetaia Gubertini</h3>
                             <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-surface-100 text-gray-600 rounded-sm">2018 - 2023</span>
                         </div>
-                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Supporto nella direzione marketing e sales ops</div>
-                        <p class="text-sm text-text-main mb-4">Supervisione strategica extra-corporate (direzione dall'alto per lo sviluppo dei mercati digitali, guidando i fornitori esterni senza impattare sull'operatività).</p>
+                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">E-commerce & Digital Manager</div>
+                        <p class="text-sm text-text-main mb-4">Ho guidato la trasformazione digitale dell'azienda di famiglia, sviluppando l'ecosistema e-commerce proprietario e ottimizzando i canali esteri tramite Amazon ed eBay.</p>
                         <span class="text-xs font-bold uppercase tracking-widest text-brand-terracotta">Scopri Impatto e Risultati &larr;</span>
                     </div>
                 </div>
@@ -434,7 +459,7 @@
                     <div class="executive-card p-6 text-left cursor-pointer" onclick="openModal('m-bevco')">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-serif text-lg text-text-heading font-bold">Waterline - Bevco (Solido Group)</h3>
-                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-surface-100 text-gray-500 rounded-sm">2016 - 2018</span>
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-surface-100 text-gray-500 rounded-sm">2016 - 2017</span>
                         </div>
                         <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Group Marketing Manager</div>
                         <p class="text-sm text-text-main mb-4">Coordinamento strategico in ambito metalmeccanico B2B per armonizzare la rete di vendita e i team interni a seguito di repentine acquisizioni societarie.</p>
@@ -468,161 +493,227 @@
                             <h3 class="font-serif text-lg text-text-heading font-bold">Lapam Confartigianato</h3>
                             <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-surface-100 text-gray-500 rounded-sm">2010 - 2013</span>
                         </div>
-                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Marketing & CRM Specialist</div>
-                        <p class="text-sm text-text-main mb-4">Gestione e coordinamento dei flussi informativi aziendali, supportando le decisioni strategiche del Board attraverso l'analisi dei dati macroeconomici.</p>
+                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Analista Marketing & Sistemi</div>
+                        <p class="text-sm text-text-main mb-4">Ruolo tecnico-istituzionale per l'implementazione di sistemi informativi (CRM V-Tiger) e analisi macroeconomica per le PMI del territorio.</p>
                         <span class="text-xs font-bold uppercase tracking-widest text-brand-salvia">Scopri Impatto e Risultati &rarr;</span>
                     </div>
                 </div>
             </div>
 
+            <div class="relative flex flex-col md:flex-row justify-between items-center w-full">
+                <div class="w-full md:w-5/12 pl-12 md:pl-0 order-2 md:order-1">
+                    <div class="executive-card p-6 text-left md:text-right cursor-pointer" onclick="openModal('m-htv')">
+                        <div class="flex justify-between md:flex-row-reverse items-start mb-2">
+                            <h3 class="font-serif text-lg text-text-heading font-bold">HTV Retail & eBay</h3>
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-surface-100 text-gray-500 rounded-sm">2002 - 2010</span>
+                        </div>
+                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Responsabile Punto Vendita / E-commerce</div>
+                        <p class="text-sm text-text-main mb-4">Le basi operative del commercio: gestione cassa, logistica, fatturazione e 6 anni come Power Seller su mercati internazionali (eBay).</p>
+                        <span class="text-xs font-bold uppercase tracking-widest text-gray-600">Scopri Impatto e Risultati &larr;</span>
+                    </div>
+                </div>
+                <div class="z-10 bg-white border-4 border-surface-50 w-6 h-6 rounded-full shadow-sm absolute left-4 md:left-1/2 md:-ml-3 order-1 md:order-2 flex items-center justify-center"><div class="w-2 h-2 bg-gray-600 rounded-full"></div></div>
+                <div class="hidden md:block w-5/12 order-3"></div>
+            </div>
+
         </div>
     </section>
 
-    <!-- SEZIONE 5: STACK TECNOLOGICO (Solo Enterprise) -->
-    <section id="stack" class="py-20 md:py-32 bg-surface-50 px-6 border-t border-gray-100">
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="py-20 md:py-32 px-6 bg-surface-50 border-t border-gray-100 text-center">
+        <div class="max-w-6xl mx-auto reveal">
+            <span class="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-3 block">Realizzazioni Concrete</span>
+            <h2 class="text-3xl md:text-4xl font-serif text-gray-900 mb-12">Portfolio Documentale</h2>
+            
+            <div class="folders-grid">
+                <div class="folder-item cursor-pointer" onclick="openModal('m-port-strat')">
+                    <div class="f-title">Strategy & Innovation</div>
+                    <div class="f-count">3 Documenti</div>
+                    <div class="folder-contents-flat">
+                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> Tech_Innovation_Superfast.pdf</div>
+                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> DIY_Retail_Channel_Strategy.pdf</div>
+                    </div>
+                    <div class="mt-4 text-brand-blue text-xs font-bold uppercase tracking-widest text-right"><i class="fa-solid fa-expand"></i> Apri Dettagli</div>
+                </div>
+
+                <div class="folder-item cursor-pointer" onclick="openModal('m-port-perf')">
+                    <div class="f-title">Performance & Analytics</div>
+                    <div class="f-count">5 Documenti</div>
+                    <div class="folder-contents-flat">
+                        <div class="paper-flat"><i class="fa-solid fa-file-excel"></i> Profitability_Audit_FY2025.xlsx</div>
+                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> Budget_Control_KPI.pdf</div>
+                    </div>
+                    <div class="mt-4 text-brand-terracotta text-xs font-bold uppercase tracking-widest text-right"><i class="fa-solid fa-expand"></i> Apri Dettagli</div>
+                </div>
+
+                <div class="folder-item cursor-pointer" onclick="openModal('m-port-retail')">
+                    <div class="f-title">Retail Projects</div>
+                    <div class="f-count">3 Documenti</div>
+                    <div class="folder-contents-flat">
+                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> Technical_Project_GDO_Bauhaus.pdf</div>
+                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> Display_System_Analysis_IKON.pdf</div>
+                    </div>
+                    <div class="mt-4 text-brand-salvia text-xs font-bold uppercase tracking-widest text-right"><i class="fa-solid fa-expand"></i> Apri Dettagli</div>
+                </div>
+
+                <div class="folder-item cursor-pointer" onclick="openModal('m-port-brand')">
+                    <div class="f-title">Brand Identity & Catalogs</div>
+                    <div class="f-count">3 Documenti</div>
+                    <div class="folder-contents-flat">
+                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> element-catalogo-generale-interno.pdf</div>
+                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> company-profile-it-element.pdf</div>
+                    </div>
+                    <div class="mt-4 text-gray-600 text-xs font-bold uppercase tracking-widest text-right"><i class="fa-solid fa-expand"></i> Apri Dettagli</div>
+                </div>
+
+                <div class="folder-item cursor-pointer" onclick="openModal('m-port-merch')">
+                    <div class="f-title">Merchandising Tools</div>
+                    <div class="f-count">4 Documenti</div>
+                    <div class="folder-contents-flat">
+                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> Merchandising_Tools_Catalog.pdf</div>
+                        <div class="paper-flat"><i class="fa-solid fa-file-pdf"></i> Tech_Panels_Large_Slabs.pdf</div>
+                    </div>
+                    <div class="mt-4 text-gray-600 text-xs font-bold uppercase tracking-widest text-right"><i class="fa-solid fa-expand"></i> Apri Dettagli</div>
+                </div>
+
+                <div class="folder-item cursor-pointer" onclick="openModal('m-port-sales')">
+                    <div class="f-title">Sales Management</div>
+                    <div class="f-count">2 Documenti</div>
+                    <div class="folder-contents-flat">
+                        <div class="paper-flat"><i class="fa-solid fa-file-excel"></i> Analytical_Price_List_Margin.xlsx</div>
+                        <div class="paper-flat"><i class="fa-solid fa-file-excel"></i> articoli-a-magazzino.xlsx</div>
+                    </div>
+                    <div class="mt-4 text-gray-600 text-xs font-bold uppercase tracking-widest text-right"><i class="fa-solid fa-expand"></i> Apri Dettagli</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE STACK TECNOLOGICO -->
+    <section id="stack" class="py-20 md:py-32 bg-white px-6 border-t border-gray-100">
         <div class="max-w-6xl mx-auto mb-16 text-center reveal">
-            <span class="text-brand-salvia text-xs font-semibold uppercase tracking-widest mb-3 block">Strumenti di Governo</span>
+            <span class="text-brand-salvia text-xs font-semibold uppercase tracking-widest mb-3 block">Strumenti Operativi</span>
             <h2 class="font-serif text-3xl md:text-4xl text-text-heading mb-6">Competenze Core</h2>
         </div>
 
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 reveal">
-            
-            <div class="executive-card p-8 bg-white">
+            <div class="executive-card p-8 bg-surface-50">
                 <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200">
                     <i class="fa-solid fa-database text-brand-blue text-xl"></i>
                     <h3 class="font-serif text-xl text-text-heading">Controllo di Gestione e Dati</h3>
                 </div>
                 <div class="space-y-4">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <div class="text-sm font-bold text-text-heading">Cruscotti Direzionali (Power BI)</div>
-                            <div class="text-[10px] text-gray-500 font-mono tracking-widest">SUPERVISIONE DELLE METRICHE E ANALISI DEI MARGINI</div>
-                        </div>
+                    <div>
+                        <div class="text-sm font-bold text-text-heading">Cruscotti Direzionali (Power BI)</div>
+                        <div class="text-[10px] text-gray-500 font-mono tracking-widest">SUPERVISIONE DELLE METRICHE E ANALISI DEI MARGINI</div>
                     </div>
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <div class="text-sm font-bold text-text-heading">Sistemi Gestionali (ERP)</div>
-                            <div class="text-[10px] text-gray-500 font-mono tracking-widest">GOVERNO DELL'ESTRAZIONE DATI DA SAP E AS400</div>
-                        </div>
+                    <div>
+                        <div class="text-sm font-bold text-text-heading">Sistemi Gestionali (ERP)</div>
+                        <div class="text-[10px] text-gray-500 font-mono tracking-widest">GOVERNO DELL'ESTRAZIONE DATI DA SAP E AS400</div>
                     </div>
                 </div>
             </div>
 
-            <div class="executive-card p-8 bg-white">
+            <div class="executive-card p-8 bg-surface-50">
                 <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200">
                     <i class="fa-solid fa-network-wired text-brand-salvia text-xl"></i>
                     <h3 class="font-serif text-xl text-text-heading">Infrastruttura Vendite</h3>
                 </div>
                 <div class="space-y-4">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <div class="text-sm font-bold text-text-heading">Gestione Pipeline Commerciale</div>
-                            <div class="text-[10px] text-gray-500 font-mono tracking-widest">INDIRIZZO DELLE STRATEGIE SU PIATTAFORME CRM (SALESFORCE / V-TIGER)</div>
-                        </div>
+                    <div>
+                        <div class="text-sm font-bold text-text-heading">Gestione Pipeline Commerciale</div>
+                        <div class="text-[10px] text-gray-500 font-mono tracking-widest">INDIRIZZO DELLE STRATEGIE SU PIATTAFORME CRM (SALESFORCE / V-TIGER)</div>
                     </div>
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <div class="text-sm font-bold text-text-heading">Automazione Burocrazia</div>
-                            <div class="text-[10px] text-gray-500 font-mono tracking-widest">GOVERNO DELLE REGOLE PER SNELLIRE IL LAVORO DEGLI AGENTI</div>
-                        </div>
+                    <div>
+                        <div class="text-sm font-bold text-text-heading">Automazione Burocrazia</div>
+                        <div class="text-[10px] text-gray-500 font-mono tracking-widest">GOVERNO DELLE REGOLE PER SNELLIRE IL LAVORO DEGLI AGENTI</div>
                     </div>
                 </div>
             </div>
 
-            <div class="executive-card p-8 bg-white">
+            <div class="executive-card p-8 bg-surface-50">
                 <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200">
                     <i class="fa-solid fa-robot text-brand-terracotta text-xl"></i>
                     <h3 class="font-serif text-xl text-text-heading">Innovazione e Nuove Tecnologie</h3>
                 </div>
                 <div class="space-y-4">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <div class="text-sm font-bold text-text-heading">Intelligenza Artificiale Generativa</div>
-                            <div class="text-[10px] text-gray-500 font-mono tracking-widest">INDIRIZZO APPLICATIVO DEI NUOVI MOTORI PER L'AZIENDA</div>
-                        </div>
+                    <div>
+                        <div class="text-sm font-bold text-text-heading">Intelligenza Artificiale Generativa</div>
+                        <div class="text-[10px] text-gray-500 font-mono tracking-widest">INDIRIZZO APPLICATIVO DEI NUOVI MOTORI PER L'AZIENDA</div>
                     </div>
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <div class="text-sm font-bold text-text-heading">Reportistica Automatizzata</div>
-                            <div class="text-[10px] text-gray-500 font-mono tracking-widest">COORDINAMENTO DEI FLUSSI PER VELOCIZZARE L'USCITA SUL MERCATO</div>
-                        </div>
+                    <div>
+                        <div class="text-sm font-bold text-text-heading">Reportistica Automatizzata</div>
+                        <div class="text-[10px] text-gray-500 font-mono tracking-widest">COORDINAMENTO DEI FLUSSI PER VELOCIZZARE L'USCITA SUL MERCATO</div>
                     </div>
                 </div>
             </div>
 
-            <div class="executive-card p-8 bg-white">
+            <div class="executive-card p-8 bg-surface-50">
                 <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200">
                     <i class="fa-solid fa-bullseye text-gray-600 text-xl"></i>
                     <h3 class="font-serif text-xl text-text-heading">Previsione Strategica (Forecasting)</h3>
                 </div>
                 <div class="space-y-4">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <div class="text-sm font-bold text-text-heading">Analisi di Mercato</div>
-                            <div class="text-[10px] text-gray-500 font-mono tracking-widest">SUPERVISIONE DELLE METRICHE WEB AVANZATE (GOOGLE ECOSYSTEM)</div>
-                        </div>
+                    <div>
+                        <div class="text-sm font-bold text-text-heading">Analisi di Mercato</div>
+                        <div class="text-[10px] text-gray-500 font-mono tracking-widest">SUPERVISIONE DELLE METRICHE WEB AVANZATE (GOOGLE ECOSYSTEM)</div>
                     </div>
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <div class="text-sm font-bold text-text-heading">Modelli di Previsione</div>
-                            <div class="text-[10px] text-gray-500 font-mono tracking-widest">SUPPORTO ALL'AD SULLA MATEMATICA DEGLI INCASSI FUTURI</div>
-                        </div>
+                    <div>
+                        <div class="text-sm font-bold text-text-heading">Modelli di Previsione</div>
+                        <div class="text-[10px] text-gray-500 font-mono tracking-widest">SUPPORTO ALL'AD SULLA MATEMATICA DEGLI INCASSI FUTURI</div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- SEZIONE 6: FORMAZIONE & UPSKILLING -->
-    <section id="formazione" class="py-20 md:py-32 bg-white border-t border-gray-100 px-6">
+    <!-- SEZIONE FORMAZIONE -->
+    <section id="formazione" class="py-20 md:py-32 bg-surface-50 border-t border-gray-100 px-6">
         <div class="max-w-4xl mx-auto text-center mb-16 reveal">
             <span class="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-3 block">Focus Accademico ed Executive</span>
             <h2 class="font-serif text-3xl md:text-4xl text-text-heading mb-6">Formazione & Upskilling</h2>
         </div>
 
         <div class="max-w-4xl mx-auto space-y-6 reveal">
-            
-            <div class="executive-card p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div class="executive-card p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 cursor-pointer hover:bg-white" onclick="openModal('m-edu-1')">
                 <div class="flex items-center gap-4">
                     <div class="w-12 h-12 bg-white rounded border border-brand-blue/20 flex-shrink-0 flex items-center justify-center text-brand-blue"><i class="fa-solid fa-brain"></i></div>
                     <div>
                         <h4 class="font-serif text-lg font-bold text-text-heading">Executive Masterclasses: Gestione Dati e IA</h4>
-                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Zenit Formazione • Analisi di scenario per guidare le scelte su prezzi e sconti aziendali.</div>
+                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Zenit Formazione • Analisi di scenario e Business Intelligence</div>
                     </div>
                 </div>
                 <span class="text-sm font-bold text-text-main px-3 py-1 border border-gray-200 rounded">2025</span>
             </div>
 
-            <div class="executive-card p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div class="executive-card p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 cursor-pointer hover:bg-white" onclick="openModal('m-edu-4')">
                 <div class="flex items-center gap-4">
                     <div class="w-12 h-12 bg-white rounded border border-brand-terracotta/20 flex-shrink-0 flex items-center justify-center text-brand-terracotta"><i class="fa-solid fa-headset"></i></div>
                     <div>
                         <h4 class="font-serif text-lg font-bold text-text-heading">Executive Education: Tecnologie per le Vendite</h4>
-                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest">IFOA • Strutturazione dei flussi lavorativi per supportare operativamente la rete vendita.</div>
+                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest">IFOA • Automazione e AI per la rete vendita</div>
                     </div>
                 </div>
                 <span class="text-sm font-bold text-text-main px-3 py-1 border border-gray-200 rounded">2024</span>
             </div>
 
-            <div class="executive-card p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div class="executive-card p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 cursor-pointer hover:bg-white" onclick="openModal('m-edu-laurea')">
                 <div class="flex items-center gap-4">
                     <div class="w-12 h-12 bg-gray-100 rounded flex-shrink-0 flex items-center justify-center text-gray-600"><i class="fa-solid fa-graduation-cap"></i></div>
                     <div>
                         <h4 class="font-serif text-lg font-bold text-text-heading">Laurea in Economia Aziendale</h4>
-                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest">UNIMORE • Focus su Marketing, Controllo Industriale e Protezione della Marginalità aziendale.</div>
+                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest">UNIMORE • Focus su Marketing e Controllo Industriale</div>
                     </div>
                 </div>
                 <span class="text-sm font-bold text-text-main px-3 py-1 border border-gray-200 rounded">2010</span>
             </div>
-
         </div>
     </section>
 
-    <!-- SEZIONE 7: FOOTER & FINAL CALL TO ACTION -->
+    <!-- FOOTER -->
     <footer id="contatti" class="bg-text-heading text-white py-24 px-6 border-t-4 border-brand-blue">
         <div class="max-w-4xl mx-auto text-center reveal">
-            <h2 class="font-serif text-3xl md:text-5xl mb-6 font-bold">Allineare i reparti, ottimizzare i processi, far crescere il fatturato reale. Iniziamo da qui.</h2>
+            <h2 class="font-serif text-3xl md:text-5xl mb-6 font-bold">Pronto a portare la mia esperienza direzionale nel vostro organico.</h2>
             <p class="text-gray-300 font-light text-lg mb-12 max-w-2xl mx-auto">
                 Se la vostra azienda ha bisogno di una figura capace di unire i puntini tra la Direzione Generale, il Marketing e le Vendite, è il momento di confrontarci. Cerco un progetto aziendale solido in cui inserirmi per portare ordine, metodo e protezione dei margini a lungo termine.
             </p>
@@ -636,7 +727,7 @@
             </div>
             
             <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold uppercase tracking-widest text-gray-500">
-                <div>&copy; 2026 Francesco Gubertini. Direttore Marketing e Sales Operations.</div>
+                <div>&copy; 2026 Francesco Gubertini. Marketing & Sales Operations Manager.</div>
                 <div>Based in Emilia-Romagna.</div>
             </div>
         </div>
@@ -644,7 +735,7 @@
 
     <!-- ================= MODALS ================= -->
 
-    <!-- MODAL PILASTRI -->
+    <!-- Modali Metodo -->
     <div class="modal-overlay" id="m-mod-1">
         <div class="modal-box">
             <div class="m-header">
@@ -714,7 +805,7 @@
         </div>
     </div>
 
-    <!-- MODAL CARRIERA -->
+    <!-- Modali Carriera Reintegrati -->
     <div class="modal-overlay" id="m-opera">
         <div class="modal-box">
             <div class="m-header">
@@ -722,9 +813,29 @@
                 <div class="close-m" onclick="closeModal('m-opera')"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="m-body">
+                <p>Ho gestito le operations marketing in un contesto aziendale estremamente complesso, affrontando sfide di riassetto e liquidità. Questa esperienza di crisis management mi ha insegnato a tagliare gli sprechi, ottimizzare le rotazioni di magazzino e usare i dati per difendere ogni singolo punto percentuale di margine nella GDO.</p>
                 <div class="m-section">
-                    <h3>L'Impatto e i Risultati</h3>
-                    <p>Ho contribuito all'incremento del Margine Operativo globale, supervisionando l'allocazione dei budget e dirigendo l'efficienza espositiva nella grande distribuzione (Leroy Merlin, Bauhaus, Tecnomat). Ho guidato l'integrazione tecnologica per monitorare costantemente le rotazioni di magazzino, lo sviluppo prodotto e il monitoraggio dei margini di vendita a supporto della Direzione Generale.</p>
+                    <h3>Analisi dati & Sviluppo Prodotto</h3>
+                    <ul class="m-list">
+                        <li><strong>Predictive Analysis e Forecasting:</strong> Utilizzo di algoritmi per l'analisi dei dati di vendita storici e il forecasting degli stock.</li>
+                        <li><strong>Analisi di mercato e trend:</strong> Analisi delle performance dei prodotti e della concorrenza per lo sviluppo di nuove gamme e naming.</li>
+                        <li><strong>Gestione Business Intelligence:</strong> Implementazione di dashboard in Power BI per il monitoraggio dei KPI di vendita.</li>
+                    </ul>
+                </div>
+                <div class="m-section">
+                    <h3>Contenuti Multimediali e Branding</h3>
+                    <ul class="m-list">
+                        <li><strong>Generative AI:</strong> Creazione automatizzata di testi tecnici, traduzioni multilingua e supporto visual.</li>
+                        <li><strong>Rebranding:</strong> Rebranding del marchio Opera e creazione architettura di marca per collezioni Premium.</li>
+                    </ul>
+                </div>
+                <div class="m-section">
+                    <h3>Merchandising & GDO</h3>
+                    <ul class="m-list">
+                        <li><strong>Progettazione strumenti di vendita:</strong> Folder, cartelle, sinottici, pattelle, culle, grafiche sala mostra.</li>
+                        <li><strong>Progetti GDO & DIY:</strong> Soluzioni espositive (Box, Shop-in-Shop, Pallet) per grandi player (OBI, Leroy Merlin, Bauhaus, Tecnomat).</li>
+                        <li><strong>Strategia di Canale:</strong> Analisi Scenari Competitivi e posizionamento.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -737,9 +848,20 @@
                 <div class="close-m" onclick="closeModal('m-acetaia')"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="m-body">
+                <p>Ho digitalizzato l'azienda di famiglia trasformando un prodotto artigianale in un brand posizionato nel segmento Luxury, gestendo in prima persona il budget ADV, i marketplace e la logistica esternalizzata.</p>
                 <div class="m-section">
-                    <h3>L'Impatto e i Risultati</h3>
-                    <p>Ho supervisionato la strategia direzionale per innalzare drasticamente la liquidità aziendale attivando canali di vendita esteri ad alto profitto. Ho diretto i partner esterni per esternalizzare l'evasione logistica e le spedizioni ad Amazon, azzerando il carico di lavoro manuale sul magazzino interno della famiglia.</p>
+                    <h3>Strategia & Luxury Positioning</h3>
+                    <ul class="m-list">
+                        <li>Sviluppo strategia omnicanale differenziata per cluster: B2C (Social/Web), Ho.Re.Ca. e GDO.</li>
+                        <li>Creazione di un'identità visiva "Luxury" (Packaging, Etichette) basata sui valori del Made in Italy.</li>
+                    </ul>
+                </div>
+                <div class="m-section">
+                    <h3>E-commerce & Performance</h3>
+                    <ul class="m-list">
+                        <li>Sviluppo autonomo ecosistema e-commerce proprietario (WooCommerce) e integrazione Marketplace (Amazon, eBay).</li>
+                        <li>Esternalizzazione e automazione logistica (FBA).</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -748,13 +870,24 @@
     <div class="modal-overlay" id="m-bevco">
         <div class="modal-box">
             <div class="m-header">
-                <div class="m-title">Waterline - Bevco (Solido Group)</div>
+                <div class="m-title">Waterline - Bevco</div>
                 <div class="close-m" onclick="closeModal('m-bevco')"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="m-body">
+                <p>Responsabile della definizione e implementazione della strategia di comunicazione e marketing post-acquisizione. Focus su unificazione e standardizzazione per costruire una "Corporate Identity" univoca.</p>
                 <div class="m-section">
-                    <h3>L'Impatto e i Risultati</h3>
-                    <p>Ho sanato le inefficienze e i problemi di comunicazione tra i vari stabilimenti in fase di fusione aziendale. Ho istituito metriche di controllo unificate per la dirigenza e razionalizzato l'offerta prodotti per lanciare la strategia di mercato nel pieno rispetto del business plan.</p>
+                    <h3>Change Management & Identity</h3>
+                    <ul class="m-list">
+                        <li>Creazione nuova identità di gruppo e rebranding dei marchi acquisiti.</li>
+                        <li>Restyling sedi fisiche e ammodernamento siti web.</li>
+                    </ul>
+                </div>
+                <div class="m-section">
+                    <h3>Data Driven Strategy & Budget</h3>
+                    <ul class="m-list">
+                        <li>Analisi del mercato e definizione strategia multi-brand.</li>
+                        <li>Gestione del budget marketing e coordinamento team interno ed esterno.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -763,13 +896,24 @@
     <div class="modal-overlay" id="m-bmw">
         <div class="modal-box">
             <div class="m-header">
-                <div class="m-title">BMW Italia (Rete ER)</div>
+                <div class="m-title">BMW Italia (Rete)</div>
                 <div class="close-m" onclick="closeModal('m-bmw')"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="m-body">
+                <p>Monitoraggio e ottimizzazione delle performance marketing della rete vendita BMW Italia in Emilia Romagna. Gestione diretta budget con approccio Data Driven.</p>
                 <div class="m-section">
-                    <h3>L'Impatto e i Risultati</h3>
-                    <p>Ho rendicontato e monitorato un budget commerciale e marketing di 1.5M€. Ho supportato il management nell'abbattimento progressivo dei costi di acquisizione clienti, sbloccando ingenti premi di margine da casa madre grazie al governo dei sistemi operativi e dei processi interni della concessionaria.</p>
+                    <h3>CRM & Processi Finanziari</h3>
+                    <ul class="m-list">
+                        <li>Monitoraggio KPI commerciali e coordinamento trattative tramite CRM.</li>
+                        <li>Gestione rigorosa del funnel di vendita, dal contatto alla fatturazione.</li>
+                    </ul>
+                </div>
+                <div class="m-section">
+                    <h3>Budgeting & Eventi</h3>
+                    <ul class="m-list">
+                        <li>Definizione e implementazione del media plan.</li>
+                        <li>Organizzazione operativa eventi (lanci prodotto, open weekend) per Lead Generation.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -782,10 +926,207 @@
                 <div class="close-m" onclick="closeModal('m-lapam')"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="m-body">
+                <p>Analista commerciale e marketing con focus sull'innovazione e lo sviluppo. Ruolo tecnico-istituzionale per l'implementazione di sistemi informativi.</p>
                 <div class="m-section">
-                    <h3>L'Impatto e i Risultati</h3>
-                    <p>Ho unificato il patrimonio informativo dell'ente dirigendo l'implementazione del sistema CRM interno. Questo governo dei flussi informativi ha permesso di supportare i vertici direzionali nella produzione di studi macroeconomici di altissimo livello per la Presidenza della Regione Emilia-Romagna.</p>
+                    <h3>IT & System Administration (CRM)</h3>
+                    <ul class="m-list">
+                        <li>Responsabile introduzione e configurazione del CRM V-Tiger.</li>
+                        <li>Supervisione sviluppo tecnico e personalizzazione flussi.</li>
+                    </ul>
                 </div>
+                <div class="m-section">
+                    <h3>Ricerca & Marketing</h3>
+                    <ul class="m-list">
+                        <li>Elaborazione studi di settore e ricerche di mercato.</li>
+                        <li>Gestione campagne Google Ads e Lead Generation.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-htv">
+        <div class="modal-box">
+            <div class="m-header">
+                <div class="m-title">HTV Retail & eBay</div>
+                <div class="close-m" onclick="closeModal('m-htv')"><i class="fa-solid fa-xmark"></i></div>
+            </div>
+            <div class="m-body">
+                <p>Le fondamenta operative del commercio fisico e della vendita digitale internazionale.</p>
+                <div class="m-section">
+                    <h3>Gestione Operativa</h3>
+                    <ul class="m-list">
+                        <li>Gestione diretta cassa, fatturazione, magazzino e visual merchandising.</li>
+                        <li>Raggiungimento target di vendita e gestione obiettivi finanziari.</li>
+                    </ul>
+                </div>
+                <div class="m-section">
+                    <h3>E-commerce Specialist</h3>
+                    <ul class="m-list">
+                        <li><strong>Power Seller:</strong> Esperienza di 6 anni come venditore ad alto volume.</li>
+                        <li><strong>Ciclo Vendita:</strong> Gestione autonoma sourcing, pricing, logistica e customer care internazionale.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modali Portfolio -->
+    <div class="modal-overlay" id="m-port-strat">
+        <div class="modal-box">
+            <div class="m-header"><div class="m-title">STRATEGY & INNOVATION</div><div class="close-m" onclick="closeModal('m-port-strat')"><i class="fa-solid fa-xmark"></i></div></div>
+            <div class="m-body">
+                <p class="text-sm mb-6 text-gray-600">Documenti di pianificazione redatti per il management aziendale.</p>
+                <a href="assets/docs/Tech_Innovation_Superfast.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Strategia Innovazione Interna</a>
+                <a href="assets/docs/DIY_Retail_Channel_Strategy.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Sviluppo Canale Retail Aziendale</a>
+                <a href="assets/docs/Matrix_Posizionamento_Competitor.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> Matrice Analisi Competitor</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-port-perf">
+        <div class="modal-box">
+            <div class="m-header"><div class="m-title">PERFORMANCE & ANALYTICS</div><div class="close-m" onclick="closeModal('m-port-perf')"><i class="fa-solid fa-xmark"></i></div></div>
+            <div class="m-body">
+                <p class="text-sm mb-6 text-gray-600">Strumenti di controllo per la direzione finanziaria e commerciale.</p>
+                <a href="assets/docs/Profitability_Audit_FY2025.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> Audit Redditività Prodotto Aziendale</a>
+                <a href="assets/docs/Budget_Control_KPI.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Cruscotto Budget Marketing</a>
+                <a href="assets/docs/Rating_Model_Samples.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> Modello Costi Campionature</a>
+                <a href="assets/docs/rep.-campioni-25.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> Report Logistico Interno</a>
+                <a href="assets/docs/Modello_Stock_Rotation_ACID_KPI.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> Analisi Rotazione Magazzino</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-port-retail">
+        <div class="modal-box">
+            <div class="m-header"><div class="m-title">RETAIL PROJECTS</div><div class="close-m" onclick="closeModal('m-port-retail')"><i class="fa-solid fa-xmark"></i></div></div>
+            <div class="m-body">
+                <p class="text-sm mb-6 text-gray-600">Sviluppo di layout espositivi per i partner commerciali dell'azienda.</p>
+                <a href="assets/docs/Technical_Project_GDO_Bauhaus.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Progetto Tecnico Lay-out Bauhaus</a>
+                <a href="assets/docs/box-bauhaus-beton-urban-presentazione-2025.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Concept Shop-in-Shop 2025</a>
+                <a href="assets/docs/Display_System_Analysis_IKON.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Studio Sistema Modulare Interno</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-port-brand">
+        <div class="modal-box">
+            <div class="m-header"><div class="m-title">BRAND IDENTITY & CATALOGS</div><div class="close-m" onclick="closeModal('m-port-brand')"><i class="fa-solid fa-xmark"></i></div></div>
+            <div class="m-body">
+                <p class="text-sm mb-6 text-gray-600">Materiali corporate redatti per la forza vendita aziendale.</p>
+                <a href="assets/docs/element-catalogo-generale-interno-25.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Catalogo Prodotti 2025</a>
+                <a href="assets/docs/Technical_Architecture_Catalog.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Master Tecnico per Architetti</a>
+                <a href="assets/docs/company-profile-it-element.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Company Profile Aziendale</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-port-merch">
+        <div class="modal-box">
+            <div class="m-header"><div class="m-title">MERCHANDISING TOOLS</div><div class="close-m" onclick="closeModal('m-port-merch')"><i class="fa-solid fa-xmark"></i></div></div>
+            <div class="m-body">
+                <p class="text-sm mb-6 text-gray-600">Supporto fisico allo sviluppo della rete di rivenditori.</p>
+                <a href="assets/docs/Merchandising_Tools_Catalog.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Folder Strumenti Commerciali</a>
+                <a href="assets/docs/Tech_Panels_Large_Slabs.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Pannelli Espositivi Rete Indiretta</a>
+                <a href="assets/docs/Outdoor_Project_20mm.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Master Presentazione Linea Outdoor</a>
+                <a href="assets/docs/presentazione-box-ikon.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-file-pdf"></i> Manuale Allestimento Corner</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-port-sales">
+        <div class="modal-box">
+            <div class="m-header"><div class="m-title">SALES MANAGEMENT</div><div class="close-m" onclick="closeModal('m-port-sales')"><i class="fa-solid fa-xmark"></i></div></div>
+            <div class="m-body">
+                <p class="text-sm mb-6 text-gray-600">Strumenti per l'ufficio acquisti e la direzione commerciale.</p>
+                <a href="assets/docs/Analytical_Price_List_Margin.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> Analizzatore Interno Marginalità Listini</a>
+                <a href="assets/docs/articoli-a-magazzino-e-previsione-di-vendita.xlsx" class="m-link-file" target="_blank"><i class="fa-solid fa-file-excel"></i> Forecasting Rifornimento Ufficio Acquisti</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modali Formazione -->
+    <div class="modal-overlay" id="m-edu-1">
+        <div class="modal-box">
+            <div class="m-header"><div class="m-title">Modelli di IA per la BI</div><div class="close-m" onclick="closeModal('m-edu-1')"><i class="fa-solid fa-xmark"></i></div></div>
+            <div class="m-body">
+                <p class="mb-4 text-sm text-gray-500"><strong>Ente:</strong> Zenit Formazione (Rif. PA 2024-23356/RER)</p>
+                <div class="m-section">
+                    <ul class="m-list">
+                        <li>Formulare previsioni (analytics e forecasting data driven).</li>
+                        <li>Assumere decisioni (decision making diagnostico).</li>
+                        <li>Prompt Engineering avanzato per ottimizzare l'interazione con i modelli LLM.</li>
+                    </ul>
+                </div>
+                <a href="assets/docs/Certificazione_AI_Business_Intelligence.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-certificate"></i> SCARICA ATTESTATO</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-edu-2">
+        <div class="modal-box">
+            <div class="m-header"><div class="m-title">IA ed Excel Avanzato</div><div class="close-m" onclick="closeModal('m-edu-2')"><i class="fa-solid fa-xmark"></i></div></div>
+            <div class="m-body">
+                <p class="mb-4 text-sm text-gray-500"><strong>Ente:</strong> Zenit Formazione</p>
+                <div class="m-section">
+                    <ul class="m-list">
+                        <li>Utilizzo di AI per potenziare l'analisi dati in Excel.</li>
+                        <li>Creazione di Dashboard dinamiche per il monitoraggio dei KPI.</li>
+                        <li>Automazione di reportistica complessa.</li>
+                    </ul>
+                </div>
+                <a href="assets/docs/Certificazione_Advanced_Excel_AI.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-certificate"></i> SCARICA ATTESTATO</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-edu-3">
+        <div class="modal-box">
+            <div class="m-header"><div class="m-title">IA nel Decision Making</div><div class="close-m" onclick="closeModal('m-edu-3')"><i class="fa-solid fa-xmark"></i></div></div>
+            <div class="m-body">
+                <p class="mb-4 text-sm text-gray-500"><strong>Ente:</strong> Zenit Formazione (Rif. PA 2024-23357/RER)</p>
+                <div class="m-section">
+                    <ul class="m-list">
+                        <li>Competenze per la doppia transizione nella gestione d'impresa.</li>
+                        <li>Supporto decisionale tramite modelli predittivi.</li>
+                        <li>Analisi di scenari complessi supportata da algoritmi di IA.</li>
+                    </ul>
+                </div>
+                <a href="assets/docs/Certificazione_Strategic_Decision_Making.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-certificate"></i> SCARICA ATTESTATO</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-edu-4">
+        <div class="modal-box">
+            <div class="m-header"><div class="m-title">Vendite e Servizi con AI</div><div class="close-m" onclick="closeModal('m-edu-4')"><i class="fa-solid fa-xmark"></i></div></div>
+            <div class="m-body">
+                <p class="mb-4 text-sm text-gray-500"><strong>Ente:</strong> IFOA (Rif PA 2024-23361/RER)</p>
+                <div class="m-section">
+                    <ul class="m-list">
+                        <li>L'evoluzione delle vendite e dei servizi al cliente ai tempi dell'AI.</li>
+                        <li>Impatto dell'Intelligenza Artificiale sui processi di vendita.</li>
+                        <li>Nuovi strumenti digitali per la rete vendita.</li>
+                    </ul>
+                </div>
+                <a href="assets/docs/Certificazione_Sales_Automation_IFOA.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-certificate"></i> SCARICA ATTESTATO</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-edu-laurea">
+        <div class="modal-box">
+            <div class="m-header"><div class="m-title">Laurea Economia Aziendale</div><div class="close-m" onclick="closeModal('m-edu-laurea')"><i class="fa-solid fa-xmark"></i></div></div>
+            <div class="m-body">
+                <p class="mb-4 text-sm text-gray-500">Facoltà Marco Biagi - UNIMORE (2010).</p>
+                <div class="m-section">
+                    <ul class="m-list">
+                        <li>Tesi in Strategie del Marketing dei Beni di Lusso.</li>
+                        <li>Competenze in management, organizzazione aziendale, contabilità, marketing e analisi di bilancio.</li>
+                    </ul>
+                </div>
+                <a href="assets/docs/Tesi_Strategia_Beni_Lusso_Unimore.pdf" class="m-link-file" target="_blank"><i class="fa-solid fa-book"></i> GUARDA LA TESI</a>
             </div>
         </div>
     </div>
