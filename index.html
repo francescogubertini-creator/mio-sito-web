@@ -1,4 +1,5 @@
-html_content = """<!DOCTYPE html>
+with open("sito_definitivo_5.html", "w") as f:
+    f.write("""<!DOCTYPE html>
 <html lang="it" class="scroll-smooth">
 <head>
     <!-- Google tag (gtag.js) -->
@@ -13,7 +14,7 @@ html_content = """<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Francesco Gubertini | Marketing & Trade Operations Manager</title>
-    <meta name="description" content="Francesco Gubertini, Marketing & Trade Operations Manager. Sviluppo prodotto, Trade Marketing e operations per il supporto alle reti commerciali.">
+    <meta name="description" content="Francesco Gubertini. Marketing, Supporto Commerciale e Sviluppo Prodotto. Analizzo i dati per guidare le decisioni aziendali e coordinare le strategie.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -238,7 +239,7 @@ html_content = """<!DOCTYPE html>
             
             <div class="hidden md:flex gap-8 items-center text-xs font-semibold uppercase tracking-wider text-gray-600">
                 <a href="#profilo" class="hover:text-brand-blue transition-colors">La Visione</a>
-                <a href="#competenze" class="hover:text-brand-blue transition-colors">I 3 Pilastri</a>
+                <a href="#competenze" class="hover:text-brand-blue transition-colors">Il Metodo</a>
                 <a href="#esperienza" class="hover:text-brand-blue transition-colors">Carriera</a>
                 <a href="#portfolio" class="hover:text-brand-blue transition-colors">Portfolio</a>
                 <a href="#stack" class="hover:text-brand-blue transition-colors">Stack</a>
@@ -257,7 +258,7 @@ html_content = """<!DOCTYPE html>
         </div>
         <div class="flex flex-col gap-6 text-sm font-semibold uppercase tracking-widest text-text-heading mt-10">
             <a href="#profilo" class="border-b border-gray-100 pb-4 mobile-link">La Visione</a>
-            <a href="#competenze" class="border-b border-gray-100 pb-4 mobile-link">I 3 Pilastri Operativi</a>
+            <a href="#competenze" class="border-b border-gray-100 pb-4 mobile-link">Il Metodo Operativo</a>
             <a href="#esperienza" class="border-b border-gray-100 pb-4 mobile-link">Carriera Operativa</a>
             <a href="#portfolio" class="border-b border-gray-100 pb-4 mobile-link">Portfolio Progetti</a>
             <a href="#stack" class="border-b border-gray-100 pb-4 mobile-link">Competenze Core</a>
@@ -274,10 +275,10 @@ html_content = """<!DOCTYPE html>
                 Francesco Gubertini | Marketing & Trade Operations Manager
             </h1>
             <h2 class="text-xl md:text-3xl text-brand-blue font-serif mb-8 font-semibold">
-                Sviluppo Prodotto, Marketing e Strumenti per Supportare le Reti.
+                Marketing, Supporto Commerciale e Sviluppo Prodotto.
             </h2>
             <p class="text-lg md:text-xl text-text-main font-light max-w-3xl mx-auto mb-12 leading-relaxed">
-                Dal naming e posizionamento del brand alla progettazione di stand e campionature, fino alla lead generation e al Trade Marketing. Analizzo i dati commerciali e sfrutto le tecnologie digitali per dotare l'azienda degli strumenti operativi più efficaci per operare sui mercati B2B e Retail.
+                Tutto inizia dall'analisi dei dati: mercato, clienti e prodotti. Interpreto i numeri per dialogare con i vertici aziendali e definire le strategie. Da qui coordino la Lead Generation e il Trade Marketing, fino ad arrivare alla supervisione dello sviluppo campionature e al coordinamento per la realizzazione di spazi espositivi e stand.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="#contatti" class="bg-brand-blue text-white px-8 py-4 rounded-sm font-semibold text-sm uppercase tracking-wider hover:bg-blue-900 transition-all shadow-md">
@@ -295,11 +296,11 @@ html_content = """<!DOCTYPE html>
         <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-start">
             <div class="md:col-span-5 reveal">
                 <div class="sticky top-24">
-                    <h2 class="font-serif text-3xl md:text-4xl text-text-heading mb-6 uppercase">Concretezza e Precisione.</h2>
+                    <h2 class="font-serif text-3xl md:text-4xl text-text-heading mb-6 uppercase">I Dati guidano le Decisioni.</h2>
                     
                     <div class="p-6 bg-surface-50 border-l-4 border-brand-blue rounded-r-lg mb-8">
                         <p class="text-text-main font-serif italic text-lg leading-relaxed">
-                            "Mi occupo di marketing, trade marketing e sviluppo prodotto. Utilizzo l'analisi dei dati, la valutazione dei KPI e le tecnologie avanzate per prendere decisioni strategiche: dallo sviluppo dell'offerta, al controllo della profittabilità, fino alla fornitura di strumenti fisici e digitali inappuntabili per supportare l'azienda nel posizionamento sui mercati."
+                            "Sono un Manager che coordina e gestisce. Per farlo in modo efficace, parto sempre dalla lettura dei dati. Analizzo le metriche commerciali per dialogare con le altre direzioni aziendali, per poi tradurre la strategia in azioni concrete: dal marketing puro, al supporto reti, fino all'organizzazione fisica di fiere e prodotto."
                         </p>
                     </div>
 
@@ -312,37 +313,37 @@ html_content = """<!DOCTYPE html>
                     <div class="space-y-8">
                         <div>
                             <h4 class="text-text-heading font-bold text-sm uppercase tracking-wider mb-3 flex items-center gap-3">
-                                <i class="fa-solid fa-layer-group text-brand-blue text-lg"></i> Gestione Prodotto e Campionature
+                                <i class="fa-solid fa-chart-pie text-brand-blue text-lg"></i> 1. Analisi Dati e Relazioni Direzionali
                             </h4>
                             <p class="text-text-main text-sm leading-relaxed">
-                                Governo l'intero ciclo di sviluppo: dall'analisi della concorrenza (Red Teaming e SWOT) fino alla pre-industrializzazione e al lancio. Prendo decisioni su naming, storytelling, packaging, registrazione marchi, creazione barcode e autorizzazioni presso Ministeri e Consorzi. Valuto la fattibilità dei progetti calcolando il ROI tramite distinte base, costi materiali, piani di ammortamento e rotazione di magazzino.
+                                Il fulcro del mio lavoro è l'analisi: studio il mercato, i posizionamenti dei competitor (SWOT/Red Teaming), i volumi di acquisto dei clienti e le rotazioni di magazzino. Sulla base di questi cruscotti, dialogo con la Produzione, la Direzione Vendite e la Direzione Generale per definire rotta e investimenti aziendali.
                             </p>
                         </div>
 
                         <div>
                             <h4 class="text-text-heading font-bold text-sm uppercase tracking-wider mb-3 flex items-center gap-3">
-                                <i class="fa-solid fa-store text-brand-terracotta text-lg"></i> Trade Marketing, GDO e Merchandising
+                                <i class="fa-solid fa-network-wired text-brand-terracotta text-lg"></i> 2. Marketing, CRM e Lead Generation
                             </h4>
                             <p class="text-text-main text-sm leading-relaxed">
-                                Progetto la presenza fisica del brand per massimizzare la visibilità sul punto vendita. Realizzo allestimenti completi: Shop-in-Shop, corner e commesse su misura per i grandi player del Retail europeo (GDO in Francia, Scandinavia, Centro Europa). Organizzo eventi fieristici e curo la realizzazione di stand fisici e virtuali (con regia live).
+                                Supporto commercialmente l'azienda coordinando campagne Conquer e Loyalty per intercettare contatti utili. Seleziono le software house e coordino l'implementazione dei sistemi CRM per garantire che l'infrastruttura di gestione dei lead sia uno strumento efficace nelle mani della forza vendita.
                             </p>
                         </div>
 
                         <div>
                             <h4 class="text-text-heading font-bold text-sm uppercase tracking-wider mb-3 flex items-center gap-3">
-                                <i class="fa-solid fa-network-wired text-brand-salvia text-lg"></i> CRM, Analisi Dati e Strategia
+                                <i class="fa-solid fa-store text-brand-salvia text-lg"></i> 3. Trade Marketing (GDO) ed Eventi B2B
                             </h4>
                             <p class="text-text-main text-sm leading-relaxed">
-                                Pianifico e misuro campagne Conquer, Loyalty e DEM per alimentare le reti. Supporto il posizionamento aziendale attraverso la selezione e implementazione di architetture CRM. Strutturo modelli analitici (es. Metodo ABC clienti) per correlare la fornitura di campionature ai volumi di acquisto, guidando azioni mirate di cross-selling e win-back (riacquisizione clienti persi).
+                                Coordino la progettazione della presenza fisica del brand per massimizzarne la visibilità. Gestisco fornitori e budget per l'allestimento di Shop-in-Shop, corner per i player del Retail internazionale (es. Leroy Merlin, OBI) e coordino l'organizzazione di spazi espositivi e stand fieristici, sia fisici che virtuali.
                             </p>
                         </div>
 
                         <div>
                             <h4 class="text-text-heading font-bold text-sm uppercase tracking-wider mb-3 flex items-center gap-3">
-                                <i class="fa-solid fa-robot text-brand-blue text-lg"></i> Ecosistema Web, AI e Operations
+                                <i class="fa-solid fa-layer-group text-brand-blue text-lg"></i> 4. Sviluppo Prodotto e Coordinamento Operativo
                             </h4>
                             <p class="text-text-main text-sm leading-relaxed">
-                                Gestisco l'intero ecosistema online (posizionamento, targeting, engagement), intervenendo tecnicamente su CMS (WordPress, WooCommerce, Elementor) e codice HTML, oltre al debug delle vendite online. Progetto workflow supportati da AI (prompt multi-agente, bot di qualificazione) per risolvere problemi complessi, azzerare inefficienze di agenzie terze e abbattere i tempi di back-office.
+                                Supervisiono l'intero ciclo di sviluppo a supporto della rete: dallo sviluppo grafico delle campionature al controllo delle distinte base e dei piani di ammortamento. Coordino la creazione di asset (naming, cataloghi, barcode) dialogando costantemente con reparti tecnici, laboratori e fornitori esterni.
                             </p>
                         </div>
                     </div>
@@ -354,21 +355,21 @@ html_content = """<!DOCTYPE html>
     <!-- SEZIONE 3: I 3 PILASTRI OPERATIVI -->
     <section id="competenze" class="py-20 md:py-32 bg-surface-50 px-6">
         <div class="max-w-6xl mx-auto mb-16 text-center reveal">
-            <span class="text-brand-terracotta text-xs font-semibold uppercase tracking-widest mb-3 block">Aree di Intervento</span>
-            <h2 class="font-serif text-3xl md:text-4xl text-text-heading mb-6">Le mie 3 Aree di Responsabilità</h2>
+            <span class="text-brand-terracotta text-xs font-semibold uppercase tracking-widest mb-3 block">Il Metodo di Lavoro</span>
+            <h2 class="font-serif text-3xl md:text-4xl text-text-heading mb-6">Come strutturo le Operations Aziendali</h2>
         </div>
 
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 reveal">
             <div class="executive-card p-8 flex flex-col h-full cursor-pointer group" onclick="openModal('m-mod-1')">
                 <div class="flex items-start justify-between mb-6">
                     <div class="w-12 h-12 bg-brand-light rounded-lg flex items-center justify-center text-brand-blue text-xl group-hover:bg-brand-blue group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-box-open"></i>
+                        <i class="fa-solid fa-chart-line"></i>
                     </div>
-                    <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Responsabilità 1</div>
+                    <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Fase 1</div>
                 </div>
-                <h3 class="font-serif text-2xl text-text-heading mb-4">Sviluppo Prodotto e Gestione Brand</h3>
+                <h3 class="font-serif text-2xl text-text-heading mb-4">Analisi e Allineamento Strategico</h3>
                 <p class="text-text-main text-sm mb-6 flex-grow">
-                    Definizione del posizionamento, naming, storytelling, packaging, barcode e documentazioni tecniche (cataloghi, brochure). Analisi distinte base e rotazione magazzino per garantire l'ammortamento del progetto.
+                    La fase vitale in cui leggo le performance, il mercato e i magazzini per strutturare la strategia e dialogare con le altre direzioni operative.
                 </p>
                 <div class="text-xs font-semibold uppercase tracking-widest text-brand-blue flex items-center gap-2 mt-auto">
                     Approfondisci <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
@@ -378,13 +379,13 @@ html_content = """<!DOCTYPE html>
             <div class="executive-card p-8 flex flex-col h-full cursor-pointer group" onclick="openModal('m-mod-2')">
                 <div class="flex items-start justify-between mb-6">
                     <div class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-brand-terracotta text-xl group-hover:bg-brand-terracotta group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-store"></i>
+                        <i class="fa-solid fa-network-wired"></i>
                     </div>
-                    <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Responsabilità 2</div>
+                    <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Fase 2</div>
                 </div>
-                <h3 class="font-serif text-2xl text-text-heading mb-4">Trade Marketing e Presenza Merchandising</h3>
+                <h3 class="font-serif text-2xl text-text-heading mb-4">Marketing & Supporto Commerciale</h3>
                 <p class="text-text-main text-sm mb-6 flex-grow">
-                    Progettazione logistica e grafica di corner, Shop-in-Shop per GDO, stand fieristici fisici e virtuali, inclusa la gestione di relazioni esterne per packaging (bottiglie, box) e allestimenti B2B.
+                    L'attivazione sul mercato. Organizzo le campagne di lead generation, gestisco i software CRM, l'ecosistema web e i flussi per alimentare la rete agenti.
                 </p>
                 <div class="text-xs font-semibold uppercase tracking-widest text-brand-terracotta flex items-center gap-2 mt-auto">
                     Approfondisci <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
@@ -394,13 +395,13 @@ html_content = """<!DOCTYPE html>
             <div class="executive-card p-8 flex flex-col h-full cursor-pointer group" onclick="openModal('m-mod-3')">
                 <div class="flex items-start justify-between mb-6">
                     <div class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center text-brand-salvia text-xl group-hover:bg-brand-salvia group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-network-wired"></i>
+                        <i class="fa-solid fa-cubes"></i>
                     </div>
-                    <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Responsabilità 3</div>
+                    <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Fase 3</div>
                 </div>
-                <h3 class="font-serif text-2xl text-text-heading mb-4">Infrastrutture Digitali (CRM/Web/AI)</h3>
+                <h3 class="font-serif text-2xl text-text-heading mb-4">Trade, Fiere e Sviluppo Prodotto</h3>
                 <p class="text-text-main text-sm mb-6 flex-grow">
-                    Implementazione di CRM, gestione portali web (Elementor, WooCommerce, HTML), debugging online e integrazione flussi AI/Bot per rendere le operations di marketing veloci e snelle, riducendo l'appalto esterno.
+                    Il coordinamento fisico. Dalla supervisione sulle campionature al coordinamento dei fornitori per gli stand fieristici e il merchandising (GDO).
                 </p>
                 <div class="text-xs font-semibold uppercase tracking-widest text-brand-salvia flex items-center gap-2 mt-auto">
                     Approfondisci <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
@@ -429,7 +430,7 @@ html_content = """<!DOCTYPE html>
                             <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-brand-light text-brand-blue rounded-sm">2018 - Presente</span>
                         </div>
                         <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Marketing & Trade Operations Manager</div>
-                        <p class="text-sm text-text-main mb-4">Contesto industriale (70 Mln/€, 2.500 referenze). Direzione di 3 reparti (12 risorse). Sviluppo prodotto da zero, distinte base, fiera con regia live, merchandising GDO e catalogazione clienti ABC per sampling.</p>
+                        <p class="text-sm text-text-main mb-4">Azienda da 70 Mln/€. Direzione di 12 risorse su 3 reparti. Coordinamento sviluppo nuovi brand, controllo distinte base, supervisione per stand fieristici e format GDO.</p>
                         <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">Dettagli dell'incarico &rarr;</span>
                     </div>
                 </div>
@@ -443,7 +444,7 @@ html_content = """<!DOCTYPE html>
                             <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-surface-100 text-gray-600 rounded-sm">2019 - Presente</span>
                         </div>
                         <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Marketing Manager & E-commerce Strategy</div>
-                        <p class="text-sm text-text-main mb-4">Posizionamento del brand nel segmento Luxury Food. Gestione packaging (bottiglie/box), iter con i Consorzi, pricing e marketing digitale omnicanale (Ho.Re.Ca, E-commerce, Amazon/eBay).</p>
+                        <p class="text-sm text-text-main mb-4">Posizionamento del brand Luxury Food. Coordinamento packaging (bottiglie/box), relazioni con i Consorzi e analisi per strategie marketing omnicanale e web sales.</p>
                         <span class="text-xs font-bold uppercase tracking-widest text-brand-terracotta">Dettagli dell'incarico &larr;</span>
                     </div>
                 </div>
@@ -461,7 +462,7 @@ html_content = """<!DOCTYPE html>
                             <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-surface-100 text-gray-500 rounded-sm">2016 - 2017</span>
                         </div>
                         <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Marketing Manager</div>
-                        <p class="text-sm text-text-main mb-4">Decisioni sviluppo nuovi prodotti (metalmeccanico B2B). Rebranding e creazione identità corporate di gruppo post-acquisizioni. Gestione cataloghi, team e fornitori.</p>
+                        <p class="text-sm text-text-main mb-4">Analisi dati e coordinamento sviluppo prodotti B2B. Rebranding post-acquisizioni. Gestione cataloghi, direzione del team marketing e dei fornitori.</p>
                         <span class="text-xs font-bold uppercase tracking-widest text-gray-600">Dettagli dell'incarico &rarr;</span>
                     </div>
                 </div>
@@ -475,7 +476,7 @@ html_content = """<!DOCTYPE html>
                             <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-surface-100 text-gray-500 rounded-sm">2014 - 2016</span>
                         </div>
                         <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Marketing Retail & CRM Specialist</div>
-                        <p class="text-sm text-text-main mb-4">Gestione campagne e lead generation a supporto. Budget Marketing diretto di 1.5M per fiere, eventi e supervisione qualitativa dei processi commerciali tramite CRM aziendale.</p>
+                        <p class="text-sm text-text-main mb-4">Coordinamento campagne e lead generation a supporto rete concessionari. Valutazione processi operativi con CRM Sugar e gestione budget marketing eventi (1.5M).</p>
                         <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">Dettagli dell'incarico &larr;</span>
                     </div>
                 </div>
@@ -492,8 +493,8 @@ html_content = """<!DOCTYPE html>
                             <h3 class="font-serif text-lg text-text-heading font-bold">LAPAM</h3>
                             <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-surface-100 text-gray-500 rounded-sm">2010 - 2013</span>
                         </div>
-                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Marketing Communication (Assunto a T.I.)</div>
-                        <p class="text-sm text-text-main mb-4">Assunto internamente (non consulente). Software selection e implementazione CRM V-Tiger. Organizzazione eventi di Trade Marketing e ricerche mercato B2B.</p>
+                        <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Marketing Communication & CRM Analyst</div>
+                        <p class="text-sm text-text-main mb-4">Assunto internamente. Lettura dati e conduzione ricerche mercato B2B. Software selection e direzione tecnica per implementazione CRM V-Tiger.</p>
                         <span class="text-xs font-bold uppercase tracking-widest text-brand-salvia">Dettagli dell'incarico &rarr;</span>
                     </div>
                 </div>
@@ -507,7 +508,7 @@ html_content = """<!DOCTYPE html>
                             <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-surface-100 text-gray-500 rounded-sm">2002 - 2018</span>
                         </div>
                         <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Consulenze Marketing & Web Operations</div>
-                        <p class="text-sm text-text-main mb-4">Sviluppo strategie marketing omnicanale per aziende B2B (Logistica). Competenze fondative in Web (eBay Power Seller) ed operatività retail B2B (HTV).</p>
+                        <p class="text-sm text-text-main mb-4">Analisi dati e fornitura reportistica B2B (Logistica). Esperienza fondativa operativa nel Retail (HTV) e vendite come Power Seller internazionale su eBay.</p>
                         <span class="text-xs font-bold uppercase tracking-widest text-gray-600">Dettagli dell'incarico &larr;</span>
                     </div>
                 </div>
@@ -676,7 +677,7 @@ html_content = """<!DOCTYPE html>
                     </div>
                     <div>
                         <div class="text-sm font-bold text-text-heading">Profittabilità e Margini</div>
-                        <div class="text-[10px] text-gray-500 font-mono tracking-widest">CONTROLLO ROTAZIONE MAGAZZINO E DISTINTE BASE PER PIANI AMMORTAMENTO</div>
+                        <div class="text-[10px] text-gray-500 font-mono tracking-widest">CONTROLLO ROTAZIONE MAGAZZINO, AMMORTAMENTO PROGETTI, DISTINTE BASE</div>
                     </div>
                 </div>
             </div>
@@ -710,7 +711,7 @@ html_content = """<!DOCTYPE html>
                     </div>
                     <div>
                         <div class="text-sm font-bold text-text-heading">Trade Marketing in GDO / Retail</div>
-                        <div class="text-[10px] text-gray-500 font-mono tracking-widest">PROGETTAZIONE CORNER ESPOSITIVI, FORMAT SHOP-IN-SHOP, FIERE FISICHE E VIRTUALI</div>
+                        <div class="text-[10px] text-gray-500 font-mono tracking-widest">PROGETTAZIONE CORNER ESPOSITIVI E GESTIONE CAMPIONATURE</div>
                     </div>
                 </div>
             </div>
@@ -851,17 +852,17 @@ html_content = """<!DOCTYPE html>
     <div class="modal-overlay" id="m-mod-1">
         <div class="modal-box">
             <div class="m-header">
-                <div class="m-title">Sviluppo Prodotto e Gestione Brand</div>
+                <div class="m-title">Analisi e Allineamento Strategico</div>
                 <div class="close-m" onclick="closeModal('m-mod-1')"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="m-body">
                 <div class="m-section">
-                    <h3>Decisioni sul Prodotto</h3>
-                    <p>Definizione del posizionamento dei nuovi brand, sviluppo tecnico e validazione del naming, storytelling, packaging (es. box, bottiglie per Acetaia) e creazione di cataloghi e brochure. Gestisco registrazioni marchi, creazione barcode e relazioni con Ministeri e Consorzi di tutela. Analisi SWOT e Red Teaming per valutare i competitor e ottimizzare il Go-To-Market.</p>
+                    <h3>Decisioni Data-Driven</h3>
+                    <p>Tutto nasce dalla lettura delle metriche. Conduco analisi della concorrenza (Red Teaming e SWOT), controllo i posizionamenti e incrocio i volumi di acquisto dei clienti. Su questa base matematica mi allineo con la Produzione e la Direzione Generale per definire rotta e investimenti aziendali.</p>
                 </div>
                 <div class="m-section">
-                    <h3>Controllo Costi e Ammortamenti</h3>
-                    <p>Valutazione preventiva della fattibilità: utilizzo distinte base e costi materiali per calcolare il piano di ammortamento dei nuovi prodotti, incrociando i dati con la rotazione di magazzino per validare, o bloccare tempestivamente, lo sviluppo di nuovi progetti prima dell'industrializzazione.</p>
+                    <h3>Valutazione KPI e Ammortamenti</h3>
+                    <p>Non lascio nulla all'intuizione. Valuto preventivamente la fattibilità dei progetti utilizzando distinte base, costi materiali e calcolando i piani di ammortamento. Monitoro costantemente la rotazione di magazzino per validare, o bloccare tempestivamente, lo sviluppo prima dell'industrializzazione.</p>
                 </div>
             </div>
         </div>
@@ -870,17 +871,17 @@ html_content = """<!DOCTYPE html>
     <div class="modal-overlay" id="m-mod-2">
         <div class="modal-box">
             <div class="m-header">
-                <div class="m-title">Trade Marketing e Presenza in GDO</div>
+                <div class="m-title">Marketing & Supporto Commerciale</div>
                 <div class="close-m" onclick="closeModal('m-mod-2')"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="m-body">
                 <div class="m-section">
-                    <h3>Sviluppo Corner e Shop-in-Shop</h3>
-                    <p>Coordino l'ideazione e la produzione logistica degli strumenti fisici: dalle campionature ai format espositivi (commesse su misura, corner, shop-in-shop) per i grandi player della GDO internazionale (Leroy Merlin, OBI, Bauhaus) nei mercati di Francia, Scandinavia e Centro Europa.</p>
+                    <h3>CRM e Lead Generation</h3>
+                    <p>Supporto la rete vendita pianificando e misurando campagne Conquer, Loyalty e DEM. Seleziono le software house e coordino l'implementazione tecnica di architetture CRM (es. V-Tiger, Sugar) per garantire che i contatti qualificati non vengano mai persi e che l'infrastruttura sia realmente utile agli agenti.</p>
                 </div>
                 <div class="m-section">
-                    <h3>Eventi ed Esposizioni B2B</h3>
-                    <p>Pianificazione strategica e organizzazione della visibilità aziendale agli eventi fieristici. Gestione completa dello stand (allestimento, grafiche, fornitori) e, all'occorrenza, sviluppo di format fieristici virtuali (es. nel 2020 allestendo stand in capannone con regia multicamera live per tour 1-to-1 rivolti ai buyer internazionali).</p>
+                    <h3>Ecosistema Web e Innovazione AI</h3>
+                    <p>Gestisco l'ecosistema online (intervenendo su HTML, WordPress, WooCommerce) e sfrutto l'Intelligenza Artificiale come acceleratore. Progetto prompt multi-agente e piccoli bot di assistenza per automatizzare i flussi di back-office, azzerando le inefficienze esterne.</p>
                 </div>
             </div>
         </div>
@@ -889,17 +890,17 @@ html_content = """<!DOCTYPE html>
     <div class="modal-overlay" id="m-mod-3">
         <div class="modal-box">
             <div class="m-header">
-                <div class="m-title">Infrastruttura CRM, Web e AI</div>
+                <div class="m-title">Trade, Fiere e Sviluppo Prodotto</div>
                 <div class="close-m" onclick="closeModal('m-mod-3')"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="m-body">
                 <div class="m-section">
-                    <h3>CRM, Analisi Dati e Piattaforme B2B</h3>
-                    <p>Ricerca e selezione delle software house per implementare architetture CRM (es. V-Tiger, Sugar). Integrazione di portali B2B supportati da campagne DEM e segmentazione algoritmica dei clienti (Metodo ABC: incrocio dei volumi di acquisto con il possesso di campionature per azioni chirurgiche di cross-selling e win-back).</p>
+                    <h3>Sviluppo Prodotto e Gestione Brand</h3>
+                    <p>Supervisiono l'intero ciclo: dal naming, storytelling e packaging, fino alla registrazione barcode e autorizzazioni presso Ministeri e Consorzi. Mi assicuro che il prodotto sia strutturato in ogni sua componente tecnica (cataloghi, listini) prima di arrivare sul mercato.</p>
                 </div>
                 <div class="m-section">
-                    <h3>Integrazione Digitale e Intelligenza Artificiale</h3>
-                    <p>Gestione diretta di CMS (WordPress, WooCommerce, Elementor), debug delle vendite online e interventi su codice HTML. Progettazione di workflow basati sull'AI (prompt multi-agente, sviluppo di bot per assistenza e prima qualificazione lead), abbattendo i tempi del back-office marketing e la dipendenza da agenzie terze.</p>
+                    <h3>Trade Marketing e Coordinamento GDO</h3>
+                    <p>Coordino la realizzazione pratica: dall'allestimento di Shop-in-Shop e corner per la GDO internazionale (Leroy Merlin, OBI, Bauhaus), fino all'organizzazione di eventi B2B. Nel 2020 ho coordinato lo sviluppo di format fieristici virtuali (stand in capannone con regia live) per sostituire le fiere fisiche annullate.</p>
                 </div>
             </div>
         </div>
@@ -913,21 +914,21 @@ html_content = """<!DOCTYPE html>
                 <div class="close-m" onclick="closeModal('m-opera')"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="m-body">
-                <p>Contesto industriale da 70 Mln/€ (>2.500 referenze). Gestione diretta di 12 persone su 3 reparti (Campionature, Sviluppo Prodotto/Pre-industrializzazione, Marketing e Comunicazione), unificando i flussi in una logica a progetto.</p>
+                <p>Contesto industriale da 70 Mln/€ (>2.500 referenze). Gestione diretta di 12 persone su 3 reparti (Campionature, Sviluppo Prodotto - pre industrializzazione, e Marketing), unificando i flussi in una logica a progetto partendo dall'analisi dei dati.</p>
                 <div class="m-section">
                     <h3>Sviluppo Prodotto e Valutazione Costi</h3>
                     <ul class="m-list">
                         <li>Definizione di naming, storytelling, barcode, etichettature e iter legali/autorizzativi (Ministeri/Consorzi) per il lancio di nuovi brand (es. Element) da zero.</li>
                         <li>Tracciamento dei costi (tempi e materiali) per la stesura della distinta base. Calcolo del piano di ammortamento e rotazione magazzino per decidere se approvare o bloccare il prototipo in fase precoce.</li>
-                        <li>Sviluppo asset marketing: brochure, cataloghi e gestione sito web/social.</li>
+                        <li>Sviluppo asset di marketing: brochure, cataloghi e gestione sito web/social.</li>
                     </ul>
                 </div>
                 <div class="m-section">
                     <h3>Trade Marketing, GDO e Segmentazione Dati</h3>
                     <ul class="m-list">
-                        <li>Progettazione e fornitura logistica di format espositivi (Shop-in-shop, corner e commesse su misura per Leroy Merlin, OBI, ecc.) in centinaia di P.V. in Francia, Scandinavia ed Europa Centrale.</li>
-                        <li>Catalogazione clienti con "Metodo ABC": incrocio dei volumi di acquisto con le campionature fisiche possedute dal cliente per guidare azioni di cross-selling mirato, aumentando il ROI.</li>
-                        <li>Organizzazione Fiera Virtuale (2020): sviluppo di stand fisici in capannone con regia live per tour virtuali 1-to-1 dedicati ai clienti esteri in assenza del Cersaie.</li>
+                        <li>Progettazione e coordinamento logistico di format espositivi (Shop-in-shop, corner e commesse su misura per Leroy Merlin, OBI, ecc.) in centinaia di P.V. in Francia, Scandinavia ed Europa Centrale.</li>
+                        <li>Catalogazione clienti con "Metodo ABC": incrocio dei volumi di acquisto con le campionature fisiche possedute dal cliente per guidare azioni di cross-selling mirato a supporto della rete vendita.</li>
+                        <li>Organizzazione Fiera Virtuale (2020): coordinamento di stand fisici in capannone con regia live per tour virtuali 1-to-1 dedicati ai clienti esteri in assenza del Cersaie.</li>
                         <li>Selezione e gestione operativa di tutti i fornitori esterni (grafici, stampatori, web agency).</li>
                     </ul>
                 </div>
@@ -942,13 +943,13 @@ html_content = """<!DOCTYPE html>
                 <div class="close-m" onclick="closeModal('m-acetaia')"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="m-body">
-                <p>Consulenza strategica per l'azienda di famiglia (settore alimentare di lusso), supportando lo sviluppo prodotto e la strategia E-commerce.</p>
+                <p>Consulenza strategica per l'azienda di famiglia (settore alimentare di lusso), supportando l'analisi, lo sviluppo prodotto e la strategia E-commerce.</p>
                 <div class="m-section">
                     <h3>Strategia Prodotto e Packaging</h3>
                     <ul class="m-list">
+                        <li>Analisi della concorrenza (food alta gamma) tramite SWOT e studio del target B2B/B2C.</li>
                         <li>Definizione di posizionamento e pricing per il mercato Luxury e GDO specializzata.</li>
                         <li>Gestione completa del packaging (ricerca fornitori per bottiglie, box), etichettature e gestione autorizzazioni e pratiche con i Consorzi di tutela e Ministeri.</li>
-                        <li>Analisi della concorrenza (food alta gamma) tramite SWOT e studio del target B2B/B2C.</li>
                     </ul>
                 </div>
                 <div class="m-section">
@@ -969,12 +970,12 @@ html_content = """<!DOCTYPE html>
                 <div class="close-m" onclick="closeModal('m-bevco')"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="m-body">
-                <p>Gestione del marketing per un gruppo multi-brand (settore metalmeccanico B2B) in fase di consolidamento post-acquisizioni.</p>
+                <p>Gestione del marketing per un gruppo multi-brand (settore metalmeccanico B2B) in fase di consolidamento post-acquisizioni. Dialogo con le direzioni per definire le linee guida.</p>
                 <div class="m-section">
                     <h3>Sviluppo Prodotto e Branding</h3>
                     <ul class="m-list">
                         <li>Rebranding dei marchi acquisiti e definizione della nuova identità di gruppo per armonizzare cataloghi, merchandising e strumenti B2B, supportato dall'analisi dei competitor.</li>
-                        <li>Supporto strategico nello sviluppo di nuovi prodotti tecnici (es. linee DRINKIT) gestendo il budget marketing, il team interno e la selezione dei fornitori esterni.</li>
+                        <li>Supporto strategico nello sviluppo di nuovi prodotti tecnici (es. linee DRINKIT) gestendo il budget, il team interno e la selezione dei fornitori esterni.</li>
                     </ul>
                 </div>
             </div>
@@ -988,12 +989,12 @@ html_content = """<!DOCTYPE html>
                 <div class="close-m" onclick="closeModal('m-bmw')"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="m-body">
-                <p>Supporto marketing per l'ottimizzazione dei processi operativi della rete di concessionari in Emilia Romagna, con budget diretto di 1,5 Mln/anno.</p>
+                <p>Supporto marketing per l'ottimizzazione dei processi della rete di concessionari in Emilia Romagna, con budget diretto di 1,5 Mln/anno. Base analitica per supportare le vendite.</p>
                 <div class="m-section">
                     <h3>Infrastruttura CRM e Lead Generation</h3>
                     <ul class="m-list">
-                        <li>Valutazione del rendimento logico e supporto alla rete tramite supervisione operativa e implementazione di processi CRM (Sugar).</li>
-                        <li>Generazione, targeting e qualificazione lead in entrata forniti dal marketing, con monitoraggio dei KPI commerciali per supportare l'operatività di rete.</li>
+                        <li>Valutazione dei KPI commerciali e supporto alla rete tramite supervisione operativa e implementazione di processi CRM (Sugar).</li>
+                        <li>Generazione, targeting e qualificazione lead in entrata forniti dal marketing, per supportare l'operatività di rete.</li>
                         <li>Organizzazione logistica ed esecuzione di eventi Marketing B2C (lanci prodotto, open weekend).</li>
                     </ul>
                 </div>
@@ -1013,7 +1014,7 @@ html_content = """<!DOCTYPE html>
                     <h3>Software Selection e CRM B2B</h3>
                     <ul class="m-list">
                         <li>Software selection e responsabilità tecnica per l'implementazione del CRM aziendale (V-Tiger), fungendo da interfaccia diretta con la software house (sviluppatori) per allineare il gestionale ai processi associativi.</li>
-                        <li>Impostazione flussi operativi per campagne marketing di cross-selling e win-back sui servizi B2B.</li>
+                        <li>Impostazione flussi operativi per campagne marketing di cross-selling e win-back sui servizi B2B basate sui dati.</li>
                     </ul>
                 </div>
                 <div class="m-section">
@@ -1034,11 +1035,11 @@ html_content = """<!DOCTYPE html>
                 <div class="close-m" onclick="closeModal('m-htv')"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="m-body">
-                <p>Fondamenta operative nello sviluppo B2B, logistica, Retail fisico e commercio elettronico.</p>
+                <p>Fondamenta operative nello sviluppo B2B, logistica, Retail fisico e commercio elettronico, partendo dall'analisi dati per supportare il business.</p>
                 <div class="m-section">
                     <h3>Consulente Transmec Group & G.I. (2013-2018)</h3>
                     <ul class="m-list">
-                        <li>Pianificazione strategie di marketing omnicanale e fornitura di reportistica per sales meeting B2B (settore Trasporti e Logistica).</li>
+                        <li>Analisi dei dati e pianificazione strategie di marketing omnicanale fornendo reportistica per sales meeting B2B (settore Trasporti e Logistica).</li>
                         <li>Integrazione e sviluppo architetture CRM.</li>
                     </ul>
                 </div>
